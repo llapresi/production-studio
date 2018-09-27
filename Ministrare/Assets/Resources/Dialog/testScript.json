@@ -1,0 +1,24 @@
+{
+  "dialogNodes": [
+    {
+      "dialogText": "The first node",
+      "nextNodes": [ 1, 3 ]
+    },
+    {
+      "dialogText": "The sceond node",
+      "nextNodes": [ 2, 3 ]
+    },
+    {
+      "dialogText": "The third node",
+      "nextNodes": [ 4, 3 ]
+    },
+    {
+      "dialogText": "The fourth node we should be skipping",
+      "nextNodes": [ 4, 3 ]
+    },
+    {
+      "dialogText": "The fifth node",
+      "nextNodes": [ 0 ]
+    }
+  ]
+}

@@ -3,54 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// A node contains the text for the given dialog piece, and a list of branches this node can go to
-[System.Serializable]
-class DialogNode
-{
-    public string dialogText;
-    public int nextNodeIndex;
-
-    public DialogNode(string p_dialogText, int p_nextNodeIndex)
-    {
-        dialogText = p_dialogText;
-        nextNodeIndex = p_nextNodeIndex;
-    }
-}
-
-// Basically just a list of dialogNodes. Stored as a class for serialization. Will probably do more stuff later
-// This will probably be changed to a LinkedList or something similar to make the node linking/indice confusing not be a thing
-[System.Serializable]
-class DialogTree
-{
-    public List<DialogNode> dialogNodes;
-
-    public DialogTree()
-    {
-        dialogNodes = new List<DialogNode>();
-    }
-}
-
+// Runs through a dialog script
+// This class should really be split into into two eventually
+// One that handles loading the files and "running through it", and another that handles setting the UI shit
 public class DialogRunner : MonoBehaviour {
     // Stores our current node
     DialogNode currentDialogNode;
 
-    // UI Element 
+    // UI Elements
     public TextMeshProUGUI dialogDisplay;
+    public UnityEngine.UI.Button choice1button;
+    public UnityEngine.UI.Button choice2button;
 
-    // Dialog list
+    // Dialog tree our runner is running
     DialogTree dialogTree;
 
     // Use this for initialization
     void Start () {
-        // Lets add some test data
-        dialogTree = new DialogTree();
-        dialogTree.dialogNodes.Add(new DialogNode("The first node", 1));
-        dialogTree.dialogNodes.Add(new DialogNode("The sceond node", 2));
-        dialogTree.dialogNodes.Add(new DialogNode("The third node", 0));
+        // Load our test JSON dialog
+        string filepath = "Dialog/testScript";
+        TextAsset targetFile = Resources.Load<TextAsset>(filepath);
+        dialogTree = JsonUtility.FromJson<DialogTree>(targetFile.text);
 
-        Debug.Log(JsonUtility.ToJson(dialogTree));
+        // Set up UI buttons
+        choice1button.onClick.AddListener(() => GoToNextNode(0));
+        choice2button.onClick.AddListener(() => GoToNextNode(1));
 
         SetCurrentNode(0);
+        Debug.Log(JsonUtility.ToJson(dialogTree));
     }
 
     void SetCurrentNode(int newNodeIndex)
@@ -59,8 +39,8 @@ public class DialogRunner : MonoBehaviour {
         dialogDisplay.text = currentDialogNode.dialogText;
     }
 
-    public void GoToNextNode()
+    void GoToNextNode(int nextNodeIndex)
     {
-        SetCurrentNode(currentDialogNode.nextNodeIndex);
+        SetCurrentNode(currentDialogNode.nextNodes[nextNodeIndex]);
     }
 }
