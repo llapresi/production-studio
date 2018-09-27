@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83035892}
+  - component: {fileID: 83035893}
   m_Layer: 0
   m_Name: PutScriptsOnThis
   m_TagString: Untagged
@@ -141,6 +142,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83035893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83035891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effc91d7db9b7ef44a308cd466a4e4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hours: 0
+  minutes: 0
+  dayCount: 0
+  paused: 0
 --- !u!1 &1180370492
 GameObject:
   m_ObjectHideFlags: 0
