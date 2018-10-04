@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 179838181}
   - component: {fileID: 179838180}
   - component: {fileID: 179838179}
+  - component: {fileID: 179838182}
   m_Layer: 0
   m_Name: Choice2
   m_TagString: Untagged
@@ -209,8 +210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 734.625, y: -24.05}
-  m_SizeDelta: {x: 489.75, y: 30}
+  m_AnchoredPosition: {x: 634.4, y: -24.05}
+  m_SizeDelta: {x: 404.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179838179
 MonoBehaviour:
@@ -250,18 +251,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179838180}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1231191220}
-        m_MethodName: GoToNextNode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &179838180
@@ -298,6 +288,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179838177}
   m_CullTransparentMesh: 0
+--- !u!114 &179838182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 179838177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255e4369c4a26f44fa286396408b5e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 179838179}
+  text: {fileID: 1362550075}
 --- !u!1 &379618084
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +661,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 28.1
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -764,8 +767,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogDisplay: {fileID: 539608181}
-  choice1button: {fileID: 1584684638}
-  choice2button: {fileID: 179838179}
+  choiceButtons:
+  - {fileID: 1584684641}
+  - {fileID: 179838182}
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
@@ -865,6 +869,7 @@ GameObject:
   - component: {fileID: 1584684640}
   - component: {fileID: 1584684639}
   - component: {fileID: 1584684638}
+  - component: {fileID: 1584684641}
   m_Layer: 0
   m_Name: Choice1
   m_TagString: Untagged
@@ -888,8 +893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.875, y: -24.05}
-  m_SizeDelta: {x: 489.75, y: 30}
+  m_AnchoredPosition: {x: 202.1, y: -24.05}
+  m_SizeDelta: {x: 404.2, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584684638
 MonoBehaviour:
@@ -929,18 +934,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1584684639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1231191220}
-        m_MethodName: GoToNextNode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1584684639
@@ -977,3 +971,16 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1584684636}
   m_CullTransparentMesh: 0
+--- !u!114 &1584684641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1584684636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255e4369c4a26f44fa286396408b5e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1584684638}
+  text: {fileID: 501102878}

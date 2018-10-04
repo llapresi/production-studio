@@ -2,23 +2,60 @@
   "dialogNodes": [
     {
       "dialogText": "The first node",
-      "nextNodes": [ 1, 3 ]
+      "nextNodes": [
+        {
+          "id": 1,
+          "displayText": "Go to second node"
+        },
+        {
+          "id": 3,
+          "displayText": "Go to fourth node"
+        }
+      ]
     },
     {
       "dialogText": "The sceond node",
-      "nextNodes": [ 2, 3 ]
+      "nextNodes": [
+        {
+          "id": 2,
+          "displayText": "Go to third node"
+        },
+        {
+          "id": 3,
+          "displayText": "Go to fourth node"
+        }
+      ]
     },
     {
       "dialogText": "The third node",
-      "nextNodes": [ 4, 3 ]
+      "nextNodes": [
+        {
+          "id": 4,
+          "displayText": "Go to ffith node"
+        },
+        {
+          "id": 3,
+          "displayText": "Go to fourth node"
+        }
+      ]
     },
     {
       "dialogText": "The fourth node we should be skipping",
-      "nextNodes": [ 4, 3 ]
+      "nextNodes": [
+        {
+          "id": 4,
+          "displayText": "Go to fifth node"
+        }
+      ]
     },
     {
       "dialogText": "The fifth node",
-      "nextNodes": [ 0 ]
+      "nextNodes": [
+        {
+          "id": 0,
+          "displayText": "Go to the first node"
+        }
+      ]
     }
   ]
 }

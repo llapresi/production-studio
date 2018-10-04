@@ -12,8 +12,7 @@ public class DialogRunner : MonoBehaviour {
 
     // UI Elements
     public TextMeshProUGUI dialogDisplay;
-    public UnityEngine.UI.Button choice1button;
-    public UnityEngine.UI.Button choice2button;
+    public UIDialogButton[] choiceButtons;
 
     // Dialog tree our runner is running
     DialogTree dialogTree;
@@ -26,21 +25,35 @@ public class DialogRunner : MonoBehaviour {
         dialogTree = JsonUtility.FromJson<DialogTree>(targetFile.text);
 
         // Set up UI buttons
-        choice1button.onClick.AddListener(() => GoToNextNode(0));
-        choice2button.onClick.AddListener(() => GoToNextNode(1));
+        for (int i = 0; i < choiceButtons.Length; i++)
+        {
+            int buttonIndex = i;
+            choiceButtons[buttonIndex].button.onClick.AddListener(() => GoToNextNode(buttonIndex));
+        }
 
         SetCurrentNode(0);
-        Debug.Log(JsonUtility.ToJson(dialogTree));
     }
 
     void SetCurrentNode(int newNodeIndex)
     {
+        // Load Next Node
         currentDialogNode = dialogTree.dialogNodes[newNodeIndex];
+        // Set dialog text
         dialogDisplay.text = currentDialogNode.dialogText;
+        // Refresh buttons ui
+        for (int i = 0; i < choiceButtons.Length; i++)
+        {
+            choiceButtons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < currentDialogNode.nextNodes.Length; i++)
+        {
+            choiceButtons[i].gameObject.SetActive(true);
+            choiceButtons[i].text.text = currentDialogNode.nextNodes[i].displayText;
+        }
     }
 
     void GoToNextNode(int nextNodeIndex)
     {
-        SetCurrentNode(currentDialogNode.nextNodes[nextNodeIndex]);
+        SetCurrentNode(currentDialogNode.nextNodes[nextNodeIndex].id);
     }
 }
