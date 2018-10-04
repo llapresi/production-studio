@@ -17,10 +17,12 @@ public class DialogRunner : MonoBehaviour {
     // Dialog tree our runner is running
     DialogTree dialogTree;
 
+    // JSON file containing our current dialog
+    public string filepath;
+
     // Use this for initialization
     void Start () {
         // Load our test JSON dialog
-        string filepath = "Dialog/testScript";
         TextAsset targetFile = Resources.Load<TextAsset>(filepath);
         dialogTree = JsonUtility.FromJson<DialogTree>(targetFile.text);
 

@@ -8,9 +8,9 @@ using UnityEngine;
 class DialogNode
 {
     public string dialogText;
-    public NextNodeLink[] nextNodes;
+    public DialogNodeLink[] nextNodes;
 
-    public DialogNode(string p_dialogText, NextNodeLink[] p_nextNodes)
+    public DialogNode(string p_dialogText, DialogNodeLink[] p_nextNodes)
     {
         dialogText = p_dialogText;
         nextNodes = p_nextNodes;
@@ -20,12 +20,12 @@ class DialogNode
 // NextNodeLink contains the indicie of the next dialog node (according to the list it's stored in)
 // and a 'displayText' field that dictates what the button name for this option should be on the dialog screen
 [System.Serializable]
-class NextNodeLink
+class DialogNodeLink
 {
     public int id;
     public string displayText;
 
-    public NextNodeLink(int p_id, string p_displayText)
+    public DialogNodeLink(int p_id, string p_displayText)
     {
         id = p_id;
         displayText = p_displayText;
