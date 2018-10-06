@@ -46,6 +46,12 @@
           "id": 4,
           "displayText": "Go to fifth node"
         }
+      ],
+      "statActions": [
+        {
+          "statName": "Fear",
+          "statChangeValue": 20
+        }
       ]
     },
     {
