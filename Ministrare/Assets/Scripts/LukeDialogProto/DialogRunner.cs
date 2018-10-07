@@ -60,22 +60,23 @@ public class DialogRunner : MonoBehaviour {
             choiceButtons[i].text.text = currentDialogNode.nextNodes[i].displayText;
         }
 
-        // EXTREMLEY HACKY WAY OF APPLYING STATACTIONS.
-        if (currentDialogNode.statActions != null)
+        if (currentDialogNode.actions != null)
         {
-            for (int i = 0; i < currentDialogNode.statActions.Length; i++)
+            for (int i = 0; i < currentDialogNode.actions.Length; i++)
             {
-                if (currentDialogNode.statActions[i].statName == "Fear")
+                // Need a more elegant way of getting the type
+                if(currentDialogNode.actions[i].GetType() == typeof(ModifyStatsDialogNodeAction))
                 {
-                    playerStats.runtimeFear += currentDialogNode.statActions[i].statChangeValue;
-                }
-                if (currentDialogNode.statActions[i].statName == "Intelligence")
-                {
-                    playerStats.runtimeInteligence += currentDialogNode.statActions[i].statChangeValue;
-                }
-                if (currentDialogNode.statActions[i].statName == "Persuasion")
-                {
-                    playerStats.runtimePersuasion += currentDialogNode.statActions[i].statChangeValue;
+                    var statAction = currentDialogNode.actions[i] as ModifyStatsDialogNodeAction;
+                    // Need a more elegant way of doing this than an if statement for evey stat
+                    if (statAction.statName == "Fear")
+                    {
+                        playerStats.runtimeFear += statAction.statChangeValue;
+                    }
+                    if (statAction.statName == "Inteligence")
+                    {
+                        playerStats.runtimeInteligence += statAction.statChangeValue;
+                    }
                 }
             }
         }

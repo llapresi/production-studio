@@ -6,19 +6,45 @@ using UnityEngine;
 // any actions that happen upon this node being opened, and a list of branches this node can go to
 // The nextNode array stores array of DialogNodeLinks
 [System.Serializable]
-class DialogNode
+class DialogNode: ISerializationCallbackReceiver
 {
     // The text of this dialogNode
     public string dialogText;
     // Choices for possible next nodes
     public DialogNodeLink[] nextNodes;
     // Seralized form of actions that occur on node load
-    public ModifyStatsDialogNodeAction[] statActions;
+    public DialogNodeSerializedAction[] serializedActions;
+    // Unseralized form of actions that occur on node load
+    public IDialogNodeAction[] actions;
 
-    public DialogNode(string p_dialogText, DialogNodeLink[] p_nextNodes, ModifyStatsDialogNodeAction[] p_nodeActions = null)
+    public DialogNode(string p_dialogText, DialogNodeLink[] p_nextNodes, IDialogNodeAction[] p_nodeActions = null)
     {
         dialogText = p_dialogText;
         nextNodes = p_nextNodes;
-        statActions = p_nodeActions;
+        actions = p_nodeActions;
+    }
+
+    public void OnAfterDeserialize()
+    {
+        if(serializedActions != null)
+        {
+            
+            actions = new IDialogNodeAction[serializedActions.Length];
+            for (int i = 0; i < serializedActions.Length; i++)
+            {
+                Debug.Log(serializedActions[i].actionType);
+                if (serializedActions[i].actionType == "modifyStats")
+                {
+                    var newAction = new ModifyStatsDialogNodeAction("whatever", 0);
+                    newAction.FromSerializedAction(serializedActions[i]);
+                    actions[i] = newAction;
+                }
+            }
+        }
+    }
+
+    public void OnBeforeSerialize()
+    {
+
     }
 }

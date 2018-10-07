@@ -47,19 +47,25 @@
           "displayText": "Go to fifth node"
         }
       ],
-      "statActions": [
+      "serializedActions": [
         {
-          "statName": "Fear",
-          "statChangeValue": 20
+          "actionType": "modifyStats",
+          "actionParams": "Fear 20"
         }
       ]
     },
     {
-      "dialogText": "The fifth node",
+      "dialogText": "You're stupider now for reading this node",
       "nextNodes": [
         {
           "id": 0,
           "displayText": "Go to the first node"
+        }
+      ],
+      "serializedActions": [
+        {
+          "actionType": "modifyStats",
+          "actionParams": "Inteligence -3"
         }
       ]
     }
