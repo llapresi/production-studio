@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// C# interface for a dialog action. This could be anything from shaking the screen upon dialog node opening
+// C# abstract class for a dialog action. This could be anything from shaking the screen upon dialog node opening
 // to changing player staistics
-[System.Serializable]
-abstract class DialogNodeAction
+interface IDialogNodeAction
 {
-    abstract public void RunAction();
+    DialogNodeSerializedAction ToSerializedAction();
+    void FromSerializedAction(DialogNodeSerializedAction serializedAction);
 }
 
 // Class that contains the name of a statistic and 
 [System.Serializable]
-class ModifyStatsDialogNodeAction: DialogNodeAction
+class ModifyStatsDialogNodeAction: IDialogNodeAction
 {
     public string statName;
     public int statChangeValue;
@@ -23,8 +23,22 @@ class ModifyStatsDialogNodeAction: DialogNodeAction
         statChangeValue = p_statChangeValue;
     }
 
-    public override void RunAction()
+    public DialogNodeSerializedAction ToSerializedAction()
     {
-        Debug.Log(statName);
+        return new DialogNodeSerializedAction("modifyStats", statName + " " + statChangeValue.ToString());
+    }
+
+    public void FromSerializedAction(DialogNodeSerializedAction serializedAction)
+    {
+        if(serializedAction.actionType == "modifyStats")
+        {
+            string[] actionParams = serializedAction.actionParams.Split(' ');
+            statName = actionParams[0];
+            statChangeValue = int.Parse(actionParams[1]);
+        }
+        else
+        {
+            Debug.LogError("passed non 'modifyStats object into ModifyStatsDialogNodeAction.FromSerializedAction");
+        }
     }
 }
