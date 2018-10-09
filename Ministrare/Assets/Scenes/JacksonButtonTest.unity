@@ -314,8 +314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 847.1156, y: -24.05}
-  m_SizeDelta: {x: 546.01044, y: 30}
+  m_AnchoredPosition: {x: 810.7654, y: -24.05}
+  m_SizeDelta: {x: 521.7769, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179838179
 MonoBehaviour:
@@ -1121,7 +1121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonPrefab: {fileID: 1413268442995130, guid: 11c8f067de700814c8f0dc942cb421a3,
     type: 2}
+  buttonList: []
   state: 0
+  initialized: 0
 --- !u!1 &973858263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,8 +1550,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 273.00522, y: -24.05}
-  m_SizeDelta: {x: 546.01044, y: 30}
+  m_AnchoredPosition: {x: 260.88846, y: -24.05}
+  m_SizeDelta: {x: 521.7769, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584684638
 MonoBehaviour:
@@ -1817,8 +1819,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1646946154}
   m_HandleRect: {fileID: 1646946153}
   m_Direction: 2
-  m_Value: 0.9941413
-  m_Size: 0.296925
+  m_Value: 0.9941414
+  m_Size: 0.29692495
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
