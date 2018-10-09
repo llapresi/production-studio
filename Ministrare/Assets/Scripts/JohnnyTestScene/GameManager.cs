@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        DontDestroyOnLoad(this.gameObject);
         backgroundIn = false;
     }
 

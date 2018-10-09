@@ -7,6 +7,6 @@ public class UIExitButton : MonoBehaviour {
 
     public void UnloadScene()
     {
-        SceneManager.UnloadSceneAsync(gameObject.scene);
+        SceneManager.LoadSceneAsync("Scenes/JohnnyTestScene");
     }
 }
