@@ -7,8 +7,7 @@ using UnityEngine;
 // ISerializationCallbackReceiver is used to prevent values changed during Play Mode from changing asset properties (in-editor)
 // (ex. saving and loading can be done by just seralizing this object and setting the privates to the runtimes)
 [CreateAssetMenu(fileName = "New PlayerStatsObject", menuName = "Ministrare/Player Stats Object", order = 1)]
-public class PlayerStatsObject : ScriptableObject,
-    ISerializationCallbackReceiver
+public class PlayerStatsObject : ScriptableObject
 {
     [SerializeField]
     private int inteligence = 0;
@@ -17,18 +16,16 @@ public class PlayerStatsObject : ScriptableObject,
     [SerializeField]
     private int fear = 0;
 
-    [System.NonSerialized]
     public int runtimeInteligence;
-    [System.NonSerialized]
     public int runtimePersuasion;
-    [System.NonSerialized]
     public int runtimeFear;
 
-    public void OnAfterDeserialize()
+    public void OnEnable()
     {
         runtimeInteligence = inteligence;
         runtimePersuasion = persuasion;
         runtimeFear = fear;
+        Debug.Log("PlayerStatsObject reset");
     }
 
     public void OnBeforeSerialize()
