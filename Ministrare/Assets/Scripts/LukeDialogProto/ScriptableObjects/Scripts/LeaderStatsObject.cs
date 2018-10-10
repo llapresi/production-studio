@@ -10,18 +10,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LeaderStatsObject", menuName = "Ministrare/SingletonVars/Leader Stats Object", order = 1)]
 public class LeaderStatsObject : ScriptableObject
 {
+    [Header("Initial Values")]
     [SerializeField]
     private int inteligence = 0;
     [SerializeField]
     private int persuasion = 0;
     [SerializeField]
     private int fear = 0;
-
-    [System.NonSerialized]
+    [Space(3)]
+    [Header("Runtime Values [No Touchy]")]
     public int runtimeInteligence;
-    [System.NonSerialized]
     public int runtimePersuasion;
-    [System.NonSerialized]
     public int runtimeFear;
 
     public void OnEnable()

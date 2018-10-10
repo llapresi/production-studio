@@ -14,7 +14,7 @@ using UnityEngine;
 public class TimerTime : ScriptableObject
 {
     // Starting values
-
+    [Header("Initial Values")]
     // hours (minutes) and minutes(seconds) of game
     [SerializeField]
     private int initialHours;
@@ -24,13 +24,11 @@ public class TimerTime : ScriptableObject
     [SerializeField]
     private int initialDayCount;
 
-    [System.NonSerialized]
+    [Space(3)]
+    [Header("Runtime Values [No Touchy]")]
     public int hours;
-    [System.NonSerialized]
     public float minutes;
-    [System.NonSerialized]
     public int dayCount;
-    [System.NonSerialized]
     public bool paused;
 
     public void OnEnable()

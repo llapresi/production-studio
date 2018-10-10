@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LinearDialogTest.unity
     guid: efbc445d7ef311043b951b69370b5e41
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JacksonButtonTest.unity
     guid: eaeec90595e9b644cadfa8e10894ecde
   - enabled: 1
