@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimerRunner : MonoBehaviour {
+public class UITimerCanvas : MonoBehaviour {
 
-    public TimerTime time;
     private static bool created = false;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start () {
         if (!created)
         {
             DontDestroyOnLoad(this.gameObject);
@@ -20,10 +18,9 @@ public class TimerRunner : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-
-    // Update is called once per frame
-    void Update () {
-        time.TimerTick(Time.deltaTime);
-
-    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

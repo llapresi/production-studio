@@ -6,7 +6,7 @@ public class UITimerDisplay : MonoBehaviour {
 
     // Use this for initialization
     public TimerTime currentTime;
-    public TMPro.TextMeshPro textDisplay;
+    public TMPro.TextMeshProUGUI textDisplay;
     string timeOfDay;
 
     // Update is called once per frame

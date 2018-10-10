@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class OldGameManager : MonoBehaviour {
 
     private bool backgroundIn;
 
     // Use this for initialization
     void Start() {
-        DontDestroyOnLoad(this.gameObject);
         backgroundIn = false;
     }
 

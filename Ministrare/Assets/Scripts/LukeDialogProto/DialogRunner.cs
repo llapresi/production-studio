@@ -21,7 +21,7 @@ public class DialogRunner : MonoBehaviour {
     // JSON file containing our current dialog
     public string filepath;
 
-    public PlayerStatsObject playerStats;
+    public LeaderStatsObject playerStats;
 
     // Test to update the GUI
     public UnityEvent updateGUI;

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// A ScriptableObject that holds statistcs values for the player (and possibly the AI)
+// A ScriptableObject that holds statistcs values for the a "Leader" character
+// You'd make one of these from the Assets -> Ministrare Menu for each Leader (so the player, each leader on your side and each enemy leader)
+// We'll probably end up using one of these in a bigger "leader" ScriptableObject
 // These are just example values in here right now
-// ISerializationCallbackReceiver is used to prevent values changed during Play Mode from changing asset properties (in-editor)
-// (ex. saving and loading can be done by just seralizing this object and setting the privates to the runtimes)
-[CreateAssetMenu(fileName = "New PlayerStatsObject", menuName = "Ministrare/Player Stats Object", order = 1)]
-public class PlayerStatsObject : ScriptableObject
+// HideFlags.DontUnloadUnusedAsset is used to prevent values changed during Play Mode from changing asset properties (in-editor)
+[CreateAssetMenu(fileName = "New LeaderStatsObject", menuName = "Ministrare/SingletonVars/Leader Stats Object", order = 1)]
+public class LeaderStatsObject : ScriptableObject
 {
     [SerializeField]
     private int inteligence = 0;
@@ -29,6 +30,5 @@ public class PlayerStatsObject : ScriptableObject
         runtimeInteligence = inteligence;
         runtimePersuasion = persuasion;
         runtimeFear = fear;
-        Debug.Log("fuck");
     }
 }

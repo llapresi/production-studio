@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // A ScriptableObject that holds the current time in the game timer
@@ -12,9 +10,8 @@ using UnityEngine;
 // Throw this into a MonoBehavior named "TimerRunner" that sets the value in this object
 // Also, I should create an event to notify objects subscribed when timer runs out
 // or when a timer tick happens
-[CreateAssetMenu(fileName = "New TimerTime", menuName = "Ministrare/Timer Time", order = 1)]
-public class TimerTime : ScriptableObject,
-    ISerializationCallbackReceiver
+[CreateAssetMenu(fileName = "New TimerTime", menuName = "Ministrare/SingletonVars/Timer Time", order = 1)]
+public class TimerTime : ScriptableObject
 {
     // Starting values
 
@@ -36,8 +33,9 @@ public class TimerTime : ScriptableObject,
     [System.NonSerialized]
     public bool paused;
 
-    public void OnAfterDeserialize()
+    public void OnEnable()
     {
+        this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         hours = initialHours;
         minutes = initialMin;
         dayCount = initialDayCount;
@@ -68,10 +66,5 @@ public class TimerTime : ScriptableObject,
                 minutes = 0.0f;
             }
         }
-    }
-
-    public void OnBeforeSerialize()
-    {
-
     }
 }

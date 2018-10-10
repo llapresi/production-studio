@@ -5,7 +5,7 @@ using TMPro;
 
 public class UIDisplayPlayerStats : MonoBehaviour {
 
-    public PlayerStatsObject playerStats;
+    public LeaderStatsObject playerStats;
     public TextMeshProUGUI uiDisplay;
 
     // Use this for initialization

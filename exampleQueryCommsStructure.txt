@@ -1,7 +1,7 @@
 // Read Stuart's diagram about how initaiting a convo with another industry leader works
 // This is a possible way of implemented this in the JSON
 "farmerDialog.json" 
-{
+[
 	// Based on stuarts convo dialog system, each of these is a subject to ask the relevant
 	// leader (in this case the farmer) questions about each of these
 	"self",
@@ -35,4 +35,4 @@
 	"industry2",
 	"industry3",
 	"
-}
+]

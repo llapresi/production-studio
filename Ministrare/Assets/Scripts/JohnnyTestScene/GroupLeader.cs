@@ -32,7 +32,7 @@ public class GroupLeader : MonoBehaviour {
     {
         Debug.Log("Button Clicked");
         GameObject Manager = GameObject.Find("GameManager");
-        GameManager gameManager = Manager.GetComponent<GameManager>();
+        OldGameManager gameManager = Manager.GetComponent<OldGameManager>();
         if (gameManager.BackGroundIn == false)
         {
             GameObject gameObject = GameObject.Find("BackGround" + BackGroundNum);

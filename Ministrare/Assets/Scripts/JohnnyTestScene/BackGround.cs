@@ -18,7 +18,7 @@ public class BackGround : MonoBehaviour {
     {
         this.gameObject.transform.position = new Vector3(23.8f, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
         GameObject gameObject = GameObject.Find("GameManager");
-        GameManager gameManager = gameObject.GetComponent<GameManager>();
+        OldGameManager gameManager = gameObject.GetComponent<OldGameManager>();
         gameManager.BackGroundIn = false;
     }
 }
