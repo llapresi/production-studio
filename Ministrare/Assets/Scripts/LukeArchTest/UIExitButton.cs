@@ -7,6 +7,6 @@ public class UIExitButton : MonoBehaviour {
 
     public void UnloadScene()
     {
-        SceneManager.UnloadSceneAsync("Scenes/LinearDialogTest");
+        SceneManager.LoadScene("Scenes/LeaderMenu", LoadSceneMode.Single);
     }
 }

@@ -12,7 +12,8 @@ public class SceneLink : MonoBehaviour {
 
 	public void LoadScene()
     {
-        StartCoroutine(LoadAsyncScene());
+        //StartCoroutine(LoadAsyncScene());
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
     IEnumerator LoadAsyncScene()

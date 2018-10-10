@@ -16,20 +16,19 @@ public class PlayerStatsObject : ScriptableObject
     [SerializeField]
     private int fear = 0;
 
+    [System.NonSerialized]
     public int runtimeInteligence;
+    [System.NonSerialized]
     public int runtimePersuasion;
+    [System.NonSerialized]
     public int runtimeFear;
 
     public void OnEnable()
     {
+        this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         runtimeInteligence = inteligence;
         runtimePersuasion = persuasion;
         runtimeFear = fear;
-        Debug.Log("PlayerStatsObject reset");
-    }
-
-    public void OnBeforeSerialize()
-    {
-        
+        Debug.Log("fuck");
     }
 }
