@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 // Runs through a dialog script
 // This class should really be split into into two eventually
-// One that handles loading the files, "running through it" and doing DialogNodeActions, and another that handles setting the UI shit
+// One that handles loading the files, "running through it" and doing DialogNodeActions, and another that handles setting the UI
 public class DialogRunner : MonoBehaviour {
     // Stores our current node
     DialogNode currentDialogNode;
