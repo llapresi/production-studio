@@ -4,7 +4,7 @@ using UnityEngine;
 
 // C# abstract class for a dialog action. This could be anything from shaking the screen upon dialog node opening
 // to changing player staistics
-interface IDialogNodeAction
+public interface IDialogNodeAction
 {
     DialogNodeSerializedAction ToSerializedAction();
     void FromSerializedAction(DialogNodeSerializedAction serializedAction);
@@ -12,7 +12,7 @@ interface IDialogNodeAction
 
 // Class that contains the name of a statistic and 
 [System.Serializable]
-class ModifyStatsDialogNodeAction: IDialogNodeAction
+public class ModifyStatsDialogNodeAction: IDialogNodeAction
 {
     public string statName;
     public int statChangeValue;

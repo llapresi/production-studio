@@ -6,7 +6,7 @@ using UnityEngine;
 // JsonUtility doesn't support serializing an array of an abstract class/interface in the DialogNode so we serialize these instead
 
 [System.Serializable]
-class DialogNodeSerializedAction
+public class DialogNodeSerializedAction
 {
     public string actionType;
     public string actionParams;

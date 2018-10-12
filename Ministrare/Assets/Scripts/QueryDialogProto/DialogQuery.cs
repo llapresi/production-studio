@@ -5,7 +5,7 @@ using UnityEngine;
 // Contains a list of QueryTopics one can query
 // Will eventually be given a handle to link to a given "leader" entity
 [System.Serializable]
-class DialogQuery {
+public class DialogQuery {
 
     public List<DialogQueryTopic> topics;
 

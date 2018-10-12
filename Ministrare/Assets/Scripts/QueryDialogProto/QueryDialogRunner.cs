@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
-// Runs through a dialog script
-// This class should really be split into into two eventually
+// Runs throughshould a dialog script
+// This class  really be split into into two eventually
 // One that handles loading the files, "running through it" and doing DialogNodeActions, and another that handles setting the UI
 public class QueryDialogRunner : MonoBehaviour
 {
@@ -17,21 +17,30 @@ public class QueryDialogRunner : MonoBehaviour
     public UIDialogButton[] choiceButtons;
 
     // Dialog tree our runner is running
-    DialogQuery query;
+    public DialogQuery currentQuery;
 
     // Test to update the GUI
     public UnityEvent updateGUI;
+
+    public UIQueryButtonGroup buttonGroup;
 
     // Use this for initialization
     void Start()
     {
         //Created hardcoded query data
-        query = new DialogQuery();
-        query.topics.Add(new DialogQueryTopic("test subject"));
-        query.topics[0].conversations.Add(new TreeWithId("test convo"));
-        query.topics[0].GetDialogTreeForId("test convo").dialogNodes.Add(new DialogNode("This is a test response for conversation 'testconvo'", null, null));
-        query.topics[0].conversations.Add(new TreeWithId("test convo 2"));
-        query.topics[0].GetDialogTreeForId("test convo 2").dialogNodes.Add(new DialogNode("This is a another test response for conversation 'testconvo2", null, null));
+        currentQuery = new DialogQuery();
+        currentQuery.topics.Add(new DialogQueryTopic("test topic"));
+        currentQuery.topics[0].conversations.Add(new DialogTreeWithId("test convo"));
+        currentQuery.topics[0].GetDialogTreeForId("test convo").dialogNodes.Add(new DialogNode("This is a test response for conversation 'testconvo'", null, null));
+        currentQuery.topics[0].conversations.Add(new DialogTreeWithId("test convo 2"));
+        currentQuery.topics[0].GetDialogTreeForId("test convo 2").dialogNodes.Add(new DialogNode("This is a another test response for conversation 'testconvo2", null, null));
+        currentQuery.topics.Add(new DialogQueryTopic("another test topic"));
+        currentQuery.topics[1].conversations.Add(new DialogTreeWithId("test convo 3"));
+        currentQuery.topics[1].GetDialogTreeForId("test convo 3").dialogNodes.Add(new DialogNode("This is a test response for conversation 'testconvo'", null, null));
+        currentQuery.topics[1].conversations.Add(new DialogTreeWithId("test convo 4"));
+        currentQuery.topics[1].GetDialogTreeForId("test convo 4").dialogNodes.Add(new DialogNode("This is a another test response for conversation 'testconvo2", null, null));
+
+        buttonGroup.CreateButtons(currentQuery);
     }
 
     void SetCurrentNode(DialogNode newDialogNode)
@@ -46,6 +55,6 @@ public class QueryDialogRunner : MonoBehaviour
 
     public void GoToTestConvoWithName(string name)
     {
-        SetCurrentNode(query.topics[0].GetDialogTreeForId(name).dialogNodes[0]);
+        SetCurrentNode(currentQuery.topics[0].GetDialogTreeForId(name).dialogNodes[0]);
     }
 }

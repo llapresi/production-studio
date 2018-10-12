@@ -5,7 +5,7 @@ using UnityEngine;
 // Basically just a list of dialogNodes. Stored as a class for serialization.
 // Probably gonna have to add variables and other stuff later but hopefully we should try to keep that stuff out of here
 [System.Serializable]
-class DialogTree
+public class DialogTree
 {
     public List<DialogNode> dialogNodes;
 
