@@ -23,6 +23,8 @@ public class TimerTime : ScriptableObject
     // day counter for each time a day ticks over
     [SerializeField]
     private int initialDayCount;
+    [SerializeField]
+    private ResourceManager resourceManager;
 
     [Space(3)]
     [Header("Runtime Values [No Touchy]")]
@@ -57,7 +59,7 @@ public class TimerTime : ScriptableObject
                 {
                     dayCount++;
                     hours = 0;
-
+                    resourceManager.processResource();
                 }
 
                 // resets minutes
