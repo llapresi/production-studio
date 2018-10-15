@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -14,3 +14,7 @@ MonoBehaviour:
   initialHours: 0
   initialMin: 0
   initialDayCount: 0
+  hours: 0
+  minutes: 0
+  dayCount: 0
+  paused: 0

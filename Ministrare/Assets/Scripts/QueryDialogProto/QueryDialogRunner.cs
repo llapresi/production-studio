@@ -24,13 +24,14 @@ public class QueryDialogRunner : MonoBehaviour
 
     public UIQueryButtonGroup buttonGroup;
 
-    public string filepath;
+    // Set the value of the SingletonVar we're gonna plug in here before we load the Query Dialog Scene
+    public NextJSONToLoad dialogToLoad;
 
     // Use this for initialization
     void Start()
     {
         // Load our test JSON dialogQuery
-        TextAsset targetFile = Resources.Load<TextAsset>(filepath);
+        TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
         buttonGroup.rootQuery = currentQuery;
