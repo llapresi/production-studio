@@ -1210,7 +1210,6 @@ GameObject:
   - component: {fileID: 858887954}
   - component: {fileID: 858887953}
   - component: {fileID: 858887955}
-  - component: {fileID: 858887956}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -1297,23 +1296,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &858887956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 858887951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b62987c838b3b4c891c80a30c93978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 1413268442995130, guid: 11c8f067de700814c8f0dc942cb421a3,
-    type: 2}
-  buttonList: []
-  state: 0
-  queryRunner: {fileID: 1231191222}
-  initialized: 0
 --- !u!1 &923686511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,7 +1508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1231191221}
-  - component: {fileID: 1231191220}
   - component: {fileID: 1231191222}
   m_Layer: 0
   m_Name: DialogSceneManager
@@ -1535,39 +1516,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1231191220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1231191219}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6b4de1952fe0b49bdaabcad8ffdb93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogDisplay: {fileID: 539608181}
-  choiceButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  filepath: Dialog/testScript
-  playerStats: {fileID: 11400000, guid: 19f4ec08006e91a408f8cb1aaff686db, type: 2}
-  updateGUI:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: UpdateUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
@@ -1602,6 +1550,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   buttonGroup: {fileID: 923686515}
+  filepath: Dialog/testQuery
 --- !u!1 &1363934276
 GameObject:
   m_ObjectHideFlags: 0
