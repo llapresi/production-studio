@@ -40,7 +40,8 @@ public class QueryDialogRunner : MonoBehaviour
         currentQuery.topics[1].conversations.Add(new DialogTreeWithId("test convo 4"));
         currentQuery.topics[1].GetDialogTreeForId("test convo 4").dialogNodes.Add(new DialogNode("This is a another test response for conversation 'testconvo2", null, null));
 
-        buttonGroup.CreateButtons(currentQuery);
+        buttonGroup.rootQuery = currentQuery;
+        buttonGroup.CreateRootButtons();
     }
 
     void SetCurrentNode(DialogNode newDialogNode)
