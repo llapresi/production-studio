@@ -13,6 +13,12 @@ public class UIQueryButtonGroup : MonoBehaviour
     // dialog query we're querying. This is set in QueryDialogRunner
     public DialogQuery rootQuery;
 
+    // We need to we arch this as a 3 node system, something like
+    //                      >>>>
+    //  UIQueryButtonGroup        QueryDialogRunner >>>> DialogDisplay
+    ///                     <<<< 
+    public QueryDialogRunner runner;
+
 	// Use this for initialization
 	public void CreateRootButtons () {
         ClearButtons();
@@ -44,7 +50,7 @@ public class UIQueryButtonGroup : MonoBehaviour
             GameObject convoButton = Instantiate(buttonPrefab) as GameObject;
             var convoButtonComponent = convoButton.GetComponent<UIDialogButton>();
             convoButtonComponent.text.text = convo.identifier;
-            convoButtonComponent.button.onClick.AddListener(() => Debug.Log(convo.identifier + " button pressed"));
+            convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
             convoButton.transform.SetParent(this.gameObject.transform, false);
         }
     }
