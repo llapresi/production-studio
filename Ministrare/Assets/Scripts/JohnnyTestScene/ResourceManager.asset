@@ -14,6 +14,30 @@ MonoBehaviour:
   initFoodStorage: 100
   initFoodUpkeep: 30
   initFoodProduction: 20
+  initFoodHappinessEfficiency: 1
+  initFoodMilitaryGained: 0
+  initGoldStorage: 100
+  initGoldUpkeep: 20
+  initGoldProduction: 30
+  initGoldHappinessEfficiency: 1
+  initGoldMilitaryGained: 0
+  initEGStorage: 100
+  initEGUpkeep: 10
+  initEGProduction: 40
+  initEGHappinessEfficiency: 1
+  initEGMilitaryGained: 0
   runtimeFoodStorage: 100
   runtimeFoodUpkeep: 30
   runtimeFoodProduction: 20
+  runtimeFoodHappinessEfficiency: 1
+  runtimeFoodMiliaryGained: 0
+  runtimeGoldStorage: 100
+  runtimeGoldUpkeep: 20
+  runtimeGoldProduction: 30
+  runtimeGoldHappinessEfficiency: 1
+  runtimeGoldMiliaryGained: 0
+  runtimeEGStorage: 100
+  runtimeEGUpkeep: 10
+  runtimeEGProduction: 40
+  runtimeEGHappinessEfficiency: 1
+  runtimeEGMiliaryGained: 0
