@@ -330,7 +330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Scenes/QueryDialogTest
-  sceneParams: 
+  dialogPathToLoad: 
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &166255330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,7 +1399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Scenes/LinearDialogTest
-  sceneParams: 
+  dialogPathToLoad: 
+  paramObj: {fileID: 11400000, guid: 60c3291750aeccc4cbe35cbc33d74ef7, type: 2}
 --- !u!114 &1860157563
 MonoBehaviour:
   m_ObjectHideFlags: 0
