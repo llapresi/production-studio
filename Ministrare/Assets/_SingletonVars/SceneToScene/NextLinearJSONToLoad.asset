@@ -8,9 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b78fdcb20330bd4cb3e80fc9db21757, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: b5e25e147cd7cc54e97dad5f3794b0bd, type: 3}
+  m_Name: NextLinearJSONToLoad
   m_EditorClassIdentifier: 
-  inteligence: 20
-  persuasion: 20
-  fear: 20
+  dialogPath: 
+  runtimeDialogPath: 

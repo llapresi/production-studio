@@ -14,8 +14,7 @@ MonoBehaviour:
   initialHours: 0
   initialMin: 0
   initialDayCount: 0
-  resourceManager: {fileID: 11400000, guid: f5d24f29e2f73cd43895c750708941f7, type: 2}
   hours: 0
-  minutes: 7.2558475
-  dayCount: 4
+  minutes: 0
+  dayCount: 0
   paused: 0

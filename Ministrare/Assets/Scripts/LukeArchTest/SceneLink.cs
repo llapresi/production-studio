@@ -8,10 +8,19 @@ public class SceneLink : MonoBehaviour {
     // Name of scene to load
     public string sceneName;
     // This is going to point to a static class that we'll use to set things like what JSON file to load
-    public string sceneParams;
+    public string dialogPathToLoad;
+    // SingletonVar that will be passed into the next scene. FWIW only dialog scenes are using this rn but we're probably going to have to
+    // create a way to either extend this later
+    // OR we're not gonna be using this once we have your leader entites set up
+    public NextJSONToLoad paramObj;
 
 	public void LoadScene()
     {
+        //  set param stuff first
+        if(paramObj != null)
+        {
+            paramObj.runtimeDialogPath = dialogPathToLoad;
+        }
         //StartCoroutine(LoadAsyncScene());
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }

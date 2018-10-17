@@ -383,8 +383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 749.6439, y: -24.05}
-  m_SizeDelta: {x: 481.0293, y: 30}
+  m_AnchoredPosition: {x: 903.0292, y: -24.05}
+  m_SizeDelta: {x: 583.28613, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179838179
 MonoBehaviour:
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 335783913}
   m_HandleRect: {fileID: 335783912}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   choiceButtons:
   - {fileID: 1584684641}
   - {fileID: 179838182}
-  filepath: Dialog/testScript
+  dialogToLoad: {fileID: 11400000, guid: 60c3291750aeccc4cbe35cbc33d74ef7, type: 2}
   playerStats: {fileID: 11400000, guid: 19f4ec08006e91a408f8cb1aaff686db, type: 2}
   updateGUI:
     m_PersistentCalls:
@@ -1877,8 +1877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240.51465, y: -24.05}
-  m_SizeDelta: {x: 481.0293, y: 30}
+  m_AnchoredPosition: {x: 291.64307, y: -24.05}
+  m_SizeDelta: {x: 583.28613, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584684638
 MonoBehaviour:
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1646946154}
   m_HandleRect: {fileID: 1646946153}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

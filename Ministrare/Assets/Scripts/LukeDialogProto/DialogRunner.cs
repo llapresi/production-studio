@@ -19,7 +19,7 @@ public class DialogRunner : MonoBehaviour {
     DialogTree dialogTree;
 
     // JSON file containing our current dialog
-    public string filepath;
+    public NextJSONToLoad dialogToLoad;
 
     public LeaderStatsObject playerStats;
 
@@ -29,7 +29,7 @@ public class DialogRunner : MonoBehaviour {
     // Use this for initialization
     void Start () {
         // Load our test JSON dialog
-        TextAsset targetFile = Resources.Load<TextAsset>(filepath);
+        TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
         dialogTree = JsonUtility.FromJson<DialogTree>(targetFile.text);
 
         // Set up UI buttons

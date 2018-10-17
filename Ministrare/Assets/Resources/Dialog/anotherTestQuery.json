@@ -1,0 +1,78 @@
+{
+  "topics": [
+    {
+      "identifier": "this is another file",
+      "conversations": [
+        {
+          "identifier": "test convo",
+          "dialogTree": {
+            "dialogNodes": [
+              {
+                "dialogText": "If the scene link stuff is working, this loaded correctly",
+                "nextNodes": [
+
+                ],
+                "serializedActions": [
+
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "test convo 2",
+          "dialogTree": {
+            "dialogNodes": [
+              {
+                "dialogText": "If this didn't break",
+                "nextNodes": [
+
+                ],
+                "serializedActions": [
+
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "need better names than test topic",
+      "conversations": [
+        {
+          "identifier": "test convo 3",
+          "dialogTree": {
+            "dialogNodes": [
+              {
+                "dialogText": "This is a test response for conversation 'testconvo 3'",
+                "nextNodes": [
+
+                ],
+                "serializedActions": [
+
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "test convo 4",
+          "dialogTree": {
+            "dialogNodes": [
+              {
+                "dialogText": "This is a another test response for conversation 'testconvo 4",
+                "nextNodes": [
+
+                ],
+                "serializedActions": [
+
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
