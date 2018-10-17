@@ -10,6 +10,7 @@ public class ResourceManager : ScriptableObject {
 
     //Starting values
     //Food
+    [Header("Food")]
     [SerializeField]
     private int initFoodStorage = 100;
     [SerializeField]
@@ -20,7 +21,8 @@ public class ResourceManager : ScriptableObject {
     private double initFoodHappinessEfficiency = 1;
     [SerializeField]
     private int initFoodMilitaryGained = 0;
-    //Gold 
+    //Gold
+    [Header("Gold")]
     [SerializeField]
     private int initGoldStorage = 100;
     [SerializeField]
@@ -32,6 +34,7 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initGoldMilitaryGained = 0;
     //Exotic Goods
+    [Header("Exotic")]
     [SerializeField]
     private int initEGStorage = 100;
     [SerializeField]
@@ -44,6 +47,8 @@ public class ResourceManager : ScriptableObject {
     private int initEGMilitaryGained = 0;
 
     //values in game 
+    [Space(3)]
+    [Header("Runtime Values [No Touchy]")]
     //Food
     public int runtimeFoodStorage;
     public int runtimeFoodUpkeep;

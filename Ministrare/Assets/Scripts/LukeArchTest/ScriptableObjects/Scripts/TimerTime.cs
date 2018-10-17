@@ -23,8 +23,7 @@ public class TimerTime : ScriptableObject
     // day counter for each time a day ticks over
     [SerializeField]
     private int initialDayCount;
-    [SerializeField]
-    private ResourceManager resourceManager;
+
 
     [Space(3)]
     [Header("Runtime Values [No Touchy]")]
@@ -39,32 +38,5 @@ public class TimerTime : ScriptableObject
         hours = initialHours;
         minutes = initialMin;
         dayCount = initialDayCount;
-    }
-
-    public void TimerTick(float deltaTime)
-    {
-        // checks if game is paused and stops counting if it is
-        if (paused == false)
-        {
-            // checks to see if the hour has ticked over, if not, keep counting
-            if (minutes <= 60)
-                minutes += deltaTime;
-            else
-            {
-                // if the hour ticks over, increment
-                hours++;
-
-                // checks if day has ticked over, if so, increment day counter and reset day
-                if (hours == 24)
-                {
-                    dayCount++;
-                    hours = 0;
-                    resourceManager.processResource();
-                }
-
-                // resets minutes
-                minutes = 0.0f;
-            }
-        }
     }
 }
