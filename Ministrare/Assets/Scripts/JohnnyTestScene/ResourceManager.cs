@@ -45,28 +45,38 @@ public class ResourceManager : ScriptableObject {
     private double initEGHappinessEfficiency = 1;
     [SerializeField]
     private int initEGMilitaryGained = 0;
+    //Happiness 
+    [SerializeField]
+    private int initHappiness = 100;
+    
 
     //values in game 
     [Space(3)]
     [Header("Runtime Values [No Touchy]")]
     //Food
+    [Header("Food")]
     public int runtimeFoodStorage;
     public int runtimeFoodUpkeep;
     public int runtimeFoodProduction;
     public double runtimeFoodHappinessEfficiency;
     public int runtimeFoodMiliaryGained;
     //Gold
+    [Header("Gold")]
     public int runtimeGoldStorage;
     public int runtimeGoldUpkeep;
     public int runtimeGoldProduction;
     public double runtimeGoldHappinessEfficiency;
     public int runtimeGoldMiliaryGained;
     //EG
+    [Header("Exotic Goods")]
     public int runtimeEGStorage;
     public int runtimeEGUpkeep;
     public int runtimeEGProduction;
     public double runtimeEGHappinessEfficiency;
     public int runtimeEGMiliaryGained;
+    //Happiness
+    [Header("Happiness")]
+    public int runtimeHappiness;
 
     public void OnEnable()
     {
@@ -89,6 +99,8 @@ public class ResourceManager : ScriptableObject {
         runtimeEGProduction = initEGProduction;
         runtimeEGHappinessEfficiency = initEGHappinessEfficiency;
         runtimeEGMiliaryGained = initEGMilitaryGained;
+        //Happiness
+        runtimeHappiness = initHappiness;
     }
 
     // computes how much of each resource remains after a day
