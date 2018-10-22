@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,12 +15,18 @@ public class UIQueryButtonGroup : MonoBehaviour
     public DialogQuery rootQuery;
 
     // We need to we arch this as a 3 node system, something like
-    //                      >>>>
-    //  UIQueryButtonGroup        QueryDialogRunner >>>> DialogDisplay
-    ///                     <<<< 
-    public QueryDialogRunner runner;
+    //
+    //  UIQueryButtonGroup <<<<  QueryDialogRunner >>>> DialogDisplay
+    //
+    QueryDialogRunner runner;
 
 	// Use this for initialization
+    public void InitButtonGroup(QueryDialogRunner setRunner)
+    {
+        runner = setRunner;
+        CreateRootButtons();
+    }
+
 	public void CreateRootButtons () {
         ClearButtons();
         foreach (var queryTopic in rootQuery.topics)
@@ -30,7 +37,6 @@ public class UIQueryButtonGroup : MonoBehaviour
             buttonComponent.button.onClick.AddListener(() => CreateButtonsForTopic(queryTopic));
             button.transform.SetParent(this.gameObject.transform, false);
         }
-
     }
 
     // Function to create the buttons for each topic

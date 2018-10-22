@@ -35,7 +35,7 @@ public class QueryDialogRunner : MonoBehaviour
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
         buttonGroup.rootQuery = currentQuery;
-        buttonGroup.CreateRootButtons();
+        buttonGroup.InitButtonGroup(this);
     }
 
     public void SetCurrentNode(DialogNode newDialogNode)
