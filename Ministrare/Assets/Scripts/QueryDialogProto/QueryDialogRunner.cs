@@ -28,7 +28,7 @@ public class QueryDialogRunner : MonoBehaviour
     public NextJSONToLoad dialogToLoad;
 
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         // Load our test JSON dialogQuery
         TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
