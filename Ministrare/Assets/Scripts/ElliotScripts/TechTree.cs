@@ -7,12 +7,14 @@ public class TechTree : ScriptableObject {
 
     [Header("Initial Values")]
     [SerializeField]
-    private TechNode[] initialNodes;
-    public TechNode[] runtimeNodes;
+    private TechNode[] initSciNodes;
+    public TechNode[] runtimeSciNodes;
+    public Technology[] researched;
     
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
-        runtimeNodes = initialNodes;
+        runtimeSciNodes = initSciNodes;
+        researched = new Technology[runtimeSciNodes.Length];
     }
 }
