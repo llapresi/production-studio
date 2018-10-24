@@ -1,7 +1,7 @@
 {
   "dialogNodes": [
     {
-      "dialogText": "The first node",
+      "dialogText": "This is the first node of a linear dialog loaded from a JSON file (Assets/Resources/testScript.json)",
       "nextNodes": [
         {
           "id": 1,
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "dialogText": "The sceond node",
+      "dialogText": "The sceond node in this tree",
       "nextNodes": [
         {
           "id": 2,
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "dialogText": "The third node",
+      "dialogText": "Node #3",
       "nextNodes": [
         {
           "id": 4,
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "dialogText": "The fourth node we should be skipping",
+      "dialogText": "The fourth node we should be skipping. If you clicked the button to go here, the 'fear' stat show be raised by 20",
       "nextNodes": [
         {
           "id": 4,
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "dialogText": "You're stupider now for reading this node",
+      "dialogText": "Node 5. the 'Inteligence' stat show be lowered by 3",
       "nextNodes": [
         {
           "id": 0,

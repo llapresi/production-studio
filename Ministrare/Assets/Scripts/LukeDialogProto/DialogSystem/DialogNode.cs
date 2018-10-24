@@ -6,7 +6,7 @@ using UnityEngine;
 // any actions that happen upon this node being opened, and a list of branches this node can go to
 // The nextNode array stores array of DialogNodeLinks
 [System.Serializable]
-class DialogNode: ISerializationCallbackReceiver
+public class DialogNode: ISerializationCallbackReceiver
 {
     // The text of this dialogNode
     public string dialogText;
