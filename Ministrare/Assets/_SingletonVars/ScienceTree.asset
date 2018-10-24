@@ -13,7 +13,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initNodes:
   - name: Test
-    dayCost: 10
+    dayCost: 1
+    researched: 1
+    low:
+      name: Level1
+      isStructure: 0
+      boost: 5
+    mid:
+      name: Level2
+      isStructure: 0
+      boost: 10
+    high:
+      name: Level3
+      isStructure: 0
+      boost: 15
+  - name: Test2
+    dayCost: 3
     researched: 0
     low:
       name: 
@@ -27,8 +42,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test3
+    dayCost: 5
     researched: 0
     low:
       name: 
@@ -42,8 +57,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test4
+    dayCost: 7
     researched: 0
     low:
       name: 
@@ -57,23 +72,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
-    researched: 0
-    low:
-      name: 
-      isStructure: 0
-      boost: 0
-    mid:
-      name: 
-      isStructure: 0
-      boost: 0
-    high:
-      name: 
-      isStructure: 0
-      boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test5
+    dayCost: 9
     researched: 0
     low:
       name: 
@@ -89,7 +89,22 @@ MonoBehaviour:
       boost: 0
   runtimeNodes:
   - name: Test
-    dayCost: 10
+    dayCost: 1
+    researched: 1
+    low:
+      name: Level1
+      isStructure: 0
+      boost: 5
+    mid:
+      name: Level2
+      isStructure: 0
+      boost: 10
+    high:
+      name: Level3
+      isStructure: 0
+      boost: 15
+  - name: Test2
+    dayCost: 3
     researched: 0
     low:
       name: 
@@ -103,8 +118,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test3
+    dayCost: 5
     researched: 0
     low:
       name: 
@@ -118,8 +133,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test4
+    dayCost: 7
     researched: 0
     low:
       name: 
@@ -133,23 +148,8 @@ MonoBehaviour:
       name: 
       isStructure: 0
       boost: 0
-  - name: 
-    dayCost: 0
-    researched: 0
-    low:
-      name: 
-      isStructure: 0
-      boost: 0
-    mid:
-      name: 
-      isStructure: 0
-      boost: 0
-    high:
-      name: 
-      isStructure: 0
-      boost: 0
-  - name: 
-    dayCost: 0
+  - name: Test5
+    dayCost: 9
     researched: 0
     low:
       name: 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//NOTE: Should get placed on button and have the onclick be the researching function
 public class ClickResearch : MonoBehaviour {
     public TechTree localTree;
     public TimerTime localTimer;
@@ -25,9 +26,8 @@ public class ClickResearch : MonoBehaviour {
         if (localTimer.dayCount == localCost)
         {
             // places tech in researched tech array and resets local values
+            localTree.runtimeNodes[holdPlace].researched = true;
             localTree.researched[holdPlace] = localTree.runtimeNodes[holdPlace].ChooseTech(scienceHappiness);
-            Debug.Log(localTree.researched[holdPlace].name);
-            Debug.Log(localTree.researched[holdPlace].boost);
             holdPlace = -1;
             localCost = -1;
         }
@@ -36,7 +36,7 @@ public class ClickResearch : MonoBehaviour {
     // checks if anything is being researched, if not, move on to new tech
     public void Researching()
     {
-        if (localCost < 0)
+        if (localCost == -1)
             for (int x = 0; x < 5; x++)
                 if (localTree.runtimeNodes[x].researched == false)
                 {
