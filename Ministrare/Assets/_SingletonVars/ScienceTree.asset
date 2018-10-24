@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd08090a3185fc408f1a775168d33ee, type: 3}
+  m_Name: ScienceTree
+  m_EditorClassIdentifier: 
+  initNodes:
+  - name: Test
+    dayCost: 10
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  runtimeNodes:
+  - name: Test
+    dayCost: 10
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  - name: 
+    dayCost: 0
+    researched: 0
+    low:
+      name: 
+      isStructure: 0
+      boost: 0
+    mid:
+      name: 
+      isStructure: 0
+      boost: 0
+    high:
+      name: 
+      isStructure: 0
+      boost: 0
+  researched:
+  - name: 
+    isStructure: 0
+    boost: 0
+  - name: 
+    isStructure: 0
+    boost: 0
+  - name: 
+    isStructure: 0
+    boost: 0
+  - name: 
+    isStructure: 0
+    boost: 0
+  - name: 
+    isStructure: 0
+    boost: 0

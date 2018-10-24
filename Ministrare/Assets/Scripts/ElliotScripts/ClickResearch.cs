@@ -25,7 +25,9 @@ public class ClickResearch : MonoBehaviour {
         if (localTimer.dayCount == localCost)
         {
             // places tech in researched tech array and resets local values
-            localTree.researched[holdPlace] = localTree.runtimeSciNodes[holdPlace].ChooseTech(scienceHappiness);
+            localTree.researched[holdPlace] = localTree.runtimeNodes[holdPlace].ChooseTech(scienceHappiness);
+            Debug.Log(localTree.researched[holdPlace].name);
+            Debug.Log(localTree.researched[holdPlace].boost);
             holdPlace = -1;
             localCost = -1;
         }
@@ -36,10 +38,11 @@ public class ClickResearch : MonoBehaviour {
     {
         if (localCost < 0)
             for (int x = 0; x < 5; x++)
-                if (localTree.runtimeSciNodes[x].researched == false)
+                if (localTree.runtimeNodes[x].researched == false)
                 {
-                    localCost = localTree.runtimeSciNodes[x].dayCost + localTimer.dayCount;
+                    localCost = localTree.runtimeNodes[x].dayCost + localTimer.dayCount;
                     holdPlace = x;
+                    return;
                 }
     }
 }
