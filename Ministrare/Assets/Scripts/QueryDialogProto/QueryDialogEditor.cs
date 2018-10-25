@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class QueryDialogEditor : QueryDialogRunner
 {
     // Stores current/last selected QueryDialogTopic
-    public DialogQueryTopic currentDialogTopic;
+    DialogQueryTopic currentDialogTopic = null;
 
     public TMP_InputField dialogInput;
 
@@ -26,6 +26,11 @@ public class QueryDialogEditor : QueryDialogRunner
         Debug.Log(JsonUtility.ToJson(currentQuery));
     }
 
+    public void SetCurrentDialogTopic(DialogQueryTopic p_topic = null)
+    {
+        currentDialogTopic = p_topic;
+    }
+
     public override void SetCurrentNode(DialogNode newDialogNode)
     {
         currentDialogNode = newDialogNode;
@@ -35,6 +40,21 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public void ChangeCurrentNode()
     {
+        // Text Editor UI calls this whenever user types to set the currentDialogNode text to the input
         currentDialogNode.dialogText = dialogInput.text;
+    }
+
+    public void HandleAddButton()
+    {
+        if(currentDialogTopic != null)
+        {
+            // If we have a QueryTopic opened, add a new DialogTreeWithId to it when we press this button
+            currentDialogTopic.conversations.Add(new DialogTreeWithId("New tree"));
+        }
+        else
+        {
+            // If we don't, lets make a new QueryTopic
+            currentQuery.topics.Add(new DialogQueryTopic("new query topic"));
+        }
     }
 }

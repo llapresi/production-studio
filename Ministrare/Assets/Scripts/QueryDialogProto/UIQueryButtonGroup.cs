@@ -64,8 +64,8 @@ public class UIQueryButtonGroup : MonoBehaviour
         if (runner.GetType() == typeof(QueryDialogEditor))
         {
             QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
-            runnerAsEditor.currentDialogTopic = topic;
-            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.currentDialogTopic = null; });
+            runnerAsEditor.SetCurrentDialogTopic(topic);
+            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.SetCurrentDialogTopic(); });
         }
     }
 
