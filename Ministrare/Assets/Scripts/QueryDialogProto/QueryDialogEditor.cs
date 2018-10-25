@@ -8,6 +8,9 @@ using UnityEngine.Events;
 // plus hooks for UI scene to let you add stuff to the currentQuery
 public class QueryDialogEditor : QueryDialogRunner
 {
+    // Stores current/last selected QueryDialogTopic
+    public DialogQueryTopic currentDialogTopic;
+
     public TMP_InputField dialogInput;
 
     protected override void Start()

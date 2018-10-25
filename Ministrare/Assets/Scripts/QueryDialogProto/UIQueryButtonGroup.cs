@@ -59,6 +59,14 @@ public class UIQueryButtonGroup : MonoBehaviour
             convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
             convoButton.transform.SetParent(this.gameObject.transform, false);
         }
+
+        // Only run if DialogRunner is the editor
+        if (runner.GetType() == typeof(QueryDialogEditor))
+        {
+            QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+            runnerAsEditor.currentDialogTopic = topic;
+            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.currentDialogTopic = null; });
+        }
     }
 
     // Clears the current buttons
