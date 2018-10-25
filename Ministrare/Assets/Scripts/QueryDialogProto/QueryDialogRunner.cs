@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class QueryDialogRunner : MonoBehaviour
 {
     // Stores our current node
-    DialogNode currentDialogNode;
+    protected DialogNode currentDialogNode;
 
     // UI Elements
     public TextMeshProUGUI dialogDisplay;
@@ -38,7 +38,7 @@ public class QueryDialogRunner : MonoBehaviour
         buttonGroup.InitButtonGroup(this);
     }
 
-    public void SetCurrentNode(DialogNode newDialogNode)
+    public virtual void SetCurrentNode(DialogNode newDialogNode)
     {
         currentDialogNode = newDialogNode;
         dialogDisplay.text = currentDialogNode.dialogText;
