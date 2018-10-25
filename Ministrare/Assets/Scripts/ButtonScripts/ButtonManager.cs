@@ -230,7 +230,7 @@ public class ButtonManager : MonoBehaviour {
                 offset = 200 / (chosen.Length - arrayPlace);
                 pos.x = 200 + offset;
             }
-            pos.x += 200;
+            pos.x += 200 + offset;
         }
     }
 }
