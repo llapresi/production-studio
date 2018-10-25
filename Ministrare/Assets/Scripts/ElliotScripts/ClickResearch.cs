@@ -27,7 +27,10 @@ public class ClickResearch : MonoBehaviour {
             localTree.holdPlace = -1;
             localTree.localCost = -1;
         }
-        Researching();
+
+        // Used only for testing if button doesn't work
+        // increase the days from the TestTimerTime singleton var to test tech being researched properly
+        //Researching();
     }
 
     // checks if anything is being researched, if not, move on to new tech
