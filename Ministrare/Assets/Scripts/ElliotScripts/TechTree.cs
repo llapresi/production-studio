@@ -34,6 +34,9 @@ public class TechTree : ScriptableObject {
     public Technology[] milResearched;
     public Technology[] farmResearched;
     */
+
+    public int localCost;
+    public int holdPlace;
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
