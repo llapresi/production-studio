@@ -22,7 +22,7 @@ public class QueryDialogEditor : QueryDialogRunner
     {
         // Right now we're just exporting to the console
         // Should read this page in the documentation on how to actually make this save a file
-        //https://support.unity3d.com/hc/en-us/articles/115000341143-How-do-I-read-and-write-data-from-a-text-file-
+        // https://support.unity3d.com/hc/en-us/articles/115000341143-How-do-I-read-and-write-data-from-a-text-file-
         Debug.Log(JsonUtility.ToJson(currentQuery));
     }
 
@@ -55,6 +55,8 @@ public class QueryDialogEditor : QueryDialogRunner
         {
             // If we don't, lets make a new QueryTopic
             currentQuery.topics.Add(new DialogQueryTopic("new query topic"));
+            // Call CreateRootButtons to refresh the view after we make the new topic
+            buttonGroup.CreateRootButtons();
         }
     }
 }
