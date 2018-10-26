@@ -21,26 +21,38 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     // Use this for initialization
     public override void InitButtonGroup(QueryDialogRunner setRunner)
     {
+        // Set the stuff
         runner = setRunner;
         rootQuery = setRunner.currentQuery;
+
+        // Make our root level buttons
         CreateRootButtons();
     }
 
     public override void CreateRootButtons()
     {
+        // Clear all the current buttons if they exist
         ClearButtons();
+        // Create a button for each topic
         foreach (var queryTopic in rootQuery.topics)
         {
+            // Create button prefab
             GameObject button = Instantiate(editorButtonPrefab) as GameObject;
+
+            // Get the Button prefab with the remove button and their associated buttons
             var buttonParent = button.GetComponent<UIDialogButtonWithRemove>();
             var buttonComponent = buttonParent.dialogButton;
+            var deleteComponent = buttonParent.removeButton;
+
+            // Set button text and onClick's
             buttonComponent.text.text = queryTopic.identifier;
             buttonComponent.button.onClick.AddListener(() => CreateButtonsForTopic(queryTopic));
-            var deleteComponent = buttonParent.removeButton;
             deleteComponent.onClick.AddListener(() => {
                 rootQuery.topics.Remove(queryTopic);
                 CreateRootButtons();
             });
+
+            // Actually add the button to the scene
             button.transform.SetParent(this.gameObject.transform, false);
         }
     }
@@ -49,20 +61,31 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     public override void CreateButtonsForTopic(DialogQueryTopic topic)
     {
         ClearButtons();
-        // Create a back button
-        GameObject backButton = Instantiate(regularButtonPrefab) as GameObject;
-        var backButtonComponent = backButton.GetComponent<UIDialogButton>();
-        backButtonComponent.text.text = "<- Back";
-        backButtonComponent.button.onClick.AddListener(CreateRootButtons);
-        backButtonComponent.transform.SetParent(this.gameObject.transform, false);
+        // Create a back button and get refernce to it 
+        var backButtonComponent = CreateBackButton();
 
         // Create a button for each conversation in the topic
         foreach (var convo in topic.conversations)
         {
-            GameObject convoButton = Instantiate(regularButtonPrefab) as GameObject;
-            var convoButtonComponent = convoButton.GetComponent<UIDialogButton>();
+            // Make button prefab
+            GameObject convoButton = Instantiate(editorButtonPrefab) as GameObject;
+
+            // Get button components
+            var convoButtonParent = convoButton.GetComponent<UIDialogButtonWithRemove>();
+            var convoButtonComponent = convoButtonParent.dialogButton;
+            var convoDeleteButton = convoButtonParent.removeButton;
+
+            // Set text & onClick for the main button components
             convoButtonComponent.text.text = convo.identifier;
             convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
+
+            // Set onClick for the remove
+            convoDeleteButton.onClick.AddListener(() =>
+            {
+                topic.conversations.Remove(convo);
+                CreateButtonsForTopic(topic);
+            });
+
             convoButton.transform.SetParent(this.gameObject.transform, false);
         }
 
@@ -75,10 +98,22 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         }
     }
 
+    UIDialogButton CreateBackButton()
+    {
+        // Instantiate button
+        GameObject backButton = Instantiate(regularButtonPrefab) as GameObject;
+
+        // Get the button component
+        var backButtonComponent = backButton.GetComponent<UIDialogButton>();
+
+        // Set name and listener
+        backButtonComponent.text.text = "<- Back";
+        backButtonComponent.button.onClick.AddListener(CreateRootButtons);
+        backButtonComponent.transform.SetParent(this.gameObject.transform, false);
+        return backButtonComponent;
+    }
+
     // Clears the current buttons
-    // BAD AND HACKY because we're instantiating and destroying buttons for every options
-    // What we SHOULD be doing is creating all buttons at start and setting them active and inactive
-    // but we'll get around to that
     void ClearButtons()
     {
         foreach (Transform child in this.gameObject.transform)
