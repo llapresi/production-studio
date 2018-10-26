@@ -22,7 +22,7 @@ public class QueryDialogRunner : MonoBehaviour
     // Test to update the GUI
     public UnityEvent updateGUI;
 
-    public UIQueryButtonGroup buttonGroup;
+    public BaseButtonGroup buttonGroup;
 
     // Set the value of the SingletonVar we're gonna plug in here before we load the Query Dialog Scene
     public NextJSONToLoad dialogToLoad;
@@ -34,7 +34,6 @@ public class QueryDialogRunner : MonoBehaviour
         TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
-        buttonGroup.rootQuery = currentQuery;
         buttonGroup.InitButtonGroup(this);
     }
 

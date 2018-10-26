@@ -6,25 +6,16 @@ using UnityEngine;
 // Object that creates a bunch of Unity UI Buttons as it's childern
 // Ideally you should be able to point a query dialog runner at it and it'll make the all
 // the relevant buttons for it
-public abstract class BaseButtonGroup: MonoBehaviour
-{
-    public abstract void InitButtonGroup(QueryDialogRunner setRunner);
-    public abstract void CreateButtonsForTopic(DialogQueryTopic topic);
-    public abstract void CreateRootButtons();
-}
-
-public class UIQueryButtonGroup : BaseButtonGroup
+public class UIQueryEditorButtonGroup : BaseButtonGroup
 {
     // Button prefab object
-    public GameObject buttonPrefab;
+    public GameObject regularButtonPrefab;
+    public GameObject editorButtonPrefab;
 
-    // dialog query we're querying. This is set in QueryDialogRunner
+    // ref to dialog query we're querying. This is set in QueryDialogRunner
     DialogQuery rootQuery;
 
-    // We need to we arch this as a 3 node system, something like
-    //
-    //  UIQueryButtonGroup <<<<  QueryDialogRunner >>>> DialogDisplay
-    //
+    // ref to the current query
     QueryDialogRunner runner;
 
     // Use this for initialization
@@ -35,24 +26,31 @@ public class UIQueryButtonGroup : BaseButtonGroup
         CreateRootButtons();
     }
 
-	public override void CreateRootButtons() {
+    public override void CreateRootButtons()
+    {
         ClearButtons();
         foreach (var queryTopic in rootQuery.topics)
         {
-            GameObject button = Instantiate(buttonPrefab) as GameObject;
-            var buttonComponent = button.GetComponent<UIDialogButton>();
+            GameObject button = Instantiate(editorButtonPrefab) as GameObject;
+            var buttonParent = button.GetComponent<UIDialogButtonWithRemove>();
+            var buttonComponent = buttonParent.dialogButton;
             buttonComponent.text.text = queryTopic.identifier;
             buttonComponent.button.onClick.AddListener(() => CreateButtonsForTopic(queryTopic));
+            var deleteComponent = buttonParent.removeButton;
+            deleteComponent.onClick.AddListener(() => {
+                rootQuery.topics.Remove(queryTopic);
+                CreateRootButtons();
+            });
             button.transform.SetParent(this.gameObject.transform, false);
         }
     }
 
     // Function to create the buttons for each topic
-    public override void CreateButtonsForTopic (DialogQueryTopic topic)
+    public override void CreateButtonsForTopic(DialogQueryTopic topic)
     {
         ClearButtons();
         // Create a back button
-        GameObject backButton = Instantiate(buttonPrefab) as GameObject;
+        GameObject backButton = Instantiate(regularButtonPrefab) as GameObject;
         var backButtonComponent = backButton.GetComponent<UIDialogButton>();
         backButtonComponent.text.text = "<- Back";
         backButtonComponent.button.onClick.AddListener(CreateRootButtons);
@@ -61,7 +59,7 @@ public class UIQueryButtonGroup : BaseButtonGroup
         // Create a button for each conversation in the topic
         foreach (var convo in topic.conversations)
         {
-            GameObject convoButton = Instantiate(buttonPrefab) as GameObject;
+            GameObject convoButton = Instantiate(regularButtonPrefab) as GameObject;
             var convoButtonComponent = convoButton.GetComponent<UIDialogButton>();
             convoButtonComponent.text.text = convo.identifier;
             convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
@@ -88,9 +86,10 @@ public class UIQueryButtonGroup : BaseButtonGroup
             GameObject.Destroy(child.gameObject);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

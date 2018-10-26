@@ -11,6 +11,7 @@ public class QueryDialogEditor : QueryDialogRunner
     // Stores current/last selected QueryDialogTopic
     DialogQueryTopic currentDialogTopic = null;
 
+    // Input field in the scene
     public TMP_InputField dialogInput;
 
     protected override void Start()
@@ -26,11 +27,14 @@ public class QueryDialogEditor : QueryDialogRunner
         Debug.Log(JsonUtility.ToJson(currentQuery));
     }
 
+    // Sets currentDialogTopic
     public void SetCurrentDialogTopic(DialogQueryTopic p_topic = null)
     {
         currentDialogTopic = p_topic;
     }
 
+    // Overrides 'SetCurrentNode' from QueryDialogRunner to set the text of the dialogInput instead of the
+    // textdisplay
     public override void SetCurrentNode(DialogNode newDialogNode)
     {
         currentDialogNode = newDialogNode;
@@ -50,6 +54,7 @@ public class QueryDialogEditor : QueryDialogRunner
         {
             // If we have a QueryTopic opened, add a new DialogTreeWithId to it when we press this button
             currentDialogTopic.conversations.Add(new DialogTreeWithId("New tree"));
+            buttonGroup.CreateButtonsForTopic(currentDialogTopic);
         }
         else
         {
