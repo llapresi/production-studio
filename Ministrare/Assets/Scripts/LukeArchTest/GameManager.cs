@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 
     private bool backgroundIn;
     private static bool created = false;
-
+    [SerializeField]
+    private NPCandLordHolder NPCandLordHolder;
     // Use this for initialization
     void Start()
     {
