@@ -24,6 +24,11 @@ public class NPCandLordHolder : ScriptableObject {
 
    public void OnEnable()
    {
+
+   }
+
+    public void Initialize()
+    {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         //Ally IndustryLeaders Initialization
         AllyFarmer = new IndustryLeader();
