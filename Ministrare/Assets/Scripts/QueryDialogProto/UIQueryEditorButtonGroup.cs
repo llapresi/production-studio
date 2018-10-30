@@ -62,7 +62,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     {
         ClearButtons();
         // Create a back button and get refernce to it 
-        var backButtonComponent = CreateBackButton();
+        var backButtonComponent = CreateBackButton(CreateRootButtons);
 
         // Create a button for each conversation in the topic
         foreach (var convo in topic.conversations)
@@ -78,13 +78,13 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
             // Set text & onClick for the main button components
             convoButtonComponent.text.text = convo.identifier;
             convoButtonComponent.button.onClick.AddListener(() => {
-                runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]);
                 if (runner.GetType() == typeof(QueryDialogEditor))
                 {
                     QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
                     runnerAsEditor.lastSelectedRenamable = convo;
                     runnerAsEditor.onSelect.Invoke();
                 }
+                CreateButtonsForDialogTree(convo, () => { CreateButtonsForTopic(topic); });
             });
 
             // Set onClick for the remove
@@ -106,7 +106,53 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         }
     }
 
-    UIDialogButton CreateBackButton()
+    public void CreateButtonsForDialogTree(DialogTreeWithId tree, UnityEngine.Events.UnityAction onBackButton)
+    {
+        ClearButtons();
+        // Create a back button and get refernce to it 
+        var backButtonComponent = CreateBackButton(onBackButton);
+
+        foreach (DialogNodeWithID node in tree.dialogTree.dialogNodes)
+        {
+            // Make button prefab
+            GameObject nodeButtonObject = Instantiate(editorButtonPrefab) as GameObject;
+
+            // Get button components
+            var nodeButtonParent = nodeButtonObject.GetComponent<UIDialogButtonWithRemove>();
+            var nodeButtonComponent = nodeButtonParent.dialogButton;
+            var nodeDeleteButton = nodeButtonParent.removeButton;
+
+            // Set text & onClick for the main button components
+            nodeButtonComponent.text.text = node.identifier;
+            nodeButtonComponent.button.onClick.AddListener(() => {
+                runner.SetCurrentNode(node);
+                if (runner.GetType() == typeof(QueryDialogEditor))
+                {
+                    QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+                    runnerAsEditor.lastSelectedRenamable = node;
+                    runnerAsEditor.onSelect.Invoke();
+                }
+            });
+
+            // Set onClick for the remove
+            nodeDeleteButton.onClick.AddListener(() =>
+            {
+                tree.dialogTree.dialogNodes.Remove(node);
+                CreateButtonsForDialogTree(tree, onBackButton);
+            });
+
+            nodeButtonObject.transform.SetParent(this.gameObject.transform, false);
+        }
+
+        // Only run if DialogRunner is the editor
+        if (runner.GetType() == typeof(QueryDialogEditor))
+        {
+            QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.SetCurrentDialogTopic(); });
+        }
+    }
+
+    UIDialogButton CreateBackButton(UnityEngine.Events.UnityAction action)
     {
         // Instantiate button
         GameObject backButton = Instantiate(regularButtonPrefab) as GameObject;
@@ -116,7 +162,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
         // Set name and listener
         backButtonComponent.text.text = "<- Back";
-        backButtonComponent.button.onClick.AddListener(CreateRootButtons);
+        backButtonComponent.button.onClick.AddListener(action);
         backButtonComponent.transform.SetParent(this.gameObject.transform, false);
         return backButtonComponent;
     }
