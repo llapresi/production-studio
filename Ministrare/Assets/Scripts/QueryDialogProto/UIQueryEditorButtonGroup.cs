@@ -31,6 +31,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
     public override void CreateRootButtons()
     {
+        ((QueryDialogEditor)runner).CurrentPath = "root";
         // Clear all the current buttons if they exist
         ClearButtons();
 
@@ -70,7 +71,12 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     public override void CreateButtonsForTopic(DialogQueryTopic topic)
     {
         ClearButtons();
+
+        // Set the add button behaviour
         SetAddButtonBehaviour(topic, topic, () => { CreateButtonsForTopic(topic); });
+
+        ((QueryDialogEditor)runner).CurrentPath = String.Format("root/{0}", topic.identifier);
+
         // Create a back button and get refernce to it 
         var backButtonComponent = CreateBackButton(CreateRootButtons);
 
@@ -88,13 +94,15 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
             // Set text & onClick for the main button components
             convoButtonComponent.text.text = convo.identifier;
             convoButtonComponent.button.onClick.AddListener(() => {
+                var path = String.Format("root/{0}/{1}", topic.identifier, convo.identifier);
                 if (runner.GetType() == typeof(QueryDialogEditor))
                 {
                     QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
                     runnerAsEditor.lastSelectedRenamable = convo;
+                    runnerAsEditor.CurrentPath = path;
                     runnerAsEditor.onSelect.Invoke();
                 }
-                CreateButtonsForDialogTree(convo, () => { CreateButtonsForTopic(topic); });
+                CreateButtonsForDialogTree(convo, () => { CreateButtonsForTopic(topic); }, path);
             });
 
             // Set onClick for the remove
@@ -108,11 +116,17 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         }
     }
 
-    public void CreateButtonsForDialogTree(DialogTreeWithId tree, UnityEngine.Events.UnityAction onBackButton)
+    // Creates buttons for the dialog tree
+    public void CreateButtonsForDialogTree(DialogTreeWithId tree, UnityEngine.Events.UnityAction onBackButton, string basePathString)
     {
         ClearButtons();
         // Create a back button and get refernce to it 
         var backButtonComponent = CreateBackButton(onBackButton);
+
+        // Set add button
+        SetAddButtonBehaviour(tree.dialogTree, tree, () => {
+            CreateButtonsForDialogTree(tree, onBackButton, basePathString);
+        });
 
         foreach (DialogNodeWithID node in tree.dialogTree.dialogNodes)
         {
@@ -128,19 +142,17 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
             nodeButtonComponent.text.text = node.identifier;
             nodeButtonComponent.button.onClick.AddListener(() => {
                 runner.SetCurrentNode(node);
-                if (runner.GetType() == typeof(QueryDialogEditor))
-                {
-                    QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
-                    runnerAsEditor.lastSelectedRenamable = node;
-                    runnerAsEditor.onSelect.Invoke();
-                }
+                QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+                runnerAsEditor.lastSelectedRenamable = node;
+                runnerAsEditor.onSelect.Invoke();
+                runnerAsEditor.CurrentPath = String.Format("{0}/{1}", basePathString, node.identifier);
             });
 
             // Set onClick for the remove
             nodeDeleteButton.onClick.AddListener(() =>
             {
                 tree.dialogTree.dialogNodes.Remove(node);
-                CreateButtonsForDialogTree(tree, onBackButton);
+                CreateButtonsForDialogTree(tree, onBackButton, basePathString);
             });
 
             nodeButtonObject.transform.SetParent(this.gameObject.transform, false);

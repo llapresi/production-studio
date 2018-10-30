@@ -19,6 +19,20 @@ public class QueryDialogEditor : QueryDialogRunner
     public UnityEvent onSelect;
 
     public RefreshButtonsDelegate refreshButtonMethod;
+    public TextMeshProUGUI pathDisplay;
+
+    public string CurrentPath
+    {
+        get
+        {
+            return pathDisplay.text;
+        }
+
+        set
+        {
+            pathDisplay.text = value;
+        }
+    }
 
     protected override void Start()
     {
@@ -55,7 +69,6 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public void HandleAddButton(string newElementName = "New item")
     {
-        Debug.Log(lastSelectedAddable);
         lastSelectedAddable.Add(newElementName);
         refreshButtonMethod();
     }
