@@ -77,7 +77,15 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
             // Set text & onClick for the main button components
             convoButtonComponent.text.text = convo.identifier;
-            convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
+            convoButtonComponent.button.onClick.AddListener(() => {
+                runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]);
+                if (runner.GetType() == typeof(QueryDialogEditor))
+                {
+                    QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+                    runnerAsEditor.lastSelectedRenamable = convo;
+                    runnerAsEditor.onSelect.Invoke();
+                }
+            });
 
             // Set onClick for the remove
             convoDeleteButton.onClick.AddListener(() =>

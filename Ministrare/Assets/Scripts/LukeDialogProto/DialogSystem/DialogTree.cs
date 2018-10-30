@@ -7,10 +7,32 @@ using UnityEngine;
 [System.Serializable]
 public class DialogTree
 {
-    public List<DialogNode> dialogNodes;
+    public List<DialogNodeWithID> dialogNodes;
 
     public DialogTree()
     {
-        dialogNodes = new List<DialogNode>();
+        dialogNodes = new List<DialogNodeWithID>();
+    }
+}
+
+[System.Serializable]
+public class DialogNodeWithID : DialogNode, IEditorRenamable
+{
+    public string identifier;
+
+    public DialogNodeWithID(string p_identifier, string p_dialogText, DialogNodeLink[] p_nextNodes, IDialogNodeAction[] p_nodeActions = null) 
+        : base(p_dialogText, p_nextNodes, p_nodeActions)
+    {
+        identifier = p_identifier;
+    }
+
+    public string GetName()
+    {
+        return identifier;
+    }
+
+    public void SetName(string newName)
+    {
+        identifier = newName;
     }
 }

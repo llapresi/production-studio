@@ -1240,7 +1240,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879962935}
+        m_MethodName: OnValueChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: TMPro.TMP_InputField+OnChangeEvent, Unity.TextMeshPro, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -2119,7 +2130,7 @@ MonoBehaviour:
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
   m_isInputParsingRequired: 0
-  m_inputSource: 3
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
   - {fileID: 0}
@@ -2178,6 +2189,22 @@ MonoBehaviour:
   buttonGroup: {fileID: 923686515}
   dialogToLoad: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
   dialogInput: {fileID: 1498335704}
+  onSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1879962935}
+        m_MethodName: RefreshText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
@@ -3128,6 +3155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879962934}
+  - component: {fileID: 1879962935}
   m_Layer: 0
   m_Name: RenameLastSelected
   m_TagString: Untagged
@@ -3155,6 +3183,19 @@ RectTransform:
   m_AnchoredPosition: {x: -285, y: -79}
   m_SizeDelta: {x: 419.90002, y: 58.79}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1879962935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879962933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b163ee252fe501d40ac05603a0e9bca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorParent: {fileID: 1231191220}
+  textInput: {fileID: 705828655}
 --- !u!1 &2063959668
 GameObject:
   m_ObjectHideFlags: 0

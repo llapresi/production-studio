@@ -14,9 +14,18 @@ public class QueryDialogEditor : QueryDialogRunner
     // Input field in the scene
     public TMP_InputField dialogInput;
 
+    public IEditorRenamable lastSelectedRenamable;
+
+    public UnityEvent onSelect;
+
     protected override void Start()
     {
         base.Start();
+    }
+
+    public void RenameDialogTopic(string newName)
+    {
+        lastSelectedRenamable.SetName(newName);
     }
 
     public void SaveJSON()
@@ -31,6 +40,11 @@ public class QueryDialogEditor : QueryDialogRunner
     public void SetCurrentDialogTopic(DialogQueryTopic p_topic = null)
     {
         currentDialogTopic = p_topic;
+        lastSelectedRenamable = currentDialogTopic;
+        if (lastSelectedRenamable != null)
+        {
+            onSelect.Invoke();
+        }
     }
 
     // Overrides 'SetCurrentNode' from QueryDialogRunner to set the text of the dialogInput instead of the
