@@ -72,8 +72,7 @@ public class UIQueryButtonGroup : BaseButtonGroup
         if (runner.GetType() == typeof(QueryDialogEditor))
         {
             QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
-            runnerAsEditor.SetCurrentDialogTopic(topic);
-            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.SetCurrentDialogTopic(); });
+            // Set the runnerAsEditor.lastSelecteds here
         }
     }
 

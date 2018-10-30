@@ -9,8 +9,7 @@ public interface IEditorRenamable
     void SetName(string newName);
 }
 
-public interface IEditorAddRemovable<T>
+public interface IEditorAddable
 {
-    void Add(T toAdd);
-    void Remove(T toRemove);
+    void Add(string nameOfElementToAdd);
 }

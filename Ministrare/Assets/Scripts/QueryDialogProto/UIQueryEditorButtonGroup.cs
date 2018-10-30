@@ -33,6 +33,10 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     {
         // Clear all the current buttons if they exist
         ClearButtons();
+
+        // Set add button behaviour
+        SetAddButtonBehaviour(rootQuery, null, CreateRootButtons);
+
         // Create a button for each topic
         foreach (var queryTopic in rootQuery.topics)
         {
@@ -46,9 +50,14 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
             // Set button text and onClick's
             buttonComponent.text.text = queryTopic.identifier;
-            buttonComponent.button.onClick.AddListener(() => CreateButtonsForTopic(queryTopic));
+            buttonComponent.button.onClick.AddListener(() => {
+                CreateButtonsForTopic(queryTopic);
+            });
+
             deleteComponent.onClick.AddListener(() => {
+                // Remove the topic from the list
                 rootQuery.topics.Remove(queryTopic);
+                // Calling this function again to refresh the view
                 CreateRootButtons();
             });
 
@@ -61,6 +70,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     public override void CreateButtonsForTopic(DialogQueryTopic topic)
     {
         ClearButtons();
+        SetAddButtonBehaviour(topic, topic, () => { CreateButtonsForTopic(topic); });
         // Create a back button and get refernce to it 
         var backButtonComponent = CreateBackButton(CreateRootButtons);
 
@@ -95,14 +105,6 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
             });
 
             convoButton.transform.SetParent(this.gameObject.transform, false);
-        }
-
-        // Only run if DialogRunner is the editor
-        if (runner.GetType() == typeof(QueryDialogEditor))
-        {
-            QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
-            runnerAsEditor.SetCurrentDialogTopic(topic);
-            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.SetCurrentDialogTopic(); });
         }
     }
 
@@ -143,13 +145,6 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
             nodeButtonObject.transform.SetParent(this.gameObject.transform, false);
         }
-
-        // Only run if DialogRunner is the editor
-        if (runner.GetType() == typeof(QueryDialogEditor))
-        {
-            QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
-            backButtonComponent.button.onClick.AddListener(() => { runnerAsEditor.SetCurrentDialogTopic(); });
-        }
     }
 
     UIDialogButton CreateBackButton(UnityEngine.Events.UnityAction action)
@@ -176,9 +171,12 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetAddButtonBehaviour(IEditorAddable addable, IEditorRenamable renamable, RefreshButtonsDelegate action)
     {
-
+        QueryDialogEditor runnerAsEditor = (QueryDialogEditor)runner;
+        runnerAsEditor.lastSelectedAddable = addable;
+        runnerAsEditor.lastSelectedRenamable = renamable;
+        runnerAsEditor.refreshButtonMethod = action;
+        runnerAsEditor.onSelect.Invoke();
     }
 }

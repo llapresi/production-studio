@@ -4,19 +4,21 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 
+public delegate void RefreshButtonsDelegate();
+
 // Extends QueryDialogRunner, adds shit to save and load JSON files
 // plus hooks for UI scene to let you add stuff to the currentQuery
 public class QueryDialogEditor : QueryDialogRunner
 {
-    // Stores current/last selected QueryDialogTopic
-    DialogQueryTopic currentDialogTopic = null;
-
     // Input field in the scene
     public TMP_InputField dialogInput;
 
     public IEditorRenamable lastSelectedRenamable;
+    public IEditorAddable lastSelectedAddable;
 
     public UnityEvent onSelect;
+
+    public RefreshButtonsDelegate refreshButtonMethod;
 
     protected override void Start()
     {
@@ -36,17 +38,6 @@ public class QueryDialogEditor : QueryDialogRunner
         Debug.Log(JsonUtility.ToJson(currentQuery));
     }
 
-    // Sets currentDialogTopic
-    public void SetCurrentDialogTopic(DialogQueryTopic p_topic = null)
-    {
-        currentDialogTopic = p_topic;
-        lastSelectedRenamable = currentDialogTopic;
-        if (lastSelectedRenamable != null)
-        {
-            onSelect.Invoke();
-        }
-    }
-
     // Overrides 'SetCurrentNode' from QueryDialogRunner to set the text of the dialogInput instead of the
     // textdisplay
     public override void SetCurrentNode(DialogNode newDialogNode)
@@ -62,20 +53,10 @@ public class QueryDialogEditor : QueryDialogRunner
         currentDialogNode.dialogText = dialogInput.text;
     }
 
-    public void HandleAddButton()
+    public void HandleAddButton(string newElementName = "New item")
     {
-        if(currentDialogTopic != null)
-        {
-            // If we have a QueryTopic opened, add a new DialogTreeWithId to it when we press this button
-            currentDialogTopic.conversations.Add(new DialogTreeWithId("New tree"));
-            buttonGroup.CreateButtonsForTopic(currentDialogTopic);
-        }
-        else
-        {
-            // If we don't, lets make a new QueryTopic
-            currentQuery.topics.Add(new DialogQueryTopic("new query topic"));
-            // Call CreateRootButtons to refresh the view after we make the new topic
-            buttonGroup.CreateRootButtons();
-        }
+        Debug.Log(lastSelectedAddable);
+        lastSelectedAddable.Add(newElementName);
+        refreshButtonMethod();
     }
 }

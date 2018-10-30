@@ -14,6 +14,8 @@ public class UIQueryEditorRenamePanel : MonoBehaviour {
 
     public void RefreshText()
     {
-        textInput.text = editorParent.lastSelectedRenamable.GetName();
+        if (editorParent.lastSelectedRenamable != null) {
+            textInput.text = editorParent.lastSelectedRenamable.GetName();
+        }
     }
 }

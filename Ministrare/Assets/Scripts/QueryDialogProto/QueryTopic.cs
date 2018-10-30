@@ -5,7 +5,7 @@ using UnityEngine;
 // Contains a list of DialogTrees for a given topic
 // this stores all the dialogs for "what is your RELATIONSHIP with another leader" stuff
 [System.Serializable]
-public class DialogQueryTopic : IEditorRenamable
+public class DialogQueryTopic : IEditorRenamable, IEditorAddable
 {
     public string identifier;
     public List<DialogTreeWithId> conversations;
@@ -30,6 +30,11 @@ public class DialogQueryTopic : IEditorRenamable
     public void SetName(string newName)
     {
         identifier = newName;
+    }
+
+    public void Add(string nameOfElementToAdd)
+    {
+        conversations.Add(new DialogTreeWithId(nameOfElementToAdd));
     }
 
     public DialogQueryTopic(string p_id)
