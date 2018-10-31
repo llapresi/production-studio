@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: e1c485122b720474497a471f338a79a3,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -879,7 +880,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363934278}
   m_HandleRect: {fileID: 1363934277}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2946,7 +2947,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0.45490196}
     m_HighlightedColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0.45490196}
     m_PressedColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0.627451}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0.16975303, b: 0.40392157, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3313,6 +3314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1879962934}
   - component: {fileID: 1879962935}
+  - component: {fileID: 1879962936}
   m_Layer: 0
   m_Name: RenameLastSelected
   m_TagString: Untagged
@@ -3353,6 +3355,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorParent: {fileID: 1231191220}
   textInput: {fileID: 705828655}
+  renamePanelCanvasGroup: {fileID: 1879962936}
+--- !u!225 &1879962936
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879962933}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2063959668
 GameObject:
   m_ObjectHideFlags: 0
