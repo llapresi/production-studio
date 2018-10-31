@@ -14,7 +14,6 @@ public class QueryDialogRunner : MonoBehaviour
 
     // UI Elements
     public TextMeshProUGUI dialogDisplay;
-    public UIDialogButton[] choiceButtons;
 
     // Dialog tree our runner is running
     public DialogQuery currentQuery;

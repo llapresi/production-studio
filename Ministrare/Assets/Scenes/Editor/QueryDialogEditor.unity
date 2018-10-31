@@ -2344,7 +2344,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   buttonGroup: {fileID: 923686515}
-  dialogToLoad: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
+  dialogToLoad: {fileID: 0}
   dialogInput: {fileID: 1498335704}
   onSelect:
     m_PersistentCalls:
@@ -2363,7 +2363,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   pathDisplay: {fileID: 544785738}
-  editorDialogPath: Dialog/testQuery
+  editorDialogPath: Dialog/testQuery 2
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
