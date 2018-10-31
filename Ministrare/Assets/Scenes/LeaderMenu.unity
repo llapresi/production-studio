@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Scenes/QueryDialogTest
-  dialogPathToLoad: Dialog/anotherTestQuery
+  dialogPathToLoad: Dialog/testQuery 2
   paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &2128530811
 GameObject:

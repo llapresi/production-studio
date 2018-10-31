@@ -24,8 +24,8 @@ public class NPCandLordHolder : ScriptableObject {
 
    public void OnEnable()
    {
-
-   }
+        this.hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 
     public void Initialize()
     {
