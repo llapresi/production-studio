@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 
     private bool backgroundIn;
     private static bool created = false;
-
+    [SerializeField]
+    private NPCandLordHolder NPCLordHolder;
     // Use this for initialization
     void Start()
     {
         if(!created)
         {
+            NPCLordHolder.Initialize();
             DontDestroyOnLoad(this.gameObject);
             created = true;
         }
