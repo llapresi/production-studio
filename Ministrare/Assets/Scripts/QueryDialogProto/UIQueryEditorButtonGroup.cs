@@ -124,11 +124,11 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         var backButtonComponent = CreateBackButton(onBackButton);
 
         // Set add button
-        SetAddButtonBehaviour(tree.dialogTree, tree, () => {
+        SetAddButtonBehaviour(tree, tree, () => {
             CreateButtonsForDialogTree(tree, onBackButton, basePathString);
         });
 
-        foreach (DialogNodeWithID node in tree.dialogTree.dialogNodes)
+        foreach (DialogNodeWithID node in tree.dialogNodes)
         {
             // Make button prefab
             GameObject nodeButtonObject = Instantiate(editorButtonPrefab) as GameObject;
@@ -151,7 +151,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
             // Set onClick for the remove
             nodeDeleteButton.onClick.AddListener(() =>
             {
-                tree.dialogTree.dialogNodes.Remove(node);
+                tree.dialogNodes.Remove(node);
                 CreateButtonsForDialogTree(tree, onBackButton, basePathString);
             });
 

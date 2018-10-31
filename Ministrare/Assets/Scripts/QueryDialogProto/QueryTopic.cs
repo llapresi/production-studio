@@ -16,7 +16,7 @@ public class DialogQueryTopic : IEditorRenamable, IEditorAddable
         {
             if (convo.identifier == id)
             {
-                return convo.dialogTree;
+                return convo;
             }
         }
         return null;
@@ -46,14 +46,12 @@ public class DialogQueryTopic : IEditorRenamable, IEditorAddable
 
 // Gives each dialogTree an id to identify itself by in a QueryTopic
 [System.Serializable]
-public class DialogTreeWithId : IEditorRenamable
+public class DialogTreeWithId : DialogTree, IEditorRenamable
 {
     public string identifier;
-    public DialogTree dialogTree;
 
-    public DialogTreeWithId(string p_id)
+    public DialogTreeWithId(string p_id) : base()
     {
-        dialogTree = new DialogTree();
         identifier = p_id;
     }
 

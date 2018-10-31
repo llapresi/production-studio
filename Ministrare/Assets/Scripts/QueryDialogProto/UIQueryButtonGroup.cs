@@ -64,7 +64,7 @@ public class UIQueryButtonGroup : BaseButtonGroup
             GameObject convoButton = Instantiate(buttonPrefab) as GameObject;
             var convoButtonComponent = convoButton.GetComponent<UIDialogButton>();
             convoButtonComponent.text.text = convo.identifier;
-            convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogTree.dialogNodes[0]));
+            convoButtonComponent.button.onClick.AddListener(() => runner.SetCurrentNode(convo.dialogNodes[0]));
             convoButton.transform.SetParent(this.gameObject.transform, false);
         }
 
