@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.IO;
 
 public delegate void RefreshButtonsDelegate();
 
@@ -21,6 +22,8 @@ public class QueryDialogEditor : QueryDialogRunner
     public RefreshButtonsDelegate refreshButtonMethod;
     public TextMeshProUGUI pathDisplay;
 
+    public string editorDialogPath;
+
     public string CurrentPath
     {
         get
@@ -36,7 +39,12 @@ public class QueryDialogEditor : QueryDialogRunner
 
     protected override void Start()
     {
-        base.Start();
+        // overriding to not use the dialogToLoad ScriptableObject and use a text path instead
+        // Load our test JSON dialogQuery
+        TextAsset targetFile = Resources.Load<TextAsset>(editorDialogPath);
+        currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
+
+        buttonGroup.InitButtonGroup(this);
     }
 
     public void RenameDialogTopic(string newName)
@@ -46,10 +54,29 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public void SaveJSON()
     {
-        // Right now we're just exporting to the console
-        // Should read this page in the documentation on how to actually make this save a file
-        // https://support.unity3d.com/hc/en-us/articles/115000341143-How-do-I-read-and-write-data-from-a-text-file-
-        Debug.Log(JsonUtility.ToJson(currentQuery));
+        string path = null;
+#if UNITY_EDITOR
+        path = string.Format("Assets/Resources/{0}.json", editorDialogPath);
+#endif
+
+        // Don't run this in a standalone build
+        if(path == null)
+        {
+            return;
+        }
+
+        string str = JsonUtility.ToJson(currentQuery);
+        using (FileStream fs = new FileStream(path, FileMode.Create))
+        {
+            using (StreamWriter writer = new StreamWriter(fs))
+            {
+                writer.Write(str);
+            }
+        }
+#if UNITY_EDITOR
+        UnityEditor.AssetDatabase.Refresh();
+        Debug.Log(string.Format("file saved to {0}", path));
+#endif
     }
 
     // Overrides 'SetCurrentNode' from QueryDialogRunner to set the text of the dialogInput instead of the

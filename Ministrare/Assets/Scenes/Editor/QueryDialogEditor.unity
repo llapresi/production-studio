@@ -2363,6 +2363,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   pathDisplay: {fileID: 544785738}
+  editorDialogPath: Dialog/testQuery
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
