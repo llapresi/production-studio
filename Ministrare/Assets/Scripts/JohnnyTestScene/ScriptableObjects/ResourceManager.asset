@@ -27,17 +27,17 @@ MonoBehaviour:
   initEGHappinessEfficiency: 1
   initEGMilitaryGained: 0
   initHappiness: 100
-  runtimeFoodStorage: 100
+  runtimeFoodStorage: 70
   runtimeFoodUpkeep: 30
   runtimeFoodProduction: 20
   runtimeFoodHappinessEfficiency: 1
   runtimeFoodMiliaryGained: 0
-  runtimeGoldStorage: 100
+  runtimeGoldStorage: 130
   runtimeGoldUpkeep: 20
   runtimeGoldProduction: 30
   runtimeGoldHappinessEfficiency: 1
   runtimeGoldMiliaryGained: 0
-  runtimeEGStorage: 100
+  runtimeEGStorage: 190
   runtimeEGUpkeep: 10
   runtimeEGProduction: 40
   runtimeEGHappinessEfficiency: 1

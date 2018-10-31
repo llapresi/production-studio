@@ -10,11 +10,10 @@ using UnityEngine.Events;
 public class QueryDialogRunner : MonoBehaviour
 {
     // Stores our current node
-    DialogNode currentDialogNode;
+    protected DialogNode currentDialogNode;
 
     // UI Elements
     public TextMeshProUGUI dialogDisplay;
-    public UIDialogButton[] choiceButtons;
 
     // Dialog tree our runner is running
     public DialogQuery currentQuery;
@@ -22,23 +21,22 @@ public class QueryDialogRunner : MonoBehaviour
     // Test to update the GUI
     public UnityEvent updateGUI;
 
-    public UIQueryButtonGroup buttonGroup;
+    public BaseButtonGroup buttonGroup;
 
     // Set the value of the SingletonVar we're gonna plug in here before we load the Query Dialog Scene
     public NextJSONToLoad dialogToLoad;
 
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         // Load our test JSON dialogQuery
         TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
-        buttonGroup.rootQuery = currentQuery;
-        buttonGroup.CreateRootButtons();
+        buttonGroup.InitButtonGroup(this);
     }
 
-    public void SetCurrentNode(DialogNode newDialogNode)
+    public virtual void SetCurrentNode(DialogNode newDialogNode)
     {
         currentDialogNode = newDialogNode;
         dialogDisplay.text = currentDialogNode.dialogText;

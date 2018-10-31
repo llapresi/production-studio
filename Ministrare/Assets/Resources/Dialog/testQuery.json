@@ -5,35 +5,43 @@
       "conversations": [
         {
           "identifier": "test convo",
-          "dialogTree": {
-            "dialogNodes": [
-              {
-                "dialogText": "This is a test response for conversation 'testconvo'",
-                "nextNodes": [
+          "dialogNodes": [
+            {
+              "identifier": "10 percent",
+              "dialogText": "This is a test response for conversation 'testconvo'",
+              "nextNodes": [
 
-                ],
-                "serializedActions": [
+              ],
+              "serializedActions": [
 
-                ]
-              }
-            ]
-          }
+              ]
+            }
+          ]
         },
         {
           "identifier": "test convo 2",
-          "dialogTree": {
-            "dialogNodes": [
-              {
-                "dialogText": "This is a another test response for conversation 'testconvo 2",
-                "nextNodes": [
+          "dialogNodes": [
+            {
+              "identifier": "10 percent",
+              "dialogText": "This is a another test response for conversation 'testconvo 2",
+              "nextNodes": [
 
-                ],
-                "serializedActions": [
+              ],
+              "serializedActions": [
 
-                ]
-              }
-            ]
-          }
+              ]
+            },
+            {
+              "identifier": "20 percent",
+              "dialogText": "This is a another second response for conversation 'testconvo 2",
+              "nextNodes": [
+
+              ],
+              "serializedActions": [
+
+              ]
+            }
+          ]
         }
       ]
     },
@@ -42,35 +50,33 @@
       "conversations": [
         {
           "identifier": "test convo 3",
-          "dialogTree": {
-            "dialogNodes": [
-              {
-                "dialogText": "This is a test response for conversation 'testconvo 3'",
-                "nextNodes": [
+          "dialogNodes": [
+            {
+              "identifier": "10 percent",
+              "dialogText": "This is a test response for conversation 'testconvo 3'",
+              "nextNodes": [
 
-                ],
-                "serializedActions": [
+              ],
+              "serializedActions": [
 
-                ]
-              }
-            ]
-          }
+              ]
+            }
+          ]
         },
         {
           "identifier": "test convo 4",
-          "dialogTree": {
-            "dialogNodes": [
-              {
-                "dialogText": "This is a another test response for conversation 'testconvo 4",
-                "nextNodes": [
+          "dialogNodes": [
+            {
+              "identifier": "10 percent",
+              "dialogText": "This is a another test response for conversation 'testconvo 4",
+              "nextNodes": [
 
-                ],
-                "serializedActions": [
+              ],
+              "serializedActions": [
 
-                ]
-              }
-            ]
-          }
+              ]
+            }
+          ]
         }
       ]
     }
