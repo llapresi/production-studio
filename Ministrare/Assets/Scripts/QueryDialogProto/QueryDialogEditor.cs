@@ -52,6 +52,11 @@ public class QueryDialogEditor : QueryDialogRunner
         lastSelectedRenamable.SetName(newName);
     }
 
+    public void RefreshButtons()
+    {
+        refreshButtonMethod();
+    }
+
     public void SaveJSON()
     {
         string path = null;
