@@ -5,6 +5,7 @@ using UnityEngine;
 //NOTE: Should get placed on button and have the onclick be the researching function
 public class ClickResearch : MonoBehaviour {
     public TechTree localTree;
+    public StructureManager localStructs;
     public TimerTime localTimer;
 
     float scienceHappiness;  // default value until happiness is able to be accessed
@@ -24,13 +25,23 @@ public class ClickResearch : MonoBehaviour {
             // places tech in researched tech array and resets local values
             localTree.runtimeNodes[localTree.holdPlace].researched = true;
             localTree.researched[localTree.holdPlace] = localTree.runtimeNodes[localTree.holdPlace].ChooseTech(scienceHappiness);
+            localTree.totalBoost += localTree.researched[localTree.holdPlace].boost;
+
+            // adds structure if one exists and places it into array to wait for building
+            if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
+            {
+                if (localStructs.runStruct[0].boost == 0)
+                    localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
+                else
+                    localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
+            }
+            
+            // resets values
             localTree.holdPlace = -1;
             localTree.localCost = -1;
         }
 
-        // Used only for testing if button doesn't work
-        // increase the days from the TestTimerTime singleton var to test tech being researched properly
-        //Researching();
+        
     }
 
     // checks if anything is being researched, if not, move on to new tech

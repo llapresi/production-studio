@@ -12,172 +12,312 @@ MonoBehaviour:
   m_Name: ScienceTree
   m_EditorClassIdentifier: 
   initNodes:
-  - name: Test
+  - name: Test1
     dayCost: 1
-    researched: 0
+    researched: 1
     low:
-      name: Level1
-      isStructure: 0
+      name: Level1-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 5
     mid:
-      name: Level2
-      isStructure: 0
+      name: Level1-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 10
     high:
-      name: Level3
-      isStructure: 0
+      name: Level1-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 15
   - name: Test2
     dayCost: 3
-    researched: 0
+    researched: 1
     low:
-      name: Level1-2
-      isStructure: 0
+      name: Level2-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 10
     mid:
-      name: 
-      isStructure: 0
+      name: Level2-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
+      name: Level2-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
   - name: Test3
     dayCost: 5
-    researched: 0
+    researched: 1
     low:
-      name: Level1-3
-      isStructure: 0
+      name: Level3-1
+      structure:
+        name: Struct3-1
+        dayCost: 5
+        boost: 5
+        built: 1
       boost: 15
     mid:
-      name: 
-      isStructure: 0
+      name: Levele3-2
+      structure:
+        name: Struct3-2
+        dayCost: 5
+        boost: 10
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
-      boost: 0
+      name: Level3-3
+      structure:
+        name: Struct3-3
+        dayCost: 5
+        boost: 15
+        built: 0
+      boost: 15
   - name: Test4
     dayCost: 7
     researched: 0
     low:
-      name: Level1-4
-      isStructure: 0
+      name: Level4-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 20
     mid:
-      name: 
-      isStructure: 0
+      name: Level4-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
+      name: Level4-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
   - name: Test5
     dayCost: 9
     researched: 0
     low:
-      name: Level1-5
-      isStructure: 0
+      name: Level5-1
+      structure:
+        name: Struct5-1
+        dayCost: 10
+        boost: 15
+        built: 0
       boost: 25
     mid:
-      name: 
-      isStructure: 0
-      boost: 0
+      name: Level5-2
+      structure:
+        name: Struct5-2
+        dayCost: 10
+        boost: 20
+        built: 0
+      boost: 20
     high:
-      name: 
-      isStructure: 0
+      name: Level5-3
+      structure:
+        name: Struct
+        dayCost: 10
+        boost: 25
+        built: 0
       boost: 0
   runtimeNodes:
-  - name: Test
+  - name: Test1
     dayCost: 1
-    researched: 0
+    researched: 1
     low:
-      name: Level1
-      isStructure: 0
+      name: Level1-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 5
     mid:
-      name: Level2
-      isStructure: 0
+      name: Level1-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 10
     high:
-      name: Level3
-      isStructure: 0
+      name: Level1-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 15
   - name: Test2
     dayCost: 3
-    researched: 0
+    researched: 1
     low:
-      name: Level1-2
-      isStructure: 0
+      name: Level2-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 10
     mid:
-      name: 
-      isStructure: 0
+      name: Level2-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
+      name: Level2-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
   - name: Test3
     dayCost: 5
-    researched: 0
+    researched: 1
     low:
-      name: Level1-3
-      isStructure: 0
+      name: Level3-1
+      structure:
+        name: Struct3-1
+        dayCost: 5
+        boost: 5
+        built: 1
       boost: 15
     mid:
-      name: 
-      isStructure: 0
+      name: Levele3-2
+      structure:
+        name: Struct3-2
+        dayCost: 5
+        boost: 10
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
-      boost: 0
+      name: Level3-3
+      structure:
+        name: Struct3-3
+        dayCost: 5
+        boost: 15
+        built: 0
+      boost: 15
   - name: Test4
     dayCost: 7
     researched: 0
     low:
-      name: Level1-4
-      isStructure: 0
+      name: Level4-1
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 20
     mid:
-      name: 
-      isStructure: 0
+      name: Level4-2
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
     high:
-      name: 
-      isStructure: 0
+      name: Level4-3
+      structure:
+        name: 
+        dayCost: 0
+        boost: 0
+        built: 0
       boost: 0
   - name: Test5
     dayCost: 9
     researched: 0
     low:
-      name: Level1-5
-      isStructure: 0
+      name: Level5-1
+      structure:
+        name: Struct5-1
+        dayCost: 10
+        boost: 15
+        built: 0
       boost: 25
     mid:
-      name: 
-      isStructure: 0
-      boost: 0
+      name: Level5-2
+      structure:
+        name: Struct5-2
+        dayCost: 10
+        boost: 20
+        built: 0
+      boost: 20
     high:
-      name: 
-      isStructure: 0
+      name: Level5-3
+      structure:
+        name: Struct
+        dayCost: 10
+        boost: 25
+        built: 0
       boost: 0
   researched:
   - name: 
-    isStructure: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
     boost: 0
   - name: 
-    isStructure: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
     boost: 0
   - name: 
-    isStructure: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
     boost: 0
   - name: 
-    isStructure: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
     boost: 0
   - name: 
-    isStructure: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
     boost: 0
-  localCost: -1
-  holdPlace: -1
+  localCost: 21
+  holdPlace: 3

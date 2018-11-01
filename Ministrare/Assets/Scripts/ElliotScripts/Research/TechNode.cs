@@ -11,7 +11,7 @@ public class TechNode {
     public Technology low = new Technology();
     public Technology mid = new Technology();
     public Technology high = new Technology();
-
+    public Structure structure;
     public Technology ChooseTech(float scienceHappiness)
     {
         if (scienceHappiness < 1f)
