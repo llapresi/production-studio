@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class IndustryLeader {
@@ -12,7 +14,7 @@ public class IndustryLeader {
     private int sadness;
     private int boredom;
     private int inspiration;
-
+    private double workEffectiveness;
     //Conversation only stats
     private int attention;
     private int relationshipValue;
@@ -24,25 +26,64 @@ public class IndustryLeader {
     private int agreeableness;
     private int neuroticism;
 
+    //Arrays
+    private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
+    private string[] Traits = new string[] { "O","C", "E", "A", "N"};
+    private int[] traitsValue;
+
+    //PersonalityData
+    PersonalityValues personalityValues;
+
 	// Use this for initialization
 	public IndustryLeader () {
-        // Mood value initialization
-        happiness = Random.Range(0, 100);
-        angriness = Random.Range(0, 100);
-        greediness = Random.Range(0, 100);
-        fearfulness = Random.Range(0, 100);
-        sadness = Random.Range(0, 100);
-        boredom = Random.Range(0, 100);
-        inspiration = Random.Range(0, 100);
         // Conversation only stats
         attention = 100;
-        relationshipValue = Random.Range(50, 100);
+        relationshipValue = UnityEngine.Random.Range(50, 100);
         // Personality Traits
-        openness = Random.Range(1, 5);
-        conscientiousness = Random.Range(1, 5);
-        extraversion = Random.Range(1, 5);
-        agreeableness = Random.Range(1, 5);
-        neuroticism = Random.Range(1, 5);
+        openness = UnityEngine.Random.Range(1, 5);
+        conscientiousness = UnityEngine.Random.Range(1, 5);
+        extraversion = UnityEngine.Random.Range(1, 5);
+        agreeableness = UnityEngine.Random.Range(1, 5);
+        neuroticism = UnityEngine.Random.Range(1, 5);
+        traitsValue = new int[] { openness, conscientiousness, extraversion, agreeableness, neuroticism };
+        personalityValues = new PersonalityValues();
+        generateStartingMoods();
+    }
+
+    public void generateStartingMoods()
+    {
+        for (int x = 0; x < Moods.Length; x++)
+        {
+            int sum = 0;
+            string moodLetter = Moods[x];
+            for (int y = 0; y < Traits.Length; y++)
+            {
+                string traitsLetter = Traits[y];
+                string personalityVar = moodLetter + traitsLetter + traitsValue[y].ToString();
+                Type type = personalityValues.GetType();
+                FieldInfo fieldInfo = type.GetField(personalityVar);
+                object value = fieldInfo.GetValue(personalityValues);
+                int personalityValueInput = (int)value;
+                sum = sum + personalityValueInput;
+            }
+            if (x == 0)
+            {
+                happiness = sum * 5 + 50;
+            } else if (x == 1)
+            {
+                agreeableness = sum * 5 + 50;
+            } else if (x == 2) {
+                greediness = sum * 5 + 50;
+            } else if (x == 3) {
+                fearfulness = sum * 5 + 50;
+            } else if (x == 4) {
+                sadness = sum * 5 + 50;
+            } else if (x == 5) {
+                boredom = sum * 5 + 50;
+            } else if(x == 6) {
+                inspiration = sum * 5 + 50;
+            }
+        }
     }
 
     //setters and getters
@@ -125,6 +166,19 @@ public class IndustryLeader {
         {
             inspiration = value;
         }
+    }
+
+    public double WorkEffectiveness
+    {
+        get
+        {
+            return workEffectiveness;
+        }
+        set
+        {
+            workEffectiveness = value;
+        }
+
     }
     #endregion
     #region Conversation only Setters and Getters

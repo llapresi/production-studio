@@ -56,11 +56,11 @@ public class PersonalityValues{
     public int AE4 = 1;
     public int AE5 = 2;
     // Angriness affected by Agreeableness
-    public int AA1 = -2;
-    public int AA2 = -1;
+    public int AA1 = 2;
+    public int AA2 = 1;
     public int AA3 = 1;
-    public int AA4 = 1;
-    public int AA5 = 2;
+    public int AA4 = -1;
+    public int AA5 = -2;
     // Angriness affected by Neuroticism
     public int AN1 = 0;
     public int AN2 = 1;
@@ -180,11 +180,11 @@ public class PersonalityValues{
     public int IE4 = 0;
     public int IE5 = 1;
     // Inspiration affected by Agreeableness
-    public int IA1 = 0;
-    public int IA2 = 0;
+    public int IA1 = 1;
+    public int IA2 = 2;
     public int IA3 = 1;
-    public int IA4 = 2;
-    public int IA5 = 3;
+    public int IA4 = -1;
+    public int IA5 = -2;
     // Inspiration affected by Neuroticism
     public int IN1 = 0;
     public int IN2 = 0;
