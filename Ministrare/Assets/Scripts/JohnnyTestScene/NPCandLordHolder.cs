@@ -50,4 +50,32 @@ public class NPCandLordHolder : ScriptableObject {
         // enemy Leader Initialization
         EnemyLord = new Lord();
     }
+
+    public void doDailyworkEffeciency()
+    {
+        AllyBuilder.generateWorkEfficiency();
+        AllyFarmer.generateWorkEfficiency();
+        AllyGeneral.generateWorkEfficiency();
+        AllyMerchant.generateWorkEfficiency();
+        AllyScholar.generateWorkEfficiency();
+        EnemyBuilder.generateWorkEfficiency();
+        EnemyFarmer.generateWorkEfficiency();
+        EnemyGeneral.generateWorkEfficiency();
+        EnemyMerchant.generateWorkEfficiency();
+        EnemyScholar.generateWorkEfficiency();
+    }
+
+    public void doDailyMoodChange()
+    {
+        AllyBuilder.dailyMoodChange();
+        AllyFarmer.dailyMoodChange();
+        AllyGeneral.dailyMoodChange();
+        AllyMerchant.dailyMoodChange();
+        AllyScholar.dailyMoodChange();
+        EnemyBuilder.dailyMoodChange();
+        EnemyFarmer.dailyMoodChange();
+        EnemyGeneral.dailyMoodChange();
+        EnemyMerchant.dailyMoodChange();
+        EnemyScholar.dailyMoodChange();
+    }
 }
