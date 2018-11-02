@@ -77,5 +77,6 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyGeneral.dailyMoodChange();
         EnemyMerchant.dailyMoodChange();
         EnemyScholar.dailyMoodChange();
+        doDailyworkEffeciency();
     }
 }
