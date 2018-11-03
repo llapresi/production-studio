@@ -11,6 +11,8 @@ public class TimerRunner : MonoBehaviour {
 
     [SerializeField]
     private ResourceManager resourceManager;
+    [SerializeField]
+    private NPCandLordHolder NPCLordHolder;
 
     public UnityEvent onNewDay;
 
