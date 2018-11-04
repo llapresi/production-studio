@@ -14,7 +14,7 @@ MonoBehaviour:
   initialHours: 0
   initialMin: 0
   initialDayCount: 0
-  hours: 1
-  minutes: 31.660769
-  dayCount: 25
+  hours: 0
+  minutes: 39.90757
+  dayCount: 0
   paused: 0
