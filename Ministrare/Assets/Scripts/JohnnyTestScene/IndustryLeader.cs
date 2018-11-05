@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class IndustryLeader {
@@ -12,7 +14,7 @@ public class IndustryLeader {
     private int sadness;
     private int boredom;
     private int inspiration;
-
+    private double workEfficiency;
     //Conversation only stats
     private int attention;
     private int relationshipValue;
@@ -24,25 +26,232 @@ public class IndustryLeader {
     private int agreeableness;
     private int neuroticism;
 
+    //Arrays
+    private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
+    private string[] Traits = new string[] { "O","C", "E", "A", "N"};
+    private int[] traitsValue;
+
+    //PersonalityData
+    PersonalityValues personalityValues;
+
 	// Use this for initialization
 	public IndustryLeader () {
-        // Mood value initialization
-        happiness = Random.Range(0, 100);
-        angriness = Random.Range(0, 100);
-        greediness = Random.Range(0, 100);
-        fearfulness = Random.Range(0, 100);
-        sadness = Random.Range(0, 100);
-        boredom = Random.Range(0, 100);
-        inspiration = Random.Range(0, 100);
         // Conversation only stats
         attention = 100;
-        relationshipValue = Random.Range(50, 100);
+        relationshipValue = UnityEngine.Random.Range(50, 100);
         // Personality Traits
-        openness = Random.Range(1, 5);
-        conscientiousness = Random.Range(1, 5);
-        extraversion = Random.Range(1, 5);
-        agreeableness = Random.Range(1, 5);
-        neuroticism = Random.Range(1, 5);
+        openness = UnityEngine.Random.Range(1, 5);
+        conscientiousness = UnityEngine.Random.Range(1, 5);
+        extraversion = UnityEngine.Random.Range(1, 5);
+        agreeableness = UnityEngine.Random.Range(1, 5);
+        neuroticism = UnityEngine.Random.Range(1, 5);
+        //openness = 4;
+        //conscientiousness = 4;
+        //extraversion = 1;
+        //agreeableness = 3;
+        //neuroticism = 2;
+        traitsValue = new int[] { openness, conscientiousness, extraversion, agreeableness, neuroticism };
+        personalityValues = new PersonalityValues();
+        generateStartingMoods();
+        generateWorkEfficiency();
+    }
+
+    public void generateStartingMoods()
+    {
+        for (int x = 0; x < Moods.Length; x++)
+        {
+            int sum = 0;
+            string moodLetter = Moods[x];
+            for (int y = 0; y < Traits.Length; y++)
+            {
+                string traitsLetter = Traits[y];
+                string personalityVar = moodLetter + traitsLetter + traitsValue[y].ToString();
+                Type type = personalityValues.GetType();
+                FieldInfo fieldInfo = type.GetField(personalityVar);
+                object value = fieldInfo.GetValue(personalityValues);
+                int personalityValueInput = (int)value;
+                if(x == 0 && y == 4)
+                {
+                    personalityValueInput = personalityValueInput * -1;
+                }
+                sum = sum + personalityValueInput;
+            }
+            if (x == 0)
+            {
+                happiness = sum * 5 + 50;
+            } else if (x == 1)
+            {
+                angriness = sum * 5 + 50;
+            } else if (x == 2) {
+                greediness = sum * 5 + 50;
+            } else if (x == 3) {
+                fearfulness = sum * 5 + 50;
+            } else if (x == 4) {
+                sadness = sum * 5 + 50;
+            } else if (x == 5) {
+                boredom = sum * 5 + 50;
+            } else if(x == 6) {
+                inspiration = sum * 5 + 50;
+            }
+        }
+    }
+
+    public void generateWorkEfficiency()
+    {
+        int numSum = angriness + greediness + fearfulness + sadness + (100 - inspiration) + boredom;
+        double avg = (double)numSum / 6;
+        workEfficiency = happiness - avg;
+    }
+
+    public void dailyMoodChange()
+    {
+        int thirdRandom = UnityEngine.Random.Range(1, 10);
+        for (int x = 0; x < Moods.Length; x++)
+        {
+            // Looks to see if they are affected by daily change in the first place
+            int firstRandom = UnityEngine.Random.Range(1, 100);
+            int NCompare = neuroticism * 20;
+            if (firstRandom > NCompare)
+            {
+                // if the random is bigger then the nueroticism times 5, no change in Mood
+            }
+            else if (firstRandom <= NCompare)
+            {
+                // See if the change will be negative or positive
+                int secondRandom = UnityEngine.Random.Range(1, 100);
+                int change;
+                if (secondRandom <= 50)
+                {
+                    change = 1;
+                }
+                else
+                {
+                    change = -1;
+                }
+                string moodLetter = Moods[x];
+                int sum = 0;
+                // see if we are adding all the personality values to the mood or just the neuroticism value
+                if (thirdRandom - 1 == x)
+                {
+                    // run through all the personality values to find the sum of change
+                    for (int y =0; y < Traits.Length; y++)
+                    {
+                        string traitLetter = Traits[y];
+                        int traitValue = traitsValue[y];
+                        string personalityVar = moodLetter + traitLetter + traitValue.ToString();
+                        Type type = personalityValues.GetType();
+                        FieldInfo fieldInfo = type.GetField(personalityVar);
+                        object value = fieldInfo.GetValue(personalityValues);
+                        int personalityValueInput = (int)value;
+                        if (x == 0 && y == 4)
+                        {
+                            personalityValueInput = personalityValueInput * -1;
+                        }
+                        sum = sum + personalityValueInput;
+                    }
+                    sum = sum * change;
+                } else
+                {
+                    // just get the neuroticism value
+                    int traitValue = traitsValue[4];
+                    string personalityVar = moodLetter + "N" + traitValue.ToString();
+                    Type type = personalityValues.GetType();
+                    FieldInfo fieldInfo = type.GetField(personalityVar);
+                    object value = fieldInfo.GetValue(personalityValues);
+                    int personalityValueInput = (int)value;
+                    if (x == 0)
+                    {
+                        personalityValueInput = personalityValueInput * -1;
+                    }
+                    sum = personalityValueInput * change;
+                }
+                if (x == 0)
+                {
+                    happiness = happiness + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (happiness > 100)
+                    {
+                        happiness = 100;
+                    } else if (happiness < 0)
+                    {
+                        happiness = 0;
+                    }
+                }
+                else if (x == 1)
+                {
+                    angriness = angriness + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (angriness > 100)
+                    {
+                        angriness = 100;
+                    } else if(angriness < 0)
+                    {
+                        angriness = 0;
+                    }
+                }
+                else if (x == 2)
+                {
+                    greediness = greediness + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (greediness > 100)
+                    {
+                        greediness = 100;
+                    } else if (greediness < 0)
+                    {
+                        greediness = 0;
+                    }
+                }
+                else if (x == 3)
+                {
+                    fearfulness = fearfulness + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (fearfulness > 100)
+                    {
+                        fearfulness = 100;
+                    } else if (fearfulness < 0)
+                    {
+                        fearfulness = 0;
+                    }
+                }
+                else if (x == 4)
+                {
+                    sadness = sadness + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (sadness > 100)
+                    {
+                        sadness = 100;
+                    } else if(sadness < 0)
+                    {
+                        sadness = 0;
+                    }
+                }
+                else if (x == 5)
+                {
+                    boredom = boredom + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (boredom > 100)
+                    {
+                        boredom = 100;
+                    } else if (boredom < 0)
+                    {
+                        boredom = 0;
+                    }
+                }
+                else if (x == 6)
+                {
+                    inspiration = inspiration + sum;
+                    // make sure the value does not go above 100 or below 0
+                    if (inspiration > 100)
+                    {
+                        inspiration = 100;
+                    } else if (inspiration < 0)
+                    {
+                        inspiration = 0;
+                    }
+                }
+
+            }
+        }
     }
 
     //setters and getters
@@ -125,6 +334,19 @@ public class IndustryLeader {
         {
             inspiration = value;
         }
+    }
+
+    public double WorkEfficiency
+    {
+        get
+        {
+            return workEfficiency;
+        }
+        set
+        {
+            workEfficiency = value;
+        }
+
     }
     #endregion
     #region Conversation only Setters and Getters
