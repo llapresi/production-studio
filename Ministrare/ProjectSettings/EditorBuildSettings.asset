@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/Enemy Lord.unity
     guid: 89ff5c90b8bb90d46aa50c4f810a07a4
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/MainMenuUI.unity
+    guid: f9834b156066d1c499f1fb891e042121
   m_configObjects: {}

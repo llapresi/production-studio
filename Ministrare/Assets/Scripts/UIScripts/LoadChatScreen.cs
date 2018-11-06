@@ -4,36 +4,41 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIScript : MonoBehaviour {
+public class LoadChatScreen : MonoBehaviour {
 
-    private bool paused;
-    public GameObject canvas;
+    // Name of scene to load
+    public string sceneName;
+    // This is going to point to a static class that we'll use to set things like what JSON file to load
+    //public string dialogPathToLoad;
+    // SingletonVar that will be passed into the next scene. FWIW only dialog scenes are using this rn but we're probably going to have to
+    // create a way to either extend this later
+    // OR we're not gonna be using this once we have your leader entites set up
+    public NextJSONToLoad paramObj;
 
-	// Use this for initialization
-	void Start ()
+    public void Load( string dialogPathToLoad)
     {
-        paused = false;
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown("escape"))
+        //  set param stuff first
+        if (paramObj != null)
         {
-            if (!paused)
-            {
-                canvas.gameObject.SetActive(true);
-                paused = true;
-            }
-            else
-            {
-                canvas.gameObject.SetActive(false);
-                paused = false;
-            }
+            paramObj.runtimeDialogPath = dialogPathToLoad;
         }
-	}
+        //StartCoroutine(LoadAsyncScene());
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
 
-    public void Load(string level)
+    IEnumerator LoadAsyncScene()
     {
-        SceneManager.LoadScene(level, LoadSceneMode.Additive);
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
