@@ -72,6 +72,14 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     public NPCandLordHolder nPCandLordHolder;
 
+    public TechTree merchantTech;
+    public TechTree farmTech;
+    public TechTree productionTech;
+
+    public StructureManager merchantStruct;
+    public StructureManager farmStruct;
+    public StructureManager productionStruct;
+
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
@@ -101,9 +109,9 @@ public class ResourceManager : ScriptableObject {
         nPCandLordHolder.doDailyMoodChange();
         // calculate total food, gold and EG produced
         
-        int totalFoodProduced = (int)((nPCandLordHolder.AllyFarmer.WorkEfficiency/100) * runtimeFoodProduction + runtimeFoodMiliaryGained);
-        int totalGoldProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeGoldProduction + runtimeGoldMiliaryGained);
-        int totalEGProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeEGProduction + runtimeEGMiliaryGained);
+        int totalFoodProduced = (int)((nPCandLordHolder.AllyFarmer.WorkEfficiency/100) * runtimeFoodProduction + runtimeFoodMiliaryGained + farmTech.totalBoost + farmStruct.totalBoost);
+        int totalGoldProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeGoldProduction + runtimeGoldMiliaryGained + merchantTech.totalBoost + merchantStruct.totalBoost);
+        int totalEGProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeEGProduction + runtimeEGMiliaryGained + productionTech.totalBoost + productionStruct.totalBoost);
         // Factor in the production and upkeep to get new storage amounts 
         runtimeFoodStorage = runtimeFoodStorage + totalFoodProduced - runtimeFoodUpkeep;
         runtimeGoldStorage = runtimeGoldStorage + totalGoldProduced - runtimeGoldUpkeep;
