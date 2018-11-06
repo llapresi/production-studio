@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "NPCandLordHolder", menuName = "Ministrare/SingletonVars/NPCandLordHolder", order = 3)]
+
 public class NPCandLordHolder : ScriptableObject {
 
     // Allies

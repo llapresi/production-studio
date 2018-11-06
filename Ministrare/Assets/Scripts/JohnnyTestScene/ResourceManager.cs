@@ -18,8 +18,6 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initFoodProduction = 20;
     [SerializeField]
-    private double initFoodHappinessEfficiency = 1;
-    [SerializeField]
     private int initFoodMilitaryGained = 0;
     //Gold
     [Header("Gold")]
@@ -30,8 +28,6 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initGoldProduction = 30;
     [SerializeField]
-    private double initGoldHappinessEfficiency = 1;
-    [SerializeField]
     private int initGoldMilitaryGained = 0;
     //Exotic Goods
     [Header("Exotic")]
@@ -41,8 +37,6 @@ public class ResourceManager : ScriptableObject {
     private int initEGUpkeep = 10;
     [SerializeField]
     private int initEGProduction = 40;
-    [SerializeField]
-    private double initEGHappinessEfficiency = 1;
     [SerializeField]
     private int initEGMilitaryGained = 0;
     //Happiness 
@@ -58,25 +52,25 @@ public class ResourceManager : ScriptableObject {
     public int runtimeFoodStorage;
     public int runtimeFoodUpkeep;
     public int runtimeFoodProduction;
-    public double runtimeFoodHappinessEfficiency;
     public int runtimeFoodMiliaryGained;
     //Gold
     [Header("Gold")]
     public int runtimeGoldStorage;
     public int runtimeGoldUpkeep;
     public int runtimeGoldProduction;
-    public double runtimeGoldHappinessEfficiency;
     public int runtimeGoldMiliaryGained;
     //EG
     [Header("Exotic Goods")]
     public int runtimeEGStorage;
     public int runtimeEGUpkeep;
     public int runtimeEGProduction;
-    public double runtimeEGHappinessEfficiency;
     public int runtimeEGMiliaryGained;
     //Happiness
     [Header("Happiness")]
     public int runtimeHappiness;
+    // NPCandLordHolder
+    [SerializeField]
+    public NPCandLordHolder nPCandLordHolder;
 
     public void OnEnable()
     {
@@ -85,31 +79,31 @@ public class ResourceManager : ScriptableObject {
         runtimeFoodStorage = initFoodStorage;
         runtimeFoodUpkeep = initFoodUpkeep;
         runtimeFoodProduction = initFoodProduction;
-        runtimeFoodHappinessEfficiency = initFoodHappinessEfficiency;
         runtimeFoodMiliaryGained = initFoodMilitaryGained;
         //Gold
         runtimeGoldStorage = initGoldStorage;
         runtimeGoldUpkeep = initGoldUpkeep;
         runtimeGoldProduction = initGoldProduction;
-        runtimeGoldHappinessEfficiency = initGoldHappinessEfficiency;
         runtimeGoldMiliaryGained = initGoldMilitaryGained;
         //Exotic Goods
         runtimeEGStorage = initEGStorage;
         runtimeEGUpkeep = initEGUpkeep;
         runtimeEGProduction = initEGProduction;
-        runtimeEGHappinessEfficiency = initEGHappinessEfficiency;
         runtimeEGMiliaryGained = initEGMilitaryGained;
         //Happiness
         runtimeHappiness = initHappiness;
+
     }
 
     // computes how much of each resource remains after a day
     public void processResource()
     {
+        nPCandLordHolder.doDailyMoodChange();
         // calculate total food, gold and EG produced
-        int totalFoodProduced = (int)(runtimeFoodHappinessEfficiency * runtimeFoodProduction + runtimeFoodMiliaryGained);
-        int totalGoldProduced = (int)(runtimeGoldHappinessEfficiency * runtimeGoldProduction + runtimeGoldMiliaryGained);
-        int totalEGProduced = (int)(runtimeEGHappinessEfficiency * runtimeEGProduction + runtimeEGMiliaryGained);
+        
+        int totalFoodProduced = (int)((nPCandLordHolder.AllyFarmer.WorkEfficiency/100) * runtimeFoodProduction + runtimeFoodMiliaryGained);
+        int totalGoldProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeGoldProduction + runtimeGoldMiliaryGained);
+        int totalEGProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeEGProduction + runtimeEGMiliaryGained);
         // Factor in the production and upkeep to get new storage amounts 
         runtimeFoodStorage = runtimeFoodStorage + totalFoodProduced - runtimeFoodUpkeep;
         runtimeGoldStorage = runtimeGoldStorage + totalGoldProduced - runtimeGoldUpkeep;
