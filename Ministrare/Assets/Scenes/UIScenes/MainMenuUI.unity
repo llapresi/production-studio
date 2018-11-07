@@ -243,7 +243,7 @@ Prefab:
     - target: {fileID: 114137896324388776, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: newScene
+      value: NewScene
       objectReference: {fileID: 0}
     - target: {fileID: 114137896324388776, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
         type: 2}
@@ -299,6 +299,32 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1335469264706384, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
+      propertyPath: m_Name
+      value: NewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573738905051222, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 30f96984b4ec52e4d84c1232c0324a84,
+        type: 3}
+    - target: {fileID: 114533726267662098, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 351c1436c8f268441b96904bdda0d98f,
+        type: 3}
+    - target: {fileID: 224063536225972704, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224063536225972704, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
@@ -459,6 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
+  paramObj: {fileID: 0}
+  sceneToLoad: 
 --- !u!224 &1181345922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224718732055333614, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,

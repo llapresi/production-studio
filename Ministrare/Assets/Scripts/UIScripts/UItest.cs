@@ -23,6 +23,7 @@ public class UItest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Pauses the game
         if (pauseCanvas != null)
         {
 
@@ -42,20 +43,60 @@ public class UItest : MonoBehaviour
         }
     }
 
+
+    //used for loading JSON
+    public NextJSONToLoad paramObj;
+
+    public string sceneToLoad;
+
+    /// <summary>
+    /// Loads conversation scenes with appropriate dialogue
+    /// </summary>
+    /// <param name="dialogue"></param>
+    /// <param name="level"></param>
+    public void LoadConvoScene(string dialogue)
+    {
+        //  set param stuff first
+        if (paramObj != null)
+        {
+            paramObj.runtimeDialogPath = dialogue;
+        }
+        //StartCoroutine(LoadAsyncScene());
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Loads a scene additively
+    /// </summary>
+    /// <param name="level"></param>
     public void Load(string level)
     {
         SceneManager.LoadScene(level, LoadSceneMode.Additive);
     }
 
-    //loads scene nonadditively
+   /// <summary>
+   /// Loads a scene non additively
+   /// </summary>
+   /// <param name="scene"></param>
     public void NewScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
 
+
+    /// <summary>
+    /// Removes an additevely loaded scene by destroying all objects from that scenes root
+    /// </summary>
+    /// <param name="root"></param>
     public void UnLoad(GameObject root)
     {
         Destroy(root);
+    }
+
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
 }

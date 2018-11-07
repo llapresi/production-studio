@@ -72,13 +72,13 @@ public class Timer : MonoBehaviour {
             timeOfDay = "pm";
         
         if((hours % 12 + 1) >= 10 && minutes < 10)
-            GUI.TextField(new Rect(100, 100, 100, 50), "" + (hours % 12 + 1) + ":0" + (int)minutes + timeOfDay);
+            GUI.TextField(new Rect(100, 10, 100, 50), "" + (hours % 12 + 1) + ":0" + (int)minutes + timeOfDay);
         else if((hours % 12 + 1) < 10 && minutes > 10)
-            GUI.TextField(new Rect(100, 100, 100, 50), "0" + (hours % 12 + 1) + ":" + (int)minutes + timeOfDay);
+            GUI.TextField(new Rect(100, 10, 100, 50), "0" + (hours % 12 + 1) + ":" + (int)minutes + timeOfDay);
         else if((hours % 12 + 1) < 10 && minutes < 10)
-            GUI.TextField(new Rect(100, 100, 100, 50), "0" + (hours % 12 + 1) + ":0" + (int)minutes + timeOfDay);
+            GUI.TextField(new Rect(100, 10, 100, 50), "0" + (hours % 12 + 1) + ":0" + (int)minutes + timeOfDay);
         else
-            GUI.TextField(new Rect(100, 100, 100, 50), "" + (hours % 12 + 1) + ":" + (int)minutes + timeOfDay);
+            GUI.TextField(new Rect(100, 10, 100, 50), "" + (hours % 12 + 1) + ":" + (int)minutes + timeOfDay);
     }
 
    
