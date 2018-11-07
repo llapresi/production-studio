@@ -11,13 +11,32 @@ namespace Ministrare.Events
         // Plug into events so that they run on the game time and not the delta time
         public TimerTime gameTimer;
 
+        // Actual singleton for the event runner
+        // After Milestone 2 submission we need to refactor this
+        public static MinistrareEventRunner instance;
+
         // List of events to run
         List<IMinistrareEvent> events;
 
-        private void Start()
+        private void Awake()
         {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            DontDestroyOnLoad(this.gameObject);
+
             // ADD A TEST EVENT HERE TO MAKE SURE THIS BS WORKS
             events = new List<IMinistrareEvent>();
+        }
+
+        private void Start()
+        {
+            
         }
 
         // This function is only for the even test scene, delete this once we're doing more fully fledged stuff

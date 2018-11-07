@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 470907665}
   - component: {fileID: 470907664}
   - component: {fileID: 470907663}
+  - component: {fileID: 470907666}
   m_Layer: 5
   m_Name: Leader4
   m_TagString: Untagged
@@ -537,6 +538,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470907661}
   m_CullTransparentMesh: 0
+--- !u!114 &470907666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470907661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 
+  dialogPathToLoad: 
+  paramObj: {fileID: 0}
 --- !u!1 &530930024
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +638,7 @@ GameObject:
   - component: {fileID: 700076073}
   - component: {fileID: 700076072}
   - component: {fileID: 700076071}
+  - component: {fileID: 700076074}
   m_Layer: 5
   m_Name: Leader5
   m_TagString: Untagged
@@ -687,7 +703,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 700076072}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700076074}
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &700076072
@@ -724,6 +751,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 700076069}
   m_CullTransparentMesh: 0
+--- !u!114 &700076074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700076069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/Test/EventSystemTest
+  dialogPathToLoad: 
+  paramObj: {fileID: 0}
 --- !u!1 &882391493
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +827,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1075338929
+--- !u!1001 &916325016
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -825,14 +866,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114207182597724524, guid: 4094c6ad7ae31124b9eb1bcc24575223,
+    - target: {fileID: 224727880809925394, guid: 4094c6ad7ae31124b9eb1bcc24575223,
         type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114207182597724524, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
+    - target: {fileID: 1568955048507142, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1270,7 +1310,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Leader 4
+  m_Text: Test Scene
 --- !u!222 &1753856591
 CanvasRenderer:
   m_ObjectHideFlags: 0
