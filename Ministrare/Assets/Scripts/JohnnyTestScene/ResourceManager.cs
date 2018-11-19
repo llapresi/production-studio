@@ -106,7 +106,7 @@ public class ResourceManager : ScriptableObject {
     // computes how much of each resource remains after a day
     public void processResource()
     {
-        nPCandLordHolder.doDailyMoodChange();
+        nPCandLordHolder.doDailyActions();
         // calculate total food, gold and EG produced
         
         int totalFoodProduced = (int)((nPCandLordHolder.AllyFarmer.WorkEfficiency/100) * runtimeFoodProduction + runtimeFoodMiliaryGained + farmTech.totalBoost + farmStruct.totalBoost);
