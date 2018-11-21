@@ -116,6 +116,8 @@ public class ResourceManager : ScriptableObject {
         runtimeFoodStorage = runtimeFoodStorage + totalFoodProduced - runtimeFoodUpkeep;
         runtimeGoldStorage = runtimeGoldStorage + totalGoldProduced - runtimeGoldUpkeep;
         runtimeEGStorage = runtimeEGStorage + totalEGProduced - runtimeEGUpkeep;
+
+        nPCandLordHolder.allyIndustryCityHappinessModifiers();
     }
 
 }

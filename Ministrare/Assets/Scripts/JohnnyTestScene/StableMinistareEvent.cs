@@ -14,7 +14,7 @@ namespace Ministrare.Events
         private TimerTime gameTimer;
         private string name;
 
-        private float endTime;
+        private int endDay;
         public bool ScheduleDestroy
         {
             get { return scheduleDestroy; }
@@ -27,17 +27,17 @@ namespace Ministrare.Events
             set { hasStarted = value; }
         }
 
-        public StableMinistareEvent(TimerTime p_timer, string p_name)
+        public StableMinistareEvent(TimerTime p_timer, string p_name, int daysDuration)
         {
             gameTimer = p_timer;
             name = p_name;
+            endDay = daysDuration + gameTimer.dayCount;
         }
 
         public void Start()
         {
             hasStarted = true;
             Debug.Log("started the event");
-            endTime = gameTimer.minutes + 10;
         }
 
         public void End()
@@ -49,10 +49,10 @@ namespace Ministrare.Events
 
         public void Update()
         {
-            Debug.Log(string.Format("{0} TestEvent End: {1}", name, endTime - gameTimer.minutes));
+            Debug.Log(string.Format("{0} TestEvent End: {1}", name, endDay - gameTimer.dayCount));
 
             // Event sets itself to be destroyed after 10 seconds
-            if (gameTimer.minutes >= endTime)
+            if (gameTimer.dayCount >= endDay)
             {
                 scheduleDestroy = true;
             }

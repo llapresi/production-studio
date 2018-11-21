@@ -32,6 +32,9 @@ public class NPCandLordHolder : ScriptableObject {
     public Lord EnemyLord;
     // State of the enemy city
     public ecStateofMind EcStateofMind;
+    //Resource Manager
+    [SerializeField]
+    public ResourceManager resourceManager;
 
 
     public void OnEnable()
@@ -71,7 +74,9 @@ public class NPCandLordHolder : ScriptableObject {
         // find the eventRunner and push an econ Event to it
         GameObject GO2 = GameObject.Find("MinistareEventRunner");
         MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-        StableMinistareEvent econ = new StableMinistareEvent(timerRunner.time, "StableEvent");
+        int daysDuration = Random.Range(6, 8);
+        StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
+        ministrareEventRunner.AddEvent(stable);
     }
 
     public void doDailyworkEffeciency()
@@ -101,7 +106,7 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyGeneral.dailyMoodChange();
         EnemyMerchant.dailyMoodChange();
         EnemyScholar.dailyMoodChange();
-        enemyIndustryCityModifiers();
+        enemyIndustryCityHappinessModifiers();
         doDailyworkEffeciency();
     }
 
@@ -125,7 +130,9 @@ public class NPCandLordHolder : ScriptableObject {
             // find the eventRunner and push an econ Event to it
             GameObject GO2 = GameObject.Find("MinistareEventRunner");
             MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-            EconMinistareEvent econ = new EconMinistareEvent(timerRunner.time, "EconEvent");
+            int daysDuration = Random.Range(6, 8);
+            EconMinistareEvent econ = new EconMinistareEvent(timerRunner.time, "EconEvent", daysDuration);
+            ministrareEventRunner.AddEvent(econ);
         }
         else if (spinWheel <= 66)
         {
@@ -137,7 +144,9 @@ public class NPCandLordHolder : ScriptableObject {
             // find the eventRunner and push an econ Event to it
             GameObject GO2 = GameObject.Find("MinistareEventRunner");
             MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-            StableMinistareEvent econ = new StableMinistareEvent(timerRunner.time, "StableEvent");
+            int daysDuration = Random.Range(6, 8);
+            StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
+            ministrareEventRunner.AddEvent(stable);
         }
         else
         {
@@ -149,12 +158,14 @@ public class NPCandLordHolder : ScriptableObject {
             // find the eventRunner and push an econ Event to it
             GameObject GO2 = GameObject.Find("MinistareEventRunner");
             MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-            MilitaryMinistareEvent econ = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent");
+            int daysDuration = Random.Range(6, 8);
+            MilitaryMinistareEvent military = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent", daysDuration);
+            ministrareEventRunner.AddEvent(military);
         }
     }
 
-    // this will change the happiness of the city if they
-    public void enemyIndustryCityModifiers()
+    // this will change the happiness of the enemy city industry leaders based on their state
+    public void enemyIndustryCityHappinessModifiers()
     {
         if (EcStateofMind == ecStateofMind.NeedResources)
         {
@@ -172,7 +183,59 @@ public class NPCandLordHolder : ScriptableObject {
             EnemyMerchant.Happiness = EnemyMerchant.Happiness + 2;
             EnemyScholar.Happiness = EnemyScholar.Happiness + 2;
         }
+    }
 
+    // this will change the happiness of ally city industry leaders based on resources
+    public void allyIndustryCityHappinessModifiers()
+    {
+        if(resourceManager.runtimeFoodStorage < 20)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness - 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness - 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness - 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness - 1;
+            AllyScholar.Happiness = AllyScholar.Happiness - 1;
+        }
+        else if (resourceManager.runtimeFoodStorage > 80)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness + 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness + 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness + 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness + 1;
+            AllyScholar.Happiness = AllyScholar.Happiness + 1;
+        }
+        if (resourceManager.runtimeGoldStorage < 20)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness - 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness - 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness - 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness - 1;
+            AllyScholar.Happiness = AllyScholar.Happiness - 1;
+        }
+        else if (resourceManager.runtimeGoldStorage > 80)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness + 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness + 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness + 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness + 1;
+            AllyScholar.Happiness = AllyScholar.Happiness + 1;
+        }
+        if (resourceManager.runtimeEGStorage < 20)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness - 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness - 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness - 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness - 1;
+            AllyScholar.Happiness = AllyScholar.Happiness - 1;
+        }
+        else if (resourceManager.runtimeEGStorage > 80)
+        {
+            AllyBuilder.Happiness = AllyBuilder.Happiness + 1;
+            AllyFarmer.Happiness = AllyFarmer.Happiness + 1;
+            AllyGeneral.Happiness = AllyGeneral.Happiness + 1;
+            AllyMerchant.Happiness = AllyMerchant.Happiness + 1;
+            AllyScholar.Happiness = AllyScholar.Happiness + 1;
+        }
     }
     
     // simulates the enemy lord interacting with his industry leaders
