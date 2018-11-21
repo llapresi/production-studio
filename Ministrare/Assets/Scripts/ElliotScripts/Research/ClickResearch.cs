@@ -34,7 +34,7 @@ public class ClickResearch : MonoBehaviour {
             //    localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
             if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
             {
-                if (localStructs.runStruct[0].boost == 0)
+                if (localStructs.runStruct[0] == null)
                 {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
                     localStructs.holdPlace = 0;
