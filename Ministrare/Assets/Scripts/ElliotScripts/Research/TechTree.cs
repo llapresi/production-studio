@@ -4,6 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New TechTree", menuName = "Ministrare/SingletonVars/TechTree", order = 1)]
 public class TechTree : ScriptableObject {
+    public string name;
 
     [Header("Initial Values")]
     [SerializeField]

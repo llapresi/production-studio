@@ -11,24 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c27d6cbbe0a7534d92246c1d8ce955b, type: 3}
   m_Name: ScienceStructureManager
   m_EditorClassIdentifier: 
+  name: ScienceStructures
   initStruct:
-  - name: 
-    dayCost: 0
-    boost: 0
-    built: 0
-  - name: 
-    dayCost: 0
-    boost: 0
-    built: 0
+  - name: Struct3-1
+    dayCost: 5
+    boost: 5
+    built: 1
+  - name: Struct5-1
+    dayCost: 10
+    boost: 10
+    built: 1
   runStruct:
-  - name: 
-    dayCost: 0
-    boost: 0
-    built: 0
-  - name: 
-    dayCost: 0
-    boost: 0
-    built: 0
+  - name: Struct3-1
+    dayCost: 5
+    boost: 5
+    built: 1
+  - name: Struct5-1
+    dayCost: 10
+    boost: 10
+    built: 1
   localCost: -1
   holdPlace: -1
-  totalBoost: 0
+  totalBoost: 15

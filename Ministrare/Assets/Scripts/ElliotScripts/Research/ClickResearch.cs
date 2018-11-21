@@ -28,15 +28,26 @@ public class ClickResearch : MonoBehaviour {
             localTree.totalBoost += localTree.researched[localTree.holdPlace].boost;
 
             // adds structure if one exists and places it into array to wait for building
+            //if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
+            //    localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
+            //else
+            //    localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
             if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
             {
-                //Debug.Log(localStructs.runStruct[0]);
-                if (localStructs.runStruct[0] == null)
+                if (localStructs.runStruct[0].boost == 0)
+                {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
+                    localStructs.holdPlace = 0;
+                }
                 else
+                {
                     localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
+                    localStructs.holdPlace = 1;
+                }
+                    
             }
-            
+                
+
             // resets values
             localTree.holdPlace = -1;
             localTree.localCost = -1;

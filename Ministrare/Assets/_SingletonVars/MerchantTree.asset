@@ -11,6 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd08090a3185fc408f1a775168d33ee, type: 3}
   m_Name: MerchantTree
   m_EditorClassIdentifier: 
+  name: MerchantTechTree
   initNodes: []
   runtimeNodes: []
   researched: []
+  localCost: 0
+  holdPlace: 0
+  totalBoost: 0

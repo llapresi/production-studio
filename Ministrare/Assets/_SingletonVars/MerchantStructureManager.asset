@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c27d6cbbe0a7534d92246c1d8ce955b, type: 3}
   m_Name: MerchantStructureManager
   m_EditorClassIdentifier: 
+  name: MerchantStructures
   initStruct:
   - name: 
     dayCost: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312f941709927064295d8448501bd8e2, type: 3}
+  m_Name: SaveLoadData
+  m_EditorClassIdentifier: 
+  techTrees:
+  - {fileID: 11400000, guid: 238a8998558196447a051056175b2f9a, type: 2}
+  - {fileID: 11400000, guid: 16f035c0f0dcee045b0788fe5fb423b9, type: 2}
+  - {fileID: 11400000, guid: 0469e9166b999f440b15347c14abad7f, type: 2}
+  - {fileID: 11400000, guid: c090f01ee944aec4e830a575b4d34301, type: 2}
+  - {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
+  structures:
+  - {fileID: 11400000, guid: 7a38370eb38f9cb4d9c86595abb727a8, type: 2}
+  - {fileID: 11400000, guid: 6f0fc533378375d49836a297f0d350c2, type: 2}
+  - {fileID: 11400000, guid: bcaf148ea3099344a97862eeb35c6648, type: 2}
+  - {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
+  - {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
+  timer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  playerResources: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
+  playerStats: {fileID: 11400000, guid: 19f4ec08006e91a408f8cb1aaff686db, type: 2}

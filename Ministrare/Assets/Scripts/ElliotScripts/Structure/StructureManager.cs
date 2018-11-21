@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Structure Manager", menuName = "Ministrare/SingletonVars/StructureManager", order = 2)]
 public class StructureManager : ScriptableObject {
 
+    public string name;
+
     [Header("Initial Values")]
     [SerializeField]
     private Structure[] initStruct;
