@@ -26,6 +26,9 @@ public class IndustryLeader {
     private int agreeableness;
     private int neuroticism;
 
+    //Working with enemy bool
+    private bool workingWithEnemy;
+
     //Arrays
     private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
     private string[] Traits = new string[] { "O","C", "E", "A", "N"};
@@ -45,6 +48,7 @@ public class IndustryLeader {
         extraversion = UnityEngine.Random.Range(1, 5);
         agreeableness = UnityEngine.Random.Range(1, 5);
         neuroticism = UnityEngine.Random.Range(1, 5);
+        workingWithEnemy = false;
         //openness = 4;
         //conscientiousness = 4;
         //extraversion = 1;
@@ -100,7 +104,14 @@ public class IndustryLeader {
     {
         int numSum = angriness + greediness + fearfulness + sadness + (100 - inspiration) + boredom;
         double avg = (double)numSum / 6;
-        workEfficiency = happiness - avg;
+        if (workingWithEnemy == true)
+        {
+            workEfficiency = happiness - avg - 5;
+        }
+        else
+        {
+            workEfficiency = happiness - avg;
+        }
     }
 
     public void dailyMoodChange()
@@ -430,4 +441,17 @@ public class IndustryLeader {
         }
     }
     #endregion
+    #region Working with Enemy Bool
+    public bool WorkingWithEnemy
+    {
+        get
+        {
+            return workingWithEnemy;
+        }
+        set
+        {
+            workingWithEnemy = value;
+        }
+    }
+#endregion
 }

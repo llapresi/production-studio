@@ -108,6 +108,7 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyScholar.dailyMoodChange();
         enemyIndustryCityHappinessModifiers();
         doDailyworkEffeciency();
+        enemyLeadersConspiring();
     }
 
     // determines the state that the enemy are in and add the event to the event runner
@@ -182,6 +183,51 @@ public class NPCandLordHolder : ScriptableObject {
             EnemyGeneral.Happiness = EnemyGeneral.Happiness + 2;
             EnemyMerchant.Happiness = EnemyMerchant.Happiness + 2;
             EnemyScholar.Happiness = EnemyScholar.Happiness + 2;
+        }
+    }
+
+    // function of the enemy lord to try to change the alligence of the industry leaders
+    public void enemyLeadersConspiring()
+    {
+        if (AllyBuilder.Happiness <= 20)
+        {
+            int chanceToflip = Random.Range(0, 100);
+            if (chanceToflip <= 10)
+            {
+                AllyBuilder.WorkingWithEnemy = true;
+            }
+        }
+        if (AllyScholar.Happiness <= 20)
+        {
+            int chanceToflip = Random.Range(0, 100);
+            if (chanceToflip <= 10)
+            {
+                AllyScholar.WorkingWithEnemy = true;
+            }
+        }
+        if (AllyMerchant.Happiness <= 20)
+        {
+            int chanceToflip = Random.Range(0, 100);
+            if (chanceToflip <= 10)
+            {
+                AllyMerchant.WorkingWithEnemy = true;
+            }
+        }
+        if (AllyGeneral.Happiness <= 20)
+        {
+            int chanceToflip = Random.Range(0, 100);
+            if (chanceToflip <= 10)
+            {
+                AllyGeneral.WorkingWithEnemy = true;
+            }
+        }
+        if (AllyFarmer.Happiness <= 20)
+        {
+            int chanceToflip = Random.Range(0, 100);
+            if (chanceToflip <= 10)
+            {
+                AllyFarmer.WorkingWithEnemy = true;
+            }
         }
     }
 
