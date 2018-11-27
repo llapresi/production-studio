@@ -27,6 +27,8 @@ public class SaveLoadData : ScriptableObject
             Directory.CreateDirectory(Application.persistentDataPath + "/SaveData");
             dataPath = Application.persistentDataPath + "/SaveData";
         }
+        else
+            dataPath = Application.persistentDataPath + "/SaveData";
     }
 
     //public void OnDisable()
