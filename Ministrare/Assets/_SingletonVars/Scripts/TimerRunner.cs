@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class TimerRunner : MonoBehaviour {
 
     public TimerTime time;
-    private static bool created = false;
 
     [SerializeField]
     private ResourceManager resourceManager;
@@ -18,20 +17,6 @@ public class TimerRunner : MonoBehaviour {
 
     // Make stuff go faster, for testing
     public float multiplier = 1;
-
-    // Use this for initialization
-    void Start()
-    {
-        if (!created)
-        {
-            DontDestroyOnLoad(this.gameObject);
-            created = true;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
 
     // Update is called once per frame
     void Update () {

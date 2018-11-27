@@ -11,16 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7d0a74f73e9474d848d472e785d5d8, type: 3}
   m_Name: NPCandLordHolder
   m_EditorClassIdentifier: 
-  AllyFarmer: {fileID: 0}
-  AllyGeneral: {fileID: 0}
-  AllyScholar: {fileID: 0}
-  AllyMerchant: {fileID: 0}
-  AllyBuilder: {fileID: 0}
-  EnemyFarmer: {fileID: 0}
-  EnemyGeneral: {fileID: 0}
-  EnemyScholar: {fileID: 0}
-  EnemyMerchant: {fileID: 0}
-  EnemyBuilder: {fileID: 0}
-  Lord: {fileID: 0}
-  EnemyLord: {fileID: 0}
-  TestAllyBuilderValue: 0
+  EcStateofMind: 1
+  resourceManager: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}

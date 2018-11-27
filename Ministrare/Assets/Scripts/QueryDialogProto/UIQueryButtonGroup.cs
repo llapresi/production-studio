@@ -68,8 +68,8 @@ public class UIQueryButtonGroup : BaseButtonGroup
     {
         ClearButtons();
 
-        // Create a back button and get refernce to it 
-        var backButtonComponent = CreateBackButton(CreateRootButtons);
+        // Create a back button
+        CreateBackButton(CreateRootButtons);
 
         // Create a button for each conversation in the topic
         foreach (var convo in topic.conversations)
@@ -94,8 +94,8 @@ public class UIQueryButtonGroup : BaseButtonGroup
     public void CreateButtonsForDialogTree(DialogTreeWithId tree, UnityEngine.Events.UnityAction onBackButton)
     {
         ClearButtons();
-        // Create a back button and get refernce to it 
-        var backButtonComponent = CreateBackButton(onBackButton);
+        // Create a back button
+        CreateBackButton(onBackButton);
 
         foreach (DialogNodeWithID node in tree.dialogNodes)
         {
@@ -116,7 +116,7 @@ public class UIQueryButtonGroup : BaseButtonGroup
         }
     }
 
-    UIDialogButton CreateBackButton(UnityEngine.Events.UnityAction action)
+    void CreateBackButton(UnityEngine.Events.UnityAction action)
     {
         // Instantiate button
         GameObject backButton = Instantiate(buttonPrefab) as GameObject;
@@ -128,7 +128,6 @@ public class UIQueryButtonGroup : BaseButtonGroup
         backButtonComponent.text.text = "<- Back";
         backButtonComponent.button.onClick.AddListener(action);
         backButtonComponent.transform.SetParent(this.gameObject.transform, false);
-        return backButtonComponent;
     }
 
     // Clears the current buttons

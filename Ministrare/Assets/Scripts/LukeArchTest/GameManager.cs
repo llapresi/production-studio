@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-    private bool backgroundIn;
-    private static bool created = false;
+    private static bool hasStarted = false;
     [SerializeField]
     private NPCandLordHolder NPCLordHolder;
     // Use this for initialization
     void Start()
     {
-        if(!created)
+        if (hasStarted == false)
         {
             NPCLordHolder.Initialize();
-            DontDestroyOnLoad(this.gameObject);
-            created = true;
-        }
-        else
-        {
-            Destroy(this.gameObject);
+            hasStarted = true;
         }
     }
 

@@ -77,8 +77,8 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
 
         ((QueryDialogEditor)runner).CurrentPath = String.Format("root/{0}", topic.identifier);
 
-        // Create a back button and get refernce to it 
-        var backButtonComponent = CreateBackButton(CreateRootButtons);
+        // Create a back button 
+        CreateBackButton(CreateRootButtons);
 
         // Create a button for each conversation in the topic
         foreach (var convo in topic.conversations)
@@ -121,7 +121,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
     {
         ClearButtons();
         // Create a back button and get refernce to it 
-        var backButtonComponent = CreateBackButton(onBackButton);
+        CreateBackButton(onBackButton);
 
         // Set add button
         SetAddButtonBehaviour(tree, tree, () => {
@@ -159,7 +159,7 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         }
     }
 
-    UIDialogButton CreateBackButton(UnityEngine.Events.UnityAction action)
+    void CreateBackButton(UnityEngine.Events.UnityAction action)
     {
         // Instantiate button
         GameObject backButton = Instantiate(regularButtonPrefab) as GameObject;
@@ -171,7 +171,6 @@ public class UIQueryEditorButtonGroup : BaseButtonGroup
         backButtonComponent.text.text = "<- Back";
         backButtonComponent.button.onClick.AddListener(action);
         backButtonComponent.transform.SetParent(this.gameObject.transform, false);
-        return backButtonComponent;
     }
 
     // Clears the current buttons

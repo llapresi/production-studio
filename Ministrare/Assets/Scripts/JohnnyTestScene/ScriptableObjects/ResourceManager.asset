@@ -12,34 +12,35 @@ MonoBehaviour:
   m_Name: ResourceManager
   m_EditorClassIdentifier: 
   initFoodStorage: 100
-  initFoodUpkeep: 30
-  initFoodProduction: 20
-  initFoodHappinessEfficiency: 1
+  initFoodUpkeep: 0
+  initFoodProduction: 10
   initFoodMilitaryGained: 0
   initGoldStorage: 100
-  initGoldUpkeep: 20
-  initGoldProduction: 30
-  initGoldHappinessEfficiency: 1
+  initGoldUpkeep: 0
+  initGoldProduction: 5
   initGoldMilitaryGained: 0
   initEGStorage: 100
-  initEGUpkeep: 10
-  initEGProduction: 40
-  initEGHappinessEfficiency: 1
+  initEGUpkeep: 0
+  initEGProduction: 5
   initEGMilitaryGained: 0
   initHappiness: 100
-  runtimeFoodStorage: 70
-  runtimeFoodUpkeep: 30
-  runtimeFoodProduction: 20
-  runtimeFoodHappinessEfficiency: 1
+  runtimeFoodStorage: 103
+  runtimeFoodUpkeep: 0
+  runtimeFoodProduction: 10
   runtimeFoodMiliaryGained: 0
-  runtimeGoldStorage: 130
-  runtimeGoldUpkeep: 20
-  runtimeGoldProduction: 30
-  runtimeGoldHappinessEfficiency: 1
+  runtimeGoldStorage: 99
+  runtimeGoldUpkeep: 0
+  runtimeGoldProduction: 5
   runtimeGoldMiliaryGained: 0
-  runtimeEGStorage: 190
-  runtimeEGUpkeep: 10
-  runtimeEGProduction: 40
-  runtimeEGHappinessEfficiency: 1
+  runtimeEGStorage: 99
+  runtimeEGUpkeep: 0
+  runtimeEGProduction: 5
   runtimeEGMiliaryGained: 0
   runtimeHappiness: 100
+  nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
+  merchantTech: {fileID: 11400000, guid: 16f035c0f0dcee045b0788fe5fb423b9, type: 2}
+  farmTech: {fileID: 11400000, guid: 238a8998558196447a051056175b2f9a, type: 2}
+  productionTech: {fileID: 11400000, guid: c090f01ee944aec4e830a575b4d34301, type: 2}
+  merchantStruct: {fileID: 11400000, guid: 6f0fc533378375d49836a297f0d350c2, type: 2}
+  farmStruct: {fileID: 11400000, guid: 7a38370eb38f9cb4d9c86595abb727a8, type: 2}
+  productionStruct: {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
