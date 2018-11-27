@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private bool backgroundIn;
+    private static bool hasStarted = false;
     [SerializeField]
     private NPCandLordHolder NPCLordHolder;
     // Use this for initialization
     void Start()
     {
-        NPCLordHolder.Initialize();
+        if (hasStarted == false)
+        {
+            NPCLordHolder.Initialize();
+            hasStarted = true;
+        }
     }
 
     // Update is called once per frame

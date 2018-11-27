@@ -109,6 +109,7 @@ public class NPCandLordHolder : ScriptableObject {
         enemyIndustryCityHappinessModifiers();
         doDailyworkEffeciency();
         enemyLeadersConspiring();
+        allyIndustryCityHappinessModifiers();
     }
 
     // determines the state that the enemy are in and add the event to the event runner
