@@ -15,7 +15,7 @@ MonoBehaviour:
   initNodes:
   - name: Test1
     dayCost: 1
-    researched: 1
+    researched: 0
     low:
       name: Level1-1
       boost: 5
@@ -32,7 +32,7 @@ MonoBehaviour:
       built: 0
   - name: Test2
     dayCost: 3
-    researched: 1
+    researched: 0
     low:
       name: Level2-1
       boost: 10
@@ -49,7 +49,7 @@ MonoBehaviour:
       built: 0
   - name: Test3
     dayCost: 5
-    researched: 1
+    researched: 0
     low:
       name: Level3-1
       boost: 15
@@ -63,10 +63,10 @@ MonoBehaviour:
       name: Struct3-1
       dayCost: 5
       boost: 5
-      built: 1
+      built: 0
   - name: Test4
     dayCost: 7
-    researched: 1
+    researched: 0
     low:
       name: Level4-1
       boost: 20
@@ -83,7 +83,7 @@ MonoBehaviour:
       built: 0
   - name: Test5
     dayCost: 9
-    researched: 1
+    researched: 0
     low:
       name: Level5-1
       boost: 25
@@ -97,11 +97,11 @@ MonoBehaviour:
       name: Struct5-1
       dayCost: 10
       boost: 10
-      built: 1
+      built: 0
   runtimeNodes:
   - name: Test1
     dayCost: 1
-    researched: 1
+    researched: 0
     low:
       name: Level1-1
       boost: 5
@@ -118,7 +118,7 @@ MonoBehaviour:
       built: 0
   - name: Test2
     dayCost: 3
-    researched: 1
+    researched: 0
     low:
       name: Level2-1
       boost: 10
@@ -135,7 +135,7 @@ MonoBehaviour:
       built: 0
   - name: Test3
     dayCost: 5
-    researched: 1
+    researched: 0
     low:
       name: Level3-1
       boost: 15
@@ -149,10 +149,10 @@ MonoBehaviour:
       name: Struct3-1
       dayCost: 5
       boost: 5
-      built: 1
+      built: 0
   - name: Test4
     dayCost: 7
-    researched: 1
+    researched: 0
     low:
       name: Level4-1
       boost: 20
@@ -169,7 +169,7 @@ MonoBehaviour:
       built: 0
   - name: Test5
     dayCost: 9
-    researched: 1
+    researched: 0
     low:
       name: Level5-1
       boost: 25
@@ -183,18 +183,18 @@ MonoBehaviour:
       name: Struct5-1
       dayCost: 10
       boost: 10
-      built: 1
+      built: 0
   researched:
-  - name: Level1-1
-    boost: 5
-  - name: Level2-1
-    boost: 10
-  - name: Level3-1
-    boost: 15
-  - name: Level4-1
-    boost: 20
-  - name: Level5-1
-    boost: 25
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
   localCost: -1
   holdPlace: -1
-  totalBoost: 75
+  totalBoost: 0
