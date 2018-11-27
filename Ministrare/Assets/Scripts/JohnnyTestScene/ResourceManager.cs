@@ -14,9 +14,9 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initFoodStorage = 100;
     [SerializeField]
-    private int initFoodUpkeep = 30;
+    private int initFoodUpkeep = 0;
     [SerializeField]
-    private int initFoodProduction = 20;
+    private int initFoodProduction = 10;
     [SerializeField]
     private int initFoodMilitaryGained = 0;
     //Gold
@@ -24,9 +24,9 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initGoldStorage = 100;
     [SerializeField]
-    private int initGoldUpkeep = 20;
+    private int initGoldUpkeep = 0;
     [SerializeField]
-    private int initGoldProduction = 30;
+    private int initGoldProduction = 5;
     [SerializeField]
     private int initGoldMilitaryGained = 0;
     //Exotic Goods
@@ -34,9 +34,9 @@ public class ResourceManager : ScriptableObject {
     [SerializeField]
     private int initEGStorage = 100;
     [SerializeField]
-    private int initEGUpkeep = 10;
+    private int initEGUpkeep = 0;
     [SerializeField]
-    private int initEGProduction = 40;
+    private int initEGProduction = 5;
     [SerializeField]
     private int initEGMilitaryGained = 0;
     //Happiness 
