@@ -37,7 +37,10 @@ public class QueryDialogRunner : MonoBehaviour
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
         buttonGroup.InitButtonGroup(this);
-        setDialogImages.SetBackground(currentQuery.leaderID);
+        if(setDialogImages != null)
+        {
+            setDialogImages.SetBackground(currentQuery.leaderID);
+        }
     }
 
     public virtual void SetCurrentNode(DialogNode newDialogNode)
