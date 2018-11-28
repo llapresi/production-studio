@@ -4,16 +4,19 @@ using UnityEngine;
 using System.Linq;
 
 // Contains a list of QueryTopics one can query
-// Will eventually be given a handle to link to a given "leader" entity
 [System.Serializable]
 public class DialogQuery : IEditorAddable
 {
-
+    // List of QueryTopics
     public List<DialogQueryTopic> topics;
+
+    // String used to look up relevant images (ex. leader profiles, background)
+    public string leaderID;
 
     public DialogQuery()
     {
         topics = new List<DialogQueryTopic>();
+        leaderID = "defaultLeaderID";
     }
 
     public void Add(string nameOfElementToAdd)

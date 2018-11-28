@@ -31,7 +31,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test2
-    dayCost: 3
+    dayCost: 5
     researched: 0
     low:
       name: Level2-1
@@ -48,7 +48,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test3
-    dayCost: 5
+    dayCost: 10
     researched: 0
     low:
       name: Level3-1
@@ -65,7 +65,7 @@ MonoBehaviour:
       boost: 5
       built: 0
   - name: Test4
-    dayCost: 7
+    dayCost: 20
     researched: 0
     low:
       name: Level4-1
@@ -82,7 +82,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test5
-    dayCost: 9
+    dayCost: 30
     researched: 0
     low:
       name: Level5-1
@@ -117,7 +117,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test2
-    dayCost: 3
+    dayCost: 5
     researched: 0
     low:
       name: Level2-1
@@ -134,7 +134,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test3
-    dayCost: 5
+    dayCost: 10
     researched: 0
     low:
       name: Level3-1
@@ -151,7 +151,7 @@ MonoBehaviour:
       boost: 5
       built: 0
   - name: Test4
-    dayCost: 7
+    dayCost: 20
     researched: 0
     low:
       name: Level4-1
@@ -168,7 +168,7 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test5
-    dayCost: 9
+    dayCost: 30
     researched: 0
     low:
       name: Level5-1

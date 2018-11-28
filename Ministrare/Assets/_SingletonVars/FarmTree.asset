@@ -13,7 +13,92 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FarmTechTree
   initNodes: []
-  runtimeNodes: []
+  runtimeNodes:
+  - name: Test1
+    dayCost: 1
+    researched: 0
+    low:
+      name: 
+      boost: 0
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test2
+    dayCost: 10
+    researched: 0
+    low:
+      name: 
+      boost: 0
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test3
+    dayCost: 15
+    researched: 0
+    low:
+      name: 
+      boost: 0
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: Struct3-1
+      dayCost: 5
+      boost: 5
+      built: 0
+  - name: Test4
+    dayCost: 20
+    researched: 0
+    low:
+      name: 
+      boost: 0
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test5
+    dayCost: 30
+    researched: 0
+    low:
+      name: 
+      boost: 0
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: Struct5-1
+      dayCost: 10
+      boost: 10
+      built: 0
   researched: []
   localCost: 0
   holdPlace: 0
