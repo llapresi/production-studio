@@ -25,8 +25,7 @@ public class moveMap : MonoBehaviour, IDragHandler {
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("test");
-       
+        
         gameObject.transform.position = new Vector3(gameObject.transform.position.x + (xloc - previousXLoc), gameObject.transform.position.y + (yloc - previousYLoc), gameObject.transform.position.z);
             
     }
