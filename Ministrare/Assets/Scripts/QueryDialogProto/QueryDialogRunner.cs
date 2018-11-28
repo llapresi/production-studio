@@ -26,6 +26,9 @@ public class QueryDialogRunner : MonoBehaviour
     // Set the value of the SingletonVar we're gonna plug in here before we load the Query Dialog Scene
     public NextJSONToLoad dialogToLoad;
 
+    // Use this component to set the images based on the dialog file
+    public UISetDialogImages setDialogImages;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -34,6 +37,7 @@ public class QueryDialogRunner : MonoBehaviour
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
         buttonGroup.InitButtonGroup(this);
+        setDialogImages.SetBackground(currentQuery.leaderID);
     }
 
     public virtual void SetCurrentNode(DialogNode newDialogNode)

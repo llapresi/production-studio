@@ -17,4 +17,16 @@ public class CharacterImages : ScriptableObject {
 
     public string id;
     public CharacterImageWithID[] images;
+
+    public Sprite GetSpriteForID(string id)
+    {
+        foreach(CharacterImageWithID img in images)
+        {
+            if(img.id == id)
+            {
+                return img.image;
+            }
+        }
+        return null;
+    }
 }
