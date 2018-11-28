@@ -6,15 +6,22 @@ using UnityEngine.UI;
 public class UISetDialogImages : MonoBehaviour {
 
     public CharacterImages[] characterImageObjectsToCheck;
-    public Image background;
 
-	public void SetBackground(string identifier)
+    [SerializeField]
+    Image sceneBackground;
+
+    [SerializeField]
+    Image sceneCharacter;
+
+    public void SetBackground(string identifier)
     {
         foreach(CharacterImages character in characterImageObjectsToCheck)
         {
             if(character.id == identifier)
             {
-                background.sprite = character.GetSpriteForID("background");
+                // Set the background and also the neutral character sprite
+                sceneBackground.sprite = character.GetSpriteForID("background");
+                sceneCharacter.sprite = character.GetSpriteForID("neutral");
             }
         }
     }

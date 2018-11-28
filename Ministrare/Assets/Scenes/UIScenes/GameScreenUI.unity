@@ -198,6 +198,63 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 225633448}
   m_CullTransparentMesh: 0
+--- !u!1001 &406838545
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224727880809925394, guid: 4094c6ad7ae31124b9eb1bcc24575223,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 678
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 263.9583
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114207182597724524, guid: 4094c6ad7ae31124b9eb1bcc24575223,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114207182597724524, guid: 4094c6ad7ae31124b9eb1bcc24575223,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &537557985
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +389,7 @@ GameObject:
   - component: {fileID: 591965627}
   - component: {fileID: 591965626}
   - component: {fileID: 591965625}
+  - component: {fileID: 591965628}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -397,9 +455,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229238}
-        m_MethodName: LoadConvoScene
-        m_Mode: 5
+      - m_Target: {fileID: 591965628}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -444,6 +502,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 591965623}
   m_CullTransparentMesh: 0
+--- !u!114 &591965628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591965623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/UIScenes/DialogQueryUI
+  dialogPathToLoad: Dialog/farmerDialogue testbed
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &664135818
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,9 +887,6 @@ GameObject:
   - component: {fileID: 919229235}
   - component: {fileID: 919229234}
   - component: {fileID: 919229233}
-  - component: {fileID: 919229237}
-  - component: {fileID: 919229239}
-  - component: {fileID: 919229238}
   m_Layer: 0
   m_Name: CanvasGameScreen
   m_TagString: Untagged
@@ -899,48 +968,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!114 &919229237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 919229232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: SpymasterScene
-  dialogPathToLoad: 
-  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
---- !u!114 &919229238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 919229232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7120f0f4fd8673849b4c7c9a7fbe94e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 0}
-  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
-  sceneToLoad: Farmer
---- !u!114 &919229239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 919229232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956de7675228eeb40a178687c067bc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 0}
-  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
-  sceneToLoad: Merchant
 --- !u!1 &929541517
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +979,7 @@ GameObject:
   - component: {fileID: 929541521}
   - component: {fileID: 929541520}
   - component: {fileID: 929541519}
+  - component: {fileID: 929541522}
   m_Layer: 0
   m_Name: Merchant
   m_TagString: Untagged
@@ -1017,9 +1045,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229239}
-        m_MethodName: LoadConvoScene
-        m_Mode: 5
+      - m_Target: {fileID: 929541522}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1064,6 +1092,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929541517}
   m_CullTransparentMesh: 0
+--- !u!114 &929541522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929541517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/UIScenes/DialogQueryUI
+  dialogPathToLoad: Dialog/merchantDialogue testbed
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &1019927667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,115 +1277,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424357882}
   m_CullTransparentMesh: 0
---- !u!1 &1495055744
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1495055749}
-  - component: {fileID: 1495055748}
-  - component: {fileID: 1495055747}
-  - component: {fileID: 1495055746}
-  - component: {fileID: 1495055745}
-  m_Layer: 0
-  m_Name: TimerCanvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1495055745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495055744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effc91d7db9b7ef44a308cd466a4e4d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hours: 0
-  minutes: 0
-  dayCount: 0
-  paused: 0
---- !u!114 &1495055746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495055744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1495055747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495055744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &1495055748
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495055744}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 5
-  m_TargetDisplay: 0
---- !u!224 &1495055749
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495055744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1558114435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +1978,7 @@ GameObject:
   - component: {fileID: 1982065091}
   - component: {fileID: 1982065090}
   - component: {fileID: 1982065089}
+  - component: {fileID: 1982065092}
   m_Layer: 0
   m_Name: Spymaster
   m_TagString: Untagged
@@ -2110,7 +2044,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229237}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
@@ -2157,6 +2091,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1982065087}
   m_CullTransparentMesh: 0
+--- !u!114 &1982065092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982065087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/SpymasterScene
+  dialogPathToLoad: 
+  paramObj: {fileID: 0}
 --- !u!1 &2127840148
 GameObject:
   m_ObjectHideFlags: 0

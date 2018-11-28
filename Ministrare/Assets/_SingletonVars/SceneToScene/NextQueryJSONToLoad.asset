@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e25e147cd7cc54e97dad5f3794b0bd, type: 3}
   m_Name: NextQueryJSONToLoad
   m_EditorClassIdentifier: Assembly-CSharp::NextJSONToLoad
-  dialogPath: Dialog/farmerDialogue testbed
-  runtimeDialogPath: Dialog/farmerDialogue testbed
+  dialogPath: Dialog/merchantDialogue testbed
+  runtimeDialogPath: Dialog/merchantDialogue testbed

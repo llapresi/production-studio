@@ -1799,7 +1799,7 @@ Canvas:
   m_GameObject: {fileID: 858887951}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 379618086}
   m_PlaneDistance: 8
   m_PixelPerfect: 0
@@ -1865,7 +1865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008177757, y: 0.0000380663}
+  m_AnchoredPosition: {x: -0.00008177757, y: -0.00003520349}
   m_SizeDelta: {x: -208.9, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &923686513
@@ -2755,6 +2755,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   buttonGroup: {fileID: 923686515}
   dialogToLoad: {fileID: 0}
+  setDialogImages: {fileID: 0}
   dialogInput: {fileID: 1498335704}
   onSelect:
     m_PersistentCalls:
@@ -2774,7 +2775,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   pathDisplay: {fileID: 544785738}
   leaderIDPanel: {fileID: 539182048}
-  editorDialogPath: Dialog/farmerDialogue testbed
+  editorDialogPath: Dialog/merchantDialogue testbed
 --- !u!4 &1231191221
 Transform:
   m_ObjectHideFlags: 0
