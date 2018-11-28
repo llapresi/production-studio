@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using System.IO;
+using System;
 
 public delegate void RefreshButtonsDelegate();
 
@@ -21,6 +22,8 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public RefreshButtonsDelegate refreshButtonMethod;
     public TextMeshProUGUI pathDisplay;
+
+    public UISetLeaderIDPanel leaderIDPanel;
 
     public string editorDialogPath;
 
@@ -45,6 +48,7 @@ public class QueryDialogEditor : QueryDialogRunner
         currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
 
         buttonGroup.InitButtonGroup(this);
+        leaderIDPanel.Setup(this);
     }
 
     public void RenameDialogTopic(string newName)
@@ -103,5 +107,10 @@ public class QueryDialogEditor : QueryDialogRunner
     {
         lastSelectedAddable.Add(newElementName);
         refreshButtonMethod();
+    }
+
+    public void SetLeaderID(string text)
+    {
+        currentQuery.leaderID = text;
     }
 }
