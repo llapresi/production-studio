@@ -75,7 +75,7 @@ public class ResourceManager : ScriptableObject {
     [Header("Boost Values")]
     public TechTree merchantTech;
     public TechTree farmTech;
-    //public TechTree productionTech;
+
     public StructureManager merchantStruct;
     public StructureManager farmStruct;
     public StructureManager productionStruct;
