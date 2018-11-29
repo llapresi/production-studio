@@ -29,6 +29,10 @@ public class IndustryLeader {
     //Working with enemy bool
     private bool workingWithEnemy;
 
+    //Rebellion value
+    private int daysUnhappy;
+    private bool rebelling;
+
     //Arrays
     private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
     private string[] Traits = new string[] { "O","C", "E", "A", "N"};
@@ -58,6 +62,8 @@ public class IndustryLeader {
         personalityValues = new PersonalityValues();
         generateStartingMoods();
         generateWorkEfficiency();
+        daysUnhappy = 0;
+        Rebelling = false;
     }
 
     public void generateStartingMoods()
@@ -265,6 +271,28 @@ public class IndustryLeader {
         }
     }
 
+    // see if the person is in open rebellion or not
+    public void inRebellion()
+    {
+        if (happiness < 30)
+        {
+            daysUnhappy++;
+        }
+        else if (happiness > 80)
+        {
+            daysUnhappy = 0;
+        }
+        if (daysUnhappy >= 7)
+        {
+            int roll = UnityEngine.Random.Range(0, 100);
+            if (roll <= 20)
+            {
+                rebelling = true;
+            }
+        }
+    }
+
+
     //setters and getters
     #region Mood Setters and getters
     public int Happiness
@@ -441,7 +469,7 @@ public class IndustryLeader {
         }
     }
     #endregion
-    #region Working with Enemy Bool
+    #region Working with Enemy Bool and rebelling bool
     public bool WorkingWithEnemy
     {
         get
@@ -451,6 +479,18 @@ public class IndustryLeader {
         set
         {
             workingWithEnemy = value;
+        }
+    }
+
+    public bool Rebelling
+    {
+        get
+        {
+            return rebelling;
+        }
+        set
+        {
+            rebelling = value;
         }
     }
 #endregion
