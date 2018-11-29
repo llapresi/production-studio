@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224033176877337608}
   - component: {fileID: 114488242984789790}
   m_Layer: 0
-  m_Name: ButtonWithRemove
+  m_Name: QueryDialogEditorButtonWithRemove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
