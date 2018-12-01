@@ -2134,9 +2134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scenes/SpymasterScene
-  dialogPathToLoad: 
-  paramObj: {fileID: 0}
+  sceneName: Scenes/UIScenes/Spymaster
+  dialogPathToLoad: Dialog/SpymasterDialog
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &2127840148
 GameObject:
   m_ObjectHideFlags: 0
