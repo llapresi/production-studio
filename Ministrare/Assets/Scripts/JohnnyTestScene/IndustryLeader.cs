@@ -30,7 +30,6 @@ public class IndustryLeader {
     private bool workingWithEnemy;
 
     //Rebellion value
-    private int daysUnhappy;
     private bool rebelling;
 
     //Arrays
@@ -62,7 +61,6 @@ public class IndustryLeader {
         personalityValues = new PersonalityValues();
         generateStartingMoods();
         generateWorkEfficiency();
-        daysUnhappy = 0;
         Rebelling = false;
     }
 
@@ -274,18 +272,9 @@ public class IndustryLeader {
     // see if the person is in open rebellion or not
     public void inRebellion()
     {
-        if (happiness < 30)
+        if (happiness <= 25 && fearfulness <= 25)
         {
-            daysUnhappy++;
-        }
-        else if (happiness > 80)
-        {
-            daysUnhappy = 0;
-        }
-        if (daysUnhappy >= 7)
-        {
-            int roll = UnityEngine.Random.Range(0, 100);
-            if (roll <= 20)
+            if (UnityEngine.Random.Range(0,100) <= 5)
             {
                 rebelling = true;
             }

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ResourceManager", menuName = "Ministrare/SingletonVars/ResourceManager", order = 2)]
@@ -42,7 +44,14 @@ public class ResourceManager : ScriptableObject {
     //Happiness 
     [SerializeField]
     private int initHappiness = 100;
-    
+    //json file input and ouput
+    [SerializeField]
+    private string filepathin;
+    [SerializeField]
+    private string filepathout;
+    [Header("Health")]
+    [SerializeField]
+    private int Health;
 
     //values in game 
     [Space(3)]
@@ -80,6 +89,8 @@ public class ResourceManager : ScriptableObject {
     public StructureManager farmStruct;
     public StructureManager productionStruct;
 
+    public int runtimeHealth;
+
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
@@ -100,6 +111,8 @@ public class ResourceManager : ScriptableObject {
         runtimeEGMiliaryGained = initEGMilitaryGained;
         //Happiness
         runtimeHappiness = initHappiness;
+        //Health
+        runtimeHealth = Health;
 
     }
 
@@ -118,6 +131,40 @@ public class ResourceManager : ScriptableObject {
         runtimeEGStorage = runtimeEGStorage + totalEGProduced - runtimeEGUpkeep;
 
         nPCandLordHolder.allyIndustryCityHappinessModifiers();
+
+        // make the dialog for the spymaster with template and updated resource and npc values
+        // make the dialog for the spymaster with template and updated resource and npc values
+        string stringfromSpymasterTemplate = File.ReadAllText(filepathin);
+        //change gold values
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldUpkeep>>", runtimeGoldUpkeep.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldProduction>>", runtimeGoldProduction.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldStorage>>", runtimeGoldStorage.ToString());
+        //change food values
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodUpkeep>>", runtimeFoodUpkeep.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodProduction>>", runtimeFoodProduction.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodStorage>>", runtimeFoodStorage.ToString());
+        //change exotic values 
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsUpkeep>>",runtimeEGUpkeep.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsProduction>>", runtimeEGProduction.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsStorage>>", runtimeEGStorage.ToString());
+        // change allyindustryleaders happiness levels
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantHappiness>>", nPCandLordHolder.AllyMerchant.Happiness.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<BuilderHappiness>>", nPCandLordHolder.AllyBuilder.Happiness.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralHappiness>>", nPCandLordHolder.AllyGeneral.Happiness.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerHappiness>>", nPCandLordHolder.AllyFarmer.Happiness.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarHappiness>>", nPCandLordHolder.AllyScholar.Happiness.ToString());
+
+        using (var stream = new FileStream(filepathout, FileMode.Truncate))
+        {
+            using (var writer = new StreamWriter(stream))
+            {
+                writer.Write(stringfromSpymasterTemplate);
+                writer.Close();
+            }
+        }
+
+        AssetDatabase.Refresh();
+
     }
 
 }

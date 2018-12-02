@@ -322,6 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
+  resourceManager: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
+  filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
+  filepathout: Assets/Resources/Dialog/SpymasterDialog.json
 --- !u!114 &114312433573959170
 MonoBehaviour:
   m_ObjectHideFlags: 1
