@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: NPCandLordHolder
   m_EditorClassIdentifier: 
   EcStateofMind: 1
-  resourceManager: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
+  resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}

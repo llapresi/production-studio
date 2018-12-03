@@ -93,9 +93,8 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyScholar.generateWorkEfficiency();
     }
 
-    public void doDailyActions()
+    public void doDailyMoodChange()
     {
-        eIndustryLeaderInteraction();
         AllyBuilder.dailyMoodChange();
         AllyFarmer.dailyMoodChange();
         AllyGeneral.dailyMoodChange();
@@ -106,6 +105,22 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyGeneral.dailyMoodChange();
         EnemyMerchant.dailyMoodChange();
         EnemyScholar.dailyMoodChange();
+    }
+
+    public void doDailyinRellionCheck()
+    {
+        AllyBuilder.inRebellion();
+        AllyFarmer.inRebellion();
+        AllyGeneral.inRebellion();
+        AllyMerchant.inRebellion();
+        AllyScholar.inRebellion();
+    }
+
+    public void doDailyActions()
+    {
+        eIndustryLeaderInteraction();
+        doDailyMoodChange();
+        doDailyinRellionCheck();
         enemyIndustryCityHappinessModifiers();
         doDailyworkEffeciency();
         enemyLeadersConspiring();

@@ -7,6 +7,8 @@ public class ClickBuild : MonoBehaviour {
     public StructureManager localStructs;
     public TimerTime localTimer;
 
+    public TechTree prodTree;
+
     // Use this for initialization
     void Start () {
         localStructs.localCost = -1;
@@ -16,7 +18,7 @@ public class ClickBuild : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // checks if cost is equal to local cost
-        if (localTimer.dayCount == localStructs.localCost)
+        if (localTimer.dayCount == localStructs.localCost - prodTree.totalBoost)
         {
             // changes boolean to true and adds new boost to overall boost
             localStructs.runStruct[localStructs.holdPlace].built = true;
@@ -37,7 +39,7 @@ public class ClickBuild : MonoBehaviour {
             localStructs.localCost = localStructs.runStruct[0].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 0;
         }
-        else if(localStructs.runStruct[1].built == false)
+        else 
         {
             localStructs.localCost = localStructs.runStruct[1].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 1;

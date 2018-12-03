@@ -41,4 +41,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/DialogQueryUI.unity
     guid: 8087331419e42a944a41359da81f40ac
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Spymaster.unity
+    guid: 549758d6ab891de449b89ea8b914d8c3
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Instructions.unity
+    guid: fd5ab90b6e49c8d48ba3cf6ae0493442
+  - enabled: 1
+    path: Assets/Scenes/UIScenes/Game Over.unity
+    guid: f484cccf58d552647b82ba72c8d2f3a4
   m_configObjects: {}

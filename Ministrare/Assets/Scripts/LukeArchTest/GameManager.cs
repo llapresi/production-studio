@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +9,13 @@ public class GameManager : MonoBehaviour
     private static bool hasStarted = false;
     [SerializeField]
     private NPCandLordHolder NPCLordHolder;
+    [SerializeField]
+    private ResourceManager resourceManager;
+    [SerializeField]
+    private string filepathin;
+    [SerializeField]
+    private string filepathout;
+    public string Ending;
     // Use this for initialization
     void Start()
     {
@@ -14,6 +23,53 @@ public class GameManager : MonoBehaviour
         {
             NPCLordHolder.Initialize();
             hasStarted = true;
+
+            // make the dialog for the spymaster with template and updated resource and npc values
+            string stringfromSpymasterTemplate = File.ReadAllText(filepathin);
+            //change gold values
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldUpkeep>>", resourceManager.runtimeGoldUpkeep.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldProduction>>", resourceManager.runtimeGoldProduction.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldStorage>>", resourceManager.runtimeGoldStorage.ToString());
+            //change food values
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodUpkeep>>", resourceManager.runtimeFoodUpkeep.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodProduction>>", resourceManager.runtimeFoodProduction.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodStorage>>", resourceManager.runtimeFoodStorage.ToString());
+            //change exotic values 
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsUpkeep>>", resourceManager.runtimeEGUpkeep.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsProduction>>", resourceManager.runtimeEGProduction.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsStorage>>", resourceManager.runtimeEGStorage.ToString());
+            // change allyindustryleaders happiness levels
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantHappiness>>", NPCLordHolder.AllyMerchant.Happiness.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<BuilderHappiness>>", NPCLordHolder.AllyBuilder.Happiness.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralHappiness>>", NPCLordHolder.AllyGeneral.Happiness.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerHappiness>>", NPCLordHolder.AllyFarmer.Happiness.ToString());
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarHappiness>>", NPCLordHolder.AllyScholar.Happiness.ToString());
+            // Get the work efficinecy of each ally industry leader
+            int merchantPredictedWorkEfficiency = (int)NPCLordHolder.AllyMerchant.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantEfficiency>>", merchantPredictedWorkEfficiency.ToString());
+
+            int builderPredictedWorkEfficiency = (int)NPCLordHolder.AllyBuilder.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<BuilderEfficiency>>", builderPredictedWorkEfficiency.ToString());
+
+            int generalPredictedWorkEfficiency = (int)NPCLordHolder.AllyGeneral.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralEfficiency>>", generalPredictedWorkEfficiency.ToString());
+
+            int farmerPredictedWorkEfficiency = (int)NPCLordHolder.AllyFarmer.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerEfficiency>>", farmerPredictedWorkEfficiency.ToString());
+
+            int scholarPredictedWorkEfficiency = (int)NPCLordHolder.AllyScholar.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarEfficiency>>", scholarPredictedWorkEfficiency.ToString());
+
+            using (var stream = new FileStream(filepathout, FileMode.Truncate))
+            {
+                using (var writer = new StreamWriter(stream))
+                {
+                    writer.Write(stringfromSpymasterTemplate);
+                    writer.Close();
+                }
+            }
+
+            AssetDatabase.Refresh();
         }
     }
 

@@ -303,7 +303,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Delete Save
+  m_Text: Clear
 --- !u!222 &208357693
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -771,6 +771,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
   localStructs: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!1 &1384363933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localStructs: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  prodTree: {fileID: 11400000, guid: c090f01ee944aec4e830a575b4d34301, type: 2}
 --- !u!114 &1622902595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1245,7 @@ GameObject:
   - component: {fileID: 1930083499}
   - component: {fileID: 1930083498}
   m_Layer: 5
-  m_Name: Delete Save
+  m_Name: Clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

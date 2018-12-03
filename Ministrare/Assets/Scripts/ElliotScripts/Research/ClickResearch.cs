@@ -10,6 +10,8 @@ public class ClickResearch : MonoBehaviour {
 
     float scienceHappiness;  // default value until happiness is able to be accessed
 
+    public TechTree scienceTree;
+
     private void Start()
     {
         localTree.holdPlace = -1;
@@ -20,7 +22,7 @@ public class ClickResearch : MonoBehaviour {
     void Update()
     {
         // checks if cost is equal to local cost
-        if (localTimer.dayCount == localTree.localCost)
+        if (localTimer.dayCount == localTree.localCost - scienceTree.totalBoost)
         {
             // places tech in researched tech array and resets local values
             localTree.runtimeNodes[localTree.holdPlace].researched = true;
@@ -34,7 +36,7 @@ public class ClickResearch : MonoBehaviour {
             //    localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
             if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
             {
-                if (localStructs.runStruct[0] == null)
+                if (localStructs.runStruct[0].boost == 0)
                 {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
                     localStructs.holdPlace = 0;

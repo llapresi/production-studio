@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Name: MilitaryTree
   m_EditorClassIdentifier: 
   name: MilitaryTechTree
-  initNodes: []
-  runtimeNodes:
+  initNodes:
   - name: Test1
     dayCost: 1
     researched: 0
     low:
-      name: 
-      boost: 0
+      name: Level1-1
+      boost: 1
     mid:
       name: 
       boost: 0
@@ -32,11 +31,11 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test2
-    dayCost: 10
+    dayCost: 5
     researched: 0
     low:
-      name: 
-      boost: 0
+      name: Level2-1
+      boost: 2
     mid:
       name: 
       boost: 0
@@ -49,11 +48,11 @@ MonoBehaviour:
       boost: 0
       built: 0
   - name: Test3
-    dayCost: 15
+    dayCost: 10
     researched: 0
     low:
-      name: 
-      boost: 0
+      name: Level3-1
+      boost: 3
     mid:
       name: 
       boost: 0
@@ -63,14 +62,14 @@ MonoBehaviour:
     structure:
       name: Struct3-1
       dayCost: 5
-      boost: 5
+      boost: 2
       built: 0
   - name: Test4
     dayCost: 20
     researched: 0
     low:
-      name: 
-      boost: 0
+      name: Level4-1
+      boost: 4
     mid:
       name: 
       boost: 0
@@ -86,8 +85,8 @@ MonoBehaviour:
     dayCost: 30
     researched: 0
     low:
-      name: 
-      boost: 0
+      name: Level5-1
+      boost: 5
     mid:
       name: 
       boost: 0
@@ -97,9 +96,105 @@ MonoBehaviour:
     structure:
       name: Struct5-1
       dayCost: 10
-      boost: 10
+      boost: 4
       built: 0
-  researched: []
+  runtimeNodes:
+  - name: Test1
+    dayCost: 1
+    researched: 0
+    low:
+      name: Level1-1
+      boost: 1
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test2
+    dayCost: 5
+    researched: 0
+    low:
+      name: Level2-1
+      boost: 2
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test3
+    dayCost: 10
+    researched: 0
+    low:
+      name: Level3-1
+      boost: 3
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: Struct3-1
+      dayCost: 5
+      boost: 2
+      built: 0
+  - name: Test4
+    dayCost: 20
+    researched: 0
+    low:
+      name: Level4-1
+      boost: 4
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: 
+      dayCost: 0
+      boost: 0
+      built: 0
+  - name: Test5
+    dayCost: 30
+    researched: 0
+    low:
+      name: Level5-1
+      boost: 5
+    mid:
+      name: 
+      boost: 0
+    high:
+      name: 
+      boost: 0
+    structure:
+      name: Struct5-1
+      dayCost: 10
+      boost: 4
+      built: 0
+  researched:
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
+  - name: 
+    boost: 0
   localCost: -1
   holdPlace: -1
   totalBoost: 0
