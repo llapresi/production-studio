@@ -18,7 +18,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level1-1
-      boost: 5
+      boost: 1
     mid:
       name: Level1-2
       boost: 10
@@ -35,7 +35,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level2-1
-      boost: 10
+      boost: 2
     mid:
       name: Level2-2
       boost: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level3-1
-      boost: 15
+      boost: 3
     mid:
       name: Levele3-2
       boost: 0
@@ -62,14 +62,14 @@ MonoBehaviour:
     structure:
       name: Struct3-1
       dayCost: 5
-      boost: 5
+      boost: 2
       built: 0
   - name: Test4
     dayCost: 20
     researched: 0
     low:
       name: Level4-1
-      boost: 20
+      boost: 4
     mid:
       name: Level4-2
       boost: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level5-1
-      boost: 25
+      boost: 5
     mid:
       name: Level5-2
       boost: 20
@@ -96,7 +96,7 @@ MonoBehaviour:
     structure:
       name: Struct5-1
       dayCost: 10
-      boost: 10
+      boost: 4
       built: 0
   runtimeNodes:
   - name: Test1
@@ -104,7 +104,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level1-1
-      boost: 5
+      boost: 1
     mid:
       name: Level1-2
       boost: 10
@@ -121,7 +121,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level2-1
-      boost: 10
+      boost: 2
     mid:
       name: Level2-2
       boost: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level3-1
-      boost: 15
+      boost: 3
     mid:
       name: Levele3-2
       boost: 0
@@ -148,14 +148,14 @@ MonoBehaviour:
     structure:
       name: Struct3-1
       dayCost: 5
-      boost: 5
+      boost: 2
       built: 0
   - name: Test4
     dayCost: 20
     researched: 0
     low:
       name: Level4-1
-      boost: 20
+      boost: 4
     mid:
       name: Level4-2
       boost: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     researched: 0
     low:
       name: Level5-1
-      boost: 25
+      boost: 5
     mid:
       name: Level5-2
       boost: 20
@@ -182,7 +182,7 @@ MonoBehaviour:
     structure:
       name: Struct5-1
       dayCost: 10
-      boost: 10
+      boost: 4
       built: 0
   researched:
   - name: 

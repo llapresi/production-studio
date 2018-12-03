@@ -39,7 +39,7 @@ public class ClickBuild : MonoBehaviour {
             localStructs.localCost = localStructs.runStruct[0].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 0;
         }
-        else if(localStructs.runStruct[1].built == false)
+        else 
         {
             localStructs.localCost = localStructs.runStruct[1].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 1;

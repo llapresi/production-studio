@@ -24,9 +24,6 @@ MonoBehaviour:
   initEGProduction: 5
   initEGMilitaryGained: 0
   initHappiness: 100
-  filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
-  filepathout: Assets/Resources/Dialog/SpymasterDialog.json
-  Health: 100
   runtimeFoodStorage: 100
   runtimeFoodUpkeep: 0
   runtimeFoodProduction: 10
@@ -47,4 +44,3 @@ MonoBehaviour:
   farmStruct: {fileID: 11400000, guid: 7a38370eb38f9cb4d9c86595abb727a8, type: 2}
   productionStruct: {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
   scienceStruct: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
-  runtimeHealth: 100
