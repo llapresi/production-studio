@@ -38,7 +38,7 @@ public struct Unit : Targets
 
 
     //where they are trying to go/attack
-    public GameObject objective;
+    public Targets objective;
 
     public GameObject GetImage()
     {
@@ -46,7 +46,7 @@ public struct Unit : Targets
     }
 
     //constructor
-    public Unit(int a, int s, int h, float x, float y, GameObject obj, int iff, GameObject im, GameObject parent)
+    public Unit(int a, int s, int h, float x, float y, Targets obj, int iff, GameObject im, GameObject parent)
     {
         attack = a;
         shield = s;
@@ -69,8 +69,8 @@ public struct Unit : Targets
     public void Move()
     {
 
-        float targetX = objective.transform.position.x;
-        float targetY = objective.transform.position.y;
+        float targetX = objective.GetImage().transform.position.x;
+        float targetY = objective.GetImage().transform.position.y;
 
         float distanceX = Mathf.Abs(xLoc - targetX);
         float distanceY = Mathf.Abs(yLoc - targetY);
@@ -158,9 +158,11 @@ public class Military : MonoBehaviour
 
     private List<Unit> unitList = new List<Unit>();
 
-    private List<Location> placeList = new List<Location>();
-
+    //list of current objectives chosen by the player
     private List<Targets> locList = new List<Targets>();
+
+    //list of all possible objectives
+    private List<Targets> masterList = new List<Targets>();
 
     Unit toChange;
 
@@ -171,7 +173,7 @@ public class Military : MonoBehaviour
     {
         GameObject unitIm = Instantiate(image);
         unitIm.name = "Unit";
-        Unit newUnit = new Unit(attack,shield,health,x,y, gameObject, iff, unitIm, parent);
+        Unit newUnit = new Unit(attack,shield,health,x,y, null, iff, unitIm, parent);
         unitList.Add(newUnit);
     }
 
@@ -202,6 +204,10 @@ public class Military : MonoBehaviour
         foreach (Unit toMove in unitList)
         {
             toMove.Move();
+            if (toMove.inRange)
+            {
+                Act(toMove, toMove.objective);
+            }
         }
     }
 
@@ -234,7 +240,7 @@ public class Military : MonoBehaviour
             if (unitList[i].IFF == 0)
             {
                 toChange = unitList[i];
-                toChange.objective = locList[x].GetImage();
+                toChange.objective = locList[x];
                 toChange.inRange = false;
                 unitList[i] = toChange;
                 if (x < locList.Count)

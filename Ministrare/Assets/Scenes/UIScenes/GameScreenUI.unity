@@ -981,6 +981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitImOne: {fileID: 1936406152888504, guid: 322d8d31caa8d3045a9dfd5a0b404a1e, type: 2}
+  unitImTwo: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!1 &929541517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,8 +1308,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1417616105}
-        m_MethodName: createUnit
-        m_Mode: 3
+        m_MethodName: EnemyUnit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1363,7 +1365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afd85375ee2e8f45bf58e25e92b0dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitImOne: {fileID: 1936406152888504, guid: 322d8d31caa8d3045a9dfd5a0b404a1e, type: 2}
+  unitImOne: {fileID: 1277196287182476, guid: 1dbd3583301af624f9191a77b63c99a6, type: 2}
+  unitImTwo: {fileID: 1618444330485552, guid: 2b4aeaaab2de0f243a21f8850d18f691, type: 2}
+  parent: {fileID: 1019927667}
 --- !u!1 &1424357882
 GameObject:
   m_ObjectHideFlags: 0
