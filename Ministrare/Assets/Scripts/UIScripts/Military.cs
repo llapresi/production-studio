@@ -110,6 +110,10 @@ public struct Unit : Targets
 
     }
 
+
+    /// <summary>
+    /// Heals units if theyve taken damage in combat
+    /// </summary>
     public void Rest()
     {
         if(health < healthMax)
@@ -119,6 +123,10 @@ public struct Unit : Targets
     }
 }
 
+
+/// <summary>
+/// Struct for location objects
+/// </summary>
 public struct Location: Targets
 {
     public GameObject image;
@@ -167,16 +175,28 @@ public class Military : MonoBehaviour
         unitList.Add(newUnit);
     }
 
+
+    /// <summary>
+    /// Creates a player unit
+    /// </summary>
     public void CreateFriendlyUnit()
     {
         createUnit(0, xLoc, yLoc, unitImOne);
     }
 
+
+    /// <summary>
+    /// Creates an enemy unit
+    /// </summary>
     public void EnemyUnit()
     {
         createUnit(1, 1700, 700, unitImTwo);
     }
 
+
+    /// <summary>
+    /// Calls move on all units, they move towards their objective
+    /// </summary>
     public void MoveUnits()
     {
         foreach (Unit toMove in unitList)
@@ -185,6 +205,12 @@ public class Military : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Unit interacts with target if close enough
+    /// </summary>
+    /// <param name="unit"></param>
+    /// <param name="target"></param>
     public void Act(Unit unit, Targets target)
     {
         if(target.GetType() == typeof(Unit))
@@ -226,7 +252,7 @@ public class Military : MonoBehaviour
 
 
     /// <summary>
-    /// if units fight, checks for nearby units to jpoin the battle
+    /// if units fight, checks for nearby units to jpoin the battle, then launches battle
     /// </summary>
     /// <param name="agressor"></param>
     /// <param name="defender"></param>
