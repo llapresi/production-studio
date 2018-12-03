@@ -68,46 +68,49 @@ public struct Unit : Targets
     /// </summary>
     public void Move()
     {
-
-        float targetX = objective.GetImage().transform.position.x;
-        float targetY = objective.GetImage().transform.position.y;
-
-        float distanceX = Mathf.Abs(xLoc - targetX);
-        float distanceY = Mathf.Abs(yLoc - targetY);
-
-        if(distanceX < speed)
+        if (objective != null)
         {
-            xLoc = targetX;
-            inRange = true;
-        }
-        else
-        {
-            if(targetX < xLoc)
+
+
+            float targetX = objective.GetImage().transform.position.x;
+            float targetY = objective.GetImage().transform.position.y;
+
+            float distanceX = Mathf.Abs(xLoc - targetX);
+            float distanceY = Mathf.Abs(yLoc - targetY);
+
+            if (distanceX < speed)
             {
-                xLoc -= speed;
+                xLoc = targetX;
+                inRange = true;
             }
             else
             {
-                xLoc += speed;
+                if (targetX < xLoc)
+                {
+                    xLoc -= speed;
+                }
+                else
+                {
+                    xLoc += speed;
+                }
             }
-        }
-        if (distanceY < speed)
-        {
-            yLoc = targetY;
-        }
-        else
-        {
-            if (targetY < yLoc)
+            if (distanceY < speed)
             {
-                yLoc -= speed;
+                yLoc = targetY;
             }
             else
             {
-                yLoc += speed;
+                if (targetY < yLoc)
+                {
+                    yLoc -= speed;
+                }
+                else
+                {
+                    yLoc += speed;
+                }
             }
+            image.transform.position = new Vector3(xLoc, yLoc, 0);
         }
-        image.transform.position = new Vector3(xLoc, yLoc, 0);
-
     }
 
 
@@ -164,6 +167,9 @@ public class Military : MonoBehaviour
     //list of all possible objectives
     private List<Targets> masterList = new List<Targets>();
 
+    //list of locations to defend
+    private List<Location> playerLocs = new List<Location>();
+
     Unit toChange;
 
     /// <summary>
@@ -175,6 +181,10 @@ public class Military : MonoBehaviour
         unitIm.name = "Unit";
         Unit newUnit = new Unit(attack,shield,health,x,y, null, iff, unitIm, parent);
         unitList.Add(newUnit);
+        if(iff != 0)
+        {
+            masterList.Add(newUnit);
+        }
     }
 
 
@@ -193,6 +203,7 @@ public class Military : MonoBehaviour
     public void EnemyUnit()
     {
         createUnit(1, 1700, 700, unitImTwo);
+
     }
 
 
