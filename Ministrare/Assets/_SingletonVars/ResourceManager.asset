@@ -24,6 +24,9 @@ MonoBehaviour:
   initEGProduction: 5
   initEGMilitaryGained: 0
   initHappiness: 100
+  filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
+  filepathout: Assets/Resources/Dialog/SpymasterDialog.json
+  Health: 100
   runtimeFoodStorage: 100
   runtimeFoodUpkeep: 0
   runtimeFoodProduction: 10

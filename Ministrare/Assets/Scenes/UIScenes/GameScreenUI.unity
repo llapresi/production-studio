@@ -261,8 +261,7 @@ Prefab:
         type: 2}
       propertyPath: resourceManager
       value: 
-      objectReference: {fileID: 11400000, guid: f5d24f29e2f73cd43895c750708941f7,
-        type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
   m_IsPrefabAsset: 0
@@ -2436,9 +2435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scenes/SpymasterScene
-  dialogPathToLoad: 
-  paramObj: {fileID: 0}
+  sceneName: Assets/Scenes/UIScenes/Spymaster.unity
+  dialogPathToLoad: Dialog/SpymasterDialog
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &2127840148
 GameObject:
   m_ObjectHideFlags: 0
