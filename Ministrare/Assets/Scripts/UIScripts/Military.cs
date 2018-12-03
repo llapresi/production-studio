@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public interface Targets
+{
+     GameObject GetImage();
+
+}
+
+
 /// <summary>
 /// The military units, along with their info
 /// </summary>
-public struct Unit
+public struct Unit : Targets
 {
     //damage done with attacks
     public int attack;
@@ -26,9 +34,16 @@ public struct Unit
 
     public GameObject image;
 
+    public bool inRange;
+
 
     //where they are trying to go/attack
     public GameObject objective;
+
+    public GameObject GetImage()
+    {
+        return image;
+    }
 
     //constructor
     public Unit(int a, int s, int h, float x, float y, GameObject obj, int iff, GameObject im, GameObject parent)
@@ -45,6 +60,7 @@ public struct Unit
         image = im;
         im.transform.position = new Vector3(xLoc, yLoc, 0);
         im.transform.parent = parent.transform;
+        inRange = false;
     }
 
     /// <summary>
@@ -62,6 +78,7 @@ public struct Unit
         if(distanceX < speed)
         {
             xLoc = targetX;
+            inRange = true;
         }
         else
         {
@@ -102,6 +119,19 @@ public struct Unit
     }
 }
 
+public struct Location: Targets
+{
+    public GameObject image;
+
+    public GameObject GetImage()
+    {
+        return image;
+    }
+
+    public int value;
+
+}
+
 public class Military : MonoBehaviour
 {
 
@@ -109,27 +139,42 @@ public class Military : MonoBehaviour
     private int attack = 5;
     private int shield = 5;
     private int health = 10;
-    private float xLoc = 100;
-    private float yLoc = 100;
+    private float xLoc = 500;
+    private float yLoc = 500;
 
     public GameObject unitImOne;
 
+    public GameObject unitImTwo;
+
+    public GameObject parent;
+
     private List<Unit> unitList = new List<Unit>();
 
-    private List<Unit> enemyList = new List<Unit>();
+    private List<Location> placeList = new List<Location>();
 
-    private List<GameObject> locList = new List<GameObject>();
+    private List<Targets> locList = new List<Targets>();
 
     Unit toChange;
 
     /// <summary>
     /// creates a unit and adds them to the list
     /// </summary>
-    public void createUnit(int iff)
+    public void createUnit(int iff,float x, float y,GameObject image)
     {
-        GameObject unitIm = Instantiate(unitImOne);
-        Unit newUnit = new Unit(attack,shield,health,xLoc,yLoc, gameObject, iff, unitIm, this.gameObject);
+        GameObject unitIm = Instantiate(image);
+        unitIm.name = "Unit";
+        Unit newUnit = new Unit(attack,shield,health,x,y, gameObject, iff, unitIm, parent);
         unitList.Add(newUnit);
+    }
+
+    public void CreateFriendlyUnit()
+    {
+        createUnit(0, xLoc, yLoc, unitImOne);
+    }
+
+    public void EnemyUnit()
+    {
+        createUnit(1, 1700, 700, unitImTwo);
     }
 
     public void MoveUnits()
@@ -137,6 +182,18 @@ public class Military : MonoBehaviour
         foreach (Unit toMove in unitList)
         {
             toMove.Move();
+        }
+    }
+
+    public void Act(Unit unit, Targets target)
+    {
+        if(target.GetType() == typeof(Unit))
+        {
+            startBattle(unit, (Unit)target);
+        }
+        else if(target.GetType() == typeof(Location))
+        {
+
         }
     }
 
@@ -151,7 +208,8 @@ public class Military : MonoBehaviour
             if (unitList[i].IFF == 0)
             {
                 toChange = unitList[i];
-                toChange.objective = locList[x];
+                toChange.objective = locList[x].GetImage();
+                toChange.inRange = false;
                 unitList[i] = toChange;
                 if (x < locList.Count)
                 {
@@ -187,7 +245,7 @@ public class Military : MonoBehaviour
                 {
                     liOne.Add(toCheck);
                 }
-                else
+                else if(defender.IFF == toCheck.IFF)
                 {
                     liTwo.Add(toCheck);
                 }
