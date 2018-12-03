@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
-  resourceManager: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
+  resourceManager: {fileID: 0}
   NPCLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   onNewDay:
     m_PersistentCalls:
@@ -196,7 +196,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  multiplier: 1
+  multiplier: 9
 --- !u!114 &114207182597724524
 MonoBehaviour:
   m_ObjectHideFlags: 1
