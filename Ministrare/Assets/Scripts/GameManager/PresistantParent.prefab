@@ -184,7 +184,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
-        m_MethodName: processResource
+        m_MethodName: processDailyActivities
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -325,6 +325,7 @@ MonoBehaviour:
   resourceManager: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
   filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
   filepathout: Assets/Resources/Dialog/SpymasterDialog.json
+  Ending: 
 --- !u!114 &114312433573959170
 MonoBehaviour:
   m_ObjectHideFlags: 1

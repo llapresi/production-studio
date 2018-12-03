@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "ResourceManager", menuName = "Ministrare/SingletonVars/ResourceManager", order = 2)]
 public class ResourceManager : ScriptableObject {
@@ -90,6 +91,7 @@ public class ResourceManager : ScriptableObject {
     public StructureManager productionStruct;
 
     public int runtimeHealth;
+    private int industryleadersUnhappy;
 
     public void OnEnable()
     {
@@ -117,7 +119,7 @@ public class ResourceManager : ScriptableObject {
     }
 
     // computes how much of each resource remains after a day
-    public void processResource()
+    public void processDailyActivities()
     {
         nPCandLordHolder.doDailyActions();
         // calculate total food, gold and EG produced
@@ -153,6 +155,21 @@ public class ResourceManager : ScriptableObject {
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralHappiness>>", nPCandLordHolder.AllyGeneral.Happiness.ToString());
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerHappiness>>", nPCandLordHolder.AllyFarmer.Happiness.ToString());
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarHappiness>>", nPCandLordHolder.AllyScholar.Happiness.ToString());
+        // Get the work efficinecy of each ally industry leader
+        int merchantPredictedWorkEfficiency = (int)nPCandLordHolder.AllyMerchant.WorkEfficiency + Random.Range(-5, 5);
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantEfficiency>>", merchantPredictedWorkEfficiency.ToString());
+
+        int builderPredictedWorkEfficiency = (int)nPCandLordHolder.AllyBuilder.WorkEfficiency + Random.Range(-5, 5);
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<BuilderEfficiency>>", builderPredictedWorkEfficiency.ToString());
+
+        int generalPredictedWorkEfficiency = (int)nPCandLordHolder.AllyGeneral.WorkEfficiency + Random.Range(-5, 5);
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralEfficiency>>", generalPredictedWorkEfficiency.ToString());
+
+        int farmerPredictedWorkEfficiency = (int)nPCandLordHolder.AllyFarmer.WorkEfficiency + Random.Range(-5, 5);
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerEfficiency>>", farmerPredictedWorkEfficiency.ToString());
+
+        int scholarPredictedWorkEfficiency = (int)nPCandLordHolder.AllyScholar.WorkEfficiency + Random.Range(-5, 5);
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarEfficiency>>", scholarPredictedWorkEfficiency.ToString());
 
         using (var stream = new FileStream(filepathout, FileMode.Truncate))
         {
@@ -165,6 +182,54 @@ public class ResourceManager : ScriptableObject {
 
         AssetDatabase.Refresh();
 
+        // see if the game had ended yet
+        // City is destroyed
+        if (runtimeHealth <= 0)
+        {
+            GameObject GO = GameObject.Find("GameManager");
+            GameManager GM = GO.GetComponent<GameManager>();
+            GM.Ending = "Lose1.png";
+            SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
+        }
+
+        // see if the whole city would riot
+        // see how many people are unhappy and not fearful
+        int peopleRiotAmount = 0;
+        if (nPCandLordHolder.AllyBuilder.Happiness <= 25 && nPCandLordHolder.AllyBuilder.Fearfulness <= 25)
+        {
+            peopleRiotAmount++;
+        }
+        if (nPCandLordHolder.AllyMerchant.Happiness <= 25 && nPCandLordHolder.AllyMerchant.Fearfulness <= 25)
+        {
+            peopleRiotAmount++;
+        }
+        if (nPCandLordHolder.AllyScholar.Happiness <= 25 && nPCandLordHolder.AllyScholar.Fearfulness <= 25)
+        {
+            peopleRiotAmount++;
+        }
+        if (nPCandLordHolder.AllyFarmer.Happiness <= 25 && nPCandLordHolder.AllyFarmer.Fearfulness <= 25)
+        {
+            peopleRiotAmount++;
+        }
+        if (nPCandLordHolder.AllyGeneral.Happiness <= 25 && nPCandLordHolder.AllyGeneral.Fearfulness <= 25)
+        {
+            peopleRiotAmount++;
+        }
+
+        // see if anyone had rebelled yet
+        bool leadersRebelling = false;
+        if (nPCandLordHolder.AllyBuilder.Rebelling || nPCandLordHolder.AllyFarmer.Rebelling || nPCandLordHolder.AllyGeneral.Rebelling|| nPCandLordHolder.AllyMerchant.Rebelling || nPCandLordHolder.AllyScholar.Rebelling)
+        {
+            leadersRebelling = true;
+        }
+        // if all 5 members are in riot range and one of them riots, game over
+        if (leadersRebelling && peopleRiotAmount == 5)
+        {
+            GameObject GO = GameObject.Find("GameManager");
+            GameManager GM = GO.GetComponent<GameManager>();
+            GM.Ending = "oustedbythepeoplebadending";
+            SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
+        }
     }
 
 }

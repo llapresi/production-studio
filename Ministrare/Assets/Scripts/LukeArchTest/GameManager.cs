@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private string filepathin;
     [SerializeField]
     private string filepathout;
+    public string Ending;
     // Use this for initialization
     void Start()
     {
@@ -43,6 +44,21 @@ public class GameManager : MonoBehaviour
             stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralHappiness>>", NPCLordHolder.AllyGeneral.Happiness.ToString());
             stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerHappiness>>", NPCLordHolder.AllyFarmer.Happiness.ToString());
             stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarHappiness>>", NPCLordHolder.AllyScholar.Happiness.ToString());
+            // Get the work efficinecy of each ally industry leader
+            int merchantPredictedWorkEfficiency = (int)NPCLordHolder.AllyMerchant.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantEfficiency>>", merchantPredictedWorkEfficiency.ToString());
+
+            int builderPredictedWorkEfficiency = (int)NPCLordHolder.AllyBuilder.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<BuilderEfficiency>>", builderPredictedWorkEfficiency.ToString());
+
+            int generalPredictedWorkEfficiency = (int)NPCLordHolder.AllyGeneral.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GeneralEfficiency>>", generalPredictedWorkEfficiency.ToString());
+
+            int farmerPredictedWorkEfficiency = (int)NPCLordHolder.AllyFarmer.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FarmerEfficiency>>", farmerPredictedWorkEfficiency.ToString());
+
+            int scholarPredictedWorkEfficiency = (int)NPCLordHolder.AllyScholar.WorkEfficiency + Random.Range(-5, 5);
+            stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarEfficiency>>", scholarPredictedWorkEfficiency.ToString());
 
             using (var stream = new FileStream(filepathout, FileMode.Truncate))
             {

@@ -298,7 +298,7 @@ Prefab:
     - target: {fileID: 114137896324388776, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: GameScreenUI
+      value: Instructions
       objectReference: {fileID: 0}
     - target: {fileID: 114372153527601128, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
         type: 2}
