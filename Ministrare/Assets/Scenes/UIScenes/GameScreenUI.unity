@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 153293686}
+  time: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
   paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
   sceneToLoad: Enemy Lord
 --- !u!114 &919229234
