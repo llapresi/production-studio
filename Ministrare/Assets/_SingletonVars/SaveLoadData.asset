@@ -24,5 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
   - {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
   timer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
-  playerResources: {fileID: 11400000, guid: f5d24f29e2f73cd43895c750708941f7, type: 2}
+  playerResources: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   playerStats: {fileID: 11400000, guid: 19f4ec08006e91a408f8cb1aaff686db, type: 2}
