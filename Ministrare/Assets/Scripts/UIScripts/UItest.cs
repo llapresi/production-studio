@@ -9,7 +9,7 @@ public class UItest : MonoBehaviour
 
     //Canvas used for pause screen
     public Canvas pauseCanvas;
-
+    public TimerTime time;
 
     // Use this for initialization
     void Start()
@@ -33,10 +33,12 @@ public class UItest : MonoBehaviour
                 if (pauseCanvas.enabled)
                 {
                     pauseCanvas.enabled = false;
+                    time.paused = false;
                 }
                 else
                 {
                     pauseCanvas.enabled = true;
+                    time.paused = true;
                 }
             }
 

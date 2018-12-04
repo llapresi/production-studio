@@ -18,6 +18,20 @@ public class TechTree : ScriptableObject {
     public int holdPlace;
     public int totalBoost;
 
+    public bool displayCanvas = false;
+
+    // changes canvas boolean between true and false
+    public void SwitchCanvas()
+    {
+        displayCanvas = !displayCanvas;     
+    }
+
+    // returns the canvas boolean
+    public bool DisplayCanvas()
+    {
+        return displayCanvas;
+    }
+
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
@@ -25,6 +39,7 @@ public class TechTree : ScriptableObject {
         runtimeNodes = initNodes;
       
         researched = new Technology[runtimeNodes.Length];
-       
     }
+
+   
 }

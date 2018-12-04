@@ -198,3 +198,4 @@ MonoBehaviour:
   localCost: -1
   holdPlace: -1
   totalBoost: 0
+  displayCanvas: 0
