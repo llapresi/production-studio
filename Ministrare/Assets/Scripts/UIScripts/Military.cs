@@ -13,7 +13,7 @@ public interface Targets
 /// <summary>
 /// The military units, along with their info
 /// </summary>
-public struct Unit : Targets
+public class Unit : Targets
 {
     //damage done with attacks
     public int attack;
@@ -130,9 +130,13 @@ public struct Unit : Targets
 /// <summary>
 /// Struct for location objects
 /// </summary>
-public struct Location: Targets
+public class Location: Targets
 {
     public GameObject image;
+
+    // list to hold the units that are occupying this location
+    public List<int> allyUnitsPosinList;
+    public List<int> enemyUnitsPosinList;
 
     public GameObject GetImage()
     {
@@ -142,8 +146,8 @@ public struct Location: Targets
     public int value;
 
 }
-
-public class Military : MonoBehaviour
+[CreateAssetMenu(fileName = "Military", menuName = "Ministrare/SingletonVars/Military", order = 9)]
+public class Military : ScriptableObject
 {
 
     //default values for attack sheild and health
@@ -169,6 +173,7 @@ public class Military : MonoBehaviour
 
     //list of locations to defend
     private List<Location> playerLocs = new List<Location>();
+
 
     Unit toChange;
 
@@ -236,7 +241,23 @@ public class Military : MonoBehaviour
         }
         else if(target.GetType() == typeof(Location))
         {
-
+            // grab the location
+            Location location = (Location)target;
+            int locationIndex = masterList.IndexOf(location);
+            // add the int position to ally or enemy list
+            if (unit.IFF == 0)
+            {
+                int index = unitList.IndexOf(unit);
+                location.allyUnitsPosinList.Add(index);
+                masterList[locationIndex] = location;
+                
+            }
+            else if (unit.IFF == 1)
+            {
+                int index = unitList.IndexOf(unit);
+                location.enemyUnitsPosinList.Add(index);
+                masterList[locationIndex] = location;
+            }
         }
     }
 
@@ -267,6 +288,53 @@ public class Military : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Go to each location and assign enemies for units to fight in the location
+    /// </summary>
+    public void assignFightsinLocations()
+    {
+        foreach(Location location in masterList)
+        {
+            //grab the ally and enemy list and assign jobs
+            List<int> allyIntTemp = location.allyUnitsPosinList;
+            List<int> enemyIntTemp = location.enemyUnitsPosinList;
+            //ally
+            int a = 0;
+            for (int x =0; x < allyIntTemp.Count; x++)
+            {
+                int allyint = allyIntTemp[x];
+                Unit unit = unitList[allyint];
+                unit.objective = unitList[enemyIntTemp[a]];
+                unit.inRange = false;
+                unitList[allyint] = unit;
+                if (a < enemyIntTemp.Count)
+                {
+                    a++;
+                }
+                else
+                {
+                    a = 0;
+                }
+            }
+            int b = 0;
+            for (int y =0; y < enemyIntTemp.Count; y++)
+            {
+                int enemyint = enemyIntTemp[y];
+                Unit unit = unitList[enemyint];
+                unit.objective = unitList[allyIntTemp[b]];
+                unit.inRange = false;
+                unitList[enemyint] = unit;
+                if (b < allyIntTemp.Count)
+                {
+                    b++;
+                }
+                else
+                {
+                    b = 0;
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// if units fight, checks for nearby units to jpoin the battle, then launches battle
