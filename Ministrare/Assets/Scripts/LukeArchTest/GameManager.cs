@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private string filepathin;
     [SerializeField]
     private string filepathout;
+    [SerializeField]
+    private Military military;
     public string Ending;
     // Use this for initialization
     void Start()
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour
         if (hasStarted == false)
         {
             NPCLordHolder.Initialize();
+            military.setParentObject();
+            military.CreateALocation(450, 450, "Mines");
+            military.CreateEnemyUnit();
             hasStarted = true;
 
             // make the dialog for the spymaster with template and updated resource and npc values

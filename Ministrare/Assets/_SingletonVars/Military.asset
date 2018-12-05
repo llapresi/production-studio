@@ -11,6 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afd85375ee2e8f45bf58e25e92b0dce, type: 3}
   m_Name: Military
   m_EditorClassIdentifier: 
-  unitImOne: {fileID: 0}
-  unitImTwo: {fileID: 0}
+  unitImOne: {fileID: 1277196287182476, guid: 1dbd3583301af624f9191a77b63c99a6, type: 2}
+  unitImTwo: {fileID: 1618444330485552, guid: 2b4aeaaab2de0f243a21f8850d18f691, type: 2}
   parent: {fileID: 0}
+  resourceLocation1: {fileID: 1575558880274590, guid: 3d4e130ba70d7df4588c38a36ca06155,
+    type: 2}

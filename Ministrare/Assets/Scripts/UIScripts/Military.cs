@@ -6,7 +6,7 @@ using UnityEngine;
 public interface Targets
 {
      GameObject GetImage();
-
+ 
 }
 
 
@@ -22,7 +22,7 @@ public class Unit : Targets
     //amount of damage they can take before death
     public int health;
     public int healthMax;
-
+    public bool dead;
     //location of unit
     public float xLoc;
     public float yLoc;
@@ -36,9 +36,11 @@ public class Unit : Targets
 
     public bool inRange;
 
+    public string name;
 
     //where they are trying to go/attack
     public Targets objective;
+    public Targets secObjective;
 
     public GameObject GetImage()
     {
@@ -55,12 +57,14 @@ public class Unit : Targets
         xLoc = x;
         yLoc = y;
         objective = obj;
+        secObjective = null;
         speed = 10;
         IFF = iff;
         image = im;
         im.transform.position = new Vector3(xLoc, yLoc, 0);
         im.transform.parent = parent.transform;
         inRange = false;
+        dead = false;
     }
 
     /// <summary>
@@ -135,8 +139,12 @@ public class Location: Targets
     public GameObject image;
 
     // list to hold the units that are occupying this location
-    public List<int> allyUnitsPosinList;
-    public List<int> enemyUnitsPosinList;
+    public List<Unit> allyUnitsonLoc;
+    public List<Unit> enemyUnitsonLoc;
+    // position on the map
+    public float xLoc;
+    public float yLoc;
+    public string name;
 
     public GameObject GetImage()
     {
@@ -144,6 +152,18 @@ public class Location: Targets
     }
 
     public int value;
+
+    public Location(float xin, float yin, string namein, GameObject obj, GameObject parent)
+    {
+        xLoc = xin;
+        yLoc = yin;
+        allyUnitsonLoc = new List<Unit>();
+        enemyUnitsonLoc = new List<Unit>();
+        name = namein;
+        image = obj;
+        image.transform.position = new Vector3(xLoc, yLoc, 0);
+        image.transform.parent = parent.transform;
+    }
 
 }
 [CreateAssetMenu(fileName = "Military", menuName = "Ministrare/SingletonVars/Military", order = 9)]
@@ -163,17 +183,29 @@ public class Military : ScriptableObject
 
     public GameObject parent;
 
-    private List<Unit> unitList = new List<Unit>();
+    public GameObject resourceLocation1;
 
-    //list of current objectives chosen by the player
-    private List<Targets> locList = new List<Targets>();
+    private int enemyNumAmount;
+    private int allyNumAmount;
+
+    //private List<Unit> unitList = new List<Unit>();
 
     //list of all possible objectives
-    private List<Targets> masterList = new List<Targets>();
+    //private List<Targets> masterList = new List<Targets>();
 
     //list of locations to defend
-    private List<Location> playerLocs = new List<Location>();
+    //private List<Location> playerLocs = new List<Location>();
 
+    // list of all units
+    public List<Unit> allUnitsList = new List<Unit>();
+    // list of possible resource locations 
+    public List<Location> resourceLocs = new List<Location>();
+    // list of current objectives chosen by the player
+    public List<Targets> curObjList = new List<Targets>();
+    // list of all objectives for enemy
+    public List<Targets> enemyObjList = new List<Targets>();
+    // list of avalible objectives that haven't been choosen by the player
+    public List<Targets> unchosenObjList = new List<Targets>();
 
     Unit toChange;
 
@@ -183,15 +215,127 @@ public class Military : ScriptableObject
     public void createUnit(int iff,float x, float y,GameObject image)
     {
         GameObject unitIm = Instantiate(image);
-        unitIm.name = "Unit";
-        Unit newUnit = new Unit(attack,shield,health,x,y, null, iff, unitIm, parent);
-        unitList.Add(newUnit);
-        if(iff != 0)
+        if (iff == 0)
         {
-            masterList.Add(newUnit);
+            allyNumAmount++;
+            unitIm.name = "AllyUnit#" + allyNumAmount;
+        }
+        else if (iff == 1)
+        {
+            enemyNumAmount++;
+            unitIm.name = "EnemyUnit#" + enemyNumAmount;
+        }
+
+        Unit newUnit = new Unit(attack,shield,health,x,y, null, iff, unitIm, parent);
+        if (newUnit.IFF == 0)
+        {
+            newUnit.name = "AllyUnit#" + allyNumAmount;
+            allUnitsList.Add(newUnit);
+           //enemyObjList.Add(newUnit);
+        } 
+        else if(newUnit.IFF == 1)
+        {
+            newUnit.name = "EnemyUnit#" + enemyNumAmount;
+            allUnitsList.Add(newUnit);
+            //unchosenObjList.Add(newUnit);
         }
     }
 
+    /// <summary>
+    /// Make a new location
+    /// </summary>
+    public void CreateALocation(float xin, float yin, string namein)
+    {
+        GameObject img = Instantiate(resourceLocation1);
+        Location location = new Location(xin, yin, namein, img, parent);
+        resourceLocs.Add(location);
+        unchosenObjList.Add(location);
+        enemyObjList.Add(location);
+    }
+
+    /// <summary>
+    /// put selected objectives with names onto the list of used names
+    /// </summary>
+    public void placeSelectedObjinChosenList(string name)
+    {
+       Location removeLocation = null;
+       Unit removeUnit = null;
+       for(int x =0; x < unchosenObjList.Count; x++)
+       {
+         if (unchosenObjList[x].GetType() == typeof(Location))
+            {
+                Location location = (Location)unchosenObjList[x];
+                if(location.name == name)
+                {
+                    curObjList.Add(location);
+                    removeLocation = location;
+                }
+            }
+         else if (unchosenObjList[x].GetType() == typeof(Unit))
+            {
+                Unit unit = (Unit)unchosenObjList[x];
+                if (unit.name == name)
+                {
+                    curObjList.Add(unit);
+                    removeUnit = unit;
+                }
+            }
+       }
+        if (removeUnit != null)
+        {
+            unchosenObjList.Remove(removeUnit);
+        }
+        else if (removeLocation != null)
+        {
+            unchosenObjList.Remove(removeLocation);
+        }
+
+    }
+
+    /// <summary>
+    /// put selected objectives with names onto the list of used names
+    /// </summary>
+    public void placeSelectedObjinUnchosenList(string name)
+    {
+        Location removeLocation = null;
+        Unit removeUnit = null;
+        for (int x = 0; x < curObjList.Count; x++)
+        {
+            if (curObjList[x].GetType() == typeof(Location))
+            {
+                Location location = (Location)curObjList[x];
+                if (location.name == name)
+                {
+                    unchosenObjList.Add(location);
+                    removeLocation = location;
+                }
+            }
+            else if (curObjList[x].GetType() == typeof(Unit))
+            {
+                Unit unit = (Unit)curObjList[x];
+                if (unit.name == name)
+                {
+                    unchosenObjList.Add(unit);
+                    removeUnit = unit;
+                }
+            }
+        }
+        if (removeUnit != null)
+        {
+            curObjList.Remove(removeUnit);
+        }
+        else if (removeLocation != null)
+        {
+            curObjList.Remove(removeLocation);
+        }
+
+    }
+
+    // set the parent game object 
+    public void setParentObject()
+    {
+        parent = GameObject.Find("Map");
+    }
 
     /// <summary>
     /// Creates a player unit
@@ -205,9 +349,10 @@ public class Military : ScriptableObject
     /// <summary>
     /// Creates an enemy unit
     /// </summary>
-    public void EnemyUnit()
+    public void CreateEnemyUnit()
     {
-        createUnit(1, 1700, 700, unitImTwo);
+        // 1700, 700
+        createUnit(1, 400, 400, unitImTwo);
 
     }
 
@@ -217,14 +362,32 @@ public class Military : ScriptableObject
     /// </summary>
     public void MoveUnits()
     {
-        foreach (Unit toMove in unitList)
+        foreach (Unit toMove in allUnitsList)
         {
-            toMove.Move();
-            if (toMove.inRange)
+            if (toMove.dead == false)
             {
-                Act(toMove, toMove.objective);
+                toMove.Move();
+                if (toMove.inRange)
+                {
+                    Act(toMove, toMove.objective);
+                }
             }
         }
+        // get rid of the units and images if the unit is dead
+        foreach(Location location in resourceLocs)
+        {
+            location.allyUnitsonLoc.RemoveAll(x => x.dead == true);
+            location.enemyUnitsonLoc.RemoveAll(x => x.dead == true);
+        }
+        for (int x =0; x < allUnitsList.Count; x++)
+        {
+            if (allUnitsList[x].dead)
+            {
+                GameObject GO = GameObject.Find(allUnitsList[x].image.name);
+                Destroy(GO);
+            }
+        }
+        allUnitsList.RemoveAll(x => x.dead == true);
     }
 
 
@@ -243,20 +406,22 @@ public class Military : ScriptableObject
         {
             // grab the location
             Location location = (Location)target;
-            int locationIndex = masterList.IndexOf(location);
-            // add the int position to ally or enemy list
+            // add unit to respective list in the location
             if (unit.IFF == 0)
             {
-                int index = unitList.IndexOf(unit);
-                location.allyUnitsPosinList.Add(index);
-                masterList[locationIndex] = location;
-                
+                // add to ally list
+                if (location.allyUnitsonLoc.Contains(unit) == false)
+                {
+                    location.allyUnitsonLoc.Add(unit);
+                }
             }
             else if (unit.IFF == 1)
             {
-                int index = unitList.IndexOf(unit);
-                location.enemyUnitsPosinList.Add(index);
-                masterList[locationIndex] = location;
+                // add to the enemy list
+                if (location.enemyUnitsonLoc.Contains(unit) == false)
+                {
+                    location.enemyUnitsonLoc.Add(unit);
+                }
             }
         }
     }
@@ -266,23 +431,43 @@ public class Military : ScriptableObject
     /// </summary>
     public void assignObj()
     {
+        // ally objective counter
         int x = 0;
-        for(int i = 0; i < locList.Count; i++)
+        // enemy objective counter
+        int y = 0;
+        for(int i = 0; i < allUnitsList.Count; i++)
         {
-            if (unitList[i].IFF == 0)
+            // grab the unit
+            Unit unit = allUnitsList[i];
+            if (unit.objective == null)
             {
-                toChange = unitList[i];
-                toChange.objective = locList[x];
-                toChange.inRange = false;
-                unitList[i] = toChange;
-                if (x < locList.Count)
+                // if the unit is friendly tell them to do friendly objectives 
+                if (unit.IFF == 0 && curObjList.Count != 0)
                 {
-                    x++;
+                    unit.objective = curObjList[x];
+                    unit.inRange = false;
+                    if (x < curObjList.Count - 1)
+                    {
+                        x++;
 
+                    }
+                    else
+                    {
+                        x = 0;
+                    }
                 }
-                else
+                else if (unit.IFF == 1 && enemyObjList.Count != 0)
                 {
-                    x = 0;
+                    unit.objective = enemyObjList[y];
+                    unit.inRange = false;
+                    if (y < enemyObjList.Count - 1)
+                    {
+                        y++;
+                    }
+                    else
+                    {
+                        y = 0;
+                    }
                 }
             }
         }
@@ -293,44 +478,50 @@ public class Military : ScriptableObject
     /// </summary>
     public void assignFightsinLocations()
     {
-        foreach(Location location in masterList)
+        foreach(Location location in resourceLocs)
         {
             //grab the ally and enemy list and assign jobs
-            List<int> allyIntTemp = location.allyUnitsPosinList;
-            List<int> enemyIntTemp = location.enemyUnitsPosinList;
+            List<Unit> allyUnitTemp= location.allyUnitsonLoc;
+            List<Unit> enemyUnitTemp = location.enemyUnitsonLoc;
             //ally
             int a = 0;
-            for (int x =0; x < allyIntTemp.Count; x++)
+            if (enemyUnitTemp.Count > 0)
             {
-                int allyint = allyIntTemp[x];
-                Unit unit = unitList[allyint];
-                unit.objective = unitList[enemyIntTemp[a]];
-                unit.inRange = false;
-                unitList[allyint] = unit;
-                if (a < enemyIntTemp.Count)
+                for (int x = 0; x < allyUnitTemp.Count; x++)
                 {
-                    a++;
-                }
-                else
-                {
-                    a = 0;
+                    Unit unit = allyUnitTemp[x];
+                    unit.secObjective = unit.objective;
+                    unit.objective = enemyUnitTemp[a];
+                    unit.inRange = false;
+                    if (a < enemyUnitTemp.Count - 1)
+                    {
+                        a++;
+                    }
+                    else
+                    {
+                        a = 0;
+                    }
                 }
             }
+
+
             int b = 0;
-            for (int y =0; y < enemyIntTemp.Count; y++)
+            if (allyUnitTemp.Count > 0)
             {
-                int enemyint = enemyIntTemp[y];
-                Unit unit = unitList[enemyint];
-                unit.objective = unitList[allyIntTemp[b]];
-                unit.inRange = false;
-                unitList[enemyint] = unit;
-                if (b < allyIntTemp.Count)
+                for (int y = 0; y < enemyUnitTemp.Count; y++)
                 {
-                    b++;
-                }
-                else
-                {
-                    b = 0;
+                    Unit unit = enemyUnitTemp[y];
+                    unit.secObjective = unit.objective;
+                    unit.objective = allyUnitTemp[b];
+                    unit.inRange = false;
+                    if (b < allyUnitTemp.Count - 1)
+                    {
+                        b++;
+                    }
+                    else
+                    {
+                        b = 0;
+                    }
                 }
             }
         }
@@ -347,7 +538,7 @@ public class Military : ScriptableObject
         List<Unit> liTwo = new List<Unit>();
         float distCheck = 100;
 
-        foreach (Unit toCheck in unitList)
+        foreach (Unit toCheck in allUnitsList)
         {
             float distance = Vector3.Distance((new Vector3(agressor.xLoc, agressor.yLoc, 0)), (new Vector3(toCheck.xLoc, toCheck.yLoc, 0)));
             if(distance < distCheck)
@@ -388,60 +579,84 @@ public class Military : ScriptableObject
         //loops until one side is dead
         while(randOne > 0 && randTwo > 0)
         {
-            indChoose = (int)Random.Range(0,randOne);
-            attack = unitSetOne[indOne].attack + (int)Random.Range(-3, 3);
-            target = unitSetTwo[indChoose];
-            if(unitSetTwo[indChoose].shield > 0)
+            // first list turn to attack
+            if (randOne > 0)
             {
-                if(target.shield >= attack)
+                indChoose = (int)Random.Range(0, randOne);
+                attack = unitSetOne[indOne].attack + (int)Random.Range(-3, 3);
+                target = unitSetTwo[indChoose];
+                if (unitSetTwo[indChoose].shield > 0)
                 {
-                    target.shield -= attack;
+                    if (target.shield >= attack)
+                    {
+                        target.shield -= attack;
+                    }
+                    else
+                    {
+                        int over = attack - unitSetTwo[indChoose].shield;
+                        target.shield = 0;
+                        target.health -= over;
+                    }
                 }
                 else
                 {
-                    int over = attack - unitSetTwo[indChoose].shield;
-                    target.shield = 0;
-                    target.health -= over;
+                    target.health -= attack;
+
+                }
+                if (unitSetTwo[indChoose].health <= 0)
+                {
+                    unitSetTwo[indChoose].dead = true;
+                    if (unitSetOne[indOne].secObjective != null)
+                    {
+                        unitSetOne[indOne].objective = unitSetOne[indOne].secObjective;
+                    }
+                    else
+                    {
+                        unitSetOne[indOne].objective = null;
+                    }
+                    unitSetTwo.RemoveAt(indChoose);
+                    randTwo--;
                 }
             }
-            else
-            {
-                target.health -= attack;
-              
-            }
-            unitSetTwo[indChoose] = target;
-            if (unitSetTwo[indChoose].health <= 0)
-            {
-                unitSetTwo.RemoveAt(indChoose);
-                randOne--;
-            }
 
-            indChoose = (int)Random.Range(0,randTwo);
-            attack = unitSetTwo[indTwo].attack + (int)Random.Range(-3, 3);
-            target = unitSetOne[indChoose];
-            if (unitSetTwo[indChoose].shield > 0)
+            // second list turn to attack
+            if (randTwo > 0)
             {
-                if (target.shield >= attack)
+                indChoose = (int)Random.Range(0, randTwo);
+                attack = unitSetTwo[indTwo].attack + (int)Random.Range(-3, 3);
+                target = unitSetOne[indChoose];
+                if (unitSetOne[indChoose].shield > 0)
                 {
-                    target.shield -= attack;
+                    if (target.shield >= attack)
+                    {
+                        target.shield -= attack;
+                    }
+                    else
+                    {
+                        int over = attack - unitSetOne[indChoose].shield;
+                        target.shield = 0;
+                        target.health -= over;
+                    }
                 }
                 else
                 {
-                    int over = attack - unitSetTwo[indChoose].shield;
-                    target.shield = 0;
-                    target.health -= over;
-                }
-            }
-            else
-            {
-                target.health -= attack;
+                    target.health -= attack;
 
-            }
-            unitSetTwo[indChoose] = target;
-            if (unitSetTwo[indChoose].health <= 0)
-            {
-                unitSetOne.RemoveAt(indChoose);
-                randOne--;
+                }
+                if (unitSetOne[indChoose].health <= 0)
+                {
+                    unitSetOne[indChoose].dead = true;
+                    if (unitSetTwo[indTwo].secObjective != null)
+                    {
+                        unitSetTwo[indTwo].objective = unitSetTwo[indTwo].secObjective;
+                    }
+                    else
+                    {
+                        unitSetTwo[indTwo].objective = null;
+                    }
+                    unitSetOne.RemoveAt(indChoose);
+                    randOne--;
+                }
             }
 
         }

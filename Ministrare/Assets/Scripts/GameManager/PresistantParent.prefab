@@ -178,12 +178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
-  resourceManager: {fileID: 0}
+  resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   NPCLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   onNewDay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: db4cc0cd394bda7438ced0e81ce9a2a8, type: 2}
+      - m_Target: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
         m_MethodName: processDailyActivities
         m_Mode: 1
         m_Arguments:
@@ -325,6 +325,7 @@ MonoBehaviour:
   resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
   filepathout: Assets/Resources/Dialog/SpymasterDialog.json
+  military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
   Ending: 
 --- !u!114 &114312433573959170
 MonoBehaviour:

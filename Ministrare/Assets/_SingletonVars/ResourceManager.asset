@@ -47,3 +47,5 @@ MonoBehaviour:
   farmStruct: {fileID: 11400000, guid: 7a38370eb38f9cb4d9c86595abb727a8, type: 2}
   productionStruct: {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
   scienceStruct: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
+  military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
+  runtimeHealth: 100

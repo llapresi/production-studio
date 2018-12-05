@@ -90,6 +90,7 @@ public class ResourceManager : ScriptableObject {
     public StructureManager farmStruct;
     public StructureManager productionStruct;
     public StructureManager scienceStruct;
+    public Military military;
 
     public int runtimeHealth;
     private int industryleadersUnhappy;
@@ -180,6 +181,10 @@ public class ResourceManager : ScriptableObject {
                 writer.Close();
             }
         }
+
+        military.assignObj();
+        military.MoveUnits();
+        military.assignFightsinLocations();
 
         AssetDatabase.Refresh();
 
