@@ -1263,7 +1263,7 @@ MonoBehaviour:
     spaceCount: 184
     wordCount: 182
     linkCount: 0
-    lineCount: 19
+    lineCount: 14
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1307,7 +1307,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0.00390625, y: 103.29502}
-  m_SizeDelta: {x: -0.0049438, y: 547.64}
+  m_SizeDelta: {x: -0.0049438, y: 409.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539608184
 MonoBehaviour:
@@ -1951,7 +1951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008177757, y: 0.000041297713}
+  m_AnchoredPosition: {x: -0.00008177757, y: 0.000067292254}
   m_SizeDelta: {x: 0.00008177757, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &923686513
@@ -2464,6 +2464,7 @@ MonoBehaviour:
   buttonGroup: {fileID: 923686515}
   dialogToLoad: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
   setDialogImages: {fileID: 1231191220}
+  nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
 --- !u!1 &1239406536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,8 +3322,8 @@ RectTransform:
   m_Father: {fileID: 1754031816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.31138143}
-  m_AnchorMax: {x: 1, y: 0.6886183}
+  m_AnchorMin: {x: 0, y: 0.2478395}
+  m_AnchorMax: {x: 1, y: 0.7521604}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3842,7 +3843,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1646946153}
   m_Direction: 2
   m_Value: 0.49999985
-  m_Size: 0.37723684
+  m_Size: 0.50432086
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -281,7 +281,6 @@ public class IndustryLeader {
         }
     }
 
-
     //setters and getters
     #region Mood Setters and getters
     public int Happiness

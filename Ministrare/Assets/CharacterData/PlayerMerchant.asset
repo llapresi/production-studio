@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254efab85eed6414d8073425c6e2a381, type: 3}
   m_Name: PlayerMerchant
   m_EditorClassIdentifier: 
-  id: playerMerchant
+  id: allyMerchant
   images:
   - image: {fileID: 21300000, guid: b1df7a7534a5cda47b15683cf092e8f4, type: 3}
     id: background

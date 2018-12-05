@@ -49,7 +49,8 @@ namespace Ministrare.Events
 
         public void Update()
         {
-            Debug.Log(string.Format("{0} TestEvent End: {1}", name, endDay - gameTimer.dayCount));
+            // commenting this debug statement out for now so that stuff can actually be debugged
+            //Debug.Log(string.Format("{0} TestEvent End: {1}", name, endDay - gameTimer.dayCount));
 
             // Event sets itself to be destroyed after 10 seconds
             if (gameTimer.dayCount >= endDay)

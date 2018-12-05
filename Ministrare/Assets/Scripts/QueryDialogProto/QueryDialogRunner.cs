@@ -29,6 +29,8 @@ public class QueryDialogRunner : MonoBehaviour
     // Use this component to set the images based on the dialog file
     public UISetDialogImages setDialogImages;
 
+    public NPCandLordHolder nPCandLordHolder;
+
     // Use this for initialization
     protected virtual void Start()
     {
@@ -48,6 +50,40 @@ public class QueryDialogRunner : MonoBehaviour
         currentDialogNode = newDialogNode;
         dialogDisplay.text = currentDialogNode.dialogText;
         updateGUI.Invoke();
+        RunNodeActions(newDialogNode);
+    }
+
+    void RunNodeActions(DialogNode newDialogNode)
+    {
+        // Check through node actions
+        if (newDialogNode.actions != null)
+        {
+            foreach (IDialogNodeAction action in newDialogNode.actions)
+            {
+                // Need a more elegant way of getting the type
+                if (action.GetType() == typeof(ModifyStatsDialogNodeAction))
+                {
+                    var statAction = action as ModifyStatsDialogNodeAction;
+                    
+                    // Using reflection to set the leader values.
+                    // This is a really bad and confusing way of doing this but hey, one week and I don't wanna touch the data model at this point
+
+                    // This is the actual leader object
+                    var leaderObj = nPCandLordHolder.leaderIDPairs[currentQuery.leaderID];
+
+                    // This is the property we're changing (ex. happiness, fear, etc) gotten by the name in the JSON file
+                    var relevantProp = leaderObj.GetType().GetProperty(statAction.statName);
+
+                    // Get the existing value and change it
+                    int existingValue = (int)relevantProp.GetValue(leaderObj, null);
+                    existingValue += statAction.statChangeValue;
+
+                    // Set it in the object and print the new file
+                    relevantProp.SetValue(leaderObj, existingValue, null);
+                    Debug.Log(statAction.statName + " is now " + relevantProp.GetValue(leaderObj, null));
+                }
+            }
+        }
     }
 
     // Bad hardcoded functions
