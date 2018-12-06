@@ -46,21 +46,21 @@ public class NPCandLordHolder : ScriptableObject {
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         //Ally IndustryLeaders Initialization
-        AllyFarmer = new IndustryLeader();
-        AllyGeneral = new IndustryLeader();
-        AllyScholar = new IndustryLeader();
-        AllyMerchant = new IndustryLeader();
-        AllyBuilder = new IndustryLeader();
+        AllyFarmer = new IndustryLeader("Farmer");
+        AllyGeneral = new IndustryLeader("General");
+        AllyScholar = new IndustryLeader("Scholar");
+        AllyMerchant = new IndustryLeader("Merchant");
+        AllyBuilder = new IndustryLeader("Smith");
 
         // our character Initialization
         Lord = new Lord();
 
         //Enemy IndustryLeaders Initialization
-        EnemyFarmer = new IndustryLeader();
-        EnemyGeneral = new IndustryLeader();
-        EnemyScholar = new IndustryLeader();
-        EnemyMerchant = new IndustryLeader();
-        EnemyBuilder = new IndustryLeader();
+        EnemyFarmer = new IndustryLeader(null);
+        EnemyGeneral = new IndustryLeader(null);
+        EnemyScholar = new IndustryLeader(null);
+        EnemyMerchant = new IndustryLeader(null);
+        EnemyBuilder = new IndustryLeader(null);
 
         // enemy Leader Initialization
         EnemyLord = new Lord();

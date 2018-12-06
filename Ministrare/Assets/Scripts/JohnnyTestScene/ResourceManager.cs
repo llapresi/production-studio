@@ -151,6 +151,21 @@ public class ResourceManager : ScriptableObject {
         military.assignObj();
         military.MoveUnits();
         military.assignFightsinLocations();
+        for (int r =0; r < military.resourceLocs.Count; r++)
+        {
+            Location location = military.resourceLocs[r];
+            location.ControlObjective();
+        }
+        // see if there are any rebel units and take away from health
+        for (int z =0; z < military.allUnitsList.Count; z++)
+        {
+            Unit unit = military.allUnitsList[z];
+            if (unit.IFF == 2)
+            {
+                runtimeHealth = runtimeHealth - 5;
+            }
+        }
+
 
         AssetDatabase.Refresh();
 
@@ -202,6 +217,7 @@ public class ResourceManager : ScriptableObject {
             GM.Ending = "oustedbythepeoplebadending";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
+        military.GrandBattle();
     }
 
     public void changeSpyMasterText()

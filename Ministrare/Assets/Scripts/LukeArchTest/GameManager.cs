@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
         {
             NPCLordHolder.Initialize();
             military.setParentObject();
-            military.CreateALocation(450, 450, "Mines");
-            military.CreateEnemyUnit();
+            //military.CreateALocation(-850, -28, "Mines");
             //military.CreateEnemyUnit();
-           //military.CreateEnemyUnit();
+            //military.CreateEnemyUnit();
+            military.CreateEnemyUnit();
             hasStarted = true;
 
             // make the dialog for the spymaster with template and updated resource and npc values

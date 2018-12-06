@@ -31,7 +31,7 @@ public class OnMapLoad: MonoBehaviour {
                 }
 
 
-            } else if (unit.IFF == 1)
+            } else if (unit.IFF == 1 || unit.IFF == 2)
             {
                 GameObject Parent = Instantiate(military.unitImTwo);
                 unit.image = Parent;
@@ -41,6 +41,11 @@ public class OnMapLoad: MonoBehaviour {
                 {
                     unit.image.transform.localPosition = new Vector3(unit.xLoc, unit.yLoc, 0);
                     unit.offmap = false;
+                    if(unit.IFF == 2)
+                    {
+                        unit.xLoc = unit.image.transform.position.x;
+                        unit.yLoc = unit.image.transform.position.y;
+                    }
                 }
                 else
                 {

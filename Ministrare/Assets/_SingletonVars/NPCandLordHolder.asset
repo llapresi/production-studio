@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d7d0a74f73e9474d848d472e785d5d8, type: 3}
-  m_Name: NPCandLordHolder
+  m_Name: 
   m_EditorClassIdentifier: 
   EcStateofMind: 1
   resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 
 public class IndustryLeader {
@@ -32,6 +33,9 @@ public class IndustryLeader {
     //Rebellion value
     private bool rebelling;
 
+    //name value
+    private string leaderName;
+
     //Arrays
     private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
     private string[] Traits = new string[] { "O","C", "E", "A", "N"};
@@ -41,7 +45,7 @@ public class IndustryLeader {
     PersonalityValues personalityValues;
 
 	// Use this for initialization
-	public IndustryLeader () {
+	public IndustryLeader (string namein) {
         // Conversation only stats
         attention = 100;
         relationshipValue = UnityEngine.Random.Range(50, 100);
@@ -62,6 +66,7 @@ public class IndustryLeader {
         generateStartingMoods();
         generateWorkEfficiency();
         Rebelling = false;
+        leaderName = namein;
     }
 
     public void generateStartingMoods()
@@ -274,9 +279,14 @@ public class IndustryLeader {
     {
         if (happiness <= 25 && fearfulness <= 25)
         {
-            if (UnityEngine.Random.Range(0,100) <= 5)
+            if (UnityEngine.Random.Range(0,100) <= 10)
             {
-                rebelling = true;
+                if (rebelling == false && leaderName != null)
+                {
+                    rebelling = true;
+                    Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+                    military.CreateRebelUnit(leaderName);
+                }
             }
         }
     }

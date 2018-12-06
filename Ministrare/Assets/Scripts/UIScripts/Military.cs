@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -77,7 +78,7 @@ public class Unit : Targets
     /// </summary>
     public void Move()
     {
-        if (objective != null)
+        if (objective != null && dead == false)
         {
             if (image != null)
             {
@@ -152,6 +153,11 @@ public class Unit : Targets
                 image.transform.position = new Vector3(xLoc, yLoc, 0);
             }
         }
+        else if (image != null)
+        {
+            xLoc = image.transform.position.x;
+            yLoc = image.transform.position.y;
+        }
     }
 
 
@@ -205,6 +211,35 @@ public class Location: Targets
         //image.transform.parent = parent.transform;
     }
 
+    public void ControlObjective()
+    {
+        ResourceManager resourceManager = (ResourceManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ResourceManager.asset", typeof(ResourceManager));
+        if (allyUnitsonLoc.Count > 0 && enemyUnitsonLoc.Count == 0 && name == "Mines")
+        {
+            resourceManager.runtimeGoldMiliaryGained = 15;
+        }
+        if (allyUnitsonLoc.Count > 0 && enemyUnitsonLoc.Count == 0 && name == "Hunting Grounds")
+        {
+            resourceManager.runtimeFoodMiliaryGained = 15;
+        }
+        if (allyUnitsonLoc.Count == 0 && enemyUnitsonLoc.Count == 0 && name == "Ruins")
+        {
+            resourceManager.runtimeEGMiliaryGained = 15;
+        }
+        if (allyUnitsonLoc.Count == 0 && enemyUnitsonLoc.Count > 0 && name == "Mines")
+        {
+            resourceManager.runtimeGoldMiliaryGained = 0;
+        }
+        if (allyUnitsonLoc.Count == 0 && enemyUnitsonLoc.Count > 0 && name == "Hunting Grounds")
+        {
+            resourceManager.runtimeFoodMiliaryGained = 0;
+        }
+        if (allyUnitsonLoc.Count == 0 && enemyUnitsonLoc.Count > 0 && name == "Ruins")
+        {
+            resourceManager.runtimeEGMiliaryGained = 0;
+        }
+    }
+
 }
 [CreateAssetMenu(fileName = "Military", menuName = "Ministrare/SingletonVars/Military", order = 9)]
 public class Military : ScriptableObject
@@ -231,9 +266,11 @@ public class Military : ScriptableObject
     public GameObject resourceLocation3;
 
     public ResourceManager resourceManager;
+    public NPCandLordHolder nPCandLordHolder;
 
     private int enemyNumAmount;
     private int allyNumAmount;
+    private int rebelNumAmount;
 
     //private List<Unit> unitList = new List<Unit>();
 
@@ -259,7 +296,7 @@ public class Military : ScriptableObject
     /// <summary>
     /// creates a unit and adds them to the list
     /// </summary>
-    public void createUnit(int iff,float x, float y,GameObject image)
+    public void createUnit(int iff,float x, float y,GameObject image, string industryleaderName)
     {
         //GameObject unitIm = Instantiate(image);
         if (iff == 0)
@@ -283,6 +320,15 @@ public class Military : ScriptableObject
         else if(newUnit.IFF == 1)
         {
             newUnit.name = "EnemyUnit#" + enemyNumAmount;
+            allUnitsList.Add(newUnit);
+            unchosenObjList.Add(newUnit);
+        }
+        else if (newUnit.IFF == 2)
+        {
+            newUnit.name = "RebelUnit " + industryleaderName;
+            newUnit.attack = 1;
+            newUnit.health = 3;
+            newUnit.shield = 0;
             allUnitsList.Add(newUnit);
             unchosenObjList.Add(newUnit);
         }
@@ -390,9 +436,11 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateFriendlyUnit()
     {
-        createUnit(0, -794.7f, -28, unitImOne);
+        createUnit(0, -794.7f, -28, unitImOne, null);
         resourceManager.runtimeFoodStorage = resourceManager.runtimeFoodStorage - 10;
         resourceManager.runtimeGoldStorage = resourceManager.runtimeGoldStorage - 10;
+        resourceManager.runtimeFoodUpkeep = resourceManager.runtimeFoodUpkeep + 5;
+        resourceManager.runtimeGoldUpkeep = resourceManager.runtimeGoldUpkeep + 5;
         resourceManager.changeSpyMasterText();
     }
 
@@ -402,10 +450,34 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateEnemyUnit()
     {
-        // 1700, 700
-        createUnit(1, 754, 181, unitImTwo);
+        // 754, 181
+        createUnit(1, 754, 181, unitImTwo, null);
     }
 
+    public void CreateRebelUnit(string industryLeadersName)
+    {
+        if (industryLeadersName == "Farmer")
+        {
+            createUnit(2, -770.6f, -634.0499f, unitImTwo, "Farmer");
+        }
+        else if (industryLeadersName == "Merchant")
+        {
+            createUnit(2, -423.6f, -292.87f, unitImTwo, "Merchant");
+        }
+        else if (industryLeadersName == "Smith")
+        {
+            createUnit(2, -633.6f, -434.05f, unitImTwo, "Smith");
+        }
+        else if (industryLeadersName == "Scholar")
+        {
+            createUnit(2, -600.5999f, -28.04997f, unitImTwo, "Scholar");
+        }
+        else if (industryLeadersName == "General")
+        {
+            createUnit(2, -794.7f, -28.04997f, unitImTwo, "General");
+        }
+    }
+   
     /// <summary>
     /// When called, it will save the position of the objects off screen in case we are not on map on movement
     /// </summary>
@@ -460,8 +532,12 @@ public class Military : ScriptableObject
         {
             if (allUnitsList[x].dead)
             {
-                GameObject GO = GameObject.Find(allUnitsList[x].image.name);
-                Destroy(GO);
+                if (allUnitsList[x].image != null)
+                {
+                    GameObject GO = GameObject.Find(allUnitsList[x].image.name);
+                    Destroy(GO);
+                }
+                
             }
         }
         allUnitsList.RemoveAll(x => x.dead == true);
@@ -635,6 +711,36 @@ public class Military : ScriptableObject
     }
 
     /// <summary>
+    /// The grand battle to end them all
+    /// </summary>
+    public bool GrandBattle()
+    {
+        List<Unit> allyUnits = new List<Unit>();
+        List<Unit> enemyUnits = new List<Unit>();
+        for(int j =0; j < allUnitsList.Count; j++)
+        {
+            Unit unit = allUnitsList[j];
+            if (unit.IFF == 0)
+            {
+                allyUnits.Add(unit);
+            }
+            else if (unit.IFF == 1)
+            {
+                enemyUnits.Add(unit);
+            }
+        }
+        battle(allyUnits, enemyUnits);
+        if (allyUnits.Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /// <summary>
     /// maes two groups of units fight until one side is destroyed
     /// </summary>
     /// <param name="unitSetOne"></param>
@@ -659,7 +765,7 @@ public class Military : ScriptableObject
             // first list turn to attack
             if (randOne > 0)
             {
-                indChoose = (int)Random.Range(0, randOne);
+                indChoose = (int)Random.Range(0, randOne-1);
                 attack = unitSetOne[indOne].attack + (int)Random.Range(-3, 3);
                 target = unitSetTwo[indChoose];
                 if (unitSetTwo[indChoose].shield > 0)
@@ -691,6 +797,54 @@ public class Military : ScriptableObject
                     {
                         unitSetOne[indOne].objective = null;
                     }
+                    if (unitSetTwo[indChoose].name.Contains("Rebel"))
+                    {
+                        string name = unitSetTwo[indChoose].name.Replace("RebelUnit ", "");
+                        if (name == "Farmer")
+                        {
+                            nPCandLordHolder.AllyFarmer.Rebelling = false;
+                        }
+                        else if (name == "Smith")
+                        {
+                            nPCandLordHolder.AllyBuilder.Rebelling = false;
+                        }
+                        else if (name == "Scholar")
+                        {
+                            nPCandLordHolder.AllyScholar.Rebelling = false;
+                        }
+                        else if (name == "General")
+                        {
+                            nPCandLordHolder.AllyGeneral.Rebelling = false;
+                        }
+                        else if (name == "Merchant")
+                        {
+                            nPCandLordHolder.AllyMerchant.Rebelling = false;
+                        }
+                    }
+                    //Grab the name of dead unit
+                    string deadname = unitSetTwo[indChoose].name;
+                    for (int x = 0; x < curObjList.Count; x++)
+                    {
+                        if (curObjList[x].GetType() == typeof(Unit))
+                        {
+                            Unit unit = (Unit)curObjList[x];
+                            if (unit.name == deadname)
+                            {
+                                curObjList.RemoveAt(x);
+                            }
+                        }
+                    }
+                    for (int x = 0; x < enemyObjList.Count; x++)
+                    {
+                        if (enemyObjList[x].GetType() == typeof(Unit))
+                        {
+                            Unit unit = (Unit)enemyObjList[x];
+                            if (unit.name == deadname)
+                            {
+                                enemyObjList.RemoveAt(x);
+                            }
+                        }
+                    }
                     unitSetTwo.RemoveAt(indChoose);
                     randTwo--;
                 }
@@ -699,7 +853,7 @@ public class Military : ScriptableObject
             // second list turn to attack
             if (randTwo > 0)
             {
-                indChoose = (int)Random.Range(0, randTwo);
+                indChoose = (int)Random.Range(0, randTwo-1);
                 attack = unitSetTwo[indTwo].attack + (int)Random.Range(-3, 3);
                 target = unitSetOne[indChoose];
                 if (unitSetOne[indChoose].shield > 0)
@@ -730,6 +884,54 @@ public class Military : ScriptableObject
                     else
                     {
                         unitSetTwo[indTwo].objective = null;
+                    }
+                    if(unitSetOne[indChoose].name.Contains("Rebel"))
+                    {
+                        string name = unitSetOne[indChoose].name.Replace("RebelUnit ", "");
+                        if (name == "Farmer")
+                        {
+                            nPCandLordHolder.AllyFarmer.Rebelling = false;
+                        }
+                        else if (name == "Smith")
+                        {
+                            nPCandLordHolder.AllyBuilder.Rebelling = false;
+                        }
+                        else if(name == "Scholar")
+                        {
+                            nPCandLordHolder.AllyScholar.Rebelling = false;
+                        }
+                        else if(name == "General")
+                        {
+                            nPCandLordHolder.AllyGeneral.Rebelling = false;
+                        }
+                        else if(name == "Merchant")
+                        {
+                            nPCandLordHolder.AllyMerchant.Rebelling = false;
+                        }
+                    }
+                    //Grab the name of dead unit
+                    string deadname = unitSetOne[indChoose].name;
+                    for(int x =0; x < curObjList.Count; x++)
+                    {
+                       if (curObjList[x].GetType() == typeof(Unit))
+                        {
+                            Unit unit = (Unit)curObjList[x];
+                            if(unit.name == deadname)
+                            {
+                                curObjList.RemoveAt(x);
+                            }
+                        }
+                    }
+                    for (int x = 0; x < enemyObjList.Count; x++)
+                    {
+                        if (enemyObjList[x].GetType() == typeof(Unit))
+                        {
+                            Unit unit = (Unit)enemyObjList[x];
+                            if (unit.name == deadname)
+                            {
+                                enemyObjList.RemoveAt(x);
+                            }
+                        }
                     }
                     unitSetOne.RemoveAt(indChoose);
                     randOne--;
