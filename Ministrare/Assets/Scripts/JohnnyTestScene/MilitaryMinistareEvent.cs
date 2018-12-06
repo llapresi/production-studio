@@ -44,6 +44,8 @@ namespace Ministrare.Events
             // go to the npcandLordHolder and tell it to spin the wheel again
             NPCandLordHolder nPCandLordHolder = (NPCandLordHolder)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/NPCandLordHolder.asset", typeof(NPCandLordHolder));
             nPCandLordHolder.stateOfMindRoll();
+            Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+            military.CreateEnemyUnit();
         }
 
         public void Update()

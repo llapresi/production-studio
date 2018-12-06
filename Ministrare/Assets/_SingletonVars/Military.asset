@@ -16,3 +16,4 @@ MonoBehaviour:
   parent: {fileID: 0}
   resourceLocation1: {fileID: 1575558880274590, guid: 3d4e130ba70d7df4588c38a36ca06155,
     type: 2}
+  resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}

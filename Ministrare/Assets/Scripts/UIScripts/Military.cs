@@ -54,8 +54,8 @@ public class Unit : Targets
         shield = s;
         health = h;
         healthMax = h;
-        xLoc = x;
-        yLoc = y;
+        xLoc = parent.transform.position.x + x;
+        yLoc = parent.transform.position.y + y;
         objective = obj;
         secObjective = null;
         speed = 10;
@@ -74,7 +74,8 @@ public class Unit : Targets
     {
         if (objective != null)
         {
-
+            xLoc = image.transform.position.x;
+            yLoc = image.transform.position.y;
 
             float targetX = objective.GetImage().transform.position.x;
             float targetY = objective.GetImage().transform.position.y;
@@ -155,8 +156,8 @@ public class Location: Targets
 
     public Location(float xin, float yin, string namein, GameObject obj, GameObject parent)
     {
-        xLoc = xin;
-        yLoc = yin;
+        xLoc = parent.transform.position.x + xin;
+        yLoc = parent.transform.position.y + yin;
         allyUnitsonLoc = new List<Unit>();
         enemyUnitsonLoc = new List<Unit>();
         name = namein;
@@ -174,8 +175,8 @@ public class Military : ScriptableObject
     private int attack = 5;
     private int shield = 5;
     private int health = 10;
-    private float xLoc = 500;
-    private float yLoc = 500;
+    private float xLoc = -794.7f;
+    private float yLoc = -28;
 
     public GameObject unitImOne;
 
@@ -184,6 +185,8 @@ public class Military : ScriptableObject
     public GameObject parent;
 
     public GameObject resourceLocation1;
+
+    public ResourceManager resourceManager;
 
     private int enemyNumAmount;
     private int allyNumAmount;
@@ -231,13 +234,13 @@ public class Military : ScriptableObject
         {
             newUnit.name = "AllyUnit#" + allyNumAmount;
             allUnitsList.Add(newUnit);
-           //enemyObjList.Add(newUnit);
+            enemyObjList.Add(newUnit);
         } 
         else if(newUnit.IFF == 1)
         {
             newUnit.name = "EnemyUnit#" + enemyNumAmount;
             allUnitsList.Add(newUnit);
-            //unchosenObjList.Add(newUnit);
+            unchosenObjList.Add(newUnit);
         }
     }
 
@@ -342,7 +345,10 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateFriendlyUnit()
     {
-        createUnit(0, xLoc, yLoc, unitImOne);
+        createUnit(0, -794.7f, -28, unitImOne);
+        resourceManager.runtimeFoodStorage = resourceManager.runtimeFoodStorage - 10;
+        resourceManager.runtimeGoldStorage = resourceManager.runtimeGoldStorage - 10;
+        resourceManager.changeSpyMasterText();
     }
 
 
@@ -352,7 +358,7 @@ public class Military : ScriptableObject
     public void CreateEnemyUnit()
     {
         // 1700, 700
-        createUnit(1, 400, 400, unitImTwo);
+        createUnit(1, 754, 181, unitImTwo);
 
     }
 
