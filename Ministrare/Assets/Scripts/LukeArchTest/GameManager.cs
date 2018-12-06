@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             NPCLordHolder.Initialize();
             military.setParentObject();
             military.CreateALocation(450, 450, "Mines");
-            //military.CreateEnemyUnit();
+            military.CreateEnemyUnit();
             //military.CreateEnemyUnit();
            //military.CreateEnemyUnit();
             hasStarted = true;

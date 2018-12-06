@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class SceneLink : MonoBehaviour {
@@ -21,6 +22,9 @@ public class SceneLink : MonoBehaviour {
         {
             paramObj.runtimeDialogPath = dialogPathToLoad;
         }
+        // set military off screen locations
+        Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+        military.saveOffScreenPos();
         //StartCoroutine(LoadAsyncScene());
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }

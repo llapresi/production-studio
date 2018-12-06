@@ -26,6 +26,10 @@ public class Unit : Targets
     //location of unit
     public float xLoc;
     public float yLoc;
+    //location of unit on map off screen
+    public float xLocOffScreen;
+    public float yLocOffScreen;
+    public bool offmap;
 
     //speed value for moving across map
     private int speed;
@@ -48,23 +52,24 @@ public class Unit : Targets
     }
 
     //constructor
-    public Unit(int a, int s, int h, float x, float y, Targets obj, int iff, GameObject im, GameObject parent)
+    public Unit(int a, int s, int h, float x, float y, float Mapx, float Mapy, Targets obj, int iff)
     {
         attack = a;
         shield = s;
         health = h;
         healthMax = h;
-        xLoc = parent.transform.position.x + x;
-        yLoc = parent.transform.position.y + y;
+        xLoc = Mapx + x;
+        yLoc = Mapy + y;
         objective = obj;
         secObjective = null;
         speed = 10;
         IFF = iff;
-        image = im;
-        im.transform.position = new Vector3(xLoc, yLoc, 0);
-        im.transform.parent = parent.transform;
+        //image = im;
+        //im.transform.position = new Vector3(xLoc, yLoc, 0);
+        //im.transform.parent = parent.transform;
         inRange = false;
         dead = false;
+        offmap = false;
     }
 
     /// <summary>
@@ -74,11 +79,39 @@ public class Unit : Targets
     {
         if (objective != null)
         {
-            xLoc = image.transform.position.x;
-            yLoc = image.transform.position.y;
+            if (image != null)
+            {
+                xLoc = image.transform.position.x;
+                yLoc = image.transform.position.y;
 
-            float targetX = objective.GetImage().transform.position.x;
-            float targetY = objective.GetImage().transform.position.y;
+            }
+            else
+            {
+            }
+
+            float targetX = 0; 
+            float targetY = 0;
+
+            if (objective.GetImage() != null)
+            {
+                targetX = objective.GetImage().transform.position.x;
+                targetY = objective.GetImage().transform.position.y;
+            }
+            else
+            {
+                if (objective.GetType() == typeof(Location))
+                {
+                    Location location = (Location)objective;
+                    targetX = location.xLocOffScreen;
+                    targetY = location.yLocOffScreen;
+                }
+                else if (objective.GetType() == typeof(Unit))
+                {
+                    Unit unit = (Unit)objective;
+                    targetX = unit.xLoc;
+                    targetY = unit.yLoc;
+                }
+            }
 
             float distanceX = Mathf.Abs(xLoc - targetX);
             float distanceY = Mathf.Abs(yLoc - targetY);
@@ -114,7 +147,10 @@ public class Unit : Targets
                     yLoc += speed;
                 }
             }
-            image.transform.position = new Vector3(xLoc, yLoc, 0);
+            if (image != null)
+            {
+                image.transform.position = new Vector3(xLoc, yLoc, 0);
+            }
         }
     }
 
@@ -146,6 +182,9 @@ public class Location: Targets
     public float xLoc;
     public float yLoc;
     public string name;
+    // position after game objects dissaper
+    public float xLocOffScreen;
+    public float yLocOffScreen;
 
     public GameObject GetImage()
     {
@@ -154,16 +193,16 @@ public class Location: Targets
 
     public int value;
 
-    public Location(float xin, float yin, string namein, GameObject obj, GameObject parent)
+    public Location(float xin, float yin, float Mapxin, float Mapyin, string namein)
     {
-        xLoc = parent.transform.position.x + xin;
-        yLoc = parent.transform.position.y + yin;
+        xLoc = Mapxin + xin;
+        yLoc = Mapyin + yin;
         allyUnitsonLoc = new List<Unit>();
         enemyUnitsonLoc = new List<Unit>();
         name = namein;
-        image = obj;
-        image.transform.position = new Vector3(xLoc, yLoc, 0);
-        image.transform.parent = parent.transform;
+        //image = obj;
+        //image.transform.position = new Vector3(xLoc, yLoc, 0);
+        //image.transform.parent = parent.transform;
     }
 
 }
@@ -177,6 +216,9 @@ public class Military : ScriptableObject
     private int health = 10;
     private float xLoc = -794.7f;
     private float yLoc = -28;
+    // Map coordinates
+    public float Mapx;
+    public float Mapy;
 
     public GameObject unitImOne;
 
@@ -185,6 +227,8 @@ public class Military : ScriptableObject
     public GameObject parent;
 
     public GameObject resourceLocation1;
+    public GameObject resourceLocation2;
+    public GameObject resourceLocation3;
 
     public ResourceManager resourceManager;
 
@@ -217,19 +261,19 @@ public class Military : ScriptableObject
     /// </summary>
     public void createUnit(int iff,float x, float y,GameObject image)
     {
-        GameObject unitIm = Instantiate(image);
+        //GameObject unitIm = Instantiate(image);
         if (iff == 0)
         {
             allyNumAmount++;
-            unitIm.name = "AllyUnit#" + allyNumAmount;
+            //unitIm.name = "AllyUnit#" + allyNumAmount;
         }
         else if (iff == 1)
         {
             enemyNumAmount++;
-            unitIm.name = "EnemyUnit#" + enemyNumAmount;
+            //unitIm.name = "EnemyUnit#" + enemyNumAmount;
         }
 
-        Unit newUnit = new Unit(attack,shield,health,x,y, null, iff, unitIm, parent);
+        Unit newUnit = new Unit(attack,shield,health,x,y,Mapx,Mapy, null, iff);
         if (newUnit.IFF == 0)
         {
             newUnit.name = "AllyUnit#" + allyNumAmount;
@@ -249,8 +293,7 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateALocation(float xin, float yin, string namein)
     {
-        GameObject img = Instantiate(resourceLocation1);
-        Location location = new Location(xin, yin, namein, img, parent);
+        Location location = new Location(xin, yin, Mapx, Mapy, namein);
         resourceLocs.Add(location);
         unchosenObjList.Add(location);
         enemyObjList.Add(location);
@@ -338,6 +381,8 @@ public class Military : ScriptableObject
     public void setParentObject()
     {
         parent = GameObject.Find("Map");
+        Mapx = parent.transform.position.x;
+        Mapy = parent.transform.position.y;
     }
 
     /// <summary>
@@ -359,7 +404,33 @@ public class Military : ScriptableObject
     {
         // 1700, 700
         createUnit(1, 754, 181, unitImTwo);
+    }
 
+    /// <summary>
+    /// When called, it will save the position of the objects off screen in case we are not on map on movement
+    /// </summary>
+    public void saveOffScreenPos()
+    {
+        //all units 
+        for(int x =0; x < allUnitsList.Count; x++)
+        {
+            Unit unit = allUnitsList[x];
+            GameObject GO = GameObject.Find(unit.name);
+            if (GO != null)
+            {
+                unit.xLoc = GO.transform.localPosition.x;
+                unit.yLoc = GO.transform.localPosition.y;
+                unit.offmap = true;
+            }
+        }
+        // all locations
+        for(int y =0; y < resourceLocs.Count; y++)
+        {
+            Location loc = resourceLocs[y];
+            GameObject GO = GameObject.Find(loc.name);
+            loc.xLocOffScreen = GO.transform.localPosition.x;
+            loc.yLocOffScreen = GO.transform.localPosition.y;
+        }
     }
 
 

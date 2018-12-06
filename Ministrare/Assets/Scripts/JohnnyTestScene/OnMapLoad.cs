@@ -17,17 +17,53 @@ public class OnMapLoad: MonoBehaviour {
             {
                 GameObject Parent = Instantiate(military.unitImOne);
                 unit.image = Parent;
-                unit.image.transform.position = new Vector3(unit.xLoc, unit.yLoc, 0);
+                unit.image.name = unit.name;
+                unit.image.transform.localPosition = new Vector3(unit.xLoc, unit.yLoc, 0);
                 unit.image.transform.parent = military.parent.transform;
+                if (unit.offmap)
+                {
+                    unit.image.transform.localPosition = new Vector3(unit.xLoc, unit.yLoc, 0);
+                    unit.offmap = false;
+                }
+                else
+                {
+                    unit.image.transform.position = new Vector3(unit.xLoc, unit.yLoc, 0);
+                }
+
+
             } else if (unit.IFF == 1)
             {
                 GameObject Parent = Instantiate(military.unitImTwo);
                 unit.image = Parent;
-                unit.image.transform.position = new Vector3(unit.xLoc, unit.yLoc, 0);
+                unit.image.name = unit.name;
                 unit.image.transform.parent = military.parent.transform;
+                if (unit.offmap)
+                {
+                    unit.image.transform.localPosition = new Vector3(unit.xLoc, unit.yLoc, 0);
+                    unit.offmap = false;
+                }
+                else
+                {
+                    unit.image.transform.position = new Vector3(unit.xLoc, unit.yLoc, 0);
+                }
+
+
+
             }
         }
-       
+        for(int y =0; y < military.resourceLocs.Count; y++)
+        {
+            Location location = military.resourceLocs[y];
+            if (location.name == "Mines")
+            {
+                GameObject GO = Instantiate(military.resourceLocation1);
+                location.image = GO;
+                location.image.name = location.name;
+                location.image.transform.position = new Vector3(location.xLoc, location.yLoc, 0);
+                location.image.transform.parent = military.parent.transform;
+
+            }
+        }
 
     }
 	
