@@ -1,1 +1,251 @@
-{"topics":[{"identifier":"(Who?)","conversations":[{"dialogNodes":[{"dialogText":"YOU: \"I wanted to ask about you feelings. How are you doing?\"\n\nMERCHANT LEADER: \"I am fine, my liege. Thank you for asking.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Feelings)"},{"dialogText":"YOU: \"How are things progressing with the tasks you've been assigned? What is your assessment of current production?\"\n\nMERCHANT LEADER: \"Things are progressing well. The balance of Exotic Goods and Gold is currently in equilibrium.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Work Efficiency)"}],"identifier":"(Talk about Them)"},{"dialogNodes":[{"dialogText":"YOU: \"I'd like to know your opinion of me, actually. What are your thoughts?\"\n\nMERCHANT LEADER: \"I have no qualms with you, my liege. You have so far been a satisfactory ruler.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Their Opinion)"},{"dialogText":"YOU: \"I was wondering if there was anything I could do to assist you, actually.\"\n\nMERCHANT LEADER: \"All is well, my liege. I have no pressing matters in need of your attention at this time.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Can I Help?)"}],"identifier":"(Talk about Me)"},{"dialogNodes":[{"dialogText":"YOU: \"How are things between you and the Farmers?\"\n\nMERCHANT LEADER: \"Well, they sure do smell peculiar. But this does nothing to strain the feelings of friendship and cooperation between us. Mostly.\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Opinion of Farmers)"},{"dialogText":"YOU: \"What are your thoughts on the Soldiers?\"\n\nMERCHANT LEADER: \"They may be rough around the edges, but they keep us safe. I am happy to say that we are on good terms.\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Opinion of Soldiers)"},{"dialogText":"YOU: \"How is your relationship with the Smithies?\"\n\nMERCHANT LEADER: \"Our relationship is strong. Without them, the resources we provide would be meaningless. Do I look like I could swing a hammer all day?\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Opinion of Smithies)"},{"dialogText":"YOU: \"How do you feel about the Scholars?\"\n\nMERCHANT LEADER: \"Cunning and well-travelled, just like us merchants. Naturally, we get along grandly.\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Opinion of Scholars)"}],"identifier":"(Talk about Other)"}]},{"identifier":"(What?)","conversations":[{"dialogNodes":[{"dialogText":"YOU: \"I need you and your subordinates to work a little harder. We need more resources and capital.\"\n\nMERCHANT LEADER: \"Is the city in need? Very well... I'll see to it that we provide.\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Work Harder)"},{"dialogText":"YOU: \"You and your subordinates may work less, should you need the rest. In any event, I've lowered your quota.\"\n\nMERCHANT LEADER: \"Music to my ears, my liege. Do remember to call on us when you need us!\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Take It Easy)"},{"dialogText":"YOU: \"How are the caravans running? What level of income can we expect?\"\n\nMERCHANT LEADER: \"Things are well, my liege. I'll have to check my ledger, but production should be overall greater than it has been in the past few days.\"\n\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Work Efficiency)"},{"dialogText":"YOU: \"I need you and the others to focus on bringing in more coin. We're going to be making some more purchases in the future.\"\n\nMERCHANT LEADER: \"We'll have to sell off some of the goods we've stocked up, but I can gaurantee an increase in coin immediately, my liege.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Focus on Gold)"},{"dialogText":"YOU: \"I'd like you and the others to trade for more exotic goods, if possible. As our industries grow, we'll need resources to support them. Literally.\"\n\nMERCHANT LEADER: \"Understandable, my liege. Just tell us where to send the pelts and spice when we get them.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Focus on Exotic Goods)"}],"identifier":"(Work)"},{"dialogNodes":[{"dialogText":"YOU: \"What do you think of our city? I'd like to know your thoughts.\"\n\nMERCHANT LEADER: \" 'Tis a fine city, my liege. I dare say the finest! The farmers could use a good washing, but otherwise, I can't complain.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(State of Things)"}],"identifier":"(The City)"},{"dialogNodes":[{"dialogText":"YOU: \"The bandits have been rather ornery as of late... I'd like you to give them something from me. Not too much, but just enough to get them off our backs for a while.\"\n\nMERCHANT LEADER: \"I'm afraid that if we feed them, they may only come back hungry for more. However, I shall do as you say, my liege.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Bribe To Calm Down)"},{"dialogText":"YOU: \"Those bandits would serve as a mighty asset to our growing city. It might be costly, but see if you can't turn pay them to serve us as mercenaries.\"\n\nMERCHANT LEADER: \"H-Hire them!? THOSE ruffians? I... ...I shall do as you say, my liege. I only hope that I may return alive, let alone successful.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Bribe To Hire)"},{"dialogText":"YOU: \"Those bandits are a pestillence upon our lands and people! I think our rivals across the way should get their fair share of the trouble for once.\"\n\nMERCHANT LEADER: \"What a wicked plan that is. I like it! I shall ride for their encampments in the woods immediately. Do pray for my safety.\"\n \n","nextNodes":[],"serializedActions":[],"identifier":"(Bribe To Attack Rival)"}],"identifier":"(Bandits)"}]},{"identifier":"(Why?)","conversations":[{"dialogNodes":[{"dialogText":"YOU: \"Are you trying to decieve me?\"\n\nMERCHANT LEADER: \"My liege, why would you say such a thing? I swear to you that what I say is the truth.\"\n\n","nextNodes":[],"serializedActions":[],"identifier":"(Are You Lying To Me?)"},{"dialogText":"YOU: \"Is something troubling you? You appear to be down.\"\n\nMERCHANT LEADER: \"No, my liege. I assure you, I am fine.\"\n","nextNodes":[],"serializedActions":[],"identifier":"(Sad?)"},{"dialogText":"YOU: \"What's the matter? You appear to be rather heated.\"\n\nMERCHANT LEADER: \"No my liege, I am quite calm.\"\n","nextNodes":[],"serializedActions":[],"identifier":"(Angry?)"},{"dialogText":"YOU: \"I don't like that look. What are you plotting?\"\n\nMERCHANT LEADER: \"My liege, what do you mean? Why would I ever plot against you?\"","nextNodes":[],"serializedActions":[],"identifier":"(Mischevious?)"},{"dialogText":"YOU: \"You appear disengaged. Are you not entertained?\"\n\nMERCHANT LEADER: \"The ruler of this glorious city has come to speak with me. How could I be disinterested?\"\n","nextNodes":[],"serializedActions":[],"identifier":"(Bored?)"},{"dialogText":"YOU: \"You appear quite elated! Am I correct in my assumption?\"\n\nMERCHANT LEADER: \"Hm, yes. I believe you would be correct. It's a fine day, things are well, and I have enjoyable company.\"\n","nextNodes":[],"serializedActions":[],"identifier":"(Happy?)"},{"dialogText":"YOU: \"I see a spark in your gaze. Has something inspired you?\"\n\nMERCHANT LEADER: \"Not particularly, my liege. Perhaps a thought of coin, ha ha~...\"","nextNodes":[],"serializedActions":[],"identifier":"(Inspired?)"},{"dialogText":"YOU: \"It would seem that you fear something. What makes you tremble in such a manner?\"\n\nMERCHANT LEADER: \"I don't feel particularly fearful, my liege. Perhaps it was just a sudden chill?\"","nextNodes":[],"serializedActions":[],"identifier":"(Afraid?)"}],"identifier":"(Why That Face?)"},{"dialogNodes":[{"dialogText":"YOU: \"I've noticed a dip in production. Are you not pulling your weight?\"\n\nMERCHANT LEADER: \"Why no, my liege. I work just as hard, if not harder, than everyone else! Why would you say such a thing?\"","nextNodes":[],"serializedActions":[],"identifier":"(Are You Slacking Off?)"},{"dialogText":"YOU: \"Did you think I would not notice the decline in your production? I will not tolerate corruption! Reveal your treachery!\"\n\nMERCHANT LEADER: \"That's preposterous! I will not entertain these sorts of groundless accusations, regardless of your rank and title. Nothing has changed. Check your ledger again, my liege.\"","nextNodes":[],"serializedActions":[],"identifier":"(Have You Betrayed Me?)"},{"dialogText":"YOU: \"It would appear that production is slipped below acceptable levels. Tell me, is everything alright?\"\n\nMERCHANT LEADER: \"I am well, my liege. I haven't noticed any remarkable changes in production, but I'll double check. Thank you for asking.\"","nextNodes":[],"serializedActions":[],"identifier":"(Are You Well?)"}],"identifier":"(Why Poor Production?)"},{"dialogNodes":[{"dialogText":"[You intimidate your subordinate into entertianing your presence for a little longer. They appear to be a little fearful of what you may do...]\n","nextNodes":[],"serializedActions":[],"identifier":"(Intimidate!)"},{"dialogText":"YOU: \"We've been talking for quite some time, I know, but I still have more to discuss. Is it fine if we continue for a bit longer?\"\n\nMERCHANT LEADER: \"Of course, my liege. I have no issues with that.\"","nextNodes":[],"serializedActions":[],"identifier":"(Request More Time)"},{"dialogText":"[Using your natural charm, your subordinate's attention is re-affixed to your person. They appear to be enjoying your company, perhpas to the detriment of their focus...]\n ","nextNodes":[],"serializedActions":[],"identifier":"(Use Charisma!)"}],"identifier":"(Impatient?)"}]}],"leaderID":"playerMerchant"}
+{
+  "topics": [
+    {
+      "identifier": "(Who?)",
+      "conversations": [
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"I wanted to ask about you feelings. How are you doing?\"\n\nMERCHANT LEADER: \"I am fine, my liege. Thank you for asking.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Feelings)"
+            },
+            {
+              "dialogText": "YOU: \"How are things progressing with the tasks you've been assigned? What is your assessment of current production?\"\n\nMERCHANT LEADER: \"Things are progressing well. The balance of Exotic Goods and Gold is currently in equilibrium.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Work Efficiency)"
+            }
+          ],
+          "identifier": "(Talk about Them)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"I'd like to know your opinion of me, actually. What are your thoughts?\"\n\nMERCHANT LEADER: \"I have no qualms with you, my liege. You have so far been a satisfactory ruler.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Their Opinion)"
+            },
+            {
+              "dialogText": "YOU: \"I was wondering if there was anything I could do to assist you, actually.\"\n\nMERCHANT LEADER: \"All is well, my liege. I have no pressing matters in need of your attention at this time.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Can I Help?)"
+            }
+          ],
+          "identifier": "(Talk about Me)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"How are things between you and the Farmers?\"\n\nMERCHANT LEADER: \"Well, they sure do smell peculiar. But this does nothing to strain the feelings of friendship and cooperation between us. Mostly.\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Opinion of Farmers)"
+            },
+            {
+              "dialogText": "YOU: \"What are your thoughts on the Soldiers?\"\n\nMERCHANT LEADER: \"They may be rough around the edges, but they keep us safe. I am happy to say that we are on good terms.\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Opinion of Soldiers)"
+            },
+            {
+              "dialogText": "YOU: \"How is your relationship with the Smithies?\"\n\nMERCHANT LEADER: \"Our relationship is strong. Without them, the resources we provide would be meaningless. Do I look like I could swing a hammer all day?\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Opinion of Smithies)"
+            },
+            {
+              "dialogText": "YOU: \"How do you feel about the Scholars?\"\n\nMERCHANT LEADER: \"Cunning and well-travelled, just like us merchants. Naturally, we get along grandly.\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Opinion of Scholars)"
+            }
+          ],
+          "identifier": "(Talk about Other)"
+        }
+      ]
+    },
+    {
+      "identifier": "(What?)",
+      "conversations": [
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"I need you and your subordinates to work a little harder. We need more resources and capital.\"\n\nMERCHANT LEADER: \"Is the city in need? Very well... I'll see to it that we provide.\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Work Harder)"
+            },
+            {
+              "dialogText": "YOU: \"You and your subordinates may work less, should you need the rest. In any event, I've lowered your quota.\"\n\nMERCHANT LEADER: \"Music to my ears, my liege. Do remember to call on us when you need us!\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Take It Easy)"
+            },
+            {
+              "dialogText": "YOU: \"How are the caravans running? What level of income can we expect?\"\n\nMERCHANT LEADER: \"Things are well, my liege. I'll have to check my ledger, but production should be overall greater than it has been in the past few days.\"\n\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Work Efficiency)"
+            },
+            {
+              "dialogText": "YOU: \"I need you and the others to focus on bringing in more coin. We're going to be making some more purchases in the future.\"\n\nMERCHANT LEADER: \"We'll have to sell off some of the goods we've stocked up, but I can gaurantee an increase in coin immediately, my liege.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Focus on Gold)"
+            },
+            {
+              "dialogText": "YOU: \"I'd like you and the others to trade for more exotic goods, if possible. As our industries grow, we'll need resources to support them. Literally.\"\n\nMERCHANT LEADER: \"Understandable, my liege. Just tell us where to send the pelts and spice when we get them.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Focus on Exotic Goods)"
+            }
+          ],
+          "identifier": "(Work)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"What do you think of our city? I'd like to know your thoughts.\"\n\nMERCHANT LEADER: \" 'Tis a fine city, my liege. I dare say the finest! The farmers could use a good washing, but otherwise, I can't complain.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(State of Things)"
+            }
+          ],
+          "identifier": "(The City)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"The bandits have been rather ornery as of late... I'd like you to give them something from me. Not too much, but just enough to get them off our backs for a while.\"\n\nMERCHANT LEADER: \"I'm afraid that if we feed them, they may only come back hungry for more. However, I shall do as you say, my liege.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Bribe To Calm Down)"
+            },
+            {
+              "dialogText": "YOU: \"Those bandits would serve as a mighty asset to our growing city. It might be costly, but see if you can't turn pay them to serve us as mercenaries.\"\n\nMERCHANT LEADER: \"H-Hire them!? THOSE ruffians? I... ...I shall do as you say, my liege. I only hope that I may return alive, let alone successful.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Bribe To Hire)"
+            },
+            {
+              "dialogText": "YOU: \"Those bandits are a pestillence upon our lands and people! I think our rivals across the way should get their fair share of the trouble for once.\"\n\nMERCHANT LEADER: \"What a wicked plan that is. I like it! I shall ride for their encampments in the woods immediately. Do pray for my safety.\"\n \n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Bribe To Attack Rival)"
+            }
+          ],
+          "identifier": "(Bandits)"
+        }
+      ]
+    },
+    {
+      "identifier": "(Why?)",
+      "conversations": [
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"Are you trying to decieve me?\"\n\nMERCHANT LEADER: \"My liege, why would you say such a thing? I swear to you that what I say is the truth.\"\n\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Are You Lying To Me?)"
+            },
+            {
+              "dialogText": "YOU: \"Is something troubling you? You appear to be down.\"\n\nMERCHANT LEADER: \"No, my liege. I assure you, I am fine.\"\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Sad?)"
+            },
+            {
+              "dialogText": "YOU: \"What's the matter? You appear to be rather heated.\"\n\nMERCHANT LEADER: \"No my liege, I am quite calm.\"\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Angry?)"
+            },
+            {
+              "dialogText": "YOU: \"I don't like that look. What are you plotting?\"\n\nMERCHANT LEADER: \"My liege, what do you mean? Why would I ever plot against you?\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Mischevious?)"
+            },
+            {
+              "dialogText": "YOU: \"You appear disengaged. Are you not entertained?\"\n\nMERCHANT LEADER: \"The ruler of this glorious city has come to speak with me. How could I be disinterested?\"\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Bored?)"
+            },
+            {
+              "dialogText": "YOU: \"You appear quite elated! Am I correct in my assumption?\"\n\nMERCHANT LEADER: \"Hm, yes. I believe you would be correct. It's a fine day, things are well, and I have enjoyable company.\"\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Happy?)"
+            },
+            {
+              "dialogText": "YOU: \"I see a spark in your gaze. Has something inspired you?\"\n\nMERCHANT LEADER: \"Not particularly, my liege. Perhaps a thought of coin, ha ha~...\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Inspired?)"
+            },
+            {
+              "dialogText": "YOU: \"It would seem that you fear something. What makes you tremble in such a manner?\"\n\nMERCHANT LEADER: \"I don't feel particularly fearful, my liege. Perhaps it was just a sudden chill?\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Afraid?)"
+            }
+          ],
+          "identifier": "(Why That Face?)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "YOU: \"I've noticed a dip in production. Are you not pulling your weight?\"\n\nMERCHANT LEADER: \"Why no, my liege. I work just as hard, if not harder, than everyone else! Why would you say such a thing?\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Are You Slacking Off?)"
+            },
+            {
+              "dialogText": "YOU: \"Did you think I would not notice the decline in your production? I will not tolerate corruption! Reveal your treachery!\"\n\nMERCHANT LEADER: \"That's preposterous! I will not entertain these sorts of groundless accusations, regardless of your rank and title. Nothing has changed. Check your ledger again, my liege.\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Have You Betrayed Me?)"
+            },
+            {
+              "dialogText": "YOU: \"It would appear that production is slipped below acceptable levels. Tell me, is everything alright?\"\n\nMERCHANT LEADER: \"I am well, my liege. I haven't noticed any remarkable changes in production, but I'll double check. Thank you for asking.\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Are You Well?)"
+            }
+          ],
+          "identifier": "(Why Poor Production?)"
+        },
+        {
+          "dialogNodes": [
+            {
+              "dialogText": "[You intimidate your subordinate into entertianing your presence for a little longer. They appear to be a little fearful of what you may do...]\n",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Intimidate!)"
+            },
+            {
+              "dialogText": "YOU: \"We've been talking for quite some time, I know, but I still have more to discuss. Is it fine if we continue for a bit longer?\"\n\nMERCHANT LEADER: \"Of course, my liege. I have no issues with that.\"",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Request More Time)"
+            },
+            {
+              "dialogText": "[Using your natural charm, your subordinate's attention is re-affixed to your person. They appear to be enjoying your company, perhpas to the detriment of their focus...]\n ",
+              "nextNodes": [],
+              "serializedActions": [],
+              "identifier": "(Use Charisma!)"
+            }
+          ],
+          "identifier": "(Impatient?)"
+        }
+      ]
+    }
+  ],
+  "leaderID": "allyMerchant"
+}

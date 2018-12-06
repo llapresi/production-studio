@@ -1,0 +1,221 @@
+{
+    "topics": [
+        {
+            "identifier": "(Smith?)",
+            "conversations": [
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "YOU: \"I wanted to ask about you feelings. How are you doing?\"\n\nFARMER LEADER: \"I'm well my liege. And you?\"\n",
+                            "nextNodes": [],
+                            "serializedActions": [
+                                {
+                                  "actionType": "modifyStats",
+                                  "actionParams": "Happiness -20"
+                                }
+                              ],
+                            "identifier": "(Feelings)"
+                        },
+                        {
+                            "dialogText": "YOU: \"How are things progressing with the tasks you've been assigned? What is your assessment of current production?\"\n\nSMITH LEADER: \"Things appear to be right on schedule, my liege! About as much as the last few days.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Work Efficiency)"
+                        }
+                    ],
+                    "identifier": "(Talk about Them)"
+                },
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "YOU: \"I'd like to know your opinion of me, actually. What are your thoughts?\"\n\nSMITH LEADER: \"I think you're alright, my liege. No complaints here.\"\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Their Opinion)"
+                        },
+                        {
+                            "dialogText": "YOU: \"I was wondering if there was anything I could do to assist you, actually.\"\n\nSMITH LEADER: \"Not at the moment, my liege. Thank you for asking.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Can I Help?)"
+                        }
+                    ],
+                    "identifier": "(Talk about Me)"
+                },
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "YOU: \"How are things between you and the Merchants?\"\n\nSMITH LEADER: \"Things are fine. They're a little stuck up, like those scholars, but no serious issues.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Opinion of Merchants)"
+                        },
+                        {
+                            "dialogText": "YOU: \"What are your thoughts on the soldiers?\"\n\nSMITH LEADER: \"They keep us safe. Do I have any right to complain?\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Opinion of Soldiers)"
+                        },
+                        {
+                            "dialogText": "YOU: \"How is your relationship with the smithies?\"\n\nSMITH LEADER: \"I don't really speak with them much, but they're a hard working bunch, just like us. We get along just fine.\"\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Opinion of Smithies)"
+                        },
+                        {
+                            "dialogText": "YOU: \"How do you feel about the scholars?\"\n\nSMITH LEADER: \"They like to act all high and mighty, but they have to eat like everyone else. They've never complained about the quality of the food, though, so I don't have anything to say either.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Opinion of Scholars)"
+                        }
+                    ],
+                    "identifier": "(Talk about Other)"
+                }
+            ]
+        },
+        {
+            "identifier": "(What?)",
+            "conversations": [
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "YOU: \"I need you and your subordinates to work a little harder. We need to increase production.\"\n\nSMITH LEADER: \"Ah, alright my liege. I'll see what we can do.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Work Harder)"
+                        },
+                        {
+                            "dialogText": "YOU: \"You and your subordinates may work less, should you need the rest. A decrease in production would be acceptable.\"\n\nSMITH LEADER: \"Really? I'll let everyone know. I'm sure they'll be glad to get a little more sleep. Thank you, my liege.\"\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Take It Easy)"
+                        },
+                        {
+                            "dialogText": "YOU: \"How are you finding the tasks I assigned you? What level of production can we expect?\"\n\nSMITH LEADER: \"Many of us have been SMITHs all our lives. Things are as good as they've ever been. We should be able to produce about as much as we have the last few days.\"",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Work Efficiency)"
+                        }
+                    ],
+                    "identifier": "(Work)"
+                },
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "YOU: \"What do you think of our city? I'd like to know your thoughts.\"\n\nSMITH LEADER: \"It's our home, my liege. I love it. I think everyone else would say the same.\"\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(State of Things)"
+                        }
+                    ],
+                    "identifier": "(The City)"
+                }
+            ]
+        },
+        {
+            "identifier": "(Why?)",
+            "conversations": [
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "Are you trying to decieve me?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Are You Lying To Me?)"
+                        },
+                        {
+                            "dialogText": "Is something troubling you? You appear to be down.\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Sad?)"
+                        },
+                        {
+                            "dialogText": "What's the matter? You appear to be rather heated.\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Angry?)"
+                        },
+                        {
+                            "dialogText": "I don't like that look. What are you plotting?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Mischevious?)"
+                        },
+                        {
+                            "dialogText": "You appear disengaged. Are you not entertained?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Bored?)"
+                        },
+                        {
+                            "dialogText": "You appear quite elated! Am I correct in my assumption?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Happy?)"
+                        },
+                        {
+                            "dialogText": "I see a spark in your gaze. Has something inspired you?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Excited?)"
+                        },
+                        {
+                            "dialogText": "It would seem that you fear something. What makes you tremble in such a manner?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Afraid?)"
+                        }
+                    ],
+                    "identifier": "(Why That Face?)"
+                },
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "I've noticed a dip in production. Are you not pulling your weight?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Are You Slacking Off?)"
+                        },
+                        {
+                            "dialogText": "Did you think I would not notice the decline in your production? I will not tolerate corruption! Reveal your treachery!\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Have You Betrayed Me?)"
+                        },
+                        {
+                            "dialogText": "It would appear that production is slipped below acceptable levels. Tell me, is everything alright?\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Are You Well?)"
+                        }
+                    ],
+                    "identifier": "(Why Poor Production?)"
+                },
+                {
+                    "dialogNodes": [
+                        {
+                            "dialogText": "[You intimidate your subordinate into entertianing your presence for a little longer. They appear to be a little fearful of what you may do...]\n",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Intimidate!)"
+                        },
+                        {
+                            "dialogText": "We've been talking for quite some time, I know, but I still have more to discuss. Is it fine if we continue for a bit longer?",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Request More Time)"
+                        },
+                        {
+                            "dialogText": "[Using your natural charm, your subordinate's attention is re-affixed to your person. They appear to be enjoying your company, perhpas to the detriment of their focus...]\n ",
+                            "nextNodes": [],
+                            "serializedActions": [],
+                            "identifier": "(Use Charisma!)"
+                        }
+                    ],
+                    "identifier": "(Impatient?)"
+                }
+            ]
+        }
+    ],
+    "leaderID": "allySmith"
+}
