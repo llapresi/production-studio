@@ -36,6 +36,10 @@ public class NPCandLordHolder : ScriptableObject {
     [SerializeField]
     public ResourceManager resourceManager;
 
+    // Dictionary used to tie IndustryLeaders to ids
+    // WARNING: USING STRINGS AS OUR IDS BOTH IN HERE, IN THE JSON SCRIPTS AND CHARACTER DATA
+    // THIS IS BAD PRACTICE BUT WE GOT A WEEK LEFT SO YEAH
+    public Dictionary<string, IndustryLeader> leaderIDPairs;
 
     public void OnEnable()
    {
@@ -56,7 +60,7 @@ public class NPCandLordHolder : ScriptableObject {
         AllyGeneral.leaderName = "General";
         AllyScholar.leaderName = "Scholar";
         AllyMerchant.leaderName = "Merchant";
-        AllyBuilder.leaderName = "Builder";
+        AllyBuilder.leaderName = "Smith";
 
         // our character Initialization
         Lord = new Lord();
@@ -67,6 +71,9 @@ public class NPCandLordHolder : ScriptableObject {
         EnemyScholar = new IndustryLeader();
         EnemyMerchant = new IndustryLeader();
         EnemyBuilder = new IndustryLeader();
+
+        // Make the id -> leader dict table
+        CreateDictTable();
 
         // enemy Leader Initialization
         EnemyLord = new Lord();
@@ -83,6 +90,27 @@ public class NPCandLordHolder : ScriptableObject {
         int daysDuration = Random.Range(6, 8);
         StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
         ministrareEventRunner.AddEvent(stable);
+        //MilitaryMinistareEvent military = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent", 1);
+        //ministrareEventRunner.AddEvent(military);
+    }
+
+    void CreateDictTable()
+    {
+        leaderIDPairs = new Dictionary<string, IndustryLeader>()
+        {
+            // Allies
+            {"allyFarmer", AllyFarmer},
+            {"allyGeneral", AllyGeneral },
+            {"allyScholar", AllyScholar },
+            {"allyMerchant", AllyMerchant },
+            {"allyBuilder", AllyBuilder },
+            // Enemies
+            {"enemyFarmer", EnemyFarmer },
+            {"enemyGeneral", EnemyGeneral },
+            {"enemyScholar", EnemyScholar },
+            {"enemyMerchant", EnemyMerchant },
+            {"enemyBuilder", EnemyBuilder }
+        };
     }
 
     public void doDailyworkEffeciency()

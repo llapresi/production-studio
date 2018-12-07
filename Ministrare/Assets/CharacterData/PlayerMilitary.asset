@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 254efab85eed6414d8073425c6e2a381, type: 3}
-  m_Name: PlayerMerchant
+  m_Name: PlayerMilitary
   m_EditorClassIdentifier: 
-  id: allyMerchant
+  id: allyMilitary
   images:
-  - image: {fileID: 21300000, guid: b1df7a7534a5cda47b15683cf092e8f4, type: 3}
+  - image: {fileID: 21300000, guid: f9df4ff0a68bb8040986e536c8d96549, type: 3}
     id: background
-  - image: {fileID: 21300000, guid: 8afc202f8072f6144ad3ec5bd27ac0c5, type: 3}
+  - image: {fileID: 21300000, guid: 6d7749d377d700946996146125bb8594, type: 3}
     id: neutral

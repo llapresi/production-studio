@@ -1,7 +1,7 @@
 {
     "topics": [
         {
-            "identifier": "(Who?)",
+            "identifier": "(Military?)",
             "conversations": [
                 {
                     "dialogNodes": [
@@ -17,7 +17,7 @@
                             "identifier": "(Feelings)"
                         },
                         {
-                            "dialogText": "YOU: \"How are things progressing with the tasks you've been assigned? What is your assessment of current production?\"\n\nFARMER LEADER: \"Things appear to be right on schedule, my liege! About as much as the last few days.\"",
+                            "dialogText": "YOU: \"How are things progressing with the tasks you've been assigned? What is your assessment of current production?\"\n\nMILITARY LEADER: \"Things appear to be right on schedule, my liege! About as much as the last few days.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Work Efficiency)"
@@ -28,13 +28,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "YOU: \"I'd like to know your opinion of me, actually. What are your thoughts?\"\n\nFARMER LEADER: \"I think you're alright, my liege. No complaints here.\"\n",
+                            "dialogText": "YOU: \"I'd like to know your opinion of me, actually. What are your thoughts?\"\n\nMILITARY LEADER: \"I think you're alright, my liege. No complaints here.\"\n",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Their Opinion)"
                         },
                         {
-                            "dialogText": "YOU: \"I was wondering if there was anything I could do to assist you, actually.\"\n\nFARMER LEADER: \"Not at the moment, my liege. Thank you for asking.\"",
+                            "dialogText": "YOU: \"I was wondering if there was anything I could do to assist you, actually.\"\n\nMILITARY LEADER: \"Not at the moment, my liege. Thank you for asking.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Can I Help?)"
@@ -45,25 +45,25 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "YOU: \"How are things between you and the Merchants?\"\n\nFARMER LEADER: \"Things are fine. They're a little stuck up, like those scholars, but no serious issues.\"",
+                            "dialogText": "YOU: \"How are things between you and the Merchants?\"\n\nMILITARY LEADER: \"Things are fine. They're a little stuck up, like those scholars, but no serious issues.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Opinion of Merchants)"
                         },
                         {
-                            "dialogText": "YOU: \"What are your thoughts on the soldiers?\"\n\nFARMER LEADER: \"They keep us safe. Do I have any right to complain?\"",
+                            "dialogText": "YOU: \"What are your thoughts on the soldiers?\"\n\nMILITARY LEADER: \"They keep us safe. Do I have any right to complain?\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Opinion of Soldiers)"
                         },
                         {
-                            "dialogText": "YOU: \"How is your relationship with the smithies?\"\n\nFARMER LEADER: \"I don't really speak with them much, but they're a hard working bunch, just like us. We get along just fine.\"\n",
+                            "dialogText": "YOU: \"How is your relationship with the smithies?\"\n\nMILITARY LEADER: \"I don't really speak with them much, but they're a hard working bunch, just like us. We get along just fine.\"\n",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Opinion of Smithies)"
                         },
                         {
-                            "dialogText": "YOU: \"How do you feel about the scholars?\"\n\nFARMER LEADER: \"They like to act all high and mighty, but they have to eat like everyone else. They've never complained about the quality of the food, though, so I don't have anything to say either.\"",
+                            "dialogText": "YOU: \"How do you feel about the scholars?\"\n\nMILITARY LEADER: \"They like to act all high and mighty, but they have to eat like everyone else. They've never complained about the quality of the food, though, so I don't have anything to say either.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Opinion of Scholars)"
@@ -79,19 +79,19 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "YOU: \"I need you and your subordinates to work a little harder. We need to increase production.\"\n\nFARMER LEADER: \"Ah, alright my liege. I'll see what we can do.\"",
+                            "dialogText": "YOU: \"I need you and your subordinates to work a little harder. We need to increase production.\"\n\nMILITARY LEADER: \"Ah, alright my liege. I'll see what we can do.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Work Harder)"
                         },
                         {
-                            "dialogText": "YOU: \"You and your subordinates may work less, should you need the rest. A decrease in production would be acceptable.\"\n\nFARMER LEADER: \"Really? I'll let everyone know. I'm sure they'll be glad to get a little more sleep. Thank you, my liege.\"\n",
+                            "dialogText": "YOU: \"You and your subordinates may work less, should you need the rest. A decrease in production would be acceptable.\"\n\nMILITARY LEADER: \"Really? I'll let everyone know. I'm sure they'll be glad to get a little more sleep. Thank you, my liege.\"\n",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Take It Easy)"
                         },
                         {
-                            "dialogText": "YOU: \"How are you finding the tasks I assigned you? What level of production can we expect?\"\n\nFARMER LEADER: \"Many of us have been farmers all our lives. Things are as good as they've ever been. We should be able to produce about as much as we have the last few days.\"",
+                            "dialogText": "YOU: \"How are you finding the tasks I assigned you? What level of production can we expect?\"\n\nMILITARY LEADER: \"Many of us have been MILITARYs all our lives. Things are as good as they've ever been. We should be able to produce about as much as we have the last few days.\"",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(Work Efficiency)"
@@ -102,7 +102,7 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "YOU: \"What do you think of our city? I'd like to know your thoughts.\"\n\nFARMER LEADER: \"It's our home, my liege. I love it. I think everyone else would say the same.\"\n",
+                            "dialogText": "YOU: \"What do you think of our city? I'd like to know your thoughts.\"\n\nMILITARY LEADER: \"It's our home, my liege. I love it. I think everyone else would say the same.\"\n",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "(State of Things)"
@@ -217,5 +217,5 @@
             ]
         }
     ],
-    "leaderID": "allyFarmer"
+    "leaderID": "allyMilitary"
 }

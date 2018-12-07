@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
         {
             NPCLordHolder.Initialize();
             military.setParentObject();
-            //military.CreateALocation(-850, -28, "Mines");
+            //military.CreateALocation(-500, -28, "Mines");
+            //military.CreateALocation(-700, -28, "Hunting Grounds");
+            //military.CreateALocation(-300, -28, "Ruins");
             //military.CreateEnemyUnit();
             //military.CreateEnemyUnit();
             //military.CreateEnemyUnit();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OnMapLoad: MonoBehaviour {
 
@@ -64,6 +65,36 @@ public class OnMapLoad: MonoBehaviour {
                 GameObject GO = Instantiate(military.resourceLocation1);
                 location.image = GO;
                 location.image.name = location.name;
+                Image image = location.image.GetComponent<Image>();
+                Color color = image.color;
+                color.a = .5f;
+                image.color = color;
+                location.image.transform.position = new Vector3(location.xLoc, location.yLoc, 0);
+                location.image.transform.parent = military.parent.transform;
+
+            }
+            else if (location.name == "Hunting Grounds")
+            {
+                GameObject GO = Instantiate(military.resourceLocation2);
+                location.image = GO;
+                location.image.name = location.name;
+                Image image = location.image.GetComponent<Image>();
+                Color color = image.color;
+                color.a = .5f;
+                image.color = color;
+                location.image.transform.position = new Vector3(location.xLoc, location.yLoc, 0);
+                location.image.transform.parent = military.parent.transform;
+
+            }
+            else if (location.name == "Ruins")
+            {
+                GameObject GO = Instantiate(military.resourceLocation3);
+                location.image = GO;
+                location.image.name = location.name;
+                Image image = location.image.GetComponent<Image>();
+                Color color = image.color;
+                color.a = .5f;
+                image.color = color;
                 location.image.transform.position = new Vector3(location.xLoc, location.yLoc, 0);
                 location.image.transform.parent = military.parent.transform;
 

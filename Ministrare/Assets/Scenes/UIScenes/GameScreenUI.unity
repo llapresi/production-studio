@@ -1723,6 +1723,7 @@ GameObject:
   - component: {fileID: 1591180973}
   - component: {fileID: 1591180972}
   - component: {fileID: 1591180971}
+  - component: {fileID: 1591180974}
   m_Layer: 0
   m_Name: Smith
   m_TagString: Untagged
@@ -1788,9 +1789,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229233}
-        m_MethodName: LoadConvoScene
-        m_Mode: 5
+      - m_Target: {fileID: 1591180974}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1846,6 +1847,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1591180969}
   m_CullTransparentMesh: 0
+--- !u!114 &1591180974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1591180969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/UIScenes/DialogQueryUI
+  dialogPathToLoad: Dialog/smithDialogue testbed
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1001 &1693909426
 Prefab:
   m_ObjectHideFlags: 0
@@ -2333,6 +2348,7 @@ GameObject:
   - component: {fileID: 1908303539}
   - component: {fileID: 1908303538}
   - component: {fileID: 1908303537}
+  - component: {fileID: 1908303540}
   m_Layer: 0
   m_Name: Scholar
   m_TagString: Untagged
@@ -2398,9 +2414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229233}
-        m_MethodName: LoadConvoScene
-        m_Mode: 5
+      - m_Target: {fileID: 1908303540}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2456,6 +2472,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908303535}
   m_CullTransparentMesh: 0
+--- !u!114 &1908303540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1908303535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/UIScenes/DialogQueryUI
+  dialogPathToLoad: Dialog/scholarDialogue testbed
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &1982065087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,6 +2635,7 @@ GameObject:
   - component: {fileID: 2127840152}
   - component: {fileID: 2127840151}
   - component: {fileID: 2127840150}
+  - component: {fileID: 2127840153}
   m_Layer: 0
   m_Name: Military
   m_TagString: Untagged
@@ -2670,9 +2701,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 919229233}
-        m_MethodName: LoadConvoScene
-        m_Mode: 5
+      - m_Target: {fileID: 2127840153}
+        m_MethodName: LoadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2717,3 +2748,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2127840148}
   m_CullTransparentMesh: 0
+--- !u!114 &2127840153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127840148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Scenes/UIScenes/DialogQueryUI
+  dialogPathToLoad: Dialog/militaryDialogue testbed
+  paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}

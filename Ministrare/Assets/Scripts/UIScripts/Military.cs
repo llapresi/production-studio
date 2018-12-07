@@ -63,7 +63,7 @@ public class Unit : Targets
         yLoc = Mapy + y;
         objective = obj;
         secObjective = null;
-        speed = 10;
+        speed = 15;
         IFF = iff;
         //image = im;
         //im.transform.position = new Vector3(xLoc, yLoc, 0);
@@ -451,7 +451,7 @@ public class Military : ScriptableObject
     public void CreateEnemyUnit()
     {
         // 754, 181
-        createUnit(1, 754, 181, unitImTwo, null);
+        createUnit(1, -754, -181, unitImTwo, null);
     }
 
     public void CreateRebelUnit(string industryLeadersName)
@@ -763,7 +763,7 @@ public class Military : ScriptableObject
         while(randOne > 0 && randTwo > 0)
         {
             // first list turn to attack
-            if (randOne > 0)
+            if (randOne > 0 && randTwo > 0)
             {
                 indChoose = (int)Random.Range(0, randOne-1);
                 attack = unitSetOne[indOne].attack + (int)Random.Range(-3, 3);
@@ -789,6 +789,7 @@ public class Military : ScriptableObject
                 if (unitSetTwo[indChoose].health <= 0)
                 {
                     unitSetTwo[indChoose].dead = true;
+                    unitSetOne[indOne].inRange = false;
                     if (unitSetOne[indOne].secObjective != null)
                     {
                         unitSetOne[indOne].objective = unitSetOne[indOne].secObjective;
@@ -846,12 +847,12 @@ public class Military : ScriptableObject
                         }
                     }
                     unitSetTwo.RemoveAt(indChoose);
-                    randTwo--;
+                    randOne--;
                 }
             }
 
             // second list turn to attack
-            if (randTwo > 0)
+            if (randTwo > 0 && randOne > 0)
             {
                 indChoose = (int)Random.Range(0, randTwo-1);
                 attack = unitSetTwo[indTwo].attack + (int)Random.Range(-3, 3);
@@ -877,6 +878,7 @@ public class Military : ScriptableObject
                 if (unitSetOne[indChoose].health <= 0)
                 {
                     unitSetOne[indChoose].dead = true;
+                    unitSetTwo[indTwo].inRange = false;
                     if (unitSetTwo[indTwo].secObjective != null)
                     {
                         unitSetTwo[indTwo].objective = unitSetTwo[indTwo].secObjective;
@@ -934,7 +936,7 @@ public class Military : ScriptableObject
                         }
                     }
                     unitSetOne.RemoveAt(indChoose);
-                    randOne--;
+                    randTwo--;
                 }
             }
 

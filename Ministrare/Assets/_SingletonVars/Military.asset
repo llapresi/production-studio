@@ -18,7 +18,9 @@ MonoBehaviour:
   parent: {fileID: 0}
   resourceLocation1: {fileID: 1575558880274590, guid: 3d4e130ba70d7df4588c38a36ca06155,
     type: 2}
-  resourceLocation2: {fileID: 0}
-  resourceLocation3: {fileID: 0}
+  resourceLocation2: {fileID: 1575558880274590, guid: 3d4e130ba70d7df4588c38a36ca06155,
+    type: 2}
+  resourceLocation3: {fileID: 1575558880274590, guid: 3d4e130ba70d7df4588c38a36ca06155,
+    type: 2}
   resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}

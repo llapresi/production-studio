@@ -27,20 +27,22 @@ MonoBehaviour:
   filepathin: Assets/Resources/Dialog/SpymasterTemplateDialog.json
   filepathout: Assets/Resources/Dialog/SpymasterDialog.json
   Health: 100
-  runtimeFoodStorage: 100
+  time: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  runtimeFoodStorage: 162
   runtimeFoodUpkeep: 0
   runtimeFoodProduction: 10
   runtimeFoodMiliaryGained: 0
-  runtimeGoldStorage: 100
+  runtimeGoldStorage: 131
   runtimeGoldUpkeep: 0
   runtimeGoldProduction: 5
   runtimeGoldMiliaryGained: 0
-  runtimeEGStorage: 100
+  runtimeEGStorage: 656
   runtimeEGUpkeep: 0
   runtimeEGProduction: 5
-  runtimeEGMiliaryGained: 0
+  runtimeEGMiliaryGained: 15
   runtimeHappiness: 100
   nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
+  makeMilitary: 0
   merchantTech: {fileID: 11400000, guid: 16f035c0f0dcee045b0788fe5fb423b9, type: 2}
   farmTech: {fileID: 11400000, guid: 238a8998558196447a051056175b2f9a, type: 2}
   merchantStruct: {fileID: 11400000, guid: 6f0fc533378375d49836a297f0d350c2, type: 2}
