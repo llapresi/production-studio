@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             //military.CreateALocation(-850, -28, "Mines");
             //military.CreateEnemyUnit();
             //military.CreateEnemyUnit();
-            military.CreateEnemyUnit();
+            //military.CreateEnemyUnit();
             hasStarted = true;
 
             // make the dialog for the spymaster with template and updated resource and npc values

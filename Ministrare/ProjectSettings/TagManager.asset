@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Research
   - Build
+  - CObjectiveButton
+  - UObjectiveButton
   layers:
   - Default
   - TransparentFX

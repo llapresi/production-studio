@@ -53,6 +53,8 @@ public class ResourceManager : ScriptableObject {
     [Header("Health")]
     [SerializeField]
     private int Health;
+    [SerializeField]
+    private TimerTime time;
 
     //values in game 
     [Space(3)]
@@ -217,7 +219,19 @@ public class ResourceManager : ScriptableObject {
             GM.Ending = "oustedbythepeoplebadending";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
-        military.GrandBattle();
+        // Grand battle when the year is up
+        if (time.dayCount == 365)
+        {
+            bool win = military.GrandBattle();
+            if (win)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 
     public void changeSpyMasterText()

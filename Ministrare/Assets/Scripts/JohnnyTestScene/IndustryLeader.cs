@@ -34,7 +34,7 @@ public class IndustryLeader {
     private bool rebelling;
 
     //name value
-    private string leaderName;
+    public string leaderName;
 
     //Arrays
     private string[] Moods = new string[] {"H","A","G","F","S","B","I"};
@@ -45,7 +45,7 @@ public class IndustryLeader {
     PersonalityValues personalityValues;
 
 	// Use this for initialization
-	public IndustryLeader (string namein) {
+	public IndustryLeader () {
         // Conversation only stats
         attention = 100;
         relationshipValue = UnityEngine.Random.Range(50, 100);
@@ -66,7 +66,6 @@ public class IndustryLeader {
         generateStartingMoods();
         generateWorkEfficiency();
         Rebelling = false;
-        leaderName = namein;
     }
 
     public void generateStartingMoods()
