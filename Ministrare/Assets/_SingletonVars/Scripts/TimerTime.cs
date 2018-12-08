@@ -39,4 +39,11 @@ public class TimerTime : ScriptableObject
         minutes = initialMin;
         dayCount = initialDayCount;
     }
+
+    public void Reset()
+    {
+        hours = 0;
+        minutes = 0;
+        dayCount = 0;
+    }
 }

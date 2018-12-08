@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Ministrare.Events;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -82,6 +84,28 @@ public class UItest : MonoBehaviour
    /// <param name="scene"></param>
     public void NewScene(string scene)
     {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void resetandLoad(string scene)
+    {
+        //Try to reset everything
+        if (GameObject.Find("PresistantParent") != null)
+        {
+            GameObject PP = GameObject.Find("PresistantParent");
+            PresistantParent presistantParent = PP.GetComponent<PresistantParent>();
+            presistantParent.SetTimerCanvasActive();
+            MinistrareEventRunner ministrareEventRunner = PP.GetComponentInChildren<MinistrareEventRunner>();
+            ministrareEventRunner.Reset();
+            Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+            ResourceManager resourceManager = (ResourceManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ResourceManager.asset", typeof(ResourceManager));
+            TimerTime time = (TimerTime)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/TestTimerTime.asset", typeof(TimerTime));
+            NPCandLordHolder nPCandLordHolder = (NPCandLordHolder)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/NPCandLordHolder.asset", typeof(NPCandLordHolder));
+            time.Reset();
+            resourceManager.Reset();
+            military.Reset();
+            nPCandLordHolder.Initialize();
+        }
         SceneManager.LoadScene(scene);
     }
 

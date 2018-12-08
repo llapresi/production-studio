@@ -36,7 +36,12 @@ namespace Ministrare.Events
 
         private void Start()
         {
-            
+
+        }
+
+        public void Reset()
+        {
+            events = new List<IMinistrareEvent>();
         }
 
         // This function is only for the even test scene, delete this once we're doing more fully fledged stuff

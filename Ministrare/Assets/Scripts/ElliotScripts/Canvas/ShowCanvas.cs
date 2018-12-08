@@ -50,6 +50,22 @@ public class ShowCanvas : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Military").GetComponent<Canvas>().sortingOrder = 0;
             military.SwitchCanvas();
+            //get rid of any active Objective buttons 
+            // get rid of chosen objective buttons if they exists
+            GameObject[] CObjectiveButtonList = GameObject.FindGameObjectsWithTag("CObjectiveButton");
+
+            for (int x = 0; x < CObjectiveButtonList.Length; x++)
+            {
+                GameObject.Destroy(CObjectiveButtonList[x]);
+            }
+
+            // get rid of unchosen objective buttons if they exists
+            GameObject[] UObjectiveButtonList = GameObject.FindGameObjectsWithTag("UObjectiveButton");
+
+            for (int x = 0; x < UObjectiveButtonList.Length; x++)
+            {
+                GameObject.Destroy(UObjectiveButtonList[x]);
+            }
         }
     }
     

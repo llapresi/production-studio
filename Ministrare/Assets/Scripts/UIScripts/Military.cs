@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -360,6 +361,14 @@ public class Military : ScriptableObject
         return displayCanvas;
     }
 
+    public void Reset()
+    {
+        allUnitsList = new List<Unit>();
+        curObjList = new List<Targets>();
+        enemyObjList = new List<Targets>();
+        unchosenObjList = new List<Targets>();
+    }
+
     /// <summary>
     /// put selected objectives with names onto the list of used names
     /// </summary>
@@ -457,6 +466,10 @@ public class Military : ScriptableObject
         resourceManager.runtimeFoodUpkeep = resourceManager.runtimeFoodUpkeep + 5;
         resourceManager.runtimeGoldUpkeep = resourceManager.runtimeGoldUpkeep + 5;
         resourceManager.changeSpyMasterText();
+        // Change Dialog text to notifiy that a unit has been created
+        GameObject GODialogText = GameObject.Find("DialogText");
+        TextMeshProUGUI textMesh = GODialogText.GetComponent<TextMeshProUGUI>();
+        textMesh.SetText("Military Leader: A Unit has been created, my Leige");
     }
 
 

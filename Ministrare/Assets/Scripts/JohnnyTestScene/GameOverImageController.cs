@@ -15,7 +15,11 @@ public class GameOverImageController : MonoBehaviour {
         GameObject GO2 = GameObject.Find("GameOverScreen");
         Image image = GO2.GetComponent<Image>();
         image.sprite = endingSprite;
-	}
+        // hides timer // very hacky
+        GameObject TimerCanvas = GameObject.Find("TimerCanvas");
+        TimerCanvas.SetActive(false);
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

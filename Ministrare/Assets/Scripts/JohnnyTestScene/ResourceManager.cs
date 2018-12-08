@@ -124,6 +124,31 @@ public class ResourceManager : ScriptableObject {
         makeMilitary = false;
     }
 
+    public void Reset()
+    {
+        this.hideFlags = HideFlags.DontUnloadUnusedAsset;
+        //Food
+        runtimeFoodStorage = initFoodStorage;
+        runtimeFoodUpkeep = initFoodUpkeep;
+        runtimeFoodProduction = initFoodProduction;
+        runtimeFoodMiliaryGained = initFoodMilitaryGained;
+        //Gold
+        runtimeGoldStorage = initGoldStorage;
+        runtimeGoldUpkeep = initGoldUpkeep;
+        runtimeGoldProduction = initGoldProduction;
+        runtimeGoldMiliaryGained = initGoldMilitaryGained;
+        //Exotic Goods
+        runtimeEGStorage = initEGStorage;
+        runtimeEGUpkeep = initEGUpkeep;
+        runtimeEGProduction = initEGProduction;
+        runtimeEGMiliaryGained = initEGMilitaryGained;
+        //Happiness
+        runtimeHappiness = initHappiness;
+        //Health
+        runtimeHealth = Health;
+        makeMilitary = false;
+    }
+
     // computes how much of each resource remains after a day
     public void processDailyActivities()
     {
@@ -216,7 +241,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "oustedbythepeoplebadending";
+            GM.Ending = "Lose1.png";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
         // Grand battle when the year is up
@@ -225,11 +250,17 @@ public class ResourceManager : ScriptableObject {
             bool win = military.GrandBattle();
             if (win)
             {
-
+                GameObject GO = GameObject.Find("GameManager");
+                GameManager GM = GO.GetComponent<GameManager>();
+                GM.Ending = "Lose1.png";
+                SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
             else
             {
-
+                GameObject GO = GameObject.Find("GameManager");
+                GameManager GM = GO.GetComponent<GameManager>();
+                GM.Ending = "Lose1.png";
+                SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
         }
     }

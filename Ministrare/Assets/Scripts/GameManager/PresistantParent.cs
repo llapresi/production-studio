@@ -5,6 +5,7 @@ using UnityEngine;
 public class PresistantParent : MonoBehaviour {
 
     private static bool created = false;
+    GameObject TimerCanvas;
 
     // Use this for initialization
     void Start()
@@ -13,11 +14,17 @@ public class PresistantParent : MonoBehaviour {
         {
             DontDestroyOnLoad(this.gameObject);
             created = true;
+            TimerCanvas = GameObject.Find("TimerCanvas");
         }
         else
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void SetTimerCanvasActive()
+    {
+        TimerCanvas.SetActive(true);
     }
 
 }
