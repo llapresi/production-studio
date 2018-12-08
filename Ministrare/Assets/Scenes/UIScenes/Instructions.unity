@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 0}
+  time: {fileID: 0}
   paramObj: {fileID: 0}
   sceneToLoad: 
 --- !u!1 &1271183484
@@ -678,7 +679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -640.3, y: -648}
+  m_AnchoredPosition: {x: -778.38, y: -648}
   m_SizeDelta: {x: 192.9, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412669243

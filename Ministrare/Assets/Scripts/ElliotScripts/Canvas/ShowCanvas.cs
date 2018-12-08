@@ -7,6 +7,7 @@ public class ShowCanvas : MonoBehaviour {
     // takes in science and production tree for research and build canvas
     public TechTree sciTree;
     public TechTree prodTree;
+    public Military military;
 
     // checks the canvas display boolean in the tech trees to 
     // see which canvas needs to be displayed
@@ -21,6 +22,10 @@ public class ShowCanvas : MonoBehaviour {
         else if(prodTree.DisplayCanvas())  // do the same for production if science tree boolean is false
         {
             GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 1;
+        }
+        else if(military.DisplayCanvas()) // do the same for military if military bool is true
+        {
+            GameObject.FindGameObjectWithTag("Military").GetComponent<Canvas>().sortingOrder = 1;
         }
     }
 
@@ -40,6 +45,11 @@ public class ShowCanvas : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 0;
             prodTree.SwitchCanvas();
+        }
+        else if (military.DisplayCanvas()) // do the same for military if military bool is true
+        {
+            GameObject.FindGameObjectWithTag("Military").GetComponent<Canvas>().sortingOrder = 0;
+            military.SwitchCanvas();
         }
     }
     

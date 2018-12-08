@@ -261,9 +261,9 @@ public class Military : ScriptableObject
 
     public GameObject parent;
 
-    public GameObject resourceLocation1;
-    public GameObject resourceLocation2;
-    public GameObject resourceLocation3;
+    public GameObject Mines;
+    public GameObject Ruins;
+    public GameObject HuntingGrounds;
 
     public ResourceManager resourceManager;
     public NPCandLordHolder nPCandLordHolder;
@@ -271,6 +271,9 @@ public class Military : ScriptableObject
     private int enemyNumAmount;
     private int allyNumAmount;
     private int rebelNumAmount;
+
+    //display the Military button
+    public bool displayCanvas = false;
 
     //private List<Unit> unitList = new List<Unit>();
 
@@ -343,6 +346,18 @@ public class Military : ScriptableObject
         resourceLocs.Add(location);
         unchosenObjList.Add(location);
         enemyObjList.Add(location);
+    }
+
+    // changes canvas boolean between true and false
+    public void SwitchCanvas()
+    {
+        displayCanvas = !displayCanvas;
+    }
+
+    // returns the canvas boolean
+    public bool DisplayCanvas()
+    {
+        return displayCanvas;
     }
 
     /// <summary>
@@ -436,7 +451,7 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateFriendlyUnit()
     {
-        createUnit(0, -794.7f, -28, unitImOne, null);
+        createUnit(0, -1000f, -100, unitImOne, null);
         resourceManager.runtimeFoodStorage = resourceManager.runtimeFoodStorage - 10;
         resourceManager.runtimeGoldStorage = resourceManager.runtimeGoldStorage - 10;
         resourceManager.runtimeFoodUpkeep = resourceManager.runtimeFoodUpkeep + 5;
@@ -451,30 +466,30 @@ public class Military : ScriptableObject
     public void CreateEnemyUnit()
     {
         // 754, 181
-        createUnit(1, -754, -181, unitImTwo, null);
+        createUnit(1, 1000, 250, unitImTwo, null);
     }
 
     public void CreateRebelUnit(string industryLeadersName)
     {
         if (industryLeadersName == "Farmer")
         {
-            createUnit(2, -770.6f, -634.0499f, unitImTwo, "Farmer");
+            createUnit(2, -1000.6f, -734.0499f, unitImTwo, "Farmer");
         }
         else if (industryLeadersName == "Merchant")
         {
-            createUnit(2, -423.6f, -292.87f, unitImTwo, "Merchant");
+            createUnit(2, -623.6f, -292.87f, unitImTwo, "Merchant");
         }
         else if (industryLeadersName == "Smith")
         {
-            createUnit(2, -633.6f, -434.05f, unitImTwo, "Smith");
+            createUnit(2, -1000.6f, -500.05f, unitImTwo, "Smith");
         }
         else if (industryLeadersName == "Scholar")
         {
-            createUnit(2, -600.5999f, -28.04997f, unitImTwo, "Scholar");
+            createUnit(2, -540.5999f, 150.04997f, unitImTwo, "Scholar");
         }
         else if (industryLeadersName == "General")
         {
-            createUnit(2, -794.7f, -28.04997f, unitImTwo, "General");
+            createUnit(2, -900.7f, -100f, unitImTwo, "General");
         }
     }
    

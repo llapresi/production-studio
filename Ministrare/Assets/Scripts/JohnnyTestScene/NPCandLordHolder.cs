@@ -35,6 +35,9 @@ public class NPCandLordHolder : ScriptableObject {
     //Resource Manager
     [SerializeField]
     public ResourceManager resourceManager;
+    //military
+    [SerializeField]
+    public Military military;
 
     // Dictionary used to tie IndustryLeaders to ids
     // WARNING: USING STRINGS AS OUR IDS BOTH IN HERE, IN THE JSON SCRIPTS AND CHARACTER DATA
@@ -165,41 +168,24 @@ public class NPCandLordHolder : ScriptableObject {
     public void stateOfMindRoll()
     {
         // check first to make sure that the enemy's military is on par with the players 
+        int allyNum = 0;
+        int enemyNum = 0;
+        for (int x =0; x < military.allUnitsList.Count; x++)
+        {
+            Unit unit = military.allUnitsList[x];
+            if (unit.IFF == 0)
+            {
+                allyNum++;
+            }
+            else if (unit.IFF == 1)
+            {
+                enemyNum++;
+            }
 
+        }
+        int unitDifference = allyNum - enemyNum;
         // if it isn't, create an event so that enemy will make more military units 
-
-        // if it is, spin the wheel to see if the city would be stable or need resources 
-        int spinWheel = Random.Range(0, 100);
-
-        if (spinWheel <= 33)
-        {
-            // Set the state machine
-            EcStateofMind = ecStateofMind.NeedResources;
-            // find the timer
-            GameObject GO = GameObject.Find("Timer");
-            TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
-            // find the eventRunner and push an econ Event to it
-            GameObject GO2 = GameObject.Find("MinistareEventRunner");
-            MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-            int daysDuration = Random.Range(6, 8);
-            EconMinistareEvent econ = new EconMinistareEvent(timerRunner.time, "EconEvent", daysDuration);
-            ministrareEventRunner.AddEvent(econ);
-        }
-        else if (spinWheel <= 66)
-        {
-            // Set the state machine
-            EcStateofMind = ecStateofMind.Stable;
-            // find the timer
-            GameObject GO = GameObject.Find("Timer");
-            TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
-            // find the eventRunner and push an econ Event to it
-            GameObject GO2 = GameObject.Find("MinistareEventRunner");
-            MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
-            int daysDuration = Random.Range(6, 8);
-            StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
-            ministrareEventRunner.AddEvent(stable);
-        }
-        else
+        if (unitDifference >= 3)
         {
             // Set the state machine
             EcStateofMind = ecStateofMind.Military;
@@ -212,6 +198,55 @@ public class NPCandLordHolder : ScriptableObject {
             int daysDuration = Random.Range(6, 8);
             MilitaryMinistareEvent military = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent", daysDuration);
             ministrareEventRunner.AddEvent(military);
+        }
+
+        // if it is, spin the wheel to see if the city would be stable or need resources 
+        else
+        {
+            int spinWheel = Random.Range(0, 100);
+
+            if (spinWheel <= 33)
+            {
+                // Set the state machine
+                EcStateofMind = ecStateofMind.NeedResources;
+                // find the timer
+                GameObject GO = GameObject.Find("Timer");
+                TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
+                // find the eventRunner and push an econ Event to it
+                GameObject GO2 = GameObject.Find("MinistareEventRunner");
+                MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
+                int daysDuration = Random.Range(6, 8);
+                EconMinistareEvent econ = new EconMinistareEvent(timerRunner.time, "EconEvent", daysDuration);
+                ministrareEventRunner.AddEvent(econ);
+            }
+            else if (spinWheel <= 66)
+            {
+                // Set the state machine
+                EcStateofMind = ecStateofMind.Stable;
+                // find the timer
+                GameObject GO = GameObject.Find("Timer");
+                TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
+                // find the eventRunner and push an econ Event to it
+                GameObject GO2 = GameObject.Find("MinistareEventRunner");
+                MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
+                int daysDuration = Random.Range(6, 8);
+                StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
+                ministrareEventRunner.AddEvent(stable);
+            }
+            else
+            {
+                // Set the state machine
+                EcStateofMind = ecStateofMind.Military;
+                // find the timer
+                GameObject GO = GameObject.Find("Timer");
+                TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
+                // find the eventRunner and push an econ Event to it
+                GameObject GO2 = GameObject.Find("MinistareEventRunner");
+                MinistrareEventRunner ministrareEventRunner = GO2.GetComponent<MinistrareEventRunner>();
+                int daysDuration = Random.Range(6, 8);
+                MilitaryMinistareEvent military = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent", daysDuration);
+                ministrareEventRunner.AddEvent(military);
+            }
         }
     }
 

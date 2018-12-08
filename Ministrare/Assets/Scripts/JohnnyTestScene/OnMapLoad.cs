@@ -62,7 +62,7 @@ public class OnMapLoad: MonoBehaviour {
             Location location = military.resourceLocs[y];
             if (location.name == "Mines")
             {
-                GameObject GO = Instantiate(military.resourceLocation1);
+                GameObject GO = Instantiate(military.Mines);
                 location.image = GO;
                 location.image.name = location.name;
                 Image image = location.image.GetComponent<Image>();
@@ -75,7 +75,7 @@ public class OnMapLoad: MonoBehaviour {
             }
             else if (location.name == "Hunting Grounds")
             {
-                GameObject GO = Instantiate(military.resourceLocation2);
+                GameObject GO = Instantiate(military.HuntingGrounds);
                 location.image = GO;
                 location.image.name = location.name;
                 Image image = location.image.GetComponent<Image>();
@@ -88,7 +88,7 @@ public class OnMapLoad: MonoBehaviour {
             }
             else if (location.name == "Ruins")
             {
-                GameObject GO = Instantiate(military.resourceLocation3);
+                GameObject GO = Instantiate(military.Ruins);
                 location.image = GO;
                 location.image.name = location.name;
                 Image image = location.image.GetComponent<Image>();

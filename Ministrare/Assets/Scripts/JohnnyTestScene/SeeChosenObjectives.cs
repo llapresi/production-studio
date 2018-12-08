@@ -60,7 +60,7 @@ public class SeeChosenObjectives : MonoBehaviour {
                     vector3.y += Ychange;
 
                     // place it on the map
-                    GameObject CanvasGameScreen = GameObject.Find("CanvasGameScreen");
+                    GameObject CanvasGameScreen = GameObject.Find("Canvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
                     Ychange -= 30;
                     if (unitbool)
