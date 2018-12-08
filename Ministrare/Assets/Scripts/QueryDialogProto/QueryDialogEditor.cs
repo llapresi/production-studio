@@ -27,6 +27,8 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public string editorDialogPath;
 
+    public UIEditorSeralizedActionsParent seralizedActionsParent;
+
     public string CurrentPath
     {
         get
@@ -95,6 +97,16 @@ public class QueryDialogEditor : QueryDialogRunner
         currentDialogNode = newDialogNode;
         dialogInput.text = currentDialogNode.dialogText;
         updateGUI.Invoke();
+        GetSeralizedActions(newDialogNode);
+        seralizedActionsParent.CreateActionRowsForNode(newDialogNode);
+    }
+
+    public void GetSeralizedActions(DialogNode node)
+    {
+        foreach(DialogNodeSerializedAction action in node.serializedActions)
+        {
+            Debug.Log(action.actionType + ": " + action.actionParams);
+        }
     }
 
     public void ChangeCurrentNode()
