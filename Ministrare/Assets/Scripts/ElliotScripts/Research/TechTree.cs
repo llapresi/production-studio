@@ -32,6 +32,24 @@ public class TechTree : ScriptableObject {
         return displayCanvas;
     }
 
+    public void Reset()
+    {
+        if(runtimeNodes != null)
+        {
+            for(int x = 0; x < runtimeNodes.Length; x++)
+            {
+                runtimeNodes[x].researched = false;
+                if (runtimeNodes[x].structure.boost != 0)
+                    runtimeNodes[x].structure.built = false;
+            }
+
+            totalBoost = 0;
+            localCost = -1;
+            holdPlace = -1;
+            displayCanvas = false;
+        }
+    }
+
     public void OnEnable()
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;

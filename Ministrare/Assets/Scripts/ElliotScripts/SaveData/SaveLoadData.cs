@@ -13,6 +13,7 @@ public class SaveLoadData : ScriptableObject
     public TimerTime timer;
     public ResourceManager playerResources;
     public LeaderStatsObject playerStats;
+    public Military military;
 
     string dataPath;
 
@@ -43,6 +44,7 @@ public class SaveLoadData : ScriptableObject
         SaveTimer();
         SaveResources();
         SavePlayer();
+        SaveMilitary();
     }
 
     void SaveTechTrees()
@@ -106,6 +108,15 @@ public class SaveLoadData : ScriptableObject
         myFormatter.Serialize(file, json);
         file.Close();
     }
+    void SaveMilitary()
+    {
+        BinaryFormatter myFormatter = new BinaryFormatter();
+        //FileStream file = File.Create(Application.persistentDataPath + "/SaveData/PlayerStats.pso");
+        FileStream file = File.Create(dataPath + "/Military.pso");
+        var json = JsonUtility.ToJson(file, military);
+        myFormatter.Serialize(file, json);
+        file.Close();
+    }
 
 
     public void LoadData()
@@ -115,6 +126,7 @@ public class SaveLoadData : ScriptableObject
         LoadTimer();
         LoadResources();
         LoadPlayer();
+        LoadMilitary();
     }
 
     void LoadTechTrees()
@@ -179,6 +191,16 @@ public class SaveLoadData : ScriptableObject
             file.Close();
         }
     }
+    void LoadMilitary()
+    {
+        if (File.Exists(dataPath + "/Military.pso"))
+        {
+            BinaryFormatter myFormatter = new BinaryFormatter();
+            FileStream file = File.Open(dataPath + "/Military.pso", FileMode.Open);
+            JsonUtility.FromJsonOverwrite((string)myFormatter.Deserialize(file), military);
+            file.Close();
+        }
+    }
 
     public void ClearSave()
     {
@@ -189,6 +211,7 @@ public class SaveLoadData : ScriptableObject
             File.Delete(dataPath + string.Format("/{0}.pso", structures[x].name));
         }
 
+        File.Delete(dataPath + "/Military.pso");
         File.Delete(dataPath + "/Timer.pso");
         File.Delete(dataPath + "/PlayerResources.pso");
         File.Delete(dataPath + "/PlayerStats.pso");

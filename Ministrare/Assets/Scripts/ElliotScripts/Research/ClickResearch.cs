@@ -14,15 +14,15 @@ public class ClickResearch : MonoBehaviour {
 
     private void Start()
     {
-        localTree.holdPlace = -1;
-        localTree.localCost = -1;
+        localTree.holdPlace = 100;
+        localTree.localCost = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
         // checks if cost is equal to local cost
-        if (localTimer.dayCount == localTree.localCost - scienceTree.totalBoost)
+        if (localTimer.dayCount >= localTree.localCost - scienceTree.totalBoost)
         {
             // places tech in researched tech array and resets local values
             localTree.runtimeNodes[localTree.holdPlace].researched = true;
@@ -51,8 +51,8 @@ public class ClickResearch : MonoBehaviour {
                 
 
             // resets values
-            localTree.holdPlace = -1;
-            localTree.localCost = -1;
+            localTree.holdPlace = 100;
+            localTree.localCost = 100;
         }
 
         
@@ -61,7 +61,7 @@ public class ClickResearch : MonoBehaviour {
     // checks if anything is being researched, if not, move on to new tech
     public void Researching()
     {
-        if (localTree.localCost == -1)
+        if (localTree.localCost == 100)
             for (int x = 0; x < 5; x++)
                 if (localTree.runtimeNodes[x].researched == false)
                 {
