@@ -11,7 +11,7 @@ public class UITimerDisplay : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        string toDisplay = "Timer: ";
+        string toDisplay = "Time: ";
         if (currentTime.hours < 11 || currentTime.hours == 23)
             timeOfDay = "am";
         else
