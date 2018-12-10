@@ -377,6 +377,8 @@ public class Military : ScriptableObject
         for(int x =0; x < resourceLocs.Count;x++)
         {
             unchosenObjList.Add(resourceLocs[x]);
+            resourceLocs[x].allyUnitsonLoc = new List<Unit>();
+            resourceLocs[x].enemyUnitsonLoc = new List<Unit>();
         }
         displayCanvas = false;
     }
