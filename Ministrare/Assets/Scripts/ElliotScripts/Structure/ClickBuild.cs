@@ -34,12 +34,12 @@ public class ClickBuild : MonoBehaviour {
     {
         // checks if a structure is already built
         // if not, assign localCost and holdPlace to locations
-        if(localStructs.runStruct[0].built == false)
+        if(localStructs.runStruct[0] != null)
         {
             localStructs.localCost = localStructs.runStruct[0].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 0;
         }
-        else 
+        else if(localStructs.runStruct[1] != null) 
         {
             localStructs.localCost = localStructs.runStruct[1].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 1;
