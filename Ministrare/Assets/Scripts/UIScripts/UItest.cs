@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class UItest : MonoBehaviour
 {
-
     //Canvas used for pause screen
     public Canvas pauseCanvas;
     public TimerTime time;
@@ -80,6 +79,12 @@ public class UItest : MonoBehaviour
             resourceManager.Reset();
             military.Reset();
             nPCandLordHolder.Initialize();
+
+            for(int x = 0; x < 5; x++)
+            {
+                PP.GetComponentInChildren<GameManager>().techTrees[x].Reset();
+                PP.GetComponentInChildren<GameManager>().structures[x].Reset();
+            }
         }
         SceneManager.LoadScene(scene);
     }
