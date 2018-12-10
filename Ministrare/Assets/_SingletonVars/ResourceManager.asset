@@ -28,18 +28,19 @@ MonoBehaviour:
   filepathout: Assets/Resources/Dialog/SpymasterDialog.json
   Health: 100
   time: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
-  runtimeFoodStorage: 162
+  EnemyCityHealth: 100
+  runtimeFoodStorage: 100
   runtimeFoodUpkeep: 0
   runtimeFoodProduction: 10
   runtimeFoodMiliaryGained: 0
-  runtimeGoldStorage: 131
+  runtimeGoldStorage: 100
   runtimeGoldUpkeep: 0
   runtimeGoldProduction: 5
   runtimeGoldMiliaryGained: 0
-  runtimeEGStorage: 656
+  runtimeEGStorage: 100
   runtimeEGUpkeep: 0
   runtimeEGProduction: 5
-  runtimeEGMiliaryGained: 15
+  runtimeEGMiliaryGained: 0
   runtimeHappiness: 100
   nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   makeMilitary: 0
@@ -51,3 +52,4 @@ MonoBehaviour:
   scienceStruct: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
   military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
   runtimeHealth: 100
+  runtimeEnemyCityHealth: 100

@@ -16,6 +16,8 @@ public class GameOverImageController : MonoBehaviour {
         Image image = GO2.GetComponent<Image>();
         image.sprite = endingSprite;
         // hides timer // very hacky
+        TimerTime timerTime = (TimerTime)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/TestTimerTime.asset", typeof(TimerTime));
+        timerTime.paused = true;
         GameObject TimerCanvas = GameObject.Find("TimerCanvas");
         TimerCanvas.SetActive(false);
 

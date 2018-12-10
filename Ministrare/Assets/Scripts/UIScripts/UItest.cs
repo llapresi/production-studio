@@ -101,6 +101,16 @@ public class UItest : MonoBehaviour
             ResourceManager resourceManager = (ResourceManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ResourceManager.asset", typeof(ResourceManager));
             TimerTime time = (TimerTime)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/TestTimerTime.asset", typeof(TimerTime));
             NPCandLordHolder nPCandLordHolder = (NPCandLordHolder)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/NPCandLordHolder.asset", typeof(NPCandLordHolder));
+            TechTree farmTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/FarmTree.asset", typeof(TechTree));
+            TechTree merchantTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/MerchantTree.asset", typeof(TechTree));
+            TechTree militaryTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/MilitaryTree.asset", typeof(TechTree));
+            TechTree productionTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ProductionTree.asset", typeof(TechTree));
+            TechTree scienceTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ScienceTree.asset", typeof(TechTree));
+            farmTech.Reset();
+            merchantTech.Reset();
+            militaryTech.Reset();
+            productionTech.Reset();
+            scienceTech.Reset();
             time.Reset();
             resourceManager.Reset();
             military.Reset();

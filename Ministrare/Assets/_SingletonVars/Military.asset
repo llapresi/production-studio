@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afd85375ee2e8f45bf58e25e92b0dce, type: 3}
   m_Name: Military
   m_EditorClassIdentifier: 
-  Mapx: 1911.4199
+  Mapx: 1759.4199
   Mapy: 897.70056
   unitImOne: {fileID: 1277196287182476, guid: 1dbd3583301af624f9191a77b63c99a6, type: 2}
   unitImTwo: {fileID: 1618444330485552, guid: 2b4aeaaab2de0f243a21f8850d18f691, type: 2}
@@ -20,6 +20,7 @@ MonoBehaviour:
   Ruins: {fileID: 1038189154351492, guid: 7dc740c6d59cd2647995771966c65432, type: 2}
   HuntingGrounds: {fileID: 1830410871299312, guid: 7fc5bdea496ed114fb3d9dd0a97cd528,
     type: 2}
+  EnemyCity: {fileID: 1588937533207672, guid: f6ddad461c32c324ebd821ddeb06788e, type: 2}
   resourceManager: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   nPCandLordHolder: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   displayCanvas: 0

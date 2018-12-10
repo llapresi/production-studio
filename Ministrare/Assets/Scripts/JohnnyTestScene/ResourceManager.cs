@@ -55,6 +55,8 @@ public class ResourceManager : ScriptableObject {
     private int Health;
     [SerializeField]
     private TimerTime time;
+    [SerializeField]
+    private int EnemyCityHealth;
 
     //values in game 
     [Space(3)]
@@ -97,6 +99,7 @@ public class ResourceManager : ScriptableObject {
     public Military military;
 
     public int runtimeHealth;
+    public int runtimeEnemyCityHealth;
     private int industryleadersUnhappy;
 
     public void OnEnable()
@@ -121,6 +124,7 @@ public class ResourceManager : ScriptableObject {
         runtimeHappiness = initHappiness;
         //Health
         runtimeHealth = Health;
+        runtimeEnemyCityHealth = EnemyCityHealth;
         makeMilitary = false;
     }
 
@@ -146,6 +150,7 @@ public class ResourceManager : ScriptableObject {
         runtimeHappiness = initHappiness;
         //Health
         runtimeHealth = Health;
+        runtimeEnemyCityHealth = EnemyCityHealth;
         makeMilitary = false;
     }
 
@@ -192,6 +197,19 @@ public class ResourceManager : ScriptableObject {
                 runtimeHealth = runtimeHealth - 5;
             }
         }
+        // see if there are any ally units in range of the enemy city and take away from health
+        for (int k =0; k < military.allUnitsList.Count; k++)
+        {
+            Unit unit = military.allUnitsList[k];
+            if (unit.IFF == 0 && unit.objective.GetType() == typeof(Location))
+            {
+                Location location = (Location)unit.objective;
+                if (location.name == "Enemy City" && unit.inRange)
+                {
+                    runtimeEnemyCityHealth = runtimeEnemyCityHealth - 100;
+                }
+            }
+        }
 
 
         AssetDatabase.Refresh();
@@ -199,6 +217,15 @@ public class ResourceManager : ScriptableObject {
         // see if the game had ended yet
         // City is destroyed
         if (runtimeHealth <= 0)
+        {
+            GameObject GO = GameObject.Find("GameManager");
+            GameManager GM = GO.GetComponent<GameManager>();
+            GM.Ending = "Lose1.png";
+            SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
+        }
+
+        // Enemy city is destoryed
+        if (runtimeEnemyCityHealth <= 0)
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();

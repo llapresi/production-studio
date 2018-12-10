@@ -99,6 +99,14 @@ public class OnMapLoad: MonoBehaviour {
                 location.image.transform.parent = military.parent.transform;
 
             }
+            else if (location.name == "Enemy City")
+            {
+                GameObject GO = Instantiate(military.EnemyCity);
+                location.image = GO;
+                location.image.name = location.name;
+                location.image.transform.position = new Vector3(location.xLoc, location.yLoc, 0);
+                location.image.transform.parent = military.parent.transform;
+            }
         }
 
     }

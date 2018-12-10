@@ -45,5 +45,6 @@ public class TimerTime : ScriptableObject
         hours = 0;
         minutes = 0;
         dayCount = 0;
+        paused = false;
     }
 }

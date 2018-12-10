@@ -118,10 +118,13 @@ public class Unit : Targets
             float distanceX = Mathf.Abs(xLoc - targetX);
             float distanceY = Mathf.Abs(yLoc - targetY);
 
+            if (distanceX < speed && distanceY < speed)
+            {
+                inRange = true;
+            }
             if (distanceX < speed)
             {
                 xLoc = targetX;
-                inRange = true;
             }
             else
             {
@@ -265,6 +268,7 @@ public class Military : ScriptableObject
     public GameObject Mines;
     public GameObject Ruins;
     public GameObject HuntingGrounds;
+    public GameObject EnemyCity;
 
     public ResourceManager resourceManager;
     public NPCandLordHolder nPCandLordHolder;
@@ -346,7 +350,10 @@ public class Military : ScriptableObject
         Location location = new Location(xin, yin, Mapx, Mapy, namein);
         resourceLocs.Add(location);
         unchosenObjList.Add(location);
-        enemyObjList.Add(location);
+        if (namein != "Enemy City")
+        {
+            enemyObjList.Add(location);
+        }
     }
 
     // changes canvas boolean between true and false
@@ -367,6 +374,11 @@ public class Military : ScriptableObject
         curObjList = new List<Targets>();
         enemyObjList = new List<Targets>();
         unchosenObjList = new List<Targets>();
+        for(int x =0; x < resourceLocs.Count;x++)
+        {
+            unchosenObjList.Add(resourceLocs[x]);
+        }
+        displayCanvas = false;
     }
 
     /// <summary>
@@ -588,20 +600,23 @@ public class Military : ScriptableObject
             // grab the location
             Location location = (Location)target;
             // add unit to respective list in the location
-            if (unit.IFF == 0)
+            if (location.name != "Enemy City")
             {
-                // add to ally list
-                if (location.allyUnitsonLoc.Contains(unit) == false)
+                if (unit.IFF == 0)
                 {
-                    location.allyUnitsonLoc.Add(unit);
+                    // add to ally list
+                    if (location.allyUnitsonLoc.Contains(unit) == false)
+                    {
+                        location.allyUnitsonLoc.Add(unit);
+                    }
                 }
-            }
-            else if (unit.IFF == 1)
-            {
-                // add to the enemy list
-                if (location.enemyUnitsonLoc.Contains(unit) == false)
+                else if (unit.IFF == 1)
                 {
-                    location.enemyUnitsonLoc.Add(unit);
+                    // add to the enemy list
+                    if (location.enemyUnitsonLoc.Contains(unit) == false)
+                    {
+                        location.enemyUnitsonLoc.Add(unit);
+                    }
                 }
             }
         }

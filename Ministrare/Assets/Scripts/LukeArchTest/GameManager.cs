@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
             military.CreateALocation(-450, 750, "Mines");
             military.CreateALocation(550, -28, "Hunting Grounds");
             military.CreateALocation(850, -500, "Ruins");
+            military.CreateALocation(1265, 550, "Enemy City");
+            military.displayCanvas = false;
             //military.CreateFriendlyUnit();
             //military.CreateEnemyUnit();
             hasStarted = true;
