@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Military military;
     public string Ending;
+
+    // list of tech trees and structures
+    public List<TechTree> techTrees;
+    public List<StructureManager> structures;
+
     // Use this for initialization
     void Start()
     {

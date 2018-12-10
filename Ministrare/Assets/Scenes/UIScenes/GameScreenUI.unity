@@ -205,11 +205,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4329057578708728, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}
       propertyPath: m_LocalPosition.x
       value: 678
@@ -251,47 +246,6 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e,
-        type: 2}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: MoveUnits
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114111306412344418, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: onNewDay.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224727880809925394, guid: 4094c6ad7ae31124b9eb1bcc24575223,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4094c6ad7ae31124b9eb1bcc24575223, type: 2}

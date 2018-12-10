@@ -24,6 +24,12 @@ public class StructureManager : ScriptableObject {
         runStruct = new Structure[2];
         initStruct = runStruct;
     }
+
+    public void Reset()
+    {
+        runStruct = new Structure[2];
+        initStruct = runStruct;
+    }
 }
 
 
