@@ -105,6 +105,16 @@ public class UItest : MonoBehaviour
             TechTree militaryTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/MilitaryTree.asset", typeof(TechTree));
             TechTree productionTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ProductionTree.asset", typeof(TechTree));
             TechTree scienceTech = (TechTree)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ScienceTree.asset", typeof(TechTree));
+            StructureManager farmStruct = (StructureManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/FarmStructureManager.asset", typeof(StructureManager));
+            StructureManager merchantStruct = (StructureManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/MerchantStructureManager.asset", typeof(StructureManager));
+            StructureManager militaryStruct = (StructureManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/MilitaryStructureManager.asset", typeof(StructureManager));
+            StructureManager productionStruct = (StructureManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ProductionStructureManager.asset", typeof(StructureManager));
+            StructureManager scienceStruct = (StructureManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ScienceStructureManager.asset", typeof(StructureManager));
+            farmStruct.Reset();
+            merchantStruct.Reset();
+            militaryStruct.Reset();
+            productionStruct.Reset();
+            scienceStruct.Reset();
             farmTech.Reset();
             merchantTech.Reset();
             militaryTech.Reset();

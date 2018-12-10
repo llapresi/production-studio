@@ -201,12 +201,15 @@ public class ResourceManager : ScriptableObject {
         for (int k =0; k < military.allUnitsList.Count; k++)
         {
             Unit unit = military.allUnitsList[k];
-            if (unit.IFF == 0 && unit.objective.GetType() == typeof(Location))
+            if (unit.objective != null)
             {
-                Location location = (Location)unit.objective;
-                if (location.name == "Enemy City" && unit.inRange)
+                if (unit.IFF == 0 && unit.objective.GetType() == typeof(Location))
                 {
-                    runtimeEnemyCityHealth = runtimeEnemyCityHealth - 100;
+                    Location location = (Location)unit.objective;
+                    if (location.name == "Enemy City" && unit.inRange)
+                    {
+                        runtimeEnemyCityHealth = runtimeEnemyCityHealth - 5;
+                    }
                 }
             }
         }

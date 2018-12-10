@@ -16,8 +16,8 @@ public class SeeUnchosenObjectives : MonoBehaviour {
         Button button = this.gameObject.GetComponent<Button>();
         button.onClick.AddListener(pressSeeObjectives);
         visiable = false;
-        Xchange = 250;
-        Ychange = -20;
+        Xchange = 200;
+        Ychange = 5;
     }
     // create some buttons not too far from it saying where avalible objectives are for players
     public void pressSeeObjectives()
@@ -61,7 +61,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
                     vector3.y += Ychange;
 
                 // place it on the map
-                    GameObject CanvasGameScreen = GameObject.Find("Canvas");
+                    GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
                     Ychange -= 30;
                     if (unitbool)
@@ -82,7 +82,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
             {
                 visiable = false;
             }
-            Ychange = -20;
+            Ychange = 5;
         }
         else if (visiable == true)
         {
