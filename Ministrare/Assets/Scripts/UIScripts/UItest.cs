@@ -22,31 +22,6 @@ public class UItest : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Pauses the game
-        if (pauseCanvas != null)
-        {
-
-
-            if (Input.GetKeyDown("escape"))
-            {
-                if (pauseCanvas.enabled)
-                {
-                    pauseCanvas.enabled = false;
-                    time.paused = false;
-                }
-                else
-                {
-                    pauseCanvas.enabled = true;
-                    time.paused = true;
-                }
-            }
-
-        }
-    }
-
 
     //used for loading JSON
     public NextJSONToLoad paramObj;
