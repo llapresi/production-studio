@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private Military military;
     public string Ending;
 
+    [SerializeField]
+    TimerTime timer;
+
     // list of tech trees and structures
     public List<TechTree> techTrees;
     public List<StructureManager> structures;
@@ -50,6 +53,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timer.NextDay();
     }
 }

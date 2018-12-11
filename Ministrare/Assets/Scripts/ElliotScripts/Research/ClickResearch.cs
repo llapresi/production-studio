@@ -8,7 +8,8 @@ public class ClickResearch : MonoBehaviour {
     public StructureManager localStructs;
     public TimerTime localTimer;
 
-    float scienceHappiness;  // default value until happiness is able to be accessed
+    // default value until happiness is able to be accessed
+    public NPCandLordHolder scienceHold;
 
     public TechTree scienceTree;
 
@@ -38,7 +39,7 @@ public class ClickResearch : MonoBehaviour {
 
             // places tech in researched tech array and resets local values
             localTree.runtimeNodes[localTree.holdPlace].researched = true;
-            localTree.researched[localTree.holdPlace] = localTree.runtimeNodes[localTree.holdPlace].ChooseTech(scienceHappiness);
+            localTree.researched[localTree.holdPlace] = localTree.runtimeNodes[localTree.holdPlace].ChooseTech(scienceHold.AllyScholar.Happiness);
             localTree.totalBoost += localTree.researched[localTree.holdPlace].boost;
 
             // adds structure if one exists and places it into array to wait for building
@@ -48,7 +49,7 @@ public class ClickResearch : MonoBehaviour {
             //    localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
             if (localTree.runtimeNodes[localTree.holdPlace].structure.boost != 0)
             {
-                if (localStructs.runStruct[0].boost == 0)
+                if (localStructs.runStruct[0] == null)
                 {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
                     localStructs.holdPlace = 0;

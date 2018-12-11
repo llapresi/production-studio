@@ -40,6 +40,16 @@ public class TimerTime : ScriptableObject
         dayCount = initialDayCount;
     }
 
+    public void NextDay()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            hours = 23;
+            minutes = 59;
+        }
+    }
+
     public void Reset()
     {
         hours = 0;

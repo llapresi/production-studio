@@ -1419,6 +1419,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: 238a8998558196447a051056175b2f9a, type: 2}
   localStructs: {fileID: 11400000, guid: 7a38370eb38f9cb4d9c86595abb727a8, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceHold: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!114 &114234365448930084
 MonoBehaviour:
@@ -1626,6 +1627,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: c090f01ee944aec4e830a575b4d34301, type: 2}
   localStructs: {fileID: 11400000, guid: 05992d99944105f45827d7db8363e941, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceHold: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!114 &114324354684207888
 MonoBehaviour:
@@ -2404,6 +2406,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: 16f035c0f0dcee045b0788fe5fb423b9, type: 2}
   localStructs: {fileID: 11400000, guid: 6f0fc533378375d49836a297f0d350c2, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceHold: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!114 &114682827951354448
 MonoBehaviour:
@@ -2528,7 +2531,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  multiplier: 9
+  multiplier: 11
 --- !u!114 &114734855064345136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2543,6 +2546,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
   localStructs: {fileID: 11400000, guid: 42f33a57427b97348bf0189452f47155, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceHold: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!114 &114736211883391704
 MonoBehaviour:
@@ -2561,6 +2565,7 @@ MonoBehaviour:
   filepathout: Assets/Resources/Dialog/SpymasterDialog.json
   military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
   Ending: 
+  timer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
   techTrees:
   - {fileID: 11400000, guid: 238a8998558196447a051056175b2f9a, type: 2}
   - {fileID: 11400000, guid: 16f035c0f0dcee045b0788fe5fb423b9, type: 2}
@@ -2995,6 +3000,7 @@ MonoBehaviour:
   localTree: {fileID: 11400000, guid: 0469e9166b999f440b15347c14abad7f, type: 2}
   localStructs: {fileID: 11400000, guid: bcaf148ea3099344a97862eeb35c6648, type: 2}
   localTimer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
+  scienceHold: {fileID: 11400000, guid: 48c0eff290626f341a01c629882de882, type: 2}
   scienceTree: {fileID: 11400000, guid: e18b6807447bbde49b3ed6dece4e66d8, type: 2}
 --- !u!114 &114986102332162602
 MonoBehaviour:

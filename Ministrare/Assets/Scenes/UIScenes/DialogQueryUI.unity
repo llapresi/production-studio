@@ -246,7 +246,7 @@ RectTransform:
   m_Father: {fileID: 1084234265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.000000059604645}
+  m_AnchorMin: {x: 0, y: 0.00000011920929}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -744,27 +744,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Make a query dialog choice using the buttons above. This menu isn''t linked
-    to the DialogQuery''s classes options yet since Query seralization isn''t implemented
-    yet.
-
-
-    Here is a multiline group of text to make sure that the dialog ScrollView actually
-    works:
-
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et volutpat urna.
-    In fringilla eros suscipit ligula bibendum, non molestie tellus condimentum. Pellentesque
-    in elit volutpat, sollicitudin ante at, interdum massa. Suspendisse neque dui,
-    pretium sed tincidunt lacinia, posuere ut ante. Cras sit amet faucibus felis,
-    et porttitor diam. Duis tempor tincidunt ante, in pretium mi rutrum ac. In imperdiet
-    malesuada nisl, ut pretium mauris sodales vitae. Etiam condimentum tellus tellus,
-    et venenatis tortor dapibus id. Vivamus interdum, ante in dignissim viverra, augue
-    velit sollicitudin dolor, ac molestie velit nisl in ipsum. Proin diam ex, posuere
-    nec sodales a, varius porttitor eros. Duis ultricies fermentum neque. Sed felis
-    mauris, finibus sed tellus id, ultricies laoreet lorem. Quisque eget tristique
-    enim. Nullam eu est diam. Suspendisse erat ex, varius vel aliquam nec, consectetur
-    vitae lectus. Ut eget nisl vitae tortor bibendum faucibus. '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: d9bd9fdc637f4b945b98215c7fd7e328, type: 2}
@@ -829,16 +809,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 12, y: 12, z: 12, w: 12}
+  m_margin: {x: 1.4494352, y: 1.5330524, z: 5.9711637, w: 99.4189}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 1217
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 184
-    wordCount: 182
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 14
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
@@ -880,8 +860,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.00390625, y: 103.29502}
-  m_SizeDelta: {x: -0.0049438, y: 409.64}
+  m_AnchoredPosition: {x: 0.00390625, y: 103.29503}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539608184
 MonoBehaviour:
@@ -1097,7 +1077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008177757, y: 0.000007412619}
+  m_AnchoredPosition: {x: -0.00008177757, y: -0.000020340856}
   m_SizeDelta: {x: 0.00008177757, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &923686513
@@ -1576,7 +1556,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 108115594}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1647,8 +1627,8 @@ RectTransform:
   m_Father: {fileID: 1754031816}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.24783953}
-  m_AnchorMax: {x: 1, y: 0.7521604}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1878,8 +1858,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1646946154}
   m_HandleRect: {fileID: 1646946153}
   m_Direction: 2
-  m_Value: 0.4999999
-  m_Size: 0.50432074
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

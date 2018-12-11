@@ -29,6 +29,9 @@ public class StructureManager : ScriptableObject {
     {
         runStruct = new Structure[2];
         initStruct = runStruct;
+        localCost = 100;
+        holdPlace = 100;
+        totalBoost = 0;
     }
 }
 

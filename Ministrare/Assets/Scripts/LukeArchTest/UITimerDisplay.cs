@@ -26,6 +26,6 @@ public class UITimerDisplay : MonoBehaviour {
         else
             toDisplay += (currentTime.hours % 12 + 1) + ":" + (int)currentTime.minutes + timeOfDay;
 
-        textDisplay.text = toDisplay;
+        textDisplay.text = toDisplay + "\nDay: " + currentTime.dayCount;
     }
 }
