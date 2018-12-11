@@ -43,6 +43,7 @@ public class QueryDialogRunner : MonoBehaviour
         {
             setDialogImages.SetBackground(currentQuery.leaderID);
         }
+        startingText();
     }
 
     public virtual void SetCurrentNode(DialogNode newDialogNode)
@@ -51,6 +52,32 @@ public class QueryDialogRunner : MonoBehaviour
         dialogDisplay.text = currentDialogNode.dialogText;
         updateGUI.Invoke();
         RunNodeActions(newDialogNode);
+    }
+
+    public void startingText()
+    {
+        GameObject GO = GameObject.Find("DialogText");
+        TextMeshProUGUI textmesh = GO.GetComponent<TextMeshProUGUI>();
+        if (currentQuery.leaderID == "allyFarmer")
+        {
+            textmesh.text = "FARMER LEADER: How can I help you, my leige?";
+        }
+        if (currentQuery.leaderID == "allyMerchant")
+        {
+            textmesh.text = "MERCHANT LEADER: How can I help you, my leige?";
+        }
+        if (currentQuery.leaderID == "allyMilitary")
+        {
+            textmesh.text = "MILITARY LEADER: How can I help you, my leige?";
+        }
+        if (currentQuery.leaderID == "allyScholar")
+        {
+            textmesh.text = "SCHOLAR LEADER: How can I help you, my leige?";
+        }
+        if (currentQuery.leaderID == "allySmith")
+        {
+            textmesh.text = "SMITH LEADER: How can I help you, my leige?";
+        }
     }
 
     void RunNodeActions(DialogNode newDialogNode)
