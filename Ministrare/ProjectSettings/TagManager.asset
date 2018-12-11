@@ -9,6 +9,9 @@ TagManager:
   - CObjectiveButton
   - UObjectiveButton
   - Military
+  - GameManager
+  - Researching
+  - Building
   layers:
   - Default
   - TransparentFX

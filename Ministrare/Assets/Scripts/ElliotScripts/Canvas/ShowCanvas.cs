@@ -17,15 +17,15 @@ public class ShowCanvas : MonoBehaviour {
         // research canvas to one and displays it
         if(sciTree.DisplayCanvas())
         {
-            GameObject.FindGameObjectWithTag("Research").GetComponent<Canvas>().sortingOrder = 1;
+            GameObject.FindGameObjectWithTag("Research").GetComponent<Canvas>().sortingOrder = 2;
         }
         else if(prodTree.DisplayCanvas())  // do the same for production if science tree boolean is false
         {
-            GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 1;
+            GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 2;
         }
         else if(military.DisplayCanvas()) // do the same for military if military bool is true
         {
-            GameObject.FindGameObjectWithTag("Military").GetComponent<Canvas>().sortingOrder = 1;
+            GameObject.FindGameObjectWithTag("Military").GetComponent<Canvas>().sortingOrder = 2;
         }
     }
 

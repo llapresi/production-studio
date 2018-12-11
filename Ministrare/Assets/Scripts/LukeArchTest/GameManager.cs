@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public List<TechTree> techTrees;
     public List<StructureManager> structures;
 
+    public bool researchCanvas = false;
+    public bool buildingCanvas = false;
+
     // Use this for initialization
     void Start()
     {

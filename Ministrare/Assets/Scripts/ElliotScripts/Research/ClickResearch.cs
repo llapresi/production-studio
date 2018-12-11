@@ -12,18 +12,30 @@ public class ClickResearch : MonoBehaviour {
 
     public TechTree scienceTree;
 
-    private void Start()
-    {
-        localTree.holdPlace = 100;
-        localTree.localCost = 100;
-    }
-
     // Update is called once per frame
     void Update()
     {
+        if (!(scienceTree.DisplayCanvas()))
+            GameObject.FindGameObjectWithTag("Researching").GetComponent<Canvas>().sortingOrder = 0;
+        
+
+        if (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().researchCanvas && scienceTree.DisplayCanvas())
+        {
+            GameObject.FindGameObjectWithTag("Research").GetComponent<Canvas>().sortingOrder = 0;
+            GameObject.FindGameObjectWithTag("Researching").GetComponent<Canvas>().sortingOrder = 2;
+        }
+       
+       
+
         // checks if cost is equal to local cost
         if (localTimer.dayCount >= localTree.localCost - scienceTree.totalBoost)
         {
+            if(scienceTree.DisplayCanvas())
+                GameObject.FindGameObjectWithTag("Research").GetComponent<Canvas>().sortingOrder = 2;
+
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().researchCanvas = false;
+            GameObject.FindGameObjectWithTag("Researching").GetComponent<Canvas>().sortingOrder = 0;
+
             // places tech in researched tech array and resets local values
             localTree.runtimeNodes[localTree.holdPlace].researched = true;
             localTree.researched[localTree.holdPlace] = localTree.runtimeNodes[localTree.holdPlace].ChooseTech(scienceHappiness);
@@ -40,11 +52,13 @@ public class ClickResearch : MonoBehaviour {
                 {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
                     localStructs.holdPlace = 0;
+                    
                 }
                 else
                 {
                     localStructs.runStruct[1] = localTree.runtimeNodes[localTree.holdPlace].structure;
-                    localStructs.holdPlace = 1;
+                    if(localStructs.runStruct[0].built == true)
+                        localStructs.holdPlace = 1;
                 }
                     
             }
@@ -67,6 +81,7 @@ public class ClickResearch : MonoBehaviour {
                 {
                     localTree.localCost = localTree.runtimeNodes[x].dayCost + localTimer.dayCount;
                     localTree.holdPlace = x;
+                    GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().researchCanvas = true;
                     return;
                 }
     }
