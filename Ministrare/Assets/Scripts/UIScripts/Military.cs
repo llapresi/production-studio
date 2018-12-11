@@ -64,7 +64,7 @@ public class Unit : Targets
         yLoc = Mapy + y;
         objective = obj;
         secObjective = null;
-        speed = 15;
+        speed = 50;
         IFF = iff;
         //image = im;
         //im.transform.position = new Vector3(xLoc, yLoc, 0);
@@ -474,6 +474,7 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateFriendlyUnit()
     {
+        //-1000, -100
         createUnit(0, -1000f, -100, unitImOne, null);
         resourceManager.runtimeFoodStorage = resourceManager.runtimeFoodStorage - 10;
         resourceManager.runtimeGoldStorage = resourceManager.runtimeGoldStorage - 10;
@@ -492,7 +493,7 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateEnemyUnit()
     {
-        // 754, 181
+        // 1000, 250
         createUnit(1, 1000, 250, unitImTwo, null);
     }
 

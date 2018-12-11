@@ -62,7 +62,7 @@ public class SeeChosenObjectives : MonoBehaviour {
                     // place it on the map
                     GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
-                    Ychange -= 30;
+                    Ychange -= 40;
                     if (unitbool)
                     {
                         madeButton.GetComponentInChildren<Text>().text = "Attack " + OS.Name;

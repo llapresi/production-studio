@@ -214,9 +214,6 @@ public class ResourceManager : ScriptableObject {
             }
         }
 
-
-        AssetDatabase.Refresh();
-
         // see if the game had ended yet
         // City is destroyed
         if (runtimeHealth <= 0)
@@ -300,15 +297,18 @@ public class ResourceManager : ScriptableObject {
         string stringfromSpymasterTemplate = File.ReadAllText(filepathin);
         //change gold values
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldUpkeep>>", runtimeGoldUpkeep.ToString());
-        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldProduction>>", runtimeGoldProduction.ToString());
+        int totalGoldProduction = runtimeGoldProduction + runtimeGoldMiliaryGained;
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldProduction>>", totalGoldProduction.ToString());
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldStorage>>", runtimeGoldStorage.ToString());
         //change food values
+        int totalFoodProduction = runtimeFoodProduction + runtimeFoodMiliaryGained;
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodUpkeep>>", runtimeFoodUpkeep.ToString());
-        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodProduction>>", runtimeFoodProduction.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodProduction>>", totalFoodProduction.ToString());
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<FoodStorage>>", runtimeFoodStorage.ToString());
         //change exotic values 
+        int totalEGProduction = runtimeEGProduction + runtimeEGMiliaryGained;
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsUpkeep>>", runtimeEGUpkeep.ToString());
-        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsProduction>>", runtimeEGProduction.ToString());
+        stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsProduction>>", totalEGProduction.ToString());
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ExoticGoodsStorage>>", runtimeEGStorage.ToString());
         // change allyindustryleaders happiness levels
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<MerchantHappiness>>", nPCandLordHolder.AllyMerchant.Happiness.ToString());
@@ -340,6 +340,7 @@ public class ResourceManager : ScriptableObject {
                 writer.Close();
             }
         }
+        AssetDatabase.Refresh();
     }
 
 }
