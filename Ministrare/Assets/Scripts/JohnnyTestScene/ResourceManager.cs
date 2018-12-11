@@ -220,7 +220,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "Lose1.png";
+            GM.Ending = "Lose2.png";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
 
@@ -229,7 +229,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "Lose1.png";
+            GM.Ending = "Win1.png";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
 
@@ -279,7 +279,7 @@ public class ResourceManager : ScriptableObject {
             {
                 GameObject GO = GameObject.Find("GameManager");
                 GameManager GM = GO.GetComponent<GameManager>();
-                GM.Ending = "Lose1.png";
+                GM.Ending = "Win1.png";
                 SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
             else
