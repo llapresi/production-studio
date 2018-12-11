@@ -13,23 +13,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ScienceStructures
   initStruct:
-  - name: Struct3-1
-    dayCost: 5
-    boost: 5
-    built: 1
-  - name: Struct5-1
-    dayCost: 10
-    boost: 10
-    built: 1
+  - name: 
+    dayCost: 0
+    boost: 0
+    built: 0
+  - name: 
+    dayCost: 0
+    boost: 0
+    built: 0
   runStruct:
-  - name: Struct3-1
-    dayCost: 5
-    boost: 5
-    built: 1
-  - name: Struct5-1
-    dayCost: 10
-    boost: 10
-    built: 1
-  localCost: -1
-  holdPlace: -1
-  totalBoost: 15
+  - name: 
+    dayCost: 0
+    boost: 0
+    built: 0
+  - name: 
+    dayCost: 0
+    boost: 0
+    built: 0
+  localCost: 100
+  holdPlace: 100
+  totalBoost: 0
