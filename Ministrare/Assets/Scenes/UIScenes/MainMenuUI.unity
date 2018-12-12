@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &410692545
+--- !u!1001 &127474798
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -220,6 +220,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114848126426387184, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 05008892997387843a235981a490bc87, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
   m_IsPrefabAsset: 0
