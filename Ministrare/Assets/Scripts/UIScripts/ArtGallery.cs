@@ -151,7 +151,6 @@ public class ArtGallery : MonoBehaviour {
                 backInd = 1;
                 break;
             case 1:
-                Debug.Log("test");
                 backdrop.color = new Color(1, 1, 1);
                 backInd = 0;
                 break;
