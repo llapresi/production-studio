@@ -9,7 +9,8 @@ public class ArtGallery : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         index = 0;
-        
+        backInd = 1;
+        shiftBackground();
     }
 	
 	// Update is called once per frame
@@ -30,14 +31,16 @@ public class ArtGallery : MonoBehaviour {
     public List<Sprite> BackList = new List<Sprite>();
     public List<Sprite> EndList = new List<Sprite>();
 
+    public int backInd;
 
     public Image display;
+    public Image backdrop;
 
     private int index;
 
     public void nextImage()
     {
-        if (index != curList.Count)
+        if (index < curList.Count - 1)
         {
             index++;
             display.sprite = curList[index];
@@ -56,6 +59,7 @@ public class ArtGallery : MonoBehaviour {
     public void ChangeList(List<Sprite> newList)
     {
         curList = newList;
+        shiftBackground();
         display.enabled = true;
         foreach (GameObject button in buttListOne)
         {
@@ -75,6 +79,7 @@ public class ArtGallery : MonoBehaviour {
 
     public void hideList()
     {
+        shiftBackground();
         display.enabled = false;
         foreach (GameObject button in buttListOne)
         {
@@ -135,6 +140,22 @@ public class ArtGallery : MonoBehaviour {
                 break;
         }
 
+    }
+
+    public void shiftBackground()
+    {
+        switch (backInd)
+        {
+            case 0:
+                backdrop.color = new Color(0, 0, 0);
+                backInd = 1;
+                break;
+            case 1:
+                Debug.Log("test");
+                backdrop.color = new Color(1, 1, 1);
+                backInd = 0;
+                break;
+        }
     }
 
 }
