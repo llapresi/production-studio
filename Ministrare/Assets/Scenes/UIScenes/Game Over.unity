@@ -1059,3 +1059,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2002d2f2b9d19b043aa7f6457eb74c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endingSprites:
+  - {fileID: 21300000, guid: 4c2ade327d983444c986d519b836591d, type: 3}
+  - {fileID: 21300000, guid: d29b14cc0da16164bb59e5b56edeace1, type: 3}
+  - {fileID: 21300000, guid: 93c84a5e50d32704484f1187148b2473, type: 3}
+  - {fileID: 21300000, guid: 644d7dcf389a21f4f8cb4516f61c89ab, type: 3}
+  - {fileID: 21300000, guid: ee0f009bf87a9214c95ff2ccd1ed4be3, type: 3}

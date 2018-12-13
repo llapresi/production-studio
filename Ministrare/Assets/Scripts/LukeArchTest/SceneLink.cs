@@ -23,7 +23,9 @@ public class SceneLink : MonoBehaviour {
             paramObj.runtimeDialogPath = dialogPathToLoad;
         }
         // set military off screen locations
-        Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+        GameObject GO = GameObject.Find("GameManager");
+        GameManager GM = GO.GetComponent<GameManager>();
+        Military military = GM.military;
         military.saveOffScreenPos();
         //StartCoroutine(LoadAsyncScene());
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

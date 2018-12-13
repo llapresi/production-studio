@@ -217,7 +217,9 @@ public class Location: Targets
 
     public void ControlObjective()
     {
-        ResourceManager resourceManager = (ResourceManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ResourceManager.asset", typeof(ResourceManager));
+        GameObject GO = GameObject.Find("GameManager");
+        GameManager GM = GO.GetComponent<GameManager>();
+        ResourceManager resourceManager = GM.resourceManager;
         if (allyUnitsonLoc.Count > 0 && enemyUnitsonLoc.Count == 0 && name == "Mines")
         {
             resourceManager.runtimeGoldMiliaryGained = 15;

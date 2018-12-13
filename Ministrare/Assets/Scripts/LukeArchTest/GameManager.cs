@@ -8,15 +8,15 @@ public class GameManager : MonoBehaviour
 {
     private static bool hasStarted = false;
     [SerializeField]
-    private NPCandLordHolder NPCLordHolder;
+    public NPCandLordHolder NPCLordHolder;
     [SerializeField]
-    private ResourceManager resourceManager;
+    public ResourceManager resourceManager;
     [SerializeField]
     private string filepathin;
     [SerializeField]
     private string filepathout;
     [SerializeField]
-    private Military military;
+    public Military military;
     public string Ending;
 
     [SerializeField]

@@ -283,7 +283,9 @@ public class IndustryLeader {
                 if (rebelling == false && leaderName != null)
                 {
                     rebelling = true;
-                    Military military = (Military)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/Military.asset", typeof(Military));
+                    GameObject GO = GameObject.Find("GameManager");
+                    GameManager GM = GO.GetComponent<GameManager>();
+                    Military military = GM.military;
                     military.CreateRebelUnit(leaderName);
                 }
             }

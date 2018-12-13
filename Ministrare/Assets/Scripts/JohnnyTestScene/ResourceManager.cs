@@ -220,7 +220,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "Lose2.png";
+            GM.Ending = "Lose2";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
 
@@ -229,7 +229,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "Win1.png";
+            GM.Ending = "Win1";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
 
@@ -268,7 +268,7 @@ public class ResourceManager : ScriptableObject {
         {
             GameObject GO = GameObject.Find("GameManager");
             GameManager GM = GO.GetComponent<GameManager>();
-            GM.Ending = "Lose1.png";
+            GM.Ending = "Lose1";
             SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
         }
         // Grand battle when the year is up
@@ -279,14 +279,14 @@ public class ResourceManager : ScriptableObject {
             {
                 GameObject GO = GameObject.Find("GameManager");
                 GameManager GM = GO.GetComponent<GameManager>();
-                GM.Ending = "Win1.png";
+                GM.Ending = "Win1";
                 SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
             else
             {
                 GameObject GO = GameObject.Find("GameManager");
                 GameManager GM = GO.GetComponent<GameManager>();
-                GM.Ending = "Lose1.png";
+                GM.Ending = "Lose1";
                 SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
         }
