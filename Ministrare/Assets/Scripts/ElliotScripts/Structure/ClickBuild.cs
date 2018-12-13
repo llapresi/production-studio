@@ -14,13 +14,17 @@ public class ClickBuild : MonoBehaviour {
 	void Update ()
     {
         int count = 0;
+        int builtCount = 0;
         for (int x = 0; x < 2; x++)
         {
             if (localStructs.runStruct[x] != null)
                 count++;
+            if (localStructs.runStruct[x].built == true)
+                builtCount++;
         }
 
-
+        if(builtCount == 2)
+            gameObject.GetComponentInChildren<Text>().text = "Completed";
 
 
         if (!(prodTree.DisplayCanvas()))
