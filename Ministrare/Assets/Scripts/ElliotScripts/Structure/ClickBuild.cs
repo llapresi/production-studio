@@ -13,14 +13,28 @@ public class ClickBuild : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!(prodTree.DisplayCanvas()))
-            GameObject.FindGameObjectWithTag("Building").GetComponent<Canvas>().sortingOrder = 0;
+        int count = 0;
+        for (int x = 0; x < 2; x++)
+        {
+            if (localStructs.runStruct[x] != null)
+                count++;
+        }
 
+
+
+
+        if (!(prodTree.DisplayCanvas()))
+        {
+            gameObject.GetComponentInChildren<Text>().text +=  ": " + count;
+
+            GameObject.FindGameObjectWithTag("Building").GetComponent<Canvas>().sortingOrder = 0;
+        }
 
         if (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().buildingCanvas && prodTree.DisplayCanvas())
         {
             GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 0;
             GameObject.FindGameObjectWithTag("Building").GetComponent<Canvas>().sortingOrder = 2;
+
         }
 
         // checks if cost is equal to local cost
@@ -52,15 +66,18 @@ public class ClickBuild : MonoBehaviour {
         {
             localStructs.localCost = localStructs.runStruct[0].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 0;
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().buildingCanvas = true;
+            GameObject.Find("Building").GetComponentInChildren<Text>().text = " Built on day " + (localStructs.localCost - prodTree.totalBoost + " ");
         }
         else if(localStructs.runStruct[1] != null && localStructs.runStruct[1].built == false) 
         {
             localStructs.localCost = localStructs.runStruct[1].dayCost + localTimer.dayCount;
             localStructs.holdPlace = 1;
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().buildingCanvas = true;
+            GameObject.Find("Building").GetComponentInChildren<Text>().text = " Built on day " + (localStructs.localCost - prodTree.totalBoost + " ");
         }
 
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().buildingCanvas = true;
-        GameObject.Find("Building").GetComponentInChildren<Text>().text = " Built on day " + (localStructs.localCost - prodTree.totalBoost + " ");
+        
         //GameObject.FindGameObjectWithTag("Building").GetComponent<Canvas>().sortingOrder = 2;
         //GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 0;
     }
