@@ -80,13 +80,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "SPYMASTER: Your Merchant's Leader feeling 55 happiness right now",
+                            "dialogText": "SPYMASTER: Your Merchant's Leader feeling 70 happiness right now",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Happiness"
                         },
                         {
-                            "dialogText": "SPYMASTER: Your merchants are working at -7% efficiency",
+                            "dialogText": "SPYMASTER: Your merchants are working at 18% efficiency",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Work Efficiency"
@@ -97,13 +97,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "SPYMASTER: Your Farmer's Leader is feeling 65 happiness right now",
+                            "dialogText": "SPYMASTER: Your Farmer's Leader is feeling 45 happiness right now",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Happiness"
                         },
                         {
-                            "dialogText": "SPYMASTER: Your farmers are working at 13% efficiency",
+                            "dialogText": "SPYMASTER: Your farmers are working at -16% efficiency",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Work Efficiency"
@@ -114,13 +114,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "SPYMASTER: Your Buider's Leader is feeling 60 happiness right now",
+                            "dialogText": "SPYMASTER: Your Buider's Leader is feeling 50 happiness right now",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Happiness"
                         },
                         {
-                            "dialogText": "SPYMASTER: Your builders are working at -5% efficiency",
+                            "dialogText": "SPYMASTER: Your builders are working at 9% efficiency",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Work Efficiency"
@@ -131,13 +131,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "SPYMASTER: Your Scholar's Leader is feeling 65 happiness right now",
+                            "dialogText": "SPYMASTER: Your Scholar's Leader is feeling 75 happiness right now",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Happiness"
                         },
                         {
-                            "dialogText": "SPYMASTER: Your scholars are working at 16% efficiency",
+                            "dialogText": "SPYMASTER: Your scholars are working at 19% efficiency",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "WorkEfficiency"
@@ -148,13 +148,13 @@
                 {
                     "dialogNodes": [
                         {
-                            "dialogText": "SPYMASTER: Your General's Leader is feeling 75 happiness right now",
+                            "dialogText": "SPYMASTER: Your General's Leader is feeling 30 happiness right now",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Happiness"
                         },
                         {
-                            "dialogText": "SPYMASTER: Your generals are working at 23% efficiency",
+                            "dialogText": "SPYMASTER: Your generals are working at -28% efficiency",
                             "nextNodes": [],
                             "serializedActions": [],
                             "identifier": "Work Efficiency"
