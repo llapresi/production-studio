@@ -27,7 +27,22 @@ public class moveMap : MonoBehaviour, IDragHandler {
     {
         
         gameObject.transform.position = new Vector3(gameObject.transform.position.x + (xloc - previousXLoc), gameObject.transform.position.y + (yloc - previousYLoc), gameObject.transform.position.z);
-            
+        if(gameObject.transform.localPosition.x >= 885)
+        {
+            gameObject.transform.localPosition = new Vector3(885f, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
+        }
+        if (gameObject.transform.localPosition.x <= -885)
+        {
+            gameObject.transform.localPosition = new Vector3(-885f, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
+        }
+        if (gameObject.transform.localPosition.y <= -351)
+        {
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, -351, gameObject.transform.localPosition.z);
+        }
+        if (gameObject.transform.localPosition.y >= 351)
+        {
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 351, gameObject.transform.localPosition.z);
+        }
     }
 
     public void UpdateOffset()

@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &410692545
+--- !u!1001 &127474798
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -220,7 +220,56 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114848126426387184, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 05008892997387843a235981a490bc87, type: 3}
+    - target: {fileID: 114695881486742798, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: videoToPlay
+      value: 
+      objectReference: {fileID: 32900000, guid: e2df152f7ffefde4e8f9cd455e47e444,
+        type: 3}
+    - target: {fileID: 114695881486742798, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114848126426387184, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328961358372361922, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: e2df152f7ffefde4e8f9cd455e47e444,
+        type: 3}
+    - target: {fileID: 328961358372361922, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 328961358372361922, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 899514583}
+    - target: {fileID: 328961358372361922, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 328961358372361922, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+        type: 2}
+      propertyPath: m_WaitForFirstFrame
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114848126426387184, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
+    - {fileID: 114695881486742798, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0088c5dbe5aa8fa45aaf9de880a8e154, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &899514581
@@ -300,3 +349,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1779683299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1199458198200582, guid: 0088c5dbe5aa8fa45aaf9de880a8e154,
+    type: 2}
+  m_PrefabInternal: {fileID: 127474798}
+--- !u!114 &1779683301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1779683299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 7551411e447c80141b8e4813e1a188a3, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 05008892997387843a235981a490bc87, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
