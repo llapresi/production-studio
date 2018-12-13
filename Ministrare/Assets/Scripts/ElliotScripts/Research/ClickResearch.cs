@@ -76,6 +76,17 @@ public class ClickResearch : MonoBehaviour {
     // checks if anything is being researched, if not, move on to new tech
     public void Researching()
     {
+        int count = 0;
+        for(int x = 0; x < localTree.runtimeNodes.Length; x++)
+            if (localTree.runtimeNodes[x].researched == true)
+                count++;
+        
+        if(count == 5)
+        {
+            gameObject.GetComponentInChildren<Text>().text = "Completed";
+            return;
+        }
+
         if (localTree.localCost == 1000)
             for (int x = 0; x < 5; x++)
                 if (localTree.runtimeNodes[x].researched == false)

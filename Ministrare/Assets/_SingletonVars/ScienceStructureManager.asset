@@ -30,6 +30,6 @@ MonoBehaviour:
     dayCost: 0
     boost: 0
     built: 0
-  localCost: 1000
-  holdPlace: 1000
+  localCost: 100
+  holdPlace: 100
   totalBoost: 0
