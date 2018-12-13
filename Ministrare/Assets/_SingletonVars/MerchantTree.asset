@@ -14,85 +14,85 @@ MonoBehaviour:
   name: MerchantTechTree
   initNodes:
   - name: Test1
-    dayCost: 1
+    dayCost: 5
     researched: 0
     low:
       name: Level1-1
       boost: 1
     mid:
-      name: 
-      boost: 0
+      name: Level1-2
+      boost: 2
     high:
-      name: 
-      boost: 0
+      name: Level1-3
+      boost: 3
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test2
-    dayCost: 5
+    dayCost: 10
     researched: 0
     low:
       name: Level2-1
       boost: 2
     mid:
-      name: 
-      boost: 0
+      name: Level2-2
+      boost: 3
     high:
-      name: 
-      boost: 0
+      name: Level2-3
+      boost: 4
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test3
-    dayCost: 10
+    dayCost: 20
     researched: 0
     low:
       name: Level3-1
       boost: 3
     mid:
-      name: 
-      boost: 0
+      name: Level3-2
+      boost: 4
     high:
-      name: 
-      boost: 0
+      name: Level3-3
+      boost: 5
     structure:
       name: Struct3-1
       dayCost: 5
       boost: 2
       built: 0
   - name: Test4
-    dayCost: 20
+    dayCost: 35
     researched: 0
     low:
       name: Level4-1
       boost: 4
     mid:
-      name: 
-      boost: 0
+      name: Level4-2
+      boost: 5
     high:
-      name: 
-      boost: 0
+      name: Level4-3
+      boost: 6
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test5
-    dayCost: 30
+    dayCost: 55
     researched: 0
     low:
       name: Level5-1
       boost: 5
     mid:
-      name: 
-      boost: 0
+      name: Level5-2
+      boost: 6
     high:
-      name: 
-      boost: 0
+      name: Level5-3
+      boost: 7
     structure:
       name: Struct5-1
       dayCost: 10
@@ -100,85 +100,85 @@ MonoBehaviour:
       built: 0
   runtimeNodes:
   - name: Test1
-    dayCost: 1
+    dayCost: 5
     researched: 0
     low:
       name: Level1-1
       boost: 1
     mid:
-      name: 
-      boost: 0
+      name: Level1-2
+      boost: 2
     high:
-      name: 
-      boost: 0
+      name: Level1-3
+      boost: 3
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test2
-    dayCost: 5
+    dayCost: 10
     researched: 0
     low:
       name: Level2-1
       boost: 2
     mid:
-      name: 
-      boost: 0
+      name: Level2-2
+      boost: 3
     high:
-      name: 
-      boost: 0
+      name: Level2-3
+      boost: 4
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test3
-    dayCost: 10
+    dayCost: 20
     researched: 0
     low:
       name: Level3-1
       boost: 3
     mid:
-      name: 
-      boost: 0
+      name: Level3-2
+      boost: 4
     high:
-      name: 
-      boost: 0
+      name: Level3-3
+      boost: 5
     structure:
       name: Struct3-1
       dayCost: 5
       boost: 2
       built: 0
   - name: Test4
-    dayCost: 20
+    dayCost: 35
     researched: 0
     low:
       name: Level4-1
       boost: 4
     mid:
-      name: 
-      boost: 0
+      name: Level4-2
+      boost: 5
     high:
-      name: 
-      boost: 0
+      name: Level4-3
+      boost: 6
     structure:
       name: 
       dayCost: 0
       boost: 0
       built: 0
   - name: Test5
-    dayCost: 30
+    dayCost: 55
     researched: 0
     low:
       name: Level5-1
       boost: 5
     mid:
-      name: 
-      boost: 0
+      name: Level5-2
+      boost: 6
     high:
-      name: 
-      boost: 0
+      name: Level5-3
+      boost: 7
     structure:
       name: Struct5-1
       dayCost: 10
@@ -195,7 +195,7 @@ MonoBehaviour:
     boost: 0
   - name: 
     boost: 0
-  localCost: 100
-  holdPlace: 100
+  localCost: 1000
+  holdPlace: 1000
   totalBoost: 0
   displayCanvas: 0

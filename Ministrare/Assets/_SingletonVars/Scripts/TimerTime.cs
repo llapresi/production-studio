@@ -44,7 +44,6 @@ public class TimerTime : ScriptableObject
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            
             hours = 23;
             minutes = 59;
         }

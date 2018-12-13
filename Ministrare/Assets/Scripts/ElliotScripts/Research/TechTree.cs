@@ -44,8 +44,8 @@ public class TechTree : ScriptableObject {
             }
 
             totalBoost = 0;
-            localCost = 100;
-            holdPlace = 100;
+            localCost = 1000;
+            holdPlace = 1000;
             displayCanvas = false;
         }
     }

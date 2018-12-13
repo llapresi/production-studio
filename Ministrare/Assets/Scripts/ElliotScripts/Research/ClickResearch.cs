@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //NOTE: Should get placed on button and have the onclick be the researching function
 public class ClickResearch : MonoBehaviour {
@@ -24,9 +25,8 @@ public class ClickResearch : MonoBehaviour {
         {
             GameObject.FindGameObjectWithTag("Research").GetComponent<Canvas>().sortingOrder = 0;
             GameObject.FindGameObjectWithTag("Researching").GetComponent<Canvas>().sortingOrder = 2;
+            
         }
-       
-       
 
         // checks if cost is equal to local cost
         if (localTimer.dayCount >= localTree.localCost - scienceTree.totalBoost)
@@ -66,8 +66,8 @@ public class ClickResearch : MonoBehaviour {
                 
 
             // resets values
-            localTree.holdPlace = 100;
-            localTree.localCost = 100;
+            localTree.holdPlace = 1000;
+            localTree.localCost = 1000;
         }
 
         
@@ -76,14 +76,24 @@ public class ClickResearch : MonoBehaviour {
     // checks if anything is being researched, if not, move on to new tech
     public void Researching()
     {
-        if (localTree.localCost == 100)
+        if (localTree.localCost == 1000)
             for (int x = 0; x < 5; x++)
                 if (localTree.runtimeNodes[x].researched == false)
                 {
                     localTree.localCost = localTree.runtimeNodes[x].dayCost + localTimer.dayCount;
                     localTree.holdPlace = x;
+                    GameObject.Find("Researching").GetComponentInChildren<Text>().text = " Researched on day " + (localTree.localCost - scienceTree.totalBoost) + " ";
                     GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().researchCanvas = true;
                     return;
                 }
+    }
+
+    private void OnDisable()
+    {
+        //localTree.totalBoost = 0;
+        //localTree.localCost = 1000;
+        //localTree.holdPlace = 1000;
+
+        //localTree.Reset();
     }
 }

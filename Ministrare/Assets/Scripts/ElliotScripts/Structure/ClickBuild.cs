@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickBuild : MonoBehaviour {
 
@@ -38,8 +39,8 @@ public class ClickBuild : MonoBehaviour {
             localStructs.totalBoost += localStructs.runStruct[localStructs.holdPlace].boost;
 
             // resets values
-            localStructs.holdPlace = 100;
-            localStructs.localCost = 100;
+            localStructs.holdPlace = 1000;
+            localStructs.localCost = 1000;
         }
     }
 
@@ -59,7 +60,16 @@ public class ClickBuild : MonoBehaviour {
         }
 
         GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().buildingCanvas = true;
+        GameObject.Find("Building").GetComponentInChildren<Text>().text = " Built on day " + (localStructs.localCost - prodTree.totalBoost + " ");
         //GameObject.FindGameObjectWithTag("Building").GetComponent<Canvas>().sortingOrder = 2;
         //GameObject.FindGameObjectWithTag("Build").GetComponent<Canvas>().sortingOrder = 0;
+    }
+
+    private void OnDisable()
+    {
+        //localStructs.totalBoost = 0;
+        //localStructs.localCost = 1000;
+        //localStructs.holdPlace = 1000;
+        //localStructs.Reset();
     }
 }
