@@ -12,6 +12,7 @@ TagManager:
   - GameManager
   - Researching
   - Building
+  - ScrollView
   layers:
   - Default
   - TransparentFX

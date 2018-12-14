@@ -8,6 +8,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
     public Military military;
     public GameObject button;
     public bool visiable;
+    public GameObject scrollView;
     private float Xchange;
     private float Ychange;
 
@@ -25,18 +26,28 @@ public class SeeUnchosenObjectives : MonoBehaviour {
         if (visiable == false)
         {
 
-            // get rid of chosen objective buttons if they exists
-            GameObject[] CObjectiveButtonList = GameObject.FindGameObjectsWithTag("CObjectiveButton");
-
-            for (int x =0; x < CObjectiveButtonList.Length; x++)
+            // get rid of chosen Scroll View if it still exists
+            if (GameObject.Find("ChosenScrollView") != null)
             {
-                GameObject.Destroy(CObjectiveButtonList[x]);
+                GameObject GD = GameObject.Find("ChosenScrollView");
+                Destroy(GD);
             }
 
             // let the other button know its unclicked
             GameObject chosenButton = GameObject.Find("See Chosen Objectives");
             SeeChosenObjectives seechosenObjectives = chosenButton.GetComponent<SeeChosenObjectives>();
             seechosenObjectives.visiable = false;
+
+            // add a scrollview for the buttons
+            if (military.unchosenObjList.Count != 0)
+            {
+                Vector3 vectortest = this.gameObject.transform.position;
+                GameObject scrollViewObject = Instantiate(scrollView, vectortest, Quaternion.identity);
+                GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
+                scrollViewObject.transform.parent = CanvasGameScreen.transform;
+                scrollViewObject.name = "UnchosenScrollView";
+                scrollViewObject.transform.localPosition = new Vector3(0, scrollViewObject.transform.localPosition.y, scrollViewObject.transform.localPosition.z);
+            }
 
             foreach (Targets targets in military.unchosenObjList)
                 {
@@ -60,7 +71,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
                     vector3.x += Xchange;
                     vector3.y += Ychange;
 
-                // place it on the map
+                    // place it on the map
                     GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
                     Ychange -= 40;
@@ -72,8 +83,12 @@ public class SeeUnchosenObjectives : MonoBehaviour {
                     {
                     madeButton.GetComponentInChildren<Text>().text = "Capture " + OS.Name;
                     }
-                    madeButton.transform.parent = CanvasGameScreen.transform;
-                }
+                //make the button parent equal to content
+                GameObject GO = GameObject.Find("UnchosenScrollView");
+                Transform VP = GO.transform.Find("Viewport");
+                Transform SC = VP.transform.Find("ScrollContent");
+                madeButton.transform.parent = SC;
+            }
             if (military.unchosenObjList.Count > 0)
             {
                 visiable = true;
@@ -86,11 +101,14 @@ public class SeeUnchosenObjectives : MonoBehaviour {
         }
         else if (visiable == true)
         {
-            foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+         
+            if (GameObject.Find("UnchosenScrollView") != null)
             {
-                if (go.name == "UObjectiveButton")
-                    Destroy(go);
+                GameObject GD = GameObject.Find("UnchosenScrollView");
+                Destroy(GD);
             }
+
+            
             visiable = false;
         }
     }

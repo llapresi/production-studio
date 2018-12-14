@@ -113,6 +113,7 @@ MonoBehaviour:
   military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
   button: {fileID: 1565047709586036, guid: b82fb5e4e7f240548998011c880a6754, type: 2}
   visiable: 0
+  scrollView: {fileID: 0}
 --- !u!114 &114598380467545898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,7 +205,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -300, y: 131.4}
-  m_SizeDelta: {x: 160, y: 40}
+  m_SizeDelta: {x: 170, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224956001105878376
 RectTransform:
