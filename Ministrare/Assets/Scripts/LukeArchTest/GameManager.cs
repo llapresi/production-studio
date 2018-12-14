@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
         {
             NPCLordHolder.Initialize();
             military.setParentObject();
-            military.CreateALocation(-450, 750, "Mines");
-            military.CreateALocation(550, -28, "Hunting Grounds");
-            military.CreateALocation(850, -500, "Ruins");
-            military.CreateALocation(1265, 550, "Enemy City");
+            military.CreateALocation(-356, 594, "Mines");
+            military.CreateALocation(435, -22, "Hunting Grounds");
+            military.CreateALocation(673, -396, "Ruins");
+            military.CreateALocation(1001, 435, "Enemy City");
             military.displayCanvas = false;
             //military.CreateFriendlyUnit();
             //military.CreateEnemyUnit();
