@@ -68,7 +68,7 @@ public class UItest : MonoBehaviour
         {
             GameObject PP = GameObject.Find("PresistantParent");
             PresistantParent presistantParent = PP.GetComponent<PresistantParent>();
-            presistantParent.SetTimerCanvasActive();
+            presistantParent.SetCanvasesActivetrue();
             MinistrareEventRunner ministrareEventRunner = PP.GetComponentInChildren<MinistrareEventRunner>();
             ministrareEventRunner.Reset();
             GameObject GO = GameObject.Find("GameManager");

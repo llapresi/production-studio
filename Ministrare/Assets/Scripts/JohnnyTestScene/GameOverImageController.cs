@@ -38,13 +38,14 @@ public class GameOverImageController : MonoBehaviour {
         {
             textMesh.text = "You Lose";
         }
-        // hides timer // very hacky
+        // hides all canvases that are not nedded // very hacky
         GameObject GO = GameObject.Find("Timer");
         TimerRunner timerRunner = GO.GetComponent<TimerRunner>();
         TimerTime timerTime = timerRunner.time;
         timerTime.paused = true;
-        GameObject TimerCanvas = GameObject.Find("TimerCanvas");
-        TimerCanvas.SetActive(false);
+        GameObject PP = GameObject.Find("PresistantParent");
+        PresistantParent presistantParent = PP.GetComponent<PresistantParent>();
+        presistantParent.SetCanvasesActivefalse();
 
     }
 	
