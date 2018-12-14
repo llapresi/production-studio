@@ -30,7 +30,15 @@ public class SeeUnchosenObjectives : MonoBehaviour {
             if (GameObject.Find("ChosenScrollView") != null)
             {
                 GameObject GD = GameObject.Find("ChosenScrollView");
-                Destroy(GD);
+                CanvasGroup CG = GD.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] CObjectiveButtons = GameObject.FindGameObjectsWithTag("CObjectiveButton");
+                foreach (GameObject GO in CObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
 
             // let the other button know its unclicked
@@ -38,15 +46,17 @@ public class SeeUnchosenObjectives : MonoBehaviour {
             SeeChosenObjectives seechosenObjectives = chosenButton.GetComponent<SeeChosenObjectives>();
             seechosenObjectives.visiable = false;
 
-            // add a scrollview for the buttons
+            // tell the scrollview to show and that it should accept input
             if (military.unchosenObjList.Count != 0)
             {
-                Vector3 vectortest = this.gameObject.transform.position;
-                GameObject scrollViewObject = Instantiate(scrollView, vectortest, Quaternion.identity);
-                GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
-                scrollViewObject.transform.parent = CanvasGameScreen.transform;
-                scrollViewObject.name = "UnchosenScrollView";
-                scrollViewObject.transform.localPosition = new Vector3(0, scrollViewObject.transform.localPosition.y, scrollViewObject.transform.localPosition.z);
+                if (GameObject.Find("UnchosenScrollView") != null)
+                {
+                    GameObject USV = GameObject.Find("UnchosenScrollView");
+                    CanvasGroup CG = USV.GetComponent<CanvasGroup>();
+                    CG.alpha = 1;
+                    CG.interactable = true;
+                    CG.blocksRaycasts = true;
+                }
             }
 
             foreach (Targets targets in military.unchosenObjList)
@@ -104,8 +114,16 @@ public class SeeUnchosenObjectives : MonoBehaviour {
          
             if (GameObject.Find("UnchosenScrollView") != null)
             {
-                GameObject GD = GameObject.Find("UnchosenScrollView");
-                Destroy(GD);
+                GameObject USV = GameObject.Find("UnchosenScrollView");
+                CanvasGroup CG = USV.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] UObjectiveButtons = GameObject.FindGameObjectsWithTag("UObjectiveButton");
+                foreach (GameObject GO in UObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
 
             

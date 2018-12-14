@@ -25,11 +25,18 @@ public class SeeChosenObjectives : MonoBehaviour {
     {
         if (visiable == false)
         {
-            // get rid of unchosen scrollview if it still exists
             if (GameObject.Find("UnchosenScrollView") != null)
             {
                 GameObject GD = GameObject.Find("UnchosenScrollView");
-                Destroy(GD);
+                CanvasGroup CG = GD.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] UObjectiveButtons = GameObject.FindGameObjectsWithTag("UObjectiveButton");
+                foreach (GameObject GO in UObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
 
             // let the other button know its unclicked
@@ -41,12 +48,14 @@ public class SeeChosenObjectives : MonoBehaviour {
             // add a scrollview for the buttons
             if (military.curObjList.Count != 0)
             {
-                Vector3 vectortest = this.gameObject.transform.position;
-                GameObject scrollViewObject = Instantiate(scrollView, vectortest, Quaternion.identity);
-                GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
-                scrollViewObject.transform.parent = CanvasGameScreen.transform;
-                scrollViewObject.name = "ChosenScrollView";
-                scrollViewObject.transform.localPosition = new Vector3(0, scrollViewObject.transform.localPosition.y, scrollViewObject.transform.localPosition.z);
+                if (GameObject.Find("ChosenScrollView") != null)
+                {
+                    GameObject CSV = GameObject.Find("ChosenScrollView");
+                    CanvasGroup CG = CSV.GetComponent<CanvasGroup>();
+                    CG.alpha = 1;
+                    CG.interactable = true;
+                    CG.blocksRaycasts = true;
+                }
             }
 
             foreach (Targets targets in military.curObjList)
@@ -104,8 +113,16 @@ public class SeeChosenObjectives : MonoBehaviour {
         {
             if (GameObject.Find("ChosenScrollView") != null)
             {
-                GameObject GD = GameObject.Find("ChosenScrollView");
-                Destroy(GD);
+                GameObject CSV = GameObject.Find("ChosenScrollView");
+                CanvasGroup CG = CSV.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] CObjectiveButtons = GameObject.FindGameObjectsWithTag("CObjectiveButton");
+                foreach (GameObject GO in CObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
             visiable = false;
         }
