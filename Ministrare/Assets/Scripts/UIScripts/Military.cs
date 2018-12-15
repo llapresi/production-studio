@@ -777,6 +777,10 @@ public class Military : ScriptableObject
                 enemyUnits.Add(unit);
             }
         }
+        if (allyUnits.Count == 0 && enemyUnits.Count == 0)
+        {
+            return true;
+        }
         battle(allyUnits, enemyUnits);
         if (allyUnits.Count > 0)
         {

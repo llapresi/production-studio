@@ -281,7 +281,7 @@ public class ResourceManager : ScriptableObject {
             {
                 GameObject GO = GameObject.Find("GameManager");
                 GameManager GM = GO.GetComponent<GameManager>();
-                GM.Ending = "Win1";
+                GM.Ending = "win3-done";
                 SceneManager.LoadScene("Assets/Scenes/UIScenes/Game Over.unity");
             }
             else

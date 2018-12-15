@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: ResourceManager
   m_EditorClassIdentifier: 
   initFoodStorage: 100
-  initFoodUpkeep: 0
+  initFoodUpkeep: 2
   initFoodProduction: 10
   initFoodMilitaryGained: 0
   initGoldStorage: 100
-  initGoldUpkeep: 0
+  initGoldUpkeep: 2
   initGoldProduction: 5
   initGoldMilitaryGained: 0
   initEGStorage: 100
-  initEGUpkeep: 0
+  initEGUpkeep: 2
   initEGProduction: 5
   initEGMilitaryGained: 0
   initHappiness: 100
