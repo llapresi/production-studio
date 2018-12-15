@@ -43,7 +43,9 @@ namespace Ministrare.Events
         public void End()
         {
             // go to the npcandLordHolder and tell it to spin the wheel again
-            NPCandLordHolder nPCandLordHolder = (NPCandLordHolder)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/NPCandLordHolder.asset", typeof(NPCandLordHolder));
+            GameObject GO = GameObject.Find("GameManager");
+            GameManager GM = GO.GetComponent<GameManager>();
+            NPCandLordHolder nPCandLordHolder = GM.NPCLordHolder;
             nPCandLordHolder.stateOfMindRoll();
         }
 

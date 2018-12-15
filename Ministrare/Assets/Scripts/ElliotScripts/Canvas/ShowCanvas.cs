@@ -66,6 +66,24 @@ public class ShowCanvas : MonoBehaviour {
             {
                 GameObject.Destroy(UObjectiveButtonList[x]);
             }
+            // tell both dropboxes to dissapper for now
+            GameObject USV = GameObject.Find("UnchosenScrollView");
+            CanvasGroup CG = USV.GetComponent<CanvasGroup>();
+            CG.alpha = 0;
+            CG.interactable = false;
+            CG.blocksRaycasts = false;
+            GameObject CSV = GameObject.Find("ChosenScrollView");
+            CanvasGroup CG2 = CSV.GetComponent<CanvasGroup>();
+            CG2.alpha = 0;
+            CG2.interactable = false;
+            // tell both buttons that their visablity is false
+            GameObject chosenButton = GameObject.Find("See Chosen Objectives");
+            SeeChosenObjectives seechosenObjectives = chosenButton.GetComponent<SeeChosenObjectives>();
+            seechosenObjectives.visiable = false;
+            GameObject UnchosenButton = GameObject.Find("See UnChosen Objectives");
+            SeeUnchosenObjectives seeUnchosenObjectives = UnchosenButton.GetComponent<SeeUnchosenObjectives>();
+            seeUnchosenObjectives.visiable = false;
+
         }
     }
     

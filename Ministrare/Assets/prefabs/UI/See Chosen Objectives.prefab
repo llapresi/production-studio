@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}
   button: {fileID: 1370483410215470, guid: 3d45d2d2c202c1b46914441e406f55d8, type: 2}
+  scrollView: {fileID: 0}
   visiable: 0
 --- !u!114 &114058155270455468
 MonoBehaviour:
@@ -193,7 +194,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -300, y: 88}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 170, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224506436299331114
 RectTransform:

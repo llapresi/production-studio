@@ -60,8 +60,8 @@ public class Unit : Targets
         shield = s;
         health = h;
         healthMax = h;
-        xLoc = Mapx + x;
-        yLoc = Mapy + y;
+        xLoc = x;
+        yLoc = y;
         objective = obj;
         secObjective = null;
         speed = 50;
@@ -205,8 +205,8 @@ public class Location: Targets
 
     public Location(float xin, float yin, float Mapxin, float Mapyin, string namein)
     {
-        xLoc = Mapxin + xin;
-        yLoc = Mapyin + yin;
+        xLoc = xin;
+        yLoc = yin;
         allyUnitsonLoc = new List<Unit>();
         enemyUnitsonLoc = new List<Unit>();
         name = namein;
@@ -217,7 +217,9 @@ public class Location: Targets
 
     public void ControlObjective()
     {
-        ResourceManager resourceManager = (ResourceManager)AssetDatabase.LoadAssetAtPath("Assets/_SingletonVars/ResourceManager.asset", typeof(ResourceManager));
+        GameObject GO = GameObject.Find("GameManager");
+        GameManager GM = GO.GetComponent<GameManager>();
+        ResourceManager resourceManager = GM.resourceManager;
         if (allyUnitsonLoc.Count > 0 && enemyUnitsonLoc.Count == 0 && name == "Mines")
         {
             resourceManager.runtimeGoldMiliaryGained = 15;
@@ -474,8 +476,8 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateFriendlyUnit()
     {
-        //-1000, -100
-        createUnit(0, -1000f, -100, unitImOne, null);
+        //-792, -79
+        createUnit(0, -792f, -79, unitImOne, null);
         resourceManager.runtimeFoodStorage = resourceManager.runtimeFoodStorage - 10;
         resourceManager.runtimeGoldStorage = resourceManager.runtimeGoldStorage - 10;
         resourceManager.runtimeFoodUpkeep = resourceManager.runtimeFoodUpkeep + 5;
@@ -493,31 +495,31 @@ public class Military : ScriptableObject
     /// </summary>
     public void CreateEnemyUnit()
     {
-        // 1000, 250
-        createUnit(1, 1000, 250, unitImTwo, null);
+        // 792, 166
+        createUnit(1, 792, 166, unitImTwo, null);
     }
 
     public void CreateRebelUnit(string industryLeadersName)
     {
         if (industryLeadersName == "Farmer")
         {
-            createUnit(2, -1000.6f, -734.0499f, unitImTwo, "Farmer");
+            createUnit(2, -775.6f, -596f, unitImTwo, "Farmer");
         }
         else if (industryLeadersName == "Merchant")
         {
-            createUnit(2, -623.6f, -292.87f, unitImTwo, "Merchant");
+            createUnit(2, -459.6f, -249.1f, unitImTwo, "Merchant");
         }
         else if (industryLeadersName == "Smith")
         {
-            createUnit(2, -1000.6f, -500.05f, unitImTwo, "Smith");
+            createUnit(2, -784.5f, -414f, unitImTwo, "Smith");
         }
         else if (industryLeadersName == "Scholar")
         {
-            createUnit(2, -540.5999f, 150.04997f, unitImTwo, "Scholar");
+            createUnit(2, -414.3f, 139.6f, unitImTwo, "Scholar");
         }
         else if (industryLeadersName == "General")
         {
-            createUnit(2, -900.7f, -100f, unitImTwo, "General");
+            createUnit(2, -863.4f, -82.9f, unitImTwo, "General");
         }
     }
    

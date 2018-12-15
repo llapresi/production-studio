@@ -8,15 +8,15 @@ public class GameManager : MonoBehaviour
 {
     private static bool hasStarted = false;
     [SerializeField]
-    private NPCandLordHolder NPCLordHolder;
+    public NPCandLordHolder NPCLordHolder;
     [SerializeField]
-    private ResourceManager resourceManager;
+    public ResourceManager resourceManager;
     [SerializeField]
     private string filepathin;
     [SerializeField]
     private string filepathout;
     [SerializeField]
-    private Military military;
+    public Military military;
     public string Ending;
 
     [SerializeField]
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
         {
             NPCLordHolder.Initialize();
             military.setParentObject();
-            military.CreateALocation(-450, 750, "Mines");
-            military.CreateALocation(550, -28, "Hunting Grounds");
-            military.CreateALocation(850, -500, "Ruins");
-            military.CreateALocation(1265, 550, "Enemy City");
+            military.CreateALocation(-356, 594, "Mines");
+            military.CreateALocation(435, -22, "Hunting Grounds");
+            military.CreateALocation(673, -396, "Ruins");
+            military.CreateALocation(1001, 435, "Enemy City");
             military.displayCanvas = false;
             //military.CreateFriendlyUnit();
             //military.CreateEnemyUnit();

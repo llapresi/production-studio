@@ -93,8 +93,6 @@ public class NPCandLordHolder : ScriptableObject {
         int daysDuration = Random.Range(6, 8);
         StableMinistareEvent stable = new StableMinistareEvent(timerRunner.time, "StableEvent", daysDuration);
         ministrareEventRunner.AddEvent(stable);
-        //MilitaryMinistareEvent military = new MilitaryMinistareEvent(timerRunner.time, "MilitaryEvent", 1);
-        //ministrareEventRunner.AddEvent(military);
     }
 
     void CreateDictTable()

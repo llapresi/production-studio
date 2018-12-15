@@ -8,6 +8,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
     public Military military;
     public GameObject button;
     public bool visiable;
+    public GameObject scrollView;
     private float Xchange;
     private float Ychange;
 
@@ -25,18 +26,38 @@ public class SeeUnchosenObjectives : MonoBehaviour {
         if (visiable == false)
         {
 
-            // get rid of chosen objective buttons if they exists
-            GameObject[] CObjectiveButtonList = GameObject.FindGameObjectsWithTag("CObjectiveButton");
-
-            for (int x =0; x < CObjectiveButtonList.Length; x++)
+            // get rid of chosen Scroll View if it still exists
+            if (GameObject.Find("ChosenScrollView") != null)
             {
-                GameObject.Destroy(CObjectiveButtonList[x]);
+                GameObject GD = GameObject.Find("ChosenScrollView");
+                CanvasGroup CG = GD.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] CObjectiveButtons = GameObject.FindGameObjectsWithTag("CObjectiveButton");
+                foreach (GameObject GO in CObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
 
             // let the other button know its unclicked
             GameObject chosenButton = GameObject.Find("See Chosen Objectives");
             SeeChosenObjectives seechosenObjectives = chosenButton.GetComponent<SeeChosenObjectives>();
             seechosenObjectives.visiable = false;
+
+            // tell the scrollview to show and that it should accept input
+            if (military.unchosenObjList.Count != 0)
+            {
+                if (GameObject.Find("UnchosenScrollView") != null)
+                {
+                    GameObject USV = GameObject.Find("UnchosenScrollView");
+                    CanvasGroup CG = USV.GetComponent<CanvasGroup>();
+                    CG.alpha = 1;
+                    CG.interactable = true;
+                    CG.blocksRaycasts = true;
+                }
+            }
 
             foreach (Targets targets in military.unchosenObjList)
                 {
@@ -60,7 +81,7 @@ public class SeeUnchosenObjectives : MonoBehaviour {
                     vector3.x += Xchange;
                     vector3.y += Ychange;
 
-                // place it on the map
+                    // place it on the map
                     GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
                     Ychange -= 40;
@@ -72,8 +93,12 @@ public class SeeUnchosenObjectives : MonoBehaviour {
                     {
                     madeButton.GetComponentInChildren<Text>().text = "Capture " + OS.Name;
                     }
-                    madeButton.transform.parent = CanvasGameScreen.transform;
-                }
+                //make the button parent equal to content
+                GameObject GO = GameObject.Find("UnchosenScrollView");
+                Transform VP = GO.transform.Find("Viewport");
+                Transform SC = VP.transform.Find("ScrollContent");
+                madeButton.transform.parent = SC;
+            }
             if (military.unchosenObjList.Count > 0)
             {
                 visiable = true;
@@ -86,11 +111,22 @@ public class SeeUnchosenObjectives : MonoBehaviour {
         }
         else if (visiable == true)
         {
-            foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+         
+            if (GameObject.Find("UnchosenScrollView") != null)
             {
-                if (go.name == "UObjectiveButton")
-                    Destroy(go);
+                GameObject USV = GameObject.Find("UnchosenScrollView");
+                CanvasGroup CG = USV.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] UObjectiveButtons = GameObject.FindGameObjectsWithTag("UObjectiveButton");
+                foreach (GameObject GO in UObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
+
+            
             visiable = false;
         }
     }

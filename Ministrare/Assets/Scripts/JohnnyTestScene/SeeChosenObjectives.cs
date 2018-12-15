@@ -7,6 +7,7 @@ public class SeeChosenObjectives : MonoBehaviour {
 
     public Military military;
     public GameObject button;
+    public GameObject scrollView;
     public bool visiable;
     private float Xchange;
     private float Ychange;
@@ -24,18 +25,38 @@ public class SeeChosenObjectives : MonoBehaviour {
     {
         if (visiable == false)
         {
-            // get rid of unchosen objective buttons if they exists
-            GameObject[] UObjectiveButtonList = GameObject.FindGameObjectsWithTag("UObjectiveButton");
-
-            for (int x = 0; x < UObjectiveButtonList.Length; x++)
+            if (GameObject.Find("UnchosenScrollView") != null)
             {
-                GameObject.Destroy(UObjectiveButtonList[x]);
+                GameObject GD = GameObject.Find("UnchosenScrollView");
+                CanvasGroup CG = GD.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] UObjectiveButtons = GameObject.FindGameObjectsWithTag("UObjectiveButton");
+                foreach (GameObject GO in UObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
 
             // let the other button know its unclicked
             GameObject UnchosenButton = GameObject.Find("See UnChosen Objectives");
             SeeUnchosenObjectives seeUnchosenObjectives = UnchosenButton.GetComponent<SeeUnchosenObjectives>();
             seeUnchosenObjectives.visiable = false;
+
+
+            // add a scrollview for the buttons
+            if (military.curObjList.Count != 0)
+            {
+                if (GameObject.Find("ChosenScrollView") != null)
+                {
+                    GameObject CSV = GameObject.Find("ChosenScrollView");
+                    CanvasGroup CG = CSV.GetComponent<CanvasGroup>();
+                    CG.alpha = 1;
+                    CG.interactable = true;
+                    CG.blocksRaycasts = true;
+                }
+            }
 
             foreach (Targets targets in military.curObjList)
                 {
@@ -62,6 +83,7 @@ public class SeeChosenObjectives : MonoBehaviour {
                     // place it on the map
                     GameObject CanvasGameScreen = GameObject.Find("MilitaryCanvas");
                     GameObject madeButton = Instantiate(button, vector3, Quaternion.identity);
+                
                     Ychange -= 40;
                     if (unitbool)
                     {
@@ -71,8 +93,12 @@ public class SeeChosenObjectives : MonoBehaviour {
                     {
                         madeButton.GetComponentInChildren<Text>().text = "Capture " + OS.Name;
                     }
-                madeButton.transform.parent = CanvasGameScreen.transform;
-                }
+                //make the button parent equal to content
+                GameObject GO = GameObject.Find("ChosenScrollView");
+                Transform VP = GO.transform.Find("Viewport");
+                Transform SC = VP.transform.Find("ScrollContent");
+                madeButton.transform.parent = SC;
+            }
             if (military.curObjList.Count > 0)
             {
                 visiable = true;
@@ -85,10 +111,18 @@ public class SeeChosenObjectives : MonoBehaviour {
         }
         else if (visiable == true)
         {
-            foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+            if (GameObject.Find("ChosenScrollView") != null)
             {
-                if (go.name == "CObjectiveButton")
-                    Destroy(go);
+                GameObject CSV = GameObject.Find("ChosenScrollView");
+                CanvasGroup CG = CSV.GetComponent<CanvasGroup>();
+                CG.alpha = 0;
+                CG.interactable = false;
+                CG.blocksRaycasts = false;
+                GameObject[] CObjectiveButtons = GameObject.FindGameObjectsWithTag("CObjectiveButton");
+                foreach (GameObject GO in CObjectiveButtons)
+                {
+                    Destroy(GO);
+                }
             }
             visiable = false;
         }
