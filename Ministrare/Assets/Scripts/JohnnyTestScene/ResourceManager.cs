@@ -91,11 +91,13 @@ public class ResourceManager : ScriptableObject {
     [Header("Boost Values")]
     public TechTree merchantTech;
     public TechTree farmTech;
+    public TechTree militaryTech;
 
     public StructureManager merchantStruct;
     public StructureManager farmStruct;
     public StructureManager productionStruct;
     public StructureManager scienceStruct;
+    public StructureManager militaryStruct;
     public Military military;
 
     public int runtimeHealth;
@@ -162,7 +164,7 @@ public class ResourceManager : ScriptableObject {
         
         int totalFoodProduced = (int)((nPCandLordHolder.AllyFarmer.WorkEfficiency/100) * runtimeFoodProduction + runtimeFoodMiliaryGained + farmTech.totalBoost + farmStruct.totalBoost);
         int totalGoldProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeGoldProduction + runtimeGoldMiliaryGained + merchantTech.totalBoost + merchantStruct.totalBoost);
-        int totalEGProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeEGProduction + runtimeEGMiliaryGained + farmStruct.totalBoost + merchantStruct.totalBoost + productionStruct.totalBoost + scienceStruct.totalBoost);
+        int totalEGProduced = (int)((nPCandLordHolder.AllyMerchant.WorkEfficiency/100) * runtimeEGProduction + runtimeEGMiliaryGained + farmStruct.totalBoost + merchantStruct.totalBoost + productionStruct.totalBoost + scienceStruct.totalBoost + militaryStruct.totalBoost);
         // Factor in the production and upkeep to get new storage amounts 
         runtimeFoodStorage = runtimeFoodStorage + totalFoodProduced - runtimeFoodUpkeep;
         runtimeGoldStorage = runtimeGoldStorage + totalGoldProduced - runtimeGoldUpkeep;

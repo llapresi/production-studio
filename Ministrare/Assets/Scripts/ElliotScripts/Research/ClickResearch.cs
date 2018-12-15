@@ -17,6 +17,24 @@ public class ClickResearch : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+            localTree.Reset();
+
+        int count = 0;
+        for (int x = 0; x < localTree.runtimeNodes.Length; x++)
+            if (localTree.runtimeNodes[x].researched == false)
+                count++;
+
+        gameObject.GetComponentInChildren<Text>().text = localTree.name + ": " + count;
+
+        if (count == 0)
+        {
+            gameObject.GetComponentInChildren<Text>().text = "Completed";
+            return;
+        }
+
+        
+
         if (!(scienceTree.DisplayCanvas()))
             GameObject.FindGameObjectWithTag("Researching").GetComponent<Canvas>().sortingOrder = 0;
         
@@ -29,6 +47,9 @@ public class ClickResearch : MonoBehaviour {
         }
 
         // checks if cost is equal to local cost
+        //Debug.Log(localTree.name);
+        //Debug.Log("DAY CURRENT: " + localTimer.dayCount);
+        //Debug.Log("DAY COST: " + (localTree.localCost - scienceTree.totalBoost));
         if (localTimer.dayCount >= localTree.localCost - scienceTree.totalBoost)
         {
             if(scienceTree.DisplayCanvas())
@@ -53,7 +74,7 @@ public class ClickResearch : MonoBehaviour {
                 {
                     localStructs.runStruct[0] = localTree.runtimeNodes[localTree.holdPlace].structure;
                     localStructs.holdPlace = 0;
-                    
+                    Debug.Log("IN");   
                 }
                 else
                 {
@@ -76,16 +97,9 @@ public class ClickResearch : MonoBehaviour {
     // checks if anything is being researched, if not, move on to new tech
     public void Researching()
     {
-        int count = 0;
-        for(int x = 0; x < localTree.runtimeNodes.Length; x++)
-            if (localTree.runtimeNodes[x].researched == true)
-                count++;
         
-        if(count == 5)
-        {
-            gameObject.GetComponentInChildren<Text>().text = "Completed";
-            return;
-        }
+        
+       
 
         if (localTree.localCost == 1000)
             for (int x = 0; x < 5; x++)
