@@ -9,7 +9,7 @@ public class StructureManager : ScriptableObject {
 
     [Header("Initial Values")]
     [SerializeField]
-    private Structure[] initStruct;
+    private Structure[] initStruct = new Structure[2];
     
     public Structure[] runStruct;
 
@@ -22,13 +22,24 @@ public class StructureManager : ScriptableObject {
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         runStruct = new Structure[2];
-        initStruct = runStruct;
+        runStruct = initStruct;
+        for (int x =0; x < runStruct.Length;x++)
+        {
+            runStruct[x].built = false;
+        }
+        localCost = 1000;
+        holdPlace = 1000;
+        totalBoost = 0;
     }
 
     public void Reset()
     {
         runStruct = new Structure[2];
-        initStruct = runStruct;
+        runStruct = initStruct;
+        for (int x = 0; x < runStruct.Length; x++)
+        {
+            runStruct[x].built = false;
+        }
         localCost = 1000;
         holdPlace = 1000;
         totalBoost = 0;

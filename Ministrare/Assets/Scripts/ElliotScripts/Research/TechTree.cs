@@ -58,8 +58,21 @@ public class TechTree : ScriptableObject {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
 
         runtimeNodes = initNodes;
-      
+
+        for (int x = 0; x < runtimeNodes.Length; x++)
+        {
+            runtimeNodes[x].researched = false;
+            if (runtimeNodes[x].structure.boost != 0)
+                runtimeNodes[x].structure.built = false;
+        }
+
         researched = new Technology[runtimeNodes.Length];
+
+        totalBoost = 0;
+        localCost = 1000;
+        holdPlace = 1000;
+
+        displayCanvas = false;
     }
 
    
