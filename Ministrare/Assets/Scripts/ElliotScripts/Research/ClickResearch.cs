@@ -17,8 +17,8 @@ public class ClickResearch : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            localTree.Reset();
+        //if (Input.GetKeyDown(KeyCode.R))
+            //localTree.Reset();
 
         int count = 0;
         for (int x = 0; x < localTree.runtimeNodes.Length; x++)
