@@ -22,11 +22,12 @@ public class StructureManager : ScriptableObject {
     {
         this.hideFlags = HideFlags.DontUnloadUnusedAsset;
         runStruct = new Structure[2];
-        runStruct = initStruct;
-        for (int x =0; x < runStruct.Length;x++)
-        {
-            runStruct[x].built = false;
-        }
+        //runStruct = initStruct;
+        initStruct = runStruct;
+        //for (int x =0; x < runStruct.Length;x++)
+        //{
+        //    runStruct[x].built = false;
+        //}
         localCost = 1000;
         holdPlace = 1000;
         totalBoost = 0;
@@ -35,11 +36,12 @@ public class StructureManager : ScriptableObject {
     public void Reset()
     {
         runStruct = new Structure[2];
-        runStruct = initStruct;
-        for (int x = 0; x < runStruct.Length; x++)
-        {
-            runStruct[x].built = false;
-        }
+        //runStruct = initStruct;
+        initStruct = runStruct;
+        //for (int x = 0; x < runStruct.Length; x++)
+        //{
+        //    runStruct[x].built = false;
+        //}
         localCost = 1000;
         holdPlace = 1000;
         totalBoost = 0;
