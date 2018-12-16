@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/MainMenuUI.unity
     guid: f9834b156066d1c499f1fb891e042121
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SpymasterScene.unity
     guid: 5ce782f7df37a744cba98a01b9cf5bea
   - enabled: 1
@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/Farmer.unity
     guid: f595ae237cd2b56439f82b00e84ada13
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QueryDialogTest.unity
     guid: 27b9041f6c352f64d941a1d8bb80dca3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test/EventSystemTest.unity
     guid: e59a18401e4c2084c815e84eb90f47c9
   - enabled: 1

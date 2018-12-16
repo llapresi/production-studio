@@ -455,6 +455,56 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224641094128023560, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224686128033166034, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224437746965720776, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224910674970015796, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224572533329784532, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224027097666328420, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224616314791726506, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000019759264
+      objectReference: {fileID: 0}
+    - target: {fileID: 224892177896948334, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000019759264
+      objectReference: {fileID: 0}
+    - target: {fileID: 224402797170605552, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224708827697475748, guid: fd7018905bc85d3448393e39108fea54,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7018905bc85d3448393e39108fea54, type: 2}
   m_IsPrefabAsset: 0
@@ -1687,8 +1737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cc716aec4757f49ad7740aa7d9b6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Assets/Scenes/UIScenes/Spymaster.unity
-  dialogPathToLoad: Dialog/SpymasterDialog
+  sceneName: Scenes/UIScenes/Spymaster
+  dialogPathToLoad: spymaster
   paramObj: {fileID: 11400000, guid: d7876f2a8990f2c49928d69a754e2abf, type: 2}
 --- !u!1 &2127840148
 GameObject:

@@ -48,8 +48,6 @@ public class ResourceManager : ScriptableObject {
     //json file input and ouput
     [SerializeField]
     private string filepathin;
-    [SerializeField]
-    private string filepathout;
     [Header("Health")]
     [SerializeField]
     private int Health;
@@ -103,6 +101,8 @@ public class ResourceManager : ScriptableObject {
     public int runtimeHealth;
     public int runtimeEnemyCityHealth;
     private int industryleadersUnhappy;
+
+    public GeneratedJSON generatedSpymasterDialog;
 
     public void OnEnable()
     {
@@ -296,7 +296,7 @@ public class ResourceManager : ScriptableObject {
 
     public void changeSpyMasterText()
     {
-        string stringfromSpymasterTemplate = File.ReadAllText(filepathin);
+        string stringfromSpymasterTemplate = Resources.Load<TextAsset>(filepathin).text;
         //change gold values
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<GoldUpkeep>>", runtimeGoldUpkeep.ToString());
         int totalGoldProduction = runtimeGoldProduction + runtimeGoldMiliaryGained;
@@ -334,15 +334,18 @@ public class ResourceManager : ScriptableObject {
         int scholarPredictedWorkEfficiency = (int)nPCandLordHolder.AllyScholar.WorkEfficiency + Random.Range(-5, 5);
         stringfromSpymasterTemplate = stringfromSpymasterTemplate.Replace("<<ScholarEfficiency>>", scholarPredictedWorkEfficiency.ToString());
 
-        using (var stream = new FileStream(filepathout, FileMode.Truncate))
-        {
-            using (var writer = new StreamWriter(stream))
-            {
-                writer.Write(stringfromSpymasterTemplate);
-                writer.Close();
-            }
-        }
-        AssetDatabase.Refresh();
+        //using (var stream = new FileStream(filepathout, FileMode.Truncate))
+        //{
+        //    using (var writer = new StreamWriter(stream))
+        //    {
+        //        writer.Write(stringfromSpymasterTemplate);
+        //        writer.Close();
+        //    }
+        //}
+        //AssetDatabase.Refresh();
+
+        // Saving to the new scriptableobject instead
+        generatedSpymasterDialog.runtimeStringJSONValue = stringfromSpymasterTemplate;
     }
 
 }

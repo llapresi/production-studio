@@ -31,13 +31,23 @@ public class QueryDialogRunner : MonoBehaviour
 
     public NPCandLordHolder nPCandLordHolder;
 
+    // Special boolean used to toggle spymaster only behaviour
+    public bool isSpymaster = false;
+    public GeneratedJSON spymasterDialog;
+
     // Use this for initialization
     protected virtual void Start()
     {
-        // Load our test JSON dialogQuery
-        TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
-        currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
-
+        if (!isSpymaster)
+        {
+            // Load our test JSON dialogQuery
+            TextAsset targetFile = Resources.Load<TextAsset>(dialogToLoad.runtimeDialogPath);
+            currentQuery = JsonUtility.FromJson<DialogQuery>(targetFile.text);
+        }
+        else
+        {
+            currentQuery = JsonUtility.FromJson<DialogQuery>(spymasterDialog.runtimeStringJSONValue);
+        }
         buttonGroup.InitButtonGroup(this);
         if(setDialogImages != null)
         {
