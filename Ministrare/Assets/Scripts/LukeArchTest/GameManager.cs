@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        // always start timer on scene load
+        timer.paused = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
