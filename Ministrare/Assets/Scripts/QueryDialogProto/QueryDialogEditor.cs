@@ -103,9 +103,11 @@ public class QueryDialogEditor : QueryDialogRunner
 
     public void GetSeralizedActions(DialogNode node)
     {
-        foreach(DialogNodeSerializedAction action in node.serializedActions)
-        {
-            Debug.Log(action.actionType + ": " + action.actionParams);
+        if(node.serializedActions != null) {
+            foreach(DialogNodeSerializedAction action in node.serializedActions)
+            {
+                Debug.Log(action.actionType + ": " + action.actionParams);
+            }
         }
     }
 
