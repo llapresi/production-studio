@@ -31,6 +31,12 @@ public class SceneLink : MonoBehaviour {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
+    // Destroys presistant parent
+    public void DestroyPresistant()
+    {
+        GameObject.Find("PresistantParent").GetComponent<PresistantParent>().Destroy();
+    }
+
     IEnumerator LoadAsyncScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.

@@ -95,8 +95,9 @@ public class SaveLoadData : ScriptableObject
         BinaryFormatter myFormatter = new BinaryFormatter();
         //FileStream file = File.Create(Application.persistentDataPath + "/SaveData/PlayerResources.pso");
         FileStream file = File.Create(dataPath + "/PlayerResources.pso");
-        var json = JsonUtility.ToJson(file, playerResources);
+        var json = JsonUtility.ToJson(playerResources);
         myFormatter.Serialize(file, json);
+        Debug.Log(json);
         file.Close();
     }
     void SavePlayer()
@@ -104,7 +105,7 @@ public class SaveLoadData : ScriptableObject
         BinaryFormatter myFormatter = new BinaryFormatter();
         //FileStream file = File.Create(Application.persistentDataPath + "/SaveData/PlayerStats.pso");
         FileStream file = File.Create(dataPath + "/PlayerStats.pso");
-        var json = JsonUtility.ToJson(file, playerStats);
+        var json = JsonUtility.ToJson(playerStats);
         myFormatter.Serialize(file, json);
         file.Close();
     }
@@ -113,7 +114,7 @@ public class SaveLoadData : ScriptableObject
         BinaryFormatter myFormatter = new BinaryFormatter();
         //FileStream file = File.Create(Application.persistentDataPath + "/SaveData/PlayerStats.pso");
         FileStream file = File.Create(dataPath + "/Military.pso");
-        var json = JsonUtility.ToJson(file, military);
+        var json = JsonUtility.ToJson(military);
         myFormatter.Serialize(file, json);
         file.Close();
     }

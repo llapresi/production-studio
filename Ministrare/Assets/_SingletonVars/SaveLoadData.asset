@@ -26,3 +26,4 @@ MonoBehaviour:
   timer: {fileID: 11400000, guid: bc8ac98dddd2b3844a5d0fd0104ed6df, type: 2}
   playerResources: {fileID: 11400000, guid: e1a5d15774683ed40915954e63930210, type: 2}
   playerStats: {fileID: 11400000, guid: 19f4ec08006e91a408f8cb1aaff686db, type: 2}
+  military: {fileID: 11400000, guid: 99a5da85dfdda3049aa5ff6d2ec79a1e, type: 2}

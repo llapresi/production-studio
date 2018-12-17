@@ -53,6 +53,12 @@ public class PresistantParent : MonoBehaviour {
         BuildingCanvas.SetActive(false);
     }
 
+    // special code to destroy our parent without screwing things up
+    public void Destroy()
+    {
+        created = false;
+        Destroy(this.gameObject);
+    }
 
 
 }
